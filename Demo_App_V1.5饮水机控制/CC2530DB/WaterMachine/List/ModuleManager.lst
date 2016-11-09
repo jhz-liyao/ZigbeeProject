@@ -1,0 +1,662 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                24/Oct/2016  15:09:36
+# Copyright 2004-2015 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\Frame\ModuleManager.c
+#    Command line       =  
+#        -f "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=50 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)
+#        -DREJOIN_POLL_RATE=440 "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack
+#        Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\Frame\ModuleManager.c"
+#        -D LOG_OUT -D UART1_PROTOCOL_RESOLVER=1 -D xISQC -D NWK_AUTO_POLL -D
+#        ZTOOL_P1 -D ISR_KEYINTERRUPT -D xMT_TASK -D xMT_SYS_FUNC -D
+#        xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG -D xPOWER_SAVING -lC
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\WaterMachine\List"
+#        -lA "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\WaterMachine\List"
+#        --diag_suppress Pe001,Pa010 -o
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\WaterMachine\Obj"
+#        -e --no_code_motion --debug --core=plain --dptr=16,1
+#        --data_model=large --code_model=banked
+#        --calling_convention=xdata_reentrant --place_constants=data_rom
+#        --nr_virtual_regs 8 -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack
+#        Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\Source\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\Frame\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\Module\WaterMachine\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz
+#    List file          =  
+#        E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\WaterMachine\List\ModuleManager.lst
+#    Object file        =  
+#        E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\WaterMachine\Obj\ModuleManager.r51
+#
+###############################################################################
+
+E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\Frame\ModuleManager.c
+      1          #include "ModuleManager.h"
+      2          #include <stdio.h>
+      3          #include <string.h>
+      4          #include "hal_defs.h"
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+      5          ModuleBoard_T ModuleList[] = {
+   \                     ModuleList:
+   \   000000                DS 26
+   \   00001A                REQUIRE `?<Initializer for ModuleList>`
+   \   00001A                REQUIRE __INIT_XDATA_I
+      6            {"主控", COORDINATOR_MODULE, OFFLINE ,0 ,0 },
+      7            {"饮水机", WATER_MODULE    , OFFLINE ,0 ,0 },
+      8          };
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+      9          uint8_t Module_Count = sizeof(ModuleList)/sizeof(ModuleBoard_T);
+   \                     Module_Count:
+   \   000000                DS 1
+   \   000001                REQUIRE `?<Initializer for Module_Count>`
+   \   000001                REQUIRE __INIT_XDATA_I
+     10          
+     11          /****************************************************
+     12          	函数名:	getModuleByName
+     13          	功能:	从模块列表中获取模块信息根据模块中文名
+     14          	参数:	模块中文名 
+     15                  作者:	liyao 2016年10月19日14:38:12
+     16          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     17          ModuleBoard_T* getModuleByName(uint8_t *name){
+   \                     getModuleByName:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+     18              uint8_t i;
+     19              for(i = 0; i < Module_Count; i++){ 
+   \   000009   75..00       MOV     ?V0,#0x0
+   \   00000C   8002         SJMP    ??getModuleByName_0
+   \                     ??getModuleByName_1:
+   \   00000E   05..         INC     ?V0
+   \                     ??getModuleByName_0:
+   \   000010   90....       MOV     DPTR,#Module_Count
+   \   000013   E0           MOVX    A,@DPTR
+   \   000014   F8           MOV     R0,A
+   \   000015   E5..         MOV     A,?V0
+   \   000017   C3           CLR     C
+   \   000018   98           SUBB    A,R0
+   \   000019   5032         JNC     ??getModuleByName_2
+     20                if(strcmp((char const*)name, (char const*)(&ModuleList[i].Name)) == 0){
+   \   00001B                ; Setup parameters for call to function strcmp
+   \   00001B   E5..         MOV     A,?V0
+   \   00001D   75F00D       MOV     B,#0xd
+   \   000020   A4           MUL     AB
+   \   000021   F8           MOV     R0,A
+   \   000022   A9F0         MOV     R1,B
+   \   000024   74..         MOV     A,#ModuleList & 0xff
+   \   000026   28           ADD     A,R0
+   \   000027   FC           MOV     R4,A
+   \   000028   74..         MOV     A,#(ModuleList >> 8) & 0xff
+   \   00002A   39           ADDC    A,R1
+   \   00002B   FD           MOV     R5,A
+   \   00002C   EE           MOV     A,R6
+   \   00002D   FA           MOV     R2,A
+   \   00002E   EF           MOV     A,R7
+   \   00002F   FB           MOV     R3,A
+   \   000030   12....       LCALL   `??strcmp::?relay`   ; Banked call to: strcmp
+   \   000033   8B..         MOV     ?V3,R3
+   \   000035   EA           MOV     A,R2
+   \   000036   45..         ORL     A,?V3
+   \   000038   70D4         JNZ     ??getModuleByName_1
+     21                  return &ModuleList[i];
+   \   00003A   E5..         MOV     A,?V0
+   \   00003C   75F00D       MOV     B,#0xd
+   \   00003F   A4           MUL     AB
+   \   000040   F8           MOV     R0,A
+   \   000041   A9F0         MOV     R1,B
+   \   000043   74..         MOV     A,#ModuleList & 0xff
+   \   000045   28           ADD     A,R0
+   \   000046   FA           MOV     R2,A
+   \   000047   74..         MOV     A,#(ModuleList >> 8) & 0xff
+   \   000049   39           ADDC    A,R1
+   \   00004A   FB           MOV     R3,A
+   \   00004B   8004         SJMP    ??getModuleByName_3
+     22                }
+     23              }
+     24              return NULL;
+   \                     ??getModuleByName_2:
+   \   00004D   7A00         MOV     R2,#0x0
+   \   00004F   7B00         MOV     R3,#0x0
+   \                     ??getModuleByName_3:
+   \   000051   7F04         MOV     R7,#0x4
+   \   000053   02....       LJMP    ?BANKED_LEAVE_XDATA
+     25          }
+     26          
+     27          /****************************************************
+     28          	函数名:	getModuleByModuleID
+     29          	功能:	从模块列表中获取模块信息根据模块ID
+     30          	参数:	模块ID
+     31                  作者:	liyao 2016年10月19日14:38:12
+     32          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     33          ModuleBoard_T* getModuleByModuleID(MODULE ModuleID){
+   \                     getModuleByModuleID:
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     34              uint8_t i;
+     35              for(i = 0; i < Module_Count; i++){ 
+   \   000004   7800         MOV     R0,#0x0
+   \   000006   8001         SJMP    ??getModuleByModuleID_0
+   \                     ??getModuleByModuleID_1:
+   \   000008   08           INC     R0
+   \                     ??getModuleByModuleID_0:
+   \   000009   90....       MOV     DPTR,#Module_Count
+   \   00000C   E0           MOVX    A,@DPTR
+   \   00000D   FA           MOV     R2,A
+   \   00000E   E8           MOV     A,R0
+   \   00000F   C3           CLR     C
+   \   000010   9A           SUBB    A,R2
+   \   000011   5020         JNC     ??getModuleByModuleID_2
+     36                if(ModuleID == ModuleList[i].ModuleID){
+   \   000013   E8           MOV     A,R0
+   \   000014   75F00D       MOV     B,#0xd
+   \   000017   A4           MUL     AB
+   \   000018   FA           MOV     R2,A
+   \   000019   ABF0         MOV     R3,B
+   \   00001B   74..         MOV     A,#(ModuleList + 8) & 0xff
+   \   00001D   2A           ADD     A,R2
+   \   00001E   F582         MOV     DPL,A
+   \   000020   74..         MOV     A,#((ModuleList + 8) >> 8) & 0xff
+   \   000022   3B           ADDC    A,R3
+   \   000023   F583         MOV     DPH,A
+   \   000025   E0           MOVX    A,@DPTR
+   \   000026   69           XRL     A,R1
+   \   000027   70DF         JNZ     ??getModuleByModuleID_1
+     37                  return &ModuleList[i];
+   \   000029   74..         MOV     A,#ModuleList & 0xff
+   \   00002B   2A           ADD     A,R2
+   \   00002C   FA           MOV     R2,A
+   \   00002D   74..         MOV     A,#(ModuleList >> 8) & 0xff
+   \   00002F   3B           ADDC    A,R3
+   \   000030   FB           MOV     R3,A
+   \   000031   8004         SJMP    ??getModuleByModuleID_3
+     38                }
+     39              }
+     40              return NULL;
+   \                     ??getModuleByModuleID_2:
+   \   000033   7A00         MOV     R2,#0x0
+   \   000035   7B00         MOV     R3,#0x0
+   \                     ??getModuleByModuleID_3:
+   \   000037                REQUIRE ?Subroutine0
+   \   000037                ; // Fall through to label ?Subroutine0
+     41          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+     42          
+     43          /****************************************************
+     44          	函数名:	getModuleByModuleAddr
+     45          	功能:	从模块列表中获取模块信息根据模块短地址
+     46          	参数:	模块短地址
+     47                  作者:	liyao 2016年10月19日14:38:12
+     48          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     49          ModuleBoard_T* getModuleByModuleAddr(uint16_t ShortAddr){
+   \                     getModuleByModuleAddr:
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     50              uint8_t i;
+     51              for(i = 0; i < Module_Count; i++){ 
+   \   000004   7C00         MOV     R4,#0x0
+   \   000006   8001         SJMP    ??getModuleByModuleAddr_0
+   \                     ??getModuleByModuleAddr_1:
+   \   000008   0C           INC     R4
+   \                     ??getModuleByModuleAddr_0:
+   \   000009   90....       MOV     DPTR,#Module_Count
+   \   00000C   E0           MOVX    A,@DPTR
+   \   00000D   F8           MOV     R0,A
+   \   00000E   EC           MOV     A,R4
+   \   00000F   C3           CLR     C
+   \   000010   98           SUBB    A,R0
+   \   000011   5025         JNC     ??getModuleByModuleAddr_2
+     52                if(ShortAddr == ModuleList[i].ShortAddr){
+   \   000013   EC           MOV     A,R4
+   \   000014   75F00D       MOV     B,#0xd
+   \   000017   A4           MUL     AB
+   \   000018   F8           MOV     R0,A
+   \   000019   A9F0         MOV     R1,B
+   \   00001B   74..         MOV     A,#(ModuleList + 11) & 0xff
+   \   00001D   28           ADD     A,R0
+   \   00001E   F582         MOV     DPL,A
+   \   000020   74..         MOV     A,#((ModuleList + 11) >> 8) & 0xff
+   \   000022   39           ADDC    A,R1
+   \   000023   F583         MOV     DPH,A
+   \   000025   E0           MOVX    A,@DPTR
+   \   000026   6A           XRL     A,R2
+   \   000027   7003         JNZ     ??getModuleByModuleAddr_3
+   \   000029   A3           INC     DPTR
+   \   00002A   E0           MOVX    A,@DPTR
+   \   00002B   6B           XRL     A,R3
+   \                     ??getModuleByModuleAddr_3:
+   \   00002C   70DA         JNZ     ??getModuleByModuleAddr_1
+     53                  return &ModuleList[i];
+   \   00002E   74..         MOV     A,#ModuleList & 0xff
+   \   000030   28           ADD     A,R0
+   \   000031   FA           MOV     R2,A
+   \   000032   74..         MOV     A,#(ModuleList >> 8) & 0xff
+   \   000034   39           ADDC    A,R1
+   \   000035   FB           MOV     R3,A
+   \   000036   8004         SJMP    ??getModuleByModuleAddr_4
+     54                }
+     55              }
+     56              return NULL;
+   \                     ??getModuleByModuleAddr_2:
+   \   000038   7A00         MOV     R2,#0x0
+   \   00003A   7B00         MOV     R3,#0x0
+   \                     ??getModuleByModuleAddr_4:
+   \   00003C   80..         SJMP    ?Subroutine0
+     57          }
+     58          
+     59          /****************************************************
+     60          	函数名:	ModuleHeartBeat_Check
+     61          	功能:	检查所有模块是否在线
+     62          	参数:	模块短地址
+     63                  作者:	liyao 2016年10月19日14:38:12
+     64          ****************************************************/ 
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     65          void HeartBeat_Check(void){
+   \                     HeartBeat_Check:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+     66              uint8_t i;
+     67              for(i = 0; i < Module_Count; i++){ //位图操作最后2位判断历史状态
+   \   000005   7E00         MOV     R6,#0x0
+   \   000007   8045         SJMP    ??HeartBeat_Check_0
+     68                if((ModuleList[i].HeartBeat_Flag & 0x03) == 0x02){
+     69                  printf("%s离线\r\n",ModuleList[i].Name);
+     70                  ModuleList[i].ShortAddr = 0; 
+     71                  ModuleList[i].ModuleState = OFFLINE; 
+     72                }else if((ModuleList[i].HeartBeat_Flag & 0x03) == 0x01){
+   \                     ??HeartBeat_Check_1:
+   \   000009   E0           MOVX    A,@DPTR
+   \   00000A   5403         ANL     A,#0x3
+   \   00000C   6401         XRL     A,#0x1
+   \   00000E   7023         JNZ     ??HeartBeat_Check_2
+     73                  printf("%s上线\r\n",ModuleList[i].Name); 
+   \   000010   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   000013   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000016   7A..         MOV     R2,#`?<Constant "%s\\311\\317\\317\\337\\r\\n">` & 0xff
+   \   000018   7B..         MOV     R3,#(`?<Constant "%s\\311\\317\\317\\337\\r\\n">` >> 8) & 0xff
+   \   00001A   12....       LCALL   `??printf::?relay`   ; Banked call to: printf
+   \   00001D   7402         MOV     A,#0x2
+   \   00001F   12....       LCALL   ?DEALLOC_XSTACK8
+     74                  ModuleList[i].ModuleState = ONLINE; 
+   \   000022   85..82       MOV     DPL,?V0
+   \   000025   85..83       MOV     DPH,?V1
+   \   000028   A3           INC     DPTR
+   \   000029   A3           INC     DPTR
+   \   00002A   A3           INC     DPTR
+   \   00002B   A3           INC     DPTR
+   \   00002C   A3           INC     DPTR
+   \   00002D   A3           INC     DPTR
+   \   00002E   A3           INC     DPTR
+   \   00002F   A3           INC     DPTR
+   \   000030   A3           INC     DPTR
+   \   000031   E4           CLR     A
+   \                     ??HeartBeat_Check_3:
+   \   000032   F0           MOVX    @DPTR,A
+     75                }
+     76                ModuleList[i].HeartBeat_Flag = (ModuleList[i].HeartBeat_Flag <<1) & 0xFE;
+   \                     ??HeartBeat_Check_2:
+   \   000033   EE           MOV     A,R6
+   \   000034   75F00D       MOV     B,#0xd
+   \   000037   A4           MUL     AB
+   \   000038   F8           MOV     R0,A
+   \   000039   A9F0         MOV     R1,B
+   \   00003B   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   00003E   E5..         MOV     A,?V0
+   \   000040   240A         ADD     A,#0xa
+   \   000042   F582         MOV     DPL,A
+   \   000044   E4           CLR     A
+   \   000045   35..         ADDC    A,?V1
+   \   000047   F583         MOV     DPH,A
+   \   000049   E0           MOVX    A,@DPTR
+   \   00004A   C3           CLR     C
+   \   00004B   33           RLC     A
+   \   00004C   F0           MOVX    @DPTR,A
+   \   00004D   0E           INC     R6
+   \                     ??HeartBeat_Check_0:
+   \   00004E   90....       MOV     DPTR,#Module_Count
+   \   000051   E0           MOVX    A,@DPTR
+   \   000052   F8           MOV     R0,A
+   \   000053   EE           MOV     A,R6
+   \   000054   C3           CLR     C
+   \   000055   98           SUBB    A,R0
+   \   000056   504C         JNC     ??HeartBeat_Check_4
+   \   000058   EE           MOV     A,R6
+   \   000059   75F00D       MOV     B,#0xd
+   \   00005C   A4           MUL     AB
+   \   00005D   F8           MOV     R0,A
+   \   00005E   A9F0         MOV     R1,B
+   \   000060   74..         MOV     A,#(ModuleList + 10) & 0xff
+   \   000062   28           ADD     A,R0
+   \   000063   F582         MOV     DPL,A
+   \   000065   74..         MOV     A,#((ModuleList + 10) >> 8) & 0xff
+   \   000067   39           ADDC    A,R1
+   \   000068   F583         MOV     DPH,A
+   \   00006A   E0           MOVX    A,@DPTR
+   \   00006B   5403         ANL     A,#0x3
+   \   00006D   6402         XRL     A,#0x2
+   \   00006F   7098         JNZ     ??HeartBeat_Check_1
+   \   000071   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   000074   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000077   7A..         MOV     R2,#`?<Constant "%s\\300\\353\\317\\337\\r\\n">` & 0xff
+   \   000079   7B..         MOV     R3,#(`?<Constant "%s\\300\\353\\317\\337\\r\\n">` >> 8) & 0xff
+   \   00007B   12....       LCALL   `??printf::?relay`   ; Banked call to: printf
+   \   00007E   7402         MOV     A,#0x2
+   \   000080   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000083   E5..         MOV     A,?V0
+   \   000085   240B         ADD     A,#0xb
+   \   000087   F582         MOV     DPL,A
+   \   000089   E4           CLR     A
+   \   00008A   35..         ADDC    A,?V1
+   \   00008C   F583         MOV     DPH,A
+   \   00008E   E4           CLR     A
+   \   00008F   F0           MOVX    @DPTR,A
+   \   000090   A3           INC     DPTR
+   \   000091   F0           MOVX    @DPTR,A
+   \   000092   85..82       MOV     DPL,?V0
+   \   000095   85..83       MOV     DPH,?V1
+   \   000098   A3           INC     DPTR
+   \   000099   A3           INC     DPTR
+   \   00009A   A3           INC     DPTR
+   \   00009B   A3           INC     DPTR
+   \   00009C   A3           INC     DPTR
+   \   00009D   A3           INC     DPTR
+   \   00009E   A3           INC     DPTR
+   \   00009F   A3           INC     DPTR
+   \   0000A0   A3           INC     DPTR
+   \   0000A1   04           INC     A
+   \   0000A2   808E         SJMP    ??HeartBeat_Check_3
+     77              }
+     78          }
+   \                     ??HeartBeat_Check_4:
+   \   0000A4                REQUIRE ?Subroutine1
+   \   0000A4                ; // Fall through to label ?Subroutine1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F02         MOV     R7,#0x2
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   000003                ; Setup parameters for call to function printf
+   \   000003                ; Setup parameters for call to function printf
+   \   000003   78..         MOV     R0,#?V0
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   74..         MOV     A,#ModuleList & 0xff
+   \   000002   28           ADD     A,R0
+   \   000003   F5..         MOV     ?V0,A
+   \   000005   74..         MOV     A,#(ModuleList >> 8) & 0xff
+   \   000007   39           ADDC    A,R1
+   \   000008   F5..         MOV     ?V1,A
+   \   00000A   22           RET
+     79          
+     80          /****************************************************
+     81          	函数名:	HeartBeat_Set
+     82          	功能:	设置心跳存在
+     83          	参数:	模块ID
+     84                  作者:	liyao 2016年10月20日12:37:55
+     85          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     86          void HeartBeat_Set(MODULE ModuleID){
+   \                     HeartBeat_Set:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+     87              ModuleBoard_T *ModuleBoard = getModuleByModuleID(ModuleID);
+   \   000005                ; Setup parameters for call to function getModuleByModuleID
+   \   000005   12....       LCALL   `??getModuleByModuleID::?relay`; Banked call to: getModuleByModuleID
+   \   000008   8A82         MOV     DPL,R2
+   \   00000A   8B83         MOV     DPH,R3
+     88              ModuleBoard->HeartBeat_Flag = ModuleBoard->HeartBeat_Flag | 0x01; 
+   \   00000C   A3           INC     DPTR
+   \   00000D   A3           INC     DPTR
+   \   00000E   A3           INC     DPTR
+   \   00000F   A3           INC     DPTR
+   \   000010   A3           INC     DPTR
+   \   000011   A3           INC     DPTR
+   \   000012   A3           INC     DPTR
+   \   000013   A3           INC     DPTR
+   \   000014   A3           INC     DPTR
+   \   000015   A3           INC     DPTR
+   \   000016   E0           MOVX    A,@DPTR
+   \   000017   4401         ORL     A,#0x1
+   \   000019   F0           MOVX    @DPTR,A
+     89          }
+   \   00001A   80..         SJMP    ?Subroutine1
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for ModuleList>`:
+   \   000000   D6F7BFD8     DB "\326\367\277\330"
+   \            00      
+   \   000005   000000       DB 0, 0, 0
+   \   000008   00           DB 0
+   \   000009   01           DB 1
+   \   00000A   00           DB 0
+   \   00000B   0000         DW 0
+   \   00000D   D2FBCBAE     DB "\322\373\313\256\273\372"
+   \            BBFA00  
+   \   000014   00           DB 0
+   \   000015   01           DB 1
+   \   000016   01           DB 1
+   \   000017   00           DB 0
+   \   000018   0000         DW 0
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for Module_Count>`:
+   \   000000   02           DB 2
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??getModuleByName::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    getModuleByName
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??getModuleByModuleID::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    getModuleByModuleID
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??getModuleByModuleAddr::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    getModuleByModuleAddr
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??HeartBeat_Check::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    HeartBeat_Check
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??HeartBeat_Set::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    HeartBeat_Set
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "%s\\300\\353\\317\\337\\r\\n">`:
+   \   000000   2573C0EB     DB "%s\300\353\317\337\015\012"
+   \            CFDF0D0A
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "%s\\311\\317\\317\\337\\r\\n">`:
+   \   000000   2573C9CF     DB "%s\311\317\317\337\015\012"
+   \            CFDF0D0A
+   \            00      
+     90          //ModuleBoard_T WaterMachine = {
+     91          //    "饮水机"
+     92          //};
+     93          
+     94          //void Module_Init(void){
+     95          //    uint8_t i;
+     96          //    
+     97          //}
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      1     12   HeartBeat_Check
+        0     12   -> printf
+      0     10   HeartBeat_Set
+        0     10   -> getModuleByModuleID
+      2      0   getModuleByModuleAddr
+      2     10   getModuleByModuleID
+      0     12   getModuleByName
+        0     12   -> strcmp
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       9  ?<Constant "%s\300\353\317\337\r\n">
+       9  ?<Constant "%s\311\317\317\337\r\n">
+      26  ?<Initializer for ModuleList>
+       1  ?<Initializer for Module_Count>
+       7  ?Subroutine0
+       5  ?Subroutine1
+       6  ?Subroutine2
+      11  ?Subroutine3
+     164  HeartBeat_Check
+       6  HeartBeat_Check::?relay
+      28  HeartBeat_Set
+       6  HeartBeat_Set::?relay
+      26  ModuleList
+       1  Module_Count
+      62  getModuleByModuleAddr
+       6  getModuleByModuleAddr::?relay
+      55  getModuleByModuleID
+       6  getModuleByModuleID::?relay
+      86  getModuleByName
+       6  getModuleByName::?relay
+
+ 
+ 424 bytes in segment BANKED_CODE
+  30 bytes in segment BANK_RELAYS
+  27 bytes in segment XDATA_I
+  27 bytes in segment XDATA_ID
+  18 bytes in segment XDATA_ROM_C
+ 
+ 481 bytes of CODE  memory
+  18 bytes of CONST memory
+  27 bytes of XDATA memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,212 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                31/Oct/2016  11:56:48
+# Copyright 2004-2015 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\Module\WaterMachine\ProtocolHandle.c
+#    Command line       =  
+#        -f "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=50 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)
+#        -DREJOIN_POLL_RATE=440 "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\Module\WaterMachine\ProtocolHandle.c" -D HAL_UART=TRUE
+#        -D HAL_UART_ISR=1 -D HAL_UART_DMA=0 -D LOG_OUT -D
+#        UART1_PROTOCOL_RESOLVER=1 -D xISQC -D NWK_AUTO_POLL -D xZTOOL_P1 -D
+#        ISR_KEYINTERRUPT -D xMT_TASK -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
+#        xLCD_SUPPORTED=DEBUG -D xPOWER_SAVING -lC
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\WaterMachine\List" -lA
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\WaterMachine\List" --diag_suppress Pe001,Pa010
+#        -o "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\WaterMachine\Obj" -e --no_code_motion --debug
+#        --core=plain --dptr=16,1 --data_model=large --code_model=banked
+#        --calling_convention=xdata_reentrant --place_constants=data_rom
+#        --nr_virtual_regs 8 -I "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\" -I "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack
+#        Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\Source\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\Frame\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\Module\WaterMachine\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\ZMain\TI2530DB\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\hal\include\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\mac\include\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\mac\high_level\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\mt\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\osal\include\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\services\saddr\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\services\sdata\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\stack\af\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\stack\nwk\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\stack\sapi\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\stack\sec\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\stack\sys\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\stack\zdo\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\zmac\" -I
+#        "E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\..\..\..\..\..\Components\zmac\f8w\" -Ohz
+#    List file          =  
+#        E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\WaterMachine\List\ProtocolHandle.lst
+#    Object file        =  
+#        E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ
+#        -×îºóÎŞ´íĞŞ¸Ä\CC2530DB\WaterMachine\Obj\ProtocolHandle.r51
+#
+###############################################################################
+
+E:\×ÊÔ´\¸öÈËÏîÄ¿\ZigbeeProject\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.03ÓÅ»¯¶¯Ì¬ÄÚ´æ -×îºóÎŞ´íĞŞ¸Ä\Module\WaterMachine\ProtocolHandle.c
+      1          #include "ProtocolHandle.h"
+      2          #include "WaterMachineDriver.h"
+      3          #include "ModuleManager.h"
+      4          //void Cmd_P_Handle(Protocol_Info_T* pi){
+      5          //    printf("¿ØÖÆÖ¸Áî:%X\r\n", pi->protocol.Cmd_P.para1);
+      6          //}
+      7          
+      8          void StateGet_P_Handle(Protocol_Info_T* pi){
+      9              printf("»ñÈ¡×´Ì¬:%X\r\n", pi->protocol.StateGet_P.para1);
+                                                   ^
+Error[Pe136]: struct "_Protocol_Info_T" has no field "protocol"
+     10              PROTOCOL_T protocol = {0};  
+                     ^
+Error[Pe020]: identifier "PROTOCOL_T" is undefined
+     11              protocol.State_P.para1 = WaterM.State;
+     12              Protocol_Send(STATE_PROTOCOL, &protocol, sizeof(protocol.State_P)); 
+     13          } 
+     14          
+     15          void ReportState(void){
+     16              PROTOCOL_T protocol = {0};  
+                     ^
+Error[Pe020]: identifier "PROTOCOL_T" is undefined
+     17              protocol.State_P.para1 = WaterM.State;
+     18              Protocol_Send(STATE_PROTOCOL, &protocol, sizeof(protocol.State_P));
+     19          }
+     20          
+     21          void HearBeat_P_Handle(Protocol_Info_T* pi){
+     22              //printf("ĞÄÌø:%X\r\n", pi->protocol.Heartbeat_P.para1);
+     23              ModuleBoard_T *ModuleBoard = getModuleByModuleID((MODULE)(pi->Module >> 4));
+     24              if(ModuleBoard == NULL){printf("ÊÕµ½ĞÄÌøµ«ÊÇÎŞ·¨Æ¥Åäµ½Ä£¿é\r\n");return;} 
+     25              ModuleBoard->ShortAddr = pi->protocol.Heartbeat_P.para2 << 8 | pi->protocol.Heartbeat_P.para3;
+                                                  ^
+Error[Pe136]: struct "_Protocol_Info_T" has no field "protocol"
+
+      ModuleBoard->ShortAddr = pi->protocol.Heartbeat_P.para2 << 8 | pi->protocol.Heartbeat_P.para3;
+                                                                         ^
+"E:\èµ„æº\ä¸ªäººé¡¹ç›®\ZigbeeProject\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.03ä¼˜åŒ–åŠ¨æ€å†…å­˜ -æœ€åæ— é”™ä¿®æ”¹\Module\WaterMachine\ProtocolHandle.c",25  Error[Pe136]: 
+          struct "_Protocol_Info_T" has no field "protocol"
+     26              ModuleBoard->ModuleState = ONLINE;
+     27              printf("ÊÕµ½%sÄ£¿éĞÄÌø£¬µØÖ·Îª%X,%X\r\n", ModuleBoard->Name,ModuleBoard->ShortAddr>> 8, ModuleBoard->ShortAddr & 0xff); 
+     28          }
+     29          void State_P_Handle(Protocol_Info_T* pi){
+     30              printf("¿Í»§¶Ë×´Ì¬:%X\r\n", pi->protocol.State_P.para1);
+                                                     ^
+Error[Pe136]: struct "_Protocol_Info_T" has no field "protocol"
+     31          }
+     32          void Ack_P_Handle(Protocol_Info_T* pi){
+     33              printf("¿Í»§¶ËÓ¦´ğ:%X\r\n", pi->protocol.Ack_P.para1);
+                                                     ^
+Error[Pe136]: struct "_Protocol_Info_T" has no field "protocol"
+     34          }
+     35          void AddrReport_P_Handle(Protocol_Info_T* pi){
+     36              printf("¿Í»§¶ËÉÏ±¨µØÖ·:%X,%X\r\n", pi->protocol.AddrReport_P.para1, pi->protocol.AddrReport_P.para2);
+                                                            ^
+Error[Pe136]: struct "_Protocol_Info_T" has no field "protocol"
+
+      printf("¿Í»§¶ËÉÏ±¨µØÖ·:%X,%X\r\n", pi->protocol.AddrReport_P.para1, pi->protocol.AddrReport_P.para2);
+                                                                              ^
+"E:\èµ„æº\ä¸ªäººé¡¹ç›®\ZigbeeProject\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.03ä¼˜åŒ–åŠ¨æ€å†…å­˜ -æœ€åæ— é”™ä¿®æ”¹\Module\WaterMachine\ProtocolHandle.c",36  Error[Pe136]: 
+          struct "_Protocol_Info_T" has no field "protocol"
+     37              if(pi->Module >> 4 == WATER_MODULE){
+     38                  WaterM.Short_Addr = pi->protocol.AddrReport_P.para1 << 8 | pi->protocol.AddrReport_P.para2;
+                                                 ^
+Error[Pe136]: struct "_Protocol_Info_T" has no field "protocol"
+
+          WaterM.Short_Addr = pi->protocol.AddrReport_P.para1 << 8 | pi->protocol.AddrReport_P.para2;
+                                                                         ^
+"E:\èµ„æº\ä¸ªäººé¡¹ç›®\ZigbeeProject\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.03ä¼˜åŒ–åŠ¨æ€å†…å­˜ -æœ€åæ— é”™ä¿®æ”¹\Module\WaterMachine\ProtocolHandle.c",38  Error[Pe136]: 
+          struct "_Protocol_Info_T" has no field "protocol"
+     39              }
+     40          } 
+
+Errors: 11
+Warnings: none

@@ -1,0 +1,4267 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               24/Oct/2016  15:09:38
+// Copyright 2004-2015 IAR Systems AB.
+// Standalone license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\Frame\ProtocolFrame.c
+//    Command line       =  
+//        -f "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+//        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f
+//        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+//        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=50 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)
+//        -DREJOIN_POLL_RATE=440 "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack
+//        Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\Frame\ProtocolFrame.c"
+//        -D LOG_OUT -D UART1_PROTOCOL_RESOLVER=1 -D xISQC -D NWK_AUTO_POLL -D
+//        ZTOOL_P1 -D ISR_KEYINTERRUPT -D xMT_TASK -D xMT_SYS_FUNC -D
+//        xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG -D xPOWER_SAVING -lC
+//        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\WaterMachine\List"
+//        -lA "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\WaterMachine\List"
+//        --diag_suppress Pe001,Pa010 -o
+//        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\WaterMachine\Obj"
+//        -e --no_code_motion --debug --core=plain --dptr=16,1
+//        --data_model=large --code_model=banked
+//        --calling_convention=xdata_reentrant --place_constants=data_rom
+//        --nr_virtual_regs 8 -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack
+//        Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\Source\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\Frame\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\Module\WaterMachine\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\ZMain\TI2530DB\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\hal\include\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\mac\include\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\mt\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\osal\include\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\af\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\zmac\"
+//        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+//        -Ohz
+//    List file          =  
+//        E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+//        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\WaterMachine\List\ProtocolFrame.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME ProtocolFrame
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?V0
+        EXTERN ?V1
+        EXTERN ?V2
+        EXTERN ?V3
+        EXTERN ?V4
+        EXTERN ?V5
+        EXTERN ?ALLOC_XSTACK8
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?CALL_IND
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?MOVE_LONG8_XDATA_XDATA
+        EXTERN ?PUSH_XSTACK_I_TWO
+        EXTERN ?SS_SHR
+        EXTERN ?XSP
+        EXTERN ?XSTACK_DISP0_8
+        EXTERN __INIT_XDATA_I
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC `??FetchProtocols::?relay`
+        FUNCTION `??FetchProtocols::?relay`,0203H
+        PUBLIC `??Get_Protocol_Description::?relay`
+        FUNCTION `??Get_Protocol_Description::?relay`,0203H
+        PUBLIC `??ProtocolFrame_Init::?relay`
+        FUNCTION `??ProtocolFrame_Init::?relay`,0203H
+        PUBLIC `??Protocol_Register::?relay`
+        FUNCTION `??Protocol_Register::?relay`,0203H
+        PUBLIC `??Protocol_Send::?relay`
+        FUNCTION `??Protocol_Send::?relay`,0203H
+        PUBLIC `??Protocol_Send_Transpond::?relay`
+        FUNCTION `??Protocol_Send_Transpond::?relay`,0203H
+        PUBLIC `??Protocol_To_Uart::?relay`
+        FUNCTION `??Protocol_To_Uart::?relay`,0203H
+        PUBLIC `??_Fetch_Protocol::?relay`
+        FUNCTION `??_Fetch_Protocol::?relay`,0203H
+        PUBLIC `??_Protocol_Put::?relay`
+        FUNCTION `??_Protocol_Put::?relay`,0203H
+        PUBLIC `??_clean_recv_buf::?relay`
+        FUNCTION `??_clean_recv_buf::?relay`,0203H
+        PUBLIC `??char_special::?relay`
+        FUNCTION `??char_special::?relay`,0203H
+        PUBLIC `??getCheckSum_ByProtocolInfo::?relay`
+        FUNCTION `??getCheckSum_ByProtocolInfo::?relay`,0203H
+        PUBLIC FetchProtocols
+        FUNCTION FetchProtocols,0203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC Get_Protocol_Description
+        FUNCTION Get_Protocol_Description,080203H
+        ARGFRAME XSTACK, 33, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 10, STACK
+        PUBLIC ProtocolFrame_Init
+        FUNCTION ProtocolFrame_Init,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        PUBLIC Protocol_Register
+        FUNCTION Protocol_Register,080203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        PUBLIC Protocol_Send
+        FUNCTION Protocol_Send,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME XSTACK, 33, STACK
+        PUBLIC Protocol_Send_Transpond
+        FUNCTION Protocol_Send_Transpond,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC Protocol_To_Uart
+        FUNCTION Protocol_To_Uart,0a1203H
+        ARGFRAME XSTACK, 33, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 112, STACK
+        PUBLIC Recv_Desc_P
+        PUBLIC Send_Desc_P
+        PUBLIC Transpond_Desc_P
+        PUBLIC UART1_Resolver
+        PUBLIC _Fetch_Protocol
+        FUNCTION _Fetch_Protocol,021603H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 28, STACK
+        PUBLIC _Protocol_Put
+        FUNCTION _Protocol_Put,0a1603H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 13, STACK
+        PUBLIC _UART1_Protocol_QueueBuf
+        PUBLIC _UART1_Resolver
+        PUBLIC _clean_recv_buf
+        FUNCTION _clean_recv_buf,0a1203H
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 12, STACK
+        PUBLIC char_special
+        FUNCTION char_special,0203H
+        ARGFRAME XSTACK, 112, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUBLIC getCheckSum_ByProtocolInfo
+        FUNCTION getCheckSum_ByProtocolInfo,0203H
+        ARGFRAME XSTACK, 33, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 9, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource SP:8, PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-2
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B SameValue
+          CFI A SameValue
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 SameValue
+          CFI R1 SameValue
+          CFI R2 SameValue
+          CFI R3 SameValue
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT SameValue
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon1
+        
+Protocol_Init       SYMBOL "Protocol_Init"
+`??Protocol_Init::?relay` SYMBOL "?relay", Protocol_Init
+Queue_Get           SYMBOL "Queue_Get"
+`??Queue_Get::?relay` SYMBOL "?relay", Queue_Get
+Queue_Init          SYMBOL "Queue_Init"
+`??Queue_Init::?relay` SYMBOL "?relay", Queue_Init
+memset              SYMBOL "memset"
+`??memset::?relay`  SYMBOL "?relay", memset
+FetchProtocols      SYMBOL "FetchProtocols"
+`??FetchProtocols::?relay` SYMBOL "?relay", FetchProtocols
+Get_Protocol_Description SYMBOL "Get_Protocol_Description"
+`??Get_Protocol_Description::?relay` SYMBOL "?relay", Get_Protocol_Description
+ProtocolFrame_Init  SYMBOL "ProtocolFrame_Init"
+`??ProtocolFrame_Init::?relay` SYMBOL "?relay", ProtocolFrame_Init
+Protocol_Register   SYMBOL "Protocol_Register"
+`??Protocol_Register::?relay` SYMBOL "?relay", Protocol_Register
+Protocol_Send       SYMBOL "Protocol_Send"
+`??Protocol_Send::?relay` SYMBOL "?relay", Protocol_Send
+Protocol_Send_Transpond SYMBOL "Protocol_Send_Transpond"
+`??Protocol_Send_Transpond::?relay` SYMBOL "?relay", Protocol_Send_Transpond
+Protocol_To_Uart    SYMBOL "Protocol_To_Uart"
+`??Protocol_To_Uart::?relay` SYMBOL "?relay", Protocol_To_Uart
+_Fetch_Protocol     SYMBOL "_Fetch_Protocol"
+`??_Fetch_Protocol::?relay` SYMBOL "?relay", _Fetch_Protocol
+_Protocol_Put       SYMBOL "_Protocol_Put"
+`??_Protocol_Put::?relay` SYMBOL "?relay", _Protocol_Put
+_clean_recv_buf     SYMBOL "_clean_recv_buf"
+`??_clean_recv_buf::?relay` SYMBOL "?relay", _clean_recv_buf
+char_special        SYMBOL "char_special"
+`??char_special::?relay` SYMBOL "?relay", char_special
+getCheckSum_ByProtocolInfo SYMBOL "getCheckSum_ByProtocolInfo"
+`??getCheckSum_ByProtocolInfo::?relay` SYMBOL "?relay", getCheckSum_ByProtocolInfo
+
+        EXTERN `??Protocol_Init::?relay`
+        FUNCTION `??Protocol_Init::?relay`,00H
+        EXTERN `??Queue_Get::?relay`
+        FUNCTION `??Queue_Get::?relay`,00H
+        EXTERN `??Queue_Init::?relay`
+        FUNCTION `??Queue_Init::?relay`,00H
+        EXTERN `??memset::?relay`
+        FUNCTION `??memset::?relay`,00H
+        EXTERN Log
+        EXTERN Protocol_Init
+        FUNCTION Protocol_Init,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN Queue_Get
+        FUNCTION Queue_Get,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 28, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN Queue_Init
+        FUNCTION Queue_Init,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN memset
+        FUNCTION memset,010202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+
+// E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\Frame\ProtocolFrame.c
+//    1 #include "ProtocolFrame.h" 
+//    2 #include "ProtocolHandle.h"
+//    3 #include "LOG.h"
+//    4 #include "Protocol.h"
+//    5  
+//    6 //###################################对外变量区###################################
+//    7 //PROTOCOL_INFO_T protocol_send_infos[SEND_PROTOCOL_NUM] = {0};//发送协议栈
+//    8 //PROTOCOL_INFO_T recv_protocol_infos[RECV_PROTOCOL_NUM] = {0};//接收协议栈 
+//    9 //static uint8_t _Recv_Protocol_Arr[RECV_PROTOCOL_NUM] = {0};//已经接收到协议的索引  
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   10 PROTOCOL_DESC_T Send_Desc_P[SEND_PROTOCOL_NUM];//发送协议栈
+Send_Desc_P:
+        DS 48
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   11 PROTOCOL_DESC_T Recv_Desc_P[RECV_PROTOCOL_NUM];//接收协议栈 
+Recv_Desc_P:
+        DS 36
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   12 PROTOCOL_DESC_T Transpond_Desc_P[TRANSPOND_PROTOCOL_NUM];//接收协议栈 
+Transpond_Desc_P:
+        DS 12
+        REQUIRE __INIT_XDATA_Z
+//   13 //###################################对内变量区################################### 
+//   14  
+//   15 
+//   16 
+//   17 #if UART1_PROTOCOL_RESOLVER
+//   18 	#define UART1_RPQUEUE_SIZE		1 //接收协议缓冲区（存储多条协议） 
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   19 	Protocol_Resolver_T _UART1_Resolver;
+_UART1_Resolver:
+        DS 33
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   20 	PROTOCOL_INFO_T _UART1_Protocol_QueueBuf[UART1_RPQUEUE_SIZE] = {0}; 
+_UART1_Protocol_QueueBuf:
+        DS 19
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//   21 	Protocol_Resolver_T *UART1_Resolver = &_UART1_Resolver;
+UART1_Resolver:
+        DATA16
+        DS 2
+        REQUIRE `?<Initializer for UART1_Resolver>`
+        REQUIRE __INIT_XDATA_I
+//   22 #endif
+//   23 #if UART2_PROTOCOL_RESOLVER
+//   24 	#define UART2_RPQUEUE_SIZE		30 //接收协议缓冲区（存储多条协议） 
+//   25 	Protocol_Resolver_T _UART2_Resolver;
+//   26 	PROTOCOL_INFO_T _UART2_Protocol_QueueBuf[UART2_RPQUEUE_SIZE] = {0}; 
+//   27 	Protocol_Resolver_T *UART2_Resolver = &_UART2_Resolver;
+//   28 #endif
+//   29 #if UART3_PROTOCOL_RESOLVER
+//   30 	#define UART3_RPQUEUE_SIZE		30 //接收协议缓冲区（存储多条协议） 
+//   31 	Protocol_Resolver_T _UART3_Resolver;
+//   32 	PROTOCOL_INFO_T _UART3_Protocol_QueueBuf[UART3_RPQUEUE_SIZE] = {0}; 
+//   33 	Protocol_Resolver_T *UART3_Resolver = &_UART3_Resolver;
+//   34 #endif
+//   35 #if UART4_PROTOCOL_RESOLVER
+//   36 	#define UART4_RPQUEUE_SIZE		30 //接收协议缓冲区（存储多条协议） 
+//   37 	Protocol_Resolver_T _UART4_Resolver;
+//   38 	PROTOCOL_INFO_T _UART4_Protocol_QueueBuf[UART4_RPQUEUE_SIZE] = {0}; 
+//   39 	Protocol_Resolver_T *UART1_Resolver = &_UART4_Resolver;
+//   40 #endif
+//   41 //-----------------------------------------------------  
+//   42 //###################################对内函数区###################################
+//   43 /****************************************************
+//   44 	函数名:	clean_recv_buf
+//   45 	功能:		清除协议栈正在写入的协议
+//   46 	作者:		liyao 2015年9月8日14:10:51
+//   47 ****************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   48 void _clean_recv_buf(Protocol_Resolver_T* pr){  
+_clean_recv_buf:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function _clean_recv_buf
+        CODE
+        FUNCALL _clean_recv_buf, memset
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+        MOV     A,R2
+        MOV     R6,A
+        MOV     A,R3
+        MOV     R7,A
+//   49 	memset(&pr->pi, 0, sizeof(PROTOCOL_INFO_T)); 
+        ; Setup parameters for call to function memset
+        MOV     ?V0,#0x13
+        MOV     ?V1,#0x0
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 12)
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     A,R6
+        ADD     A,#0x4
+        MOV     R2,A
+        CLR     A
+        ADDC    A,R7
+        MOV     R3,A
+        LCALL   `??memset::?relay`   ; Banked call to: memset
+        MOV     A,#0x2
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 10)
+//   50 	pr->Recv_State = 0;
+        LCALL   ?Subroutine15 & 0xFFFF
+??CrossCallReturnLabel_21:
+        CLR     A
+        LCALL   ?Subroutine3 & 0xFFFF
+//   51 	pr->cnt = 0;
+??CrossCallReturnLabel_0:
+        CLR     A
+        MOVX    @DPTR,A
+//   52 	pr->index = 0;
+        MOV     A,R6
+        ADD     A,#0x18
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R7
+        MOV     DPH,A
+        CLR     A
+        MOVX    @DPTR,A
+//   53 	pr->Is_FE = 0;
+        LCALL   ?Subroutine5 & 0xFFFF
+??CrossCallReturnLabel_6:
+        CLR     A
+        LCALL   ?Subroutine6 & 0xFFFF
+//   54 	pr->CheckSum = 0;
+??CrossCallReturnLabel_9:
+        CLR     A
+        MOVX    @DPTR,A
+        INC     DPTR
+        LJMP    ?Subroutine0 & 0xFFFF
+//   55 }
+          CFI EndBlock cfiBlock0
+//   56 
+//   57 /****************************************************
+//   58 	函数名:	_Fetch_Protocol
+//   59 	功能:		提取并执行已经缓存的协议
+//   60 	作者:		liyao 2016年9月8日10:54:34
+//   61 ****************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   62 void _Fetch_Protocol(Protocol_Resolver_T* pr){
+_Fetch_Protocol:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function _Fetch_Protocol
+        CODE
+        FUNCALL _Fetch_Protocol, Queue_Get
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 28, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 28, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 19
+        MOV     A,#-0x13
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 28)
+        MOV     A,R2
+        MOV     R6,A
+        MOV     A,R3
+        MOV     R7,A
+        SJMP    ??_Fetch_Protocol_0
+//   63 	PROTOCOL_INFO_T pi;
+//   64 	while(Queue_Get(pr->Protocol_Queue,&pi) == 0){
+//   65 		if(pi.check != NULL){
+//   66 			if(pi.check(&pi) < 0){
+//   67 				Log.error("协议校验不通过\r\n");
+//   68 				break;
+//   69 			}
+//   70 		}
+//   71 		if(pi.handle != NULL){
+//   72 			pi.handle(&pi);
+??_Fetch_Protocol_1:
+        ; Setup parameters for indirect call
+        MOV     R2,?XSP + 0
+        MOV     R3,?XSP + 1
+        MOV     A,#0xf
+        LCALL   ?XSTACK_DISP0_8
+??_Fetch_Protocol_2:
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     DPH,A
+        MOV     DPL,R0
+        LCALL   ?CALL_IND
+//   73 		}else{
+??_Fetch_Protocol_0:
+        ; Setup parameters for call to function Queue_Get
+        MOV     R4,?XSP + 0
+        MOV     R5,?XSP + 1
+        MOV     DPL,R6
+        MOV     DPH,R7
+        MOVX    A,@DPTR
+        MOV     R2,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R3,A
+        LCALL   `??Queue_Get::?relay`; Banked call to: Queue_Get
+        MOV     A,R1
+        JNZ     ??_Fetch_Protocol_3
+        MOV     A,#0x11
+        LCALL   ?XSTACK_DISP0_8
+        LCALL   ??Subroutine17_0 & 0xFFFF
+??CrossCallReturnLabel_25:
+        JZ      ??_Fetch_Protocol_4
+        ; Setup parameters for indirect call
+        MOV     R2,?XSP + 0
+        MOV     R3,?XSP + 1
+        MOV     A,#0x11
+        LCALL   ?XSTACK_DISP0_8
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     DPH,A
+        MOV     DPL,R0
+        LCALL   ?CALL_IND
+        MOV     A,R1
+        CLR     C
+        SUBB    A,#0x0
+        MOV     C,0xD0 /* PSW */.2
+        XRL     A,PSW
+        RLC     A
+        JNC     ??_Fetch_Protocol_4
+        ; Setup parameters for indirect call
+        MOV     R2,#`?<Constant "\\320\\255\\322\\351\\320\\243\\321\\351\\2` & 0xff
+        MOV     R3,#(`?<Constant "\\320\\255\\322\\351\\320\\243\\321\\351\\2` >> 8) & 0xff
+        LCALL   ?Subroutine9 & 0xFFFF
+??CrossCallReturnLabel_37:
+        LCALL   ?CALL_IND
+//   74 			Log.error("收到协议但是无处理函数\r\n");
+//   75 		}
+//   76 	}
+//   77 }
+??_Fetch_Protocol_3:
+        MOV     A,#0x13
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 9)
+        LJMP    ?Subroutine1 & 0xFFFF
+          CFI CFA_XSP16 add(XSP16, 28)
+??_Fetch_Protocol_4:
+        MOV     A,#0xf
+        LCALL   ?XSTACK_DISP0_8
+        LCALL   ??Subroutine17_0 & 0xFFFF
+??CrossCallReturnLabel_26:
+        JNZ     ??_Fetch_Protocol_1
+        ; Setup parameters for indirect call
+        MOV     R2,#`?<Constant "\\312\\325\\265\\275\\320\\255\\322\\351\\2` & 0xff
+        MOV     R3,#(`?<Constant "\\312\\325\\265\\275\\320\\255\\322\\351\\2` >> 8) & 0xff
+        MOV     DPTR,#Log + 2
+        MOVX    A,@DPTR
+        MOV     R0,A
+        SJMP    ??_Fetch_Protocol_2
+          CFI EndBlock cfiBlock1
+//   78  
+//   79 /****************************************************
+//   80 	函数名:	Protocol_Put
+//   81 	功能:		接收协议数据并解析封装
+//   82 	参数:		协议数据
+//   83 	注意: 	通过protocol_flag标志位标示是否解析出新的协议
+//   84 	作者:		liyao 2015年9月8日14:10:51
+//   85 ****************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   86 int8_t _Protocol_Put(Protocol_Resolver_T* pr,uint8_t* datas,uint8_t len){
+_Protocol_Put:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function _Protocol_Put
+        CODE
+        FUNCALL _Protocol_Put, _clean_recv_buf
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL _Protocol_Put, _clean_recv_buf
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL _Protocol_Put, _clean_recv_buf
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL _Protocol_Put, _clean_recv_buf
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL _Protocol_Put, _clean_recv_buf
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL _Protocol_Put, _clean_recv_buf
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V3
+        REQUIRE ?V4
+        MOV     A,#-0xd
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 13)
+        ; Saved register size: 13
+        ; Auto size: 0
+        MOV     A,R2
+        MOV     R6,A
+        MOV     A,R3
+        MOV     R7,A
+        MOV     ?V2,R4
+        MOV     ?V3,R5
+        MOV     ?V1,R1
+//   87 	uint8_t i,j, data; 
+//   88 	uint16_t src_board_action;
+//   89 	
+//   90 	for(i = 0; i < len; i++){
+        MOV     ?V0,#0x0
+        SJMP    ??_Protocol_Put_0
+//   91 		data = datas[i];
+//   92 		if(pr->pi.head == 0xFD && data == 0xFD){ //协议被切断抛弃
+//   93 			_clean_recv_buf(pr);
+//   94 			Log.error("协议中途出现0xFD\r\n");
+//   95 			return -1;
+//   96 		}
+//   97 		if(data == 0xFE){//处理转义
+//   98 			pr->Is_FE = 1;
+//   99 			continue;
+//  100 		}else if(pr->Is_FE){
+//  101 			switch(data){
+//  102 				case 0x7D: data = 0xFD;break;
+//  103 				case 0x78: data = 0xF8;break;
+//  104 				case 0x7E: data = 0xFE;break;
+//  105 			} 
+//  106 			pr->Is_FE = 0;
+//  107 		}
+//  108 			
+//  109 		if(pr->Recv_State > 0 && pr->Recv_State < 7)//排除帧头帧尾计算校验和
+//  110 			pr->CheckSum += data; 
+//  111 	//协议解析状态机
+//  112 		switch(pr->Recv_State){
+//  113 			case 0:	//处理帧头
+//  114 						pr->pi.head = data;
+//  115 						pr->Recv_State++; 
+//  116 						break;
+//  117 			case 1:	//处理预留位
+//  118 						pr->pi.standby1 = data;
+//  119 						pr->Recv_State++; 
+//  120 						break;
+//  121 			case 2: //处理帧长(从ID到数据位最后一个)
+//  122 						pr->Recv_State++; 
+//  123 						pr->pi.plen = data;
+//  124 						if(data < 4){
+//  125 							_clean_recv_buf(pr);
+//  126 							Log.error("处理帧长错误\r\n");
+//  127 							return -2;
+//  128 						}
+//  129 						else
+//  130 							pr->cnt = pr->pi.paralen = data - 3;//计算结果为参数个数
+//  131 							pr->pi.alen = data + 5;//计算结果为协议总长度包括FD、F8
+//  132 						break;
+//  133 			case 3: //处理目标板
+//  134 						pr->pi.module = data;
+//  135 						pr->Recv_State++; 
+//  136 						break;
+//  137 			case 4: //处理编号
+//  138 						pr->pi.serial = data;
+//  139 						pr->Recv_State++; 
+//  140 						break;
+//  141 			case 5: //处理指令码(ACTION)
+//  142 						pr->pi.action = data;
+//  143 						pr->Recv_State++; 
+//  144 						break;
+//  145 			case 6: //处理参数 
+//  146 						((uint8_t *)(&pr->pi.protocol))[pr->index++] = data;  
+//  147 						if(--pr->cnt == 0)
+//  148 							pr->Recv_State++;
+//  149 						break;
+//  150 			case 7: //处理校验和校验  
+//  151 						pr->pi.checksum = data;
+//  152 						/*校验和暂时关闭*/
+//  153 						if(((uint8_t)pr->CheckSum & 0xff) != data){
+//  154 //                                                  printf("计算结果:%x\r\n",(uint8_t)pr->CheckSum);
+//  155 //                                                        printf("%x,%x,%x,%x,%x,%x,%x,%x,%x,%x\r\n",
+//  156 //                                                               pr->pi.head,
+//  157 //                                                               pr->pi.standby1,
+//  158 //                                                               pr->pi.plen,
+//  159 //                                                               pr->pi.module,
+//  160 //                                                               pr->pi.serial,
+//  161 //                                                               pr->pi.action,
+//  162 //                                                               pr->pi.protocol.AddrReport_P.para1,
+//  163 //                                                               pr->pi.protocol.AddrReport_P.para2,
+//  164 //                                                               pr->pi.checksum,
+//  165 //                                                               pr->pi.tail);
+//  166 							_clean_recv_buf(pr);
+//  167 							Log.error("协议校验和错误\r\n");
+//  168 							return -3;
+//  169 						}else{ 
+//  170 							pr->Recv_State++; 
+//  171 						} 
+//  172 						break;
+//  173 			case 8: //处理帧尾 帧类型和长度进行匹配 
+//  174 						if(data != 0xF8){
+//  175 							_clean_recv_buf(pr);
+//  176 							Log.error("帧尾位置非0xF8错误\r\n");
+//  177 							return -4;
+//  178 						}
+//  179 						pr->pi.tail = data;
+//  180 						src_board_action = pr->pi.module << 8 | pr->pi.action; 
+//  181 						for(j = 0; j < RECV_PROTOCOL_NUM; j++){
+//  182 							if(	src_board_action ==  Recv_Desc_P[j].ModuleAction &&//目标板匹配,动作匹配 
+//  183 									pr->pi.paralen == Recv_Desc_P[j].ProtocolSize)//帧长度匹配
+//  184 							{
+//  185 								pr->pi.handle = Recv_Desc_P[j].handle;
+//  186 								pr->pi.check = Recv_Desc_P[j].check;
+//  187 								pr->pi.Desc_T = &Recv_Desc_P[j];
+//  188 								break;
+//  189 							}
+//  190 						}
+//  191 						if(j == RECV_PROTOCOL_NUM){//校验不通过
+//  192 							_clean_recv_buf(pr);
+//  193 							Log.error("现有协议库无匹配当前协议\r\n");
+//  194 							return -5;
+//  195 						}else{
+//  196 							//Queue_Put(pr->Protocol_Queue, &pr->pi);//将协议信息放入协议缓冲队列
+//  197                                                         pr->pi.handle(&pr->pi);
+??_Protocol_Put_1:
+        ; Setup parameters for indirect call
+        MOV     A,R6
+        ADD     A,#0x4
+        MOV     R2,A
+        CLR     A
+        ADDC    A,R7
+        MOV     R3,A
+        MOV     A,R6
+        ADD     A,#0x13
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R7
+        MOV     DPH,A
+        LCALL   ??Subroutine20_0 & 0xFFFF
+??CrossCallReturnLabel_33:
+        LCALL   ?CALL_IND
+//  198 							_clean_recv_buf(pr); 
+        ; Setup parameters for call to function _clean_recv_buf
+        MOV     A,R6
+        MOV     R2,A
+        MOV     A,R7
+        MOV     R3,A
+        LCALL   `??_clean_recv_buf::?relay`; Banked call to: _clean_recv_buf
+//  199 						}
+//  200 						break;
+??_Protocol_Put_2:
+        INC     ?V0
+??_Protocol_Put_0:
+        MOV     A,?V0
+        CLR     C
+        SUBB    A,?V1
+        JC      $+5
+        LJMP    ??_Protocol_Put_3 & 0xFFFF
+        MOV     R0,?V0
+        MOV     A,?V2
+        ADD     A,R0
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,?V3
+        MOV     DPH,A
+        MOVX    A,@DPTR
+        MOV     R0,A
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        XRL     A,#0xfd
+        JNZ     ??_Protocol_Put_4
+        MOV     A,#-0x3
+        XRL     A,R0
+        JNZ     ??_Protocol_Put_4
+        ; Setup parameters for call to function _clean_recv_buf
+        MOV     A,R6
+        MOV     R2,A
+        MOV     A,R7
+        MOV     R3,A
+        LCALL   `??_clean_recv_buf::?relay`; Banked call to: _clean_recv_buf
+        ; Setup parameters for indirect call
+        MOV     R2,#`?<Constant "\\320\\255\\322\\351\\326\\320\\315\\276\\2` & 0xff
+        MOV     R3,#(`?<Constant "\\320\\255\\322\\351\\326\\320\\315\\276\\2` >> 8) & 0xff
+        LCALL   ?Subroutine9 & 0xFFFF
+??CrossCallReturnLabel_38:
+        LCALL   ?CALL_IND
+        MOV     R1,#-0x1
+        LJMP    ??_Protocol_Put_5 & 0xFFFF
+??_Protocol_Put_4:
+        MOV     A,#-0x2
+        XRL     A,R0
+        JNZ     ??_Protocol_Put_6
+        LCALL   ?Subroutine5 & 0xFFFF
+??CrossCallReturnLabel_7:
+        MOV     A,#0x1
+??_Protocol_Put_7:
+        MOVX    @DPTR,A
+        SJMP    ??_Protocol_Put_2
+??_Protocol_Put_6:
+        LCALL   ?Subroutine5 & 0xFFFF
+??CrossCallReturnLabel_8:
+        MOVX    A,@DPTR
+        JZ      ??_Protocol_Put_8
+        MOV     A,R0
+        ADD     A,#-0x78
+        JZ      ??_Protocol_Put_9
+        ADD     A,#-0x5
+        JZ      ??_Protocol_Put_10
+        DEC     A
+        JZ      ??_Protocol_Put_11
+        SJMP    ??_Protocol_Put_12
+??_Protocol_Put_10:
+        MOV     R0,#-0x3
+        SJMP    ??_Protocol_Put_12
+??_Protocol_Put_9:
+        MOV     R0,#-0x8
+        SJMP    ??_Protocol_Put_12
+??_Protocol_Put_11:
+        MOV     R0,#-0x2
+??_Protocol_Put_12:
+        CLR     A
+        MOVX    @DPTR,A
+??_Protocol_Put_8:
+        LCALL   ?Subroutine4 & 0xFFFF
+??CrossCallReturnLabel_3:
+        JZ      ??_Protocol_Put_13
+        CLR     C
+        SUBB    A,#0x7
+        JNC     ??_Protocol_Put_14
+        MOV     A,R0
+        MOV     R2,A
+        LCALL   ?Subroutine16 & 0xFFFF
+??CrossCallReturnLabel_23:
+        MOVX    A,@DPTR
+        ADD     A,R2
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        ADDC    A,#0x0
+        MOVX    @DPTR,A
+??_Protocol_Put_14:
+        LCALL   ?Subroutine4 & 0xFFFF
+??CrossCallReturnLabel_4:
+        JZ      ??_Protocol_Put_13
+        DEC     A
+        JZ      ??_Protocol_Put_15
+        DEC     A
+        JZ      ??_Protocol_Put_16
+        DEC     A
+        JNZ     $+5
+        LJMP    ??_Protocol_Put_17 & 0xFFFF
+        DEC     A
+        JNZ     $+5
+        LJMP    ??_Protocol_Put_18 & 0xFFFF
+        DEC     A
+        JNZ     $+5
+        LJMP    ??_Protocol_Put_19 & 0xFFFF
+        DEC     A
+        JNZ     $+5
+        LJMP    ??_Protocol_Put_20 & 0xFFFF
+        DEC     A
+        JNZ     $+5
+        LJMP    ??_Protocol_Put_21 & 0xFFFF
+        DEC     A
+        JNZ     $+5
+        LJMP    ??_Protocol_Put_22 & 0xFFFF
+        LJMP    ??_Protocol_Put_2 & 0xFFFF
+??_Protocol_Put_13:
+        MOV     A,R0
+        MOV     DPL,R6
+        MOV     DPH,R7
+??_Protocol_Put_23:
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    @DPTR,A
+??_Protocol_Put_24:
+        LCALL   ?Subroutine4 & 0xFFFF
+??CrossCallReturnLabel_5:
+        INC     A
+        SJMP    ??_Protocol_Put_7
+??_Protocol_Put_15:
+        MOV     A,R0
+        MOV     DPL,R6
+        MOV     DPH,R7
+??_Protocol_Put_25:
+        INC     DPTR
+        SJMP    ??_Protocol_Put_23
+??_Protocol_Put_16:
+        MOVX    A,@DPTR
+        INC     A
+        MOVX    @DPTR,A
+        MOV     A,R0
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    @DPTR,A
+        CLR     C
+        SUBB    A,#0x4
+        JNC     ??_Protocol_Put_26
+        ; Setup parameters for call to function _clean_recv_buf
+        MOV     A,R6
+        MOV     R2,A
+        MOV     A,R7
+        MOV     R3,A
+        LCALL   `??_clean_recv_buf::?relay`; Banked call to: _clean_recv_buf
+        ; Setup parameters for indirect call
+        MOV     R2,#`?<Constant "\\264\\246\\300\\355\\326\\241\\263\\244\\2` & 0xff
+        MOV     R3,#(`?<Constant "\\264\\246\\300\\355\\326\\241\\263\\244\\2` >> 8) & 0xff
+        LCALL   ?Subroutine9 & 0xFFFF
+??CrossCallReturnLabel_39:
+        LCALL   ?CALL_IND
+        MOV     R1,#-0x2
+        LJMP    ??_Protocol_Put_5 & 0xFFFF
+??_Protocol_Put_26:
+        MOV     A,#-0x3
+        ADD     A,R0
+        MOV     R1,A
+        LCALL   ?Subroutine12 & 0xFFFF
+??CrossCallReturnLabel_15:
+        MOV     A,R1
+        LCALL   ?Subroutine3 & 0xFFFF
+??CrossCallReturnLabel_2:
+        MOV     A,R1
+        MOVX    @DPTR,A
+        MOV     A,#0x5
+        ADD     A,R0
+        PUSH    A
+          CFI CFA_SP SP+-1
+        MOV     A,R6
+        ADD     A,#0x10
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R7
+        MOV     DPH,A
+        POP     A
+          CFI CFA_SP SP+0
+        LJMP    ??_Protocol_Put_7 & 0xFFFF
+??_Protocol_Put_17:
+        MOV     A,R0
+        MOV     DPL,R6
+        MOV     DPH,R7
+??_Protocol_Put_27:
+        INC     DPTR
+        INC     DPTR
+        SJMP    ??_Protocol_Put_25
+??_Protocol_Put_18:
+        MOV     A,R0
+        MOV     DPL,R6
+        MOV     DPH,R7
+??_Protocol_Put_28:
+        INC     DPTR
+        SJMP    ??_Protocol_Put_27
+??_Protocol_Put_19:
+        MOV     A,R0
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        SJMP    ??_Protocol_Put_28
+??_Protocol_Put_20:
+        MOV     A,R6
+        ADD     A,#0x18
+        MOV     R2,A
+        CLR     A
+        ADDC    A,R7
+        MOV     R3,A
+        MOV     A,R0
+        PUSH    A
+          CFI CFA_SP SP+-1
+        MOV     DPL,R2
+        MOV     DPH,R3
+        MOVX    A,@DPTR
+        MOV     R0,A
+        MOV     A,R6
+        ADD     A,R0
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R7
+        MOV     DPH,A
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        POP     A
+          CFI CFA_SP SP+0
+        MOVX    @DPTR,A
+        MOV     DPL,R2
+        MOV     DPH,R3
+        MOVX    A,@DPTR
+        INC     A
+        LCALL   ?Subroutine3 & 0xFFFF
+??CrossCallReturnLabel_1:
+        MOVX    A,@DPTR
+        DEC     A
+        MOVX    @DPTR,A
+        JZ      $+5
+        LJMP    ??_Protocol_Put_2 & 0xFFFF
+        LJMP    ??_Protocol_Put_24 & 0xFFFF
+??_Protocol_Put_21:
+        LCALL   ?Subroutine13 & 0xFFFF
+??CrossCallReturnLabel_17:
+        MOV     A,R0
+        LCALL   ?Subroutine6 & 0xFFFF
+??CrossCallReturnLabel_10:
+        MOVX    A,@DPTR
+        XRL     A,R0
+        JNZ     $+5
+        LJMP    ??_Protocol_Put_24 & 0xFFFF
+        ; Setup parameters for call to function _clean_recv_buf
+        MOV     A,R6
+        MOV     R2,A
+        MOV     A,R7
+        MOV     R3,A
+        LCALL   `??_clean_recv_buf::?relay`; Banked call to: _clean_recv_buf
+        ; Setup parameters for indirect call
+        MOV     R2,#`?<Constant "\\320\\255\\322\\351\\320\\243\\321\\351\\2_1` & 0xff
+        MOV     R3,#(`?<Constant "\\320\\255\\322\\351\\320\\243\\321\\351\\2_1` >> 8) & 0xff
+        LCALL   ?Subroutine9 & 0xFFFF
+??CrossCallReturnLabel_40:
+        LCALL   ?CALL_IND
+        MOV     R1,#-0x3
+        LJMP    ??_Protocol_Put_5 & 0xFFFF
+??_Protocol_Put_22:
+        MOV     A,#-0x8
+        XRL     A,R0
+        JZ      ??_Protocol_Put_29
+        ; Setup parameters for call to function _clean_recv_buf
+        MOV     A,R6
+        MOV     R2,A
+        MOV     A,R7
+        MOV     R3,A
+        LCALL   `??_clean_recv_buf::?relay`; Banked call to: _clean_recv_buf
+        ; Setup parameters for indirect call
+        MOV     R2,#`?<Constant "\\326\\241\\316\\262\\316\\273\\326\\303\\2` & 0xff
+        MOV     R3,#(`?<Constant "\\326\\241\\316\\262\\316\\273\\326\\303\\2` >> 8) & 0xff
+        LCALL   ?Subroutine9 & 0xFFFF
+??CrossCallReturnLabel_41:
+        LCALL   ?CALL_IND
+        MOV     R1,#-0x4
+        LJMP    ??_Protocol_Put_5 & 0xFFFF
+??_Protocol_Put_29:
+        MOV     A,R6
+        ADD     A,#0xe
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R7
+        MOV     DPH,A
+        MOV     A,#-0x8
+        MOVX    @DPTR,A
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R1,A
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R4,A
+        MOV     A,R1
+        MOV     R5,A
+        MOV     R2,#0x0
+??_Protocol_Put_30:
+        MOV     A,R2
+        MOV     B,#0xc
+        MUL     AB
+        MOV     R0,A
+        MOV     R1,B
+        MOV     A,#Recv_Desc_P & 0xff
+        ADD     A,R0
+        MOV     DPL,A
+        MOV     A,#(Recv_Desc_P >> 8) & 0xff
+        ADDC    A,R1
+        MOV     DPH,A
+        MOVX    A,@DPTR
+        XRL     A,R4
+        JNZ     ??_Protocol_Put_31
+        INC     DPTR
+        MOVX    A,@DPTR
+        XRL     A,R5
+??_Protocol_Put_31:
+        JNZ     ??_Protocol_Put_32
+        LCALL   ?Subroutine12 & 0xFFFF
+??CrossCallReturnLabel_16:
+        MOVX    A,@DPTR
+        MOV     ?V4,A
+        MOV     A,#(Recv_Desc_P + 4) & 0xff
+        ADD     A,R0
+        MOV     DPL,A
+        MOV     A,#((Recv_Desc_P + 4) >> 8) & 0xff
+        ADDC    A,R1
+        MOV     DPH,A
+        MOVX    A,@DPTR
+        XRL     A,?V4
+        JNZ     ??_Protocol_Put_32
+        MOV     A,#Recv_Desc_P & 0xff
+        ADD     A,R0
+        MOV     R0,A
+        MOV     A,#(Recv_Desc_P >> 8) & 0xff
+        ADDC    A,R1
+        MOV     R1,A
+        MOV     DPL,R0
+        MOV     DPH,R1
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R4,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R5,A
+        MOV     A,R6
+        ADD     A,#0x13
+        LCALL   ?Subroutine8 & 0xFFFF
+??CrossCallReturnLabel_13:
+        MOV     DPL,R0
+        MOV     DPH,R1
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R4,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R5,A
+        MOV     A,R6
+        ADD     A,#0x15
+        LCALL   ?Subroutine8 & 0xFFFF
+??CrossCallReturnLabel_14:
+        MOV     A,R6
+        ADD     A,#0x11
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R7
+        MOV     DPH,A
+        MOV     A,R0
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,R1
+        MOVX    @DPTR,A
+        SJMP    ??_Protocol_Put_33
+??_Protocol_Put_32:
+        INC     R2
+        MOV     A,R2
+        CLR     C
+        SUBB    A,#0x3
+        JC      ??_Protocol_Put_30
+??_Protocol_Put_33:
+        MOV     A,#0x3
+        XRL     A,R2
+        JZ      $+5
+        LJMP    ??_Protocol_Put_1 & 0xFFFF
+        ; Setup parameters for call to function _clean_recv_buf
+        MOV     A,R6
+        MOV     R2,A
+        MOV     A,R7
+        MOV     R3,A
+        LCALL   `??_clean_recv_buf::?relay`; Banked call to: _clean_recv_buf
+        ; Setup parameters for indirect call
+        MOV     R2,#`?<Constant "\\317\\326\\323\\320\\320\\255\\322\\351\\2` & 0xff
+        MOV     R3,#(`?<Constant "\\317\\326\\323\\320\\320\\255\\322\\351\\2` >> 8) & 0xff
+        LCALL   ?Subroutine9 & 0xFFFF
+??CrossCallReturnLabel_42:
+        LCALL   ?CALL_IND
+        MOV     R1,#-0x5
+        SJMP    ??_Protocol_Put_5
+//  201 		}
+//  202 	}; 
+//  203 	return 0;
+??_Protocol_Put_3:
+        MOV     R1,#0x0
+??_Protocol_Put_5:
+        MOV     R7,#0x5
+        LJMP    ?BANKED_LEAVE_XDATA
+//  204 }
+          CFI EndBlock cfiBlock2
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine12:
+          CFI Block cfiCond3 Using cfiCommon0
+          CFI Function _Protocol_Put
+          CFI Conditional ??CrossCallReturnLabel_15
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond4 Using cfiCommon0
+          CFI (cfiCond4) Function _Protocol_Put
+          CFI (cfiCond4) Conditional ??CrossCallReturnLabel_16
+          CFI (cfiCond4) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond4) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond4) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond4) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond4) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond4) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond4) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond4) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond4) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond4) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond4) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond4) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond4) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond4) CFA_SP SP+-2
+          CFI (cfiCond4) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiPicker5 Using cfiCommon1
+          CFI (cfiPicker5) NoFunction
+          CFI (cfiPicker5) Picker
+        MOV     A,R6
+        ADD     A,#0xf
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R7
+        MOV     DPH,A
+        RET
+          CFI EndBlock cfiCond3
+          CFI EndBlock cfiCond4
+          CFI EndBlock cfiPicker5
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine8:
+          CFI Block cfiCond6 Using cfiCommon0
+          CFI Function _Protocol_Put
+          CFI Conditional ??CrossCallReturnLabel_13
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond7 Using cfiCommon0
+          CFI (cfiCond7) Function _Protocol_Put
+          CFI (cfiCond7) Conditional ??CrossCallReturnLabel_14
+          CFI (cfiCond7) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond7) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond7) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond7) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond7) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond7) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond7) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond7) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond7) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond7) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond7) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond7) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond7) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond7) CFA_SP SP+-2
+          CFI (cfiCond7) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiPicker8 Using cfiCommon1
+          CFI (cfiPicker8) NoFunction
+          CFI (cfiPicker8) Picker
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R7
+        MOV     DPH,A
+        MOV     A,R4
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,R5
+        MOVX    @DPTR,A
+        RET
+          CFI EndBlock cfiCond6
+          CFI EndBlock cfiCond7
+          CFI EndBlock cfiPicker8
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine6:
+          CFI Block cfiCond9 Using cfiCommon0
+          CFI Function _clean_recv_buf
+          CFI Conditional ??CrossCallReturnLabel_9
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond10 Using cfiCommon0
+          CFI (cfiCond10) Function _Protocol_Put
+          CFI (cfiCond10) Conditional ??CrossCallReturnLabel_10
+          CFI (cfiCond10) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond10) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond10) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond10) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond10) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond10) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond10) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond10) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond10) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond10) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond10) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond10) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond10) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond10) CFA_SP SP+-2
+          CFI (cfiCond10) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiPicker11 Using cfiCommon1
+          CFI (cfiPicker11) NoFunction
+          CFI (cfiPicker11) Picker
+        MOVX    @DPTR,A
+        LCALL   ?Subroutine16 & 0xFFFF
+??CrossCallReturnLabel_24:
+        RET
+          CFI EndBlock cfiCond9
+          CFI EndBlock cfiCond10
+          CFI EndBlock cfiPicker11
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine16:
+          CFI Block cfiCond12 Using cfiCommon0
+          CFI Function _Protocol_Put
+          CFI Conditional ??CrossCallReturnLabel_23
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond13 Using cfiCommon0
+          CFI (cfiCond13) Function _clean_recv_buf
+          CFI (cfiCond13) Conditional ??CrossCallReturnLabel_24, ??CrossCallReturnLabel_9
+          CFI (cfiCond13) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond13) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond13) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond13) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond13) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond13) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond13) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond13) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond13) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond13) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond13) CFA_SP SP+-4
+          CFI (cfiCond13) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond14 Using cfiCommon0
+          CFI (cfiCond14) Function _Protocol_Put
+          CFI (cfiCond14) Conditional ??CrossCallReturnLabel_24, ??CrossCallReturnLabel_10
+          CFI (cfiCond14) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond14) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond14) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond14) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond14) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond14) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond14) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond14) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond14) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond14) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond14) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond14) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond14) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond14) CFA_SP SP+-4
+          CFI (cfiCond14) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiPicker15 Using cfiCommon1
+          CFI (cfiPicker15) NoFunction
+          CFI (cfiPicker15) Picker
+        MOV     A,R6
+        ADD     A,#0x1a
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R7
+        MOV     DPH,A
+        RET
+          CFI EndBlock cfiCond12
+          CFI EndBlock cfiCond13
+          CFI EndBlock cfiCond14
+          CFI EndBlock cfiPicker15
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine5:
+          CFI Block cfiCond16 Using cfiCommon0
+          CFI Function _clean_recv_buf
+          CFI Conditional ??CrossCallReturnLabel_6
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond17 Using cfiCommon0
+          CFI (cfiCond17) Function _Protocol_Put
+          CFI (cfiCond17) Conditional ??CrossCallReturnLabel_7
+          CFI (cfiCond17) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond17) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond17) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond17) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond17) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond17) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond17) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond17) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond17) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond17) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond17) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond17) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond17) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond17) CFA_SP SP+-2
+          CFI (cfiCond17) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond18 Using cfiCommon0
+          CFI (cfiCond18) Function _Protocol_Put
+          CFI (cfiCond18) Conditional ??CrossCallReturnLabel_8
+          CFI (cfiCond18) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond18) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond18) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond18) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond18) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond18) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond18) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond18) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond18) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond18) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond18) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond18) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond18) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond18) CFA_SP SP+-2
+          CFI (cfiCond18) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiPicker19 Using cfiCommon1
+          CFI (cfiPicker19) NoFunction
+          CFI (cfiPicker19) Picker
+        MOV     A,R6
+        ADD     A,#0x19
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R7
+        MOV     DPH,A
+        RET
+          CFI EndBlock cfiCond16
+          CFI EndBlock cfiCond17
+          CFI EndBlock cfiCond18
+          CFI EndBlock cfiPicker19
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine4:
+          CFI Block cfiCond20 Using cfiCommon0
+          CFI Function _Protocol_Put
+          CFI Conditional ??CrossCallReturnLabel_3
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond21 Using cfiCommon0
+          CFI (cfiCond21) Function _Protocol_Put
+          CFI (cfiCond21) Conditional ??CrossCallReturnLabel_4
+          CFI (cfiCond21) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond21) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond21) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond21) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond21) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond21) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond21) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond21) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond21) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond21) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond21) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond21) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond21) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond21) CFA_SP SP+-2
+          CFI (cfiCond21) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond22 Using cfiCommon0
+          CFI (cfiCond22) Function _Protocol_Put
+          CFI (cfiCond22) Conditional ??CrossCallReturnLabel_5
+          CFI (cfiCond22) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond22) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond22) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond22) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond22) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond22) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond22) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond22) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond22) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond22) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond22) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond22) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond22) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond22) CFA_SP SP+-2
+          CFI (cfiCond22) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiPicker23 Using cfiCommon1
+          CFI (cfiPicker23) NoFunction
+          CFI (cfiPicker23) Picker
+        LCALL   ?Subroutine15 & 0xFFFF
+??CrossCallReturnLabel_22:
+        MOVX    A,@DPTR
+        RET
+          CFI EndBlock cfiCond20
+          CFI EndBlock cfiCond21
+          CFI EndBlock cfiCond22
+          CFI EndBlock cfiPicker23
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine15:
+          CFI Block cfiCond24 Using cfiCommon0
+          CFI Function _clean_recv_buf
+          CFI Conditional ??CrossCallReturnLabel_21
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond25 Using cfiCommon0
+          CFI (cfiCond25) Function _Protocol_Put
+          CFI (cfiCond25) Conditional ??CrossCallReturnLabel_22, ??CrossCallReturnLabel_3
+          CFI (cfiCond25) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond25) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond25) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond25) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond25) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond25) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond25) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond25) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond25) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond25) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond25) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond25) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond25) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond25) CFA_SP SP+-4
+          CFI (cfiCond25) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond26 Using cfiCommon0
+          CFI (cfiCond26) Function _Protocol_Put
+          CFI (cfiCond26) Conditional ??CrossCallReturnLabel_22, ??CrossCallReturnLabel_4
+          CFI (cfiCond26) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond26) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond26) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond26) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond26) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond26) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond26) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond26) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond26) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond26) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond26) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond26) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond26) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond26) CFA_SP SP+-4
+          CFI (cfiCond26) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond27 Using cfiCommon0
+          CFI (cfiCond27) Function _Protocol_Put
+          CFI (cfiCond27) Conditional ??CrossCallReturnLabel_22, ??CrossCallReturnLabel_5
+          CFI (cfiCond27) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond27) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond27) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond27) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond27) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond27) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond27) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond27) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond27) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond27) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond27) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond27) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond27) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond27) CFA_SP SP+-4
+          CFI (cfiCond27) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiPicker28 Using cfiCommon1
+          CFI (cfiPicker28) NoFunction
+          CFI (cfiPicker28) Picker
+        MOV     A,R6
+        ADD     A,#0x1c
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R7
+        MOV     DPH,A
+        RET
+          CFI EndBlock cfiCond24
+          CFI EndBlock cfiCond25
+          CFI EndBlock cfiCond26
+          CFI EndBlock cfiCond27
+          CFI EndBlock cfiPicker28
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine3:
+          CFI Block cfiCond29 Using cfiCommon0
+          CFI Function _clean_recv_buf
+          CFI Conditional ??CrossCallReturnLabel_0
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond30 Using cfiCommon0
+          CFI (cfiCond30) Function _Protocol_Put
+          CFI (cfiCond30) Conditional ??CrossCallReturnLabel_2
+          CFI (cfiCond30) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond30) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond30) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond30) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond30) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond30) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond30) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond30) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond30) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond30) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond30) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond30) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond30) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond30) CFA_SP SP+-2
+          CFI (cfiCond30) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond31 Using cfiCommon0
+          CFI (cfiCond31) Function _Protocol_Put
+          CFI (cfiCond31) Conditional ??CrossCallReturnLabel_1
+          CFI (cfiCond31) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond31) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond31) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond31) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond31) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond31) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond31) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond31) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond31) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond31) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond31) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond31) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond31) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond31) CFA_SP SP+-2
+          CFI (cfiCond31) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiPicker32 Using cfiCommon1
+          CFI (cfiPicker32) NoFunction
+          CFI (cfiPicker32) Picker
+        MOVX    @DPTR,A
+        MOV     A,R6
+        ADD     A,#0x17
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R7
+        MOV     DPH,A
+        RET
+          CFI EndBlock cfiCond29
+          CFI EndBlock cfiCond30
+          CFI EndBlock cfiCond31
+          CFI EndBlock cfiPicker32
+//  205 /****************************************************
+//  206 	函数名:	char_special
+//  207 	参数:		原字符
+//  208 	功能: 	字符转义
+//  209 ****************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  210 uint16_t char_special(uint8_t num){
+char_special:
+          CFI Block cfiBlock33 Using cfiCommon0
+          CFI Function char_special
+        CODE
+        ; Saved register size: 0
+        ; Auto size: 0
+//  211 	switch(num){
+        MOV     A,R1
+        ADD     A,#0x8
+        JZ      ??char_special_0
+        ADD     A,#-0x5
+        JZ      ??char_special_1
+        DEC     A
+        JZ      ??char_special_2
+        SJMP    ??char_special_3
+//  212 		case 0xFD:return 0xFE<<8 | 0x7D;
+??char_special_1:
+        MOV     R2,#0x7d
+        SJMP    ??char_special_4
+//  213 		case 0xF8:return 0xFE<<8 | 0x78;
+??char_special_0:
+        MOV     R2,#0x78
+        SJMP    ??char_special_4
+//  214 		case 0xFE:return 0xFE<<8 | 0x7E;
+??char_special_2:
+        MOV     R2,#0x7e
+??char_special_4:
+        MOV     R3,#-0x2
+        SJMP    ??char_special_5
+//  215 	}
+//  216 	return num;
+??char_special_3:
+        MOV     A,R1
+        MOV     R2,A
+        MOV     R3,#0x0
+??char_special_5:
+        LJMP    ?BRET
+//  217 }
+          CFI EndBlock cfiBlock33
+//  218 
+//  219 
+//  220 //###################################对外函数区###################################
+//  221 
+//  222 /****************************************************
+//  223 	函数名:	getCheckSum_ByProtocolInfo
+//  224 	功能:		根据协议信息获得校验和
+//  225 	参数:		PROTOCOL_INFO_T协议描述信息
+//  226 	返回值:	校验和结果
+//  227 	注意：	只返回低8位
+//  228 	作者:		liyao 2015年9月8日14:10:51
+//  229 ****************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  230 uint8_t getCheckSum_ByProtocolInfo(PROTOCOL_INFO_T* pi){
+getCheckSum_ByProtocolInfo:
+          CFI Block cfiBlock34 Using cfiCommon0
+          CFI Function getCheckSum_ByProtocolInfo
+        CODE
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+//  231 	uint8_t i, sum = 0; 
+        MOV     R6,#0x0
+//  232 	for(i = 1; i < pi->plen + 3;i++)
+        MOV     R7,#0x1
+        SJMP    ??getCheckSum_ByProtocolInfo_0
+//  233 		sum+=((uint8_t*)pi)[i]; 
+??getCheckSum_ByProtocolInfo_1:
+        MOV     A,R2
+        ADD     A,R0
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R3
+        MOV     DPH,A
+        MOVX    A,@DPTR
+        ADD     A,R6
+        MOV     R6,A
+        INC     R7
+??getCheckSum_ByProtocolInfo_0:
+        MOV     A,R7
+        MOV     R0,A
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R5,#0x0
+        ADD     A,#0x3
+        MOV     R4,A
+        JNC     ??getCheckSum_ByProtocolInfo_2
+        INC     R5
+??getCheckSum_ByProtocolInfo_2:
+        CLR     C
+        MOV     A,R0
+        SUBB    A,R4
+        CLR     A
+        SUBB    A,R5
+        MOV     C,0xD0 /* PSW */.2
+        XRL     A,PSW
+        RLC     A
+        JC      ??getCheckSum_ByProtocolInfo_1
+//  234 	return (uint8_t)sum;
+        MOV     A,R6
+        MOV     R1,A
+          CFI EndBlock cfiBlock34
+        REQUIRE ?Subroutine1
+        ; // Fall through to label ?Subroutine1
+//  235 }
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine1:
+          CFI Block cfiBlock35 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV     R7,#0x1
+        LJMP    ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock35
+//  236 
+//  237 /****************************************************
+//  238 	函数名:	Protocol_Register
+//  239 	功能:		协议注册
+//  240 	作者:		liyao 2016年9月18日16:12:16  
+//  241 ****************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  242 int8_t Protocol_Register(PROTOCOL_DESC_T* Desc_T,PROTOCOL_TYPE Protocol_Type){
+Protocol_Register:
+          CFI Block cfiBlock36 Using cfiCommon0
+          CFI Function Protocol_Register
+        CODE
+        REQUIRE ?V0
+        REQUIRE ?V1
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+        MOV     A,R2
+        MOV     R4,A
+        MOV     A,R3
+        MOV     R5,A
+        MOV     A,R1
+//  243 	uint8_t i = 0, Max_Count;
+        MOV     R2,#0x0
+//  244 	PROTOCOL_DESC_T* tmp_Desc_T;
+//  245 	switch((uint8_t)Protocol_Type){
+        JZ      ??Protocol_Register_0
+        DEC     A
+        JZ      ??Protocol_Register_1
+        DEC     A
+        JZ      ??Protocol_Register_2
+        SJMP    ??Protocol_Register_3
+//  246 		case (uint8_t)SEND:
+//  247 			Max_Count = SEND_PROTOCOL_NUM;
+??Protocol_Register_0:
+        MOV     R3,#0x4
+//  248 			tmp_Desc_T = Send_Desc_P;
+        MOV     ?V0,#Send_Desc_P & 0xff
+        MOV     ?V1,#(Send_Desc_P >> 8) & 0xff
+//  249 			break;
+        SJMP    ??Protocol_Register_4
+//  250 		case (uint8_t)RECEIVE:
+//  251 			Max_Count = RECV_PROTOCOL_NUM;
+??Protocol_Register_1:
+        MOV     R3,#0x3
+//  252 			tmp_Desc_T = Recv_Desc_P;
+        MOV     ?V0,#Recv_Desc_P & 0xff
+        MOV     ?V1,#(Recv_Desc_P >> 8) & 0xff
+//  253 			break;
+        SJMP    ??Protocol_Register_4
+//  254 		case (uint8_t)TRANSPOND:
+//  255 			Max_Count = TRANSPOND_PROTOCOL_NUM;
+??Protocol_Register_2:
+        MOV     R3,#0x1
+//  256 			tmp_Desc_T = Transpond_Desc_P;
+        MOV     ?V0,#Transpond_Desc_P & 0xff
+        MOV     ?V1,#(Transpond_Desc_P >> 8) & 0xff
+//  257 			break;  
+//  258 	}
+//  259 	for(i = 0; i < Max_Count; i++){
+//  260 		if(tmp_Desc_T[i].ModuleAction == 0){
+??Protocol_Register_4:
+        MOV     A,R2
+        MOV     B,#0xc
+        MUL     AB
+        MOV     R0,A
+        MOV     R7,B
+        MOV     A,R7
+        MOV     R1,A
+        MOV     A,?V0
+        ADD     A,R0
+        MOV     DPL,A
+        MOV     A,?V1
+        ADDC    A,R1
+        LCALL   ?Subroutine10 & 0xFFFF
+??CrossCallReturnLabel_27:
+        JNZ     ??Protocol_Register_5
+//  261 			tmp_Desc_T[i] = *Desc_T;
+        MOV     DPL,R4
+        MOV     DPH,R5
+        MOV     A,R2
+        MOV     B,#0xc
+        MUL     AB
+        MOV     R0,A
+        MOV     A,R7
+        MOV     R1,A
+        MOV     A,?V0
+        ADD     A,R0
+        MOV     R4,A
+        MOV     A,?V1
+        ADDC    A,R1
+        MOV     R5,A
+        MOV     A,#0xc
+        LCALL   ?MOVE_LONG8_XDATA_XDATA
+//  262 			return 0;
+        MOV     R1,A
+        SJMP    ??Protocol_Register_6
+//  263 		}
+//  264 	}
+??Protocol_Register_5:
+        INC     R2
+??Protocol_Register_3:
+        MOV     A,R2
+        CLR     C
+        SUBB    A,R3
+        JC      ??Protocol_Register_4
+//  265 	Log.error("协议注册失败,数组满\r\n");
+        ; Setup parameters for indirect call
+        MOV     R2,#`?<Constant "\\320\\255\\322\\351\\327\\242\\262\\341\\3` & 0xff
+        MOV     R3,#(`?<Constant "\\320\\255\\322\\351\\327\\242\\262\\341\\3` >> 8) & 0xff
+        LCALL   ?Subroutine9 & 0xFFFF
+??CrossCallReturnLabel_43:
+        LCALL   ?CALL_IND
+//  266 	return -1;
+        MOV     R1,#-0x1
+??Protocol_Register_6:
+        SJMP    ??Subroutine18_0
+//  267 	
+//  268 }
+          CFI EndBlock cfiBlock36
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine10:
+          CFI Block cfiCond37 Using cfiCommon0
+          CFI Function Protocol_Register
+          CFI Conditional ??CrossCallReturnLabel_27
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond38 Using cfiCommon0
+          CFI (cfiCond38) Function Protocol_To_Uart
+          CFI (cfiCond38) Conditional ??CrossCallReturnLabel_28
+          CFI (cfiCond38) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond38) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond38) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond38) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond38) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond38) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond38) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond38) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond38) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond38) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond38) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond38) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond38) CFA_SP SP+-2
+          CFI (cfiCond38) CFA_XSP16 add(XSP16, 112)
+          CFI Block cfiPicker39 Using cfiCommon1
+          CFI (cfiPicker39) NoFunction
+          CFI (cfiPicker39) Picker
+        MOV     DPH,A
+          CFI EndBlock cfiCond37
+          CFI EndBlock cfiCond38
+          CFI EndBlock cfiPicker39
+        REQUIRE ??Subroutine17_0
+        ; // Fall through to label ??Subroutine17_0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+??Subroutine17_0:
+          CFI Block cfiCond40 Using cfiCommon0
+          CFI Function _Fetch_Protocol
+          CFI Conditional ??CrossCallReturnLabel_25
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 28)
+          CFI Block cfiCond41 Using cfiCommon0
+          CFI (cfiCond41) Function _Fetch_Protocol
+          CFI (cfiCond41) Conditional ??CrossCallReturnLabel_26
+          CFI (cfiCond41) R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond41) VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond41) V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond41) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond41) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond41) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond41) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond41) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond41) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond41) CFA_SP SP+-2
+          CFI (cfiCond41) CFA_XSP16 add(XSP16, 28)
+          CFI Block cfiCond42 Using cfiCommon0
+          CFI (cfiCond42) Function Protocol_Register
+          CFI (cfiCond42) Conditional ??CrossCallReturnLabel_27
+          CFI (cfiCond42) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond42) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond42) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond42) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond42) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond42) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond42) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond42) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond42) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond42) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond42) CFA_SP SP+-2
+          CFI (cfiCond42) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond43 Using cfiCommon0
+          CFI (cfiCond43) Function Protocol_To_Uart
+          CFI (cfiCond43) Conditional ??CrossCallReturnLabel_28
+          CFI (cfiCond43) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond43) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond43) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond43) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond43) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond43) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond43) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond43) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond43) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond43) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond43) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond43) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond43) CFA_SP SP+-2
+          CFI (cfiCond43) CFA_XSP16 add(XSP16, 112)
+          CFI Block cfiPicker44 Using cfiCommon1
+          CFI (cfiPicker44) NoFunction
+          CFI (cfiPicker44) Picker
+        MOVX    A,@DPTR
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R1,A
+        MOV     A,R0
+        ORL     A,R1
+        RET
+          CFI EndBlock cfiCond40
+          CFI EndBlock cfiCond41
+          CFI EndBlock cfiCond42
+          CFI EndBlock cfiCond43
+          CFI EndBlock cfiPicker44
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+          CFI Block cfiBlock45 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOVX    @DPTR,A
+          CFI EndBlock cfiBlock45
+        REQUIRE ??Subroutine18_0
+        ; // Fall through to label ??Subroutine18_0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+??Subroutine18_0:
+          CFI Block cfiBlock46 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV     R7,#0x2
+        LJMP    ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock46
+//  269 
+//  270 /****************************************************
+//  271 	函数名:	Get_Protocol_Description
+//  272 	功能:		获取协议描述信息
+//  273 	作者:		liyao 2016年9月18日16:12:16  
+//  274 ****************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  275 PROTOCOL_DESC_T* Get_Protocol_Description(MODULE_ACTION ModuleAction,PROTOCOL_TYPE Protocol_Type){
+Get_Protocol_Description:
+          CFI Block cfiBlock47 Using cfiCommon0
+          CFI Function Get_Protocol_Description
+        CODE
+        REQUIRE ?V0
+        REQUIRE ?V1
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+        MOV     A,R1
+//  276 	uint8_t i = 0, Max_Count;
+        MOV     R4,#0x0
+//  277 	PROTOCOL_DESC_T* tmp_Desc_T;
+//  278 	switch((uint8_t)Protocol_Type){
+        JZ      ??Get_Protocol_Description_0
+        DEC     A
+        JZ      ??Get_Protocol_Description_1
+        DEC     A
+        JZ      ??Get_Protocol_Description_2
+        SJMP    ??Get_Protocol_Description_3
+//  279 		case (uint8_t)SEND:
+//  280 			Max_Count = SEND_PROTOCOL_NUM;
+??Get_Protocol_Description_0:
+        MOV     R5,#0x4
+//  281 			tmp_Desc_T = Send_Desc_P;
+        MOV     ?V0,#Send_Desc_P & 0xff
+        MOV     ?V1,#(Send_Desc_P >> 8) & 0xff
+//  282 			break;
+        SJMP    ??Get_Protocol_Description_4
+//  283 		case (uint8_t)RECEIVE:
+//  284 			Max_Count = RECV_PROTOCOL_NUM;
+??Get_Protocol_Description_1:
+        MOV     R5,#0x3
+//  285 			tmp_Desc_T = Recv_Desc_P;
+        MOV     ?V0,#Recv_Desc_P & 0xff
+        MOV     ?V1,#(Recv_Desc_P >> 8) & 0xff
+//  286 			break;
+        SJMP    ??Get_Protocol_Description_4
+//  287 		case (uint8_t)TRANSPOND:
+//  288 			Max_Count = TRANSPOND_PROTOCOL_NUM;
+??Get_Protocol_Description_2:
+        MOV     R5,#0x1
+//  289 			tmp_Desc_T = Transpond_Desc_P;
+        MOV     ?V0,#Transpond_Desc_P & 0xff
+        MOV     ?V1,#(Transpond_Desc_P >> 8) & 0xff
+//  290 			break;  
+//  291 	}
+//  292 	for(i = 0; i < Max_Count; i++){
+//  293 		if(ModuleAction == tmp_Desc_T[i].ModuleAction)
+??Get_Protocol_Description_4:
+        MOV     A,R4
+        MOV     B,#0xc
+        MUL     AB
+        MOV     R0,A
+        MOV     R1,B
+        MOV     A,?V0
+        ADD     A,R0
+        MOV     DPL,A
+        MOV     A,?V1
+        ADDC    A,R1
+        MOV     DPH,A
+        MOVX    A,@DPTR
+        XRL     A,R2
+        JNZ     ??Get_Protocol_Description_5
+        INC     DPTR
+        MOVX    A,@DPTR
+        XRL     A,R3
+??Get_Protocol_Description_5:
+        JNZ     ??Get_Protocol_Description_6
+//  294 			return &tmp_Desc_T[i];
+        MOV     A,?V0
+        ADD     A,R0
+        MOV     R2,A
+        MOV     A,?V1
+        ADDC    A,R1
+        MOV     R3,A
+        SJMP    ??Get_Protocol_Description_7
+//  295 	}
+??Get_Protocol_Description_6:
+        INC     R4
+??Get_Protocol_Description_3:
+        MOV     A,R4
+        CLR     C
+        SUBB    A,R5
+        JC      ??Get_Protocol_Description_4
+//  296 	Log.error("Get_Protocol_Description未找到协议描述\r\n");
+        ; Setup parameters for indirect call
+        MOV     R2,#`?<Constant "Get_Protocol_Descript...">` & 0xff
+        MOV     R3,#(`?<Constant "Get_Protocol_Descript...">` >> 8) & 0xff
+        LCALL   ?Subroutine9 & 0xFFFF
+??CrossCallReturnLabel_44:
+        LCALL   ?CALL_IND
+//  297 	return NULL;
+        MOV     R2,#0x0
+        MOV     R3,#0x0
+??Get_Protocol_Description_7:
+        SJMP    ??Subroutine18_0
+//  298 	
+//  299 }
+          CFI EndBlock cfiBlock47
+//  300 
+//  301 
+//  302 
+//  303 /****************************************************
+//  304 	函数名:	ProtocolFrame_Init
+//  305 	功能:		初始化全部协议和相关校验、执行函数
+//  306 	作者:		liyao 2015年9月8日14:10:51      
+//  307 ****************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  308 void ProtocolFrame_Init(SEND_INTERFACE SendHandle){
+ProtocolFrame_Init:
+          CFI Block cfiBlock48 Using cfiCommon0
+          CFI Function ProtocolFrame_Init
+        CODE
+        FUNCALL ProtocolFrame_Init, memset
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL ProtocolFrame_Init, memset
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL ProtocolFrame_Init, memset
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL ProtocolFrame_Init, Protocol_Init
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL ProtocolFrame_Init, Queue_Init
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+        MOV     A,R2
+        MOV     R6,A
+        MOV     A,R3
+        MOV     R7,A
+//  309 	memset(Send_Desc_P,0,sizeof(PROTOCOL_DESC_T) * SEND_PROTOCOL_NUM);
+        ; Setup parameters for call to function memset
+        MOV     ?V0,#0x30
+        MOV     ?V1,#0x0
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 12)
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     R2,#Send_Desc_P & 0xff
+        MOV     R3,#(Send_Desc_P >> 8) & 0xff
+        LCALL   `??memset::?relay`   ; Banked call to: memset
+        MOV     A,#0x2
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 10)
+//  310 	memset(Recv_Desc_P,0,sizeof(PROTOCOL_DESC_T) * RECV_PROTOCOL_NUM);
+        ; Setup parameters for call to function memset
+        MOV     ?V0,#0x24
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 12)
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     R2,#Recv_Desc_P & 0xff
+        MOV     R3,#(Recv_Desc_P >> 8) & 0xff
+        LCALL   `??memset::?relay`   ; Banked call to: memset
+        MOV     A,#0x2
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 10)
+//  311 	memset(Transpond_Desc_P,0,sizeof(PROTOCOL_DESC_T) * TRANSPOND_PROTOCOL_NUM);
+        ; Setup parameters for call to function memset
+        MOV     ?V0,#0xc
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 12)
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     R2,#Transpond_Desc_P & 0xff
+        MOV     R3,#(Transpond_Desc_P >> 8) & 0xff
+        LCALL   `??memset::?relay`   ; Banked call to: memset
+        MOV     A,#0x2
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 10)
+//  312 	//协议列表初始化
+//  313 	Protocol_Init(SendHandle);
+        ; Setup parameters for call to function Protocol_Init
+        MOV     A,R6
+        MOV     R2,A
+        MOV     A,R7
+        MOV     R3,A
+        LCALL   `??Protocol_Init::?relay`; Banked call to: Protocol_Init
+//  314 	//发送数据队列初始化 
+//  315 #if UART1_PROTOCOL_RESOLVER
+//  316 	UART1_Resolver->Protocol_Queue = Queue_Init( _UART1_Protocol_QueueBuf,sizeof(PROTOCOL_INFO_T), UART1_RPQUEUE_SIZE);
+        ; Setup parameters for call to function Queue_Init
+        MOV     R4,#0x1
+        MOV     R5,#0x0
+        MOV     R1,#0x13
+        MOV     R2,#_UART1_Protocol_QueueBuf & 0xff
+        MOV     R3,#(_UART1_Protocol_QueueBuf >> 8) & 0xff
+        LCALL   `??Queue_Init::?relay`; Banked call to: Queue_Init
+        MOV     ?V0,R2
+        MOV     DPTR,#UART1_Resolver
+        MOVX    A,@DPTR
+        MOV     R2,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     DPH,A
+        MOV     DPL,R2
+        MOV     A,?V0
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,R3
+        MOVX    @DPTR,A
+//  317 	UART1_Resolver->RPQueue_Size = UART1_RPQUEUE_SIZE; 
+        MOV     DPTR,#UART1_Resolver
+        LCALL   ??Subroutine20_0 & 0xFFFF
+??CrossCallReturnLabel_34:
+        INC     DPTR
+        INC     DPTR
+        MOV     A,#0x1
+        MOVX    @DPTR,A
+        INC     DPTR
+        CLR     A
+        LCALL   ?Subroutine7 & 0xFFFF
+//  318 	UART1_Resolver->Protocol_Put = _Protocol_Put;
+??CrossCallReturnLabel_11:
+        ADD     A,#0x1d
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R0
+        MOV     DPH,A
+        MOV     A,#`??_Protocol_Put::?relay` & 0xff
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,#(`??_Protocol_Put::?relay` >> 8) & 0xff
+        LCALL   ?Subroutine7 & 0xFFFF
+//  319 	UART1_Resolver->Fetch_Protocol = _Fetch_Protocol;
+??CrossCallReturnLabel_12:
+        LCALL   ?Subroutine14 & 0xFFFF
+??CrossCallReturnLabel_19:
+        MOV     A,#`??_Fetch_Protocol::?relay` & 0xff
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,#(`??_Fetch_Protocol::?relay` >> 8) & 0xff
+        LJMP    ?Subroutine0 & 0xFFFF
+//  320 #endif  
+//  321 
+//  322 #if UART2_PROTOCOL_RESOLVER
+//  323 	UART2_Resolver->Protocol_Queue = Queue_Init( _UART2_Protocol_QueueBuf,sizeof(PROTOCOL_INFO_T), UART2_RPQUEUE_SIZE);
+//  324 	UART2_Resolver->RPQueue_Size = UART2_RPQUEUE_SIZE; 
+//  325 	UART2_Resolver->Protocol_Put = _Protocol_Put;
+//  326 	UART2_Resolver->Fetch_Protocol = _Fetch_Protocol;
+//  327 #endif  
+//  328 	
+//  329 #if UART3_PROTOCOL_RESOLVER
+//  330 	UART3_Resolver->Protocol_Queue = Queue_Init( _UART3_Protocol_QueueBuf,sizeof(PROTOCOL_INFO_T), UART3_RPQUEUE_SIZE);
+//  331 	UART3_Resolver->RPQueue_Size = UART3_RPQUEUE_SIZE; 
+//  332 	UART3_Resolver->Protocol_Put = _Protocol_Put;
+//  333 	UART3_Resolver->Fetch_Protocol = _Fetch_Protocol;
+//  334 #endif 
+//  335 	
+//  336 #if UART4_PROTOCOL_RESOLVER
+//  337 	UART4_Resolver->Protocol_Queue = Queue_Init( _UART4_Protocol_QueueBuf,sizeof(PROTOCOL_INFO_T), UART4_RPQUEUE_SIZE);
+//  338 	UART4_Resolver->RPQueue_Size = UART4_RPQUEUE_SIZE; 
+//  339 	UART4_Resolver->Protocol_Put = _Protocol_Put;
+//  340 	UART4_Resolver->Fetch_Protocol = _Fetch_Protocol;
+//  341 #endif 
+//  342 	
+//  343 }
+          CFI EndBlock cfiBlock48
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine7:
+          CFI Block cfiCond49 Using cfiCommon0
+          CFI Function ProtocolFrame_Init
+          CFI Conditional ??CrossCallReturnLabel_11
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond50 Using cfiCommon0
+          CFI (cfiCond50) Function ProtocolFrame_Init
+          CFI (cfiCond50) Conditional ??CrossCallReturnLabel_12
+          CFI (cfiCond50) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond50) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond50) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond50) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond50) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond50) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond50) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond50) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond50) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond50) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond50) CFA_SP SP+-2
+          CFI (cfiCond50) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiPicker51 Using cfiCommon1
+          CFI (cfiPicker51) NoFunction
+          CFI (cfiPicker51) Picker
+        MOVX    @DPTR,A
+        MOV     DPTR,#UART1_Resolver
+        MOVX    A,@DPTR
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        XCH     A,R0
+        RET
+          CFI EndBlock cfiCond49
+          CFI EndBlock cfiCond50
+          CFI EndBlock cfiPicker51
+//  344 
+//  345 /****************************************************
+//  346 	函数名:	Protocol_To_Uart
+//  347 	功能:		向缓冲区写入待发送至串口
+//  348 	参数:		PROTOCOL_INFO_T协议描述信息
+//  349 	作者:		liyao 2015年9月8日14:10:51
+//  350 ****************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  351 int8_t Protocol_To_Uart(PROTOCOL_INFO_T* pi){ 
+Protocol_To_Uart:
+          CFI Block cfiBlock52 Using cfiCommon0
+          CFI Function Protocol_To_Uart
+        CODE
+        FUNCALL Protocol_To_Uart, char_special
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 112, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 112, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V3
+        MOV     A,#-0xc
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 12)
+        ; Saved register size: 12
+        ; Auto size: 100
+        MOV     A,#-0x64
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 112)
+        MOV     A,R2
+        MOV     R6,A
+        MOV     A,R3
+        MOV     R7,A
+//  352 	uint8_t data[100] = {0};
+        MOV     DPTR,#`?<Constant {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0`
+        MOV     R4,?XSP + 0
+        MOV     R5,?XSP + 1
+        MOV     A,#0x64
+        LCALL   ?MOVE_LONG8_XDATA_XDATA
+//  353 	uint8_t i = 0,special_H,special_L, index = 0,tmp_val;
+//  354 	uint16_t special_char; 
+//  355 	data[index++] = pi->head;
+        MOV     DPL,R6
+        MOV     DPH,R7
+        MOVX    A,@DPTR
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    @DPTR,A
+        MOV     ?V0,#0x1
+//  356 	for(i = 1; i < pi->alen-1;i++){
+        MOV     ?V1,#0x1
+        SJMP    ??Protocol_To_Uart_0
+//  357             if(i == pi->alen - 2)
+//  358                 tmp_val = pi->checksum;
+//  359             else
+//  360 		tmp_val = ((uint8_t *)pi)[i];
+//  361 		if(tmp_val == 0xFD || tmp_val == 0xF8 || tmp_val == 0xFE){//转义
+//  362 			special_char = char_special(tmp_val); 
+//  363 			special_H =  special_char >> 8;
+//  364 			special_L =  special_char & 0x00ff;
+//  365 			data[index++] = special_H;
+//  366 			data[index++] = special_L;
+//  367 		}else{
+//  368 			data[index++] = tmp_val;
+??Protocol_To_Uart_1:
+        LCALL   ?Subroutine11 & 0xFFFF
+//  369 		}
+??CrossCallReturnLabel_30:
+        MOV     A,R1
+??Protocol_To_Uart_2:
+        MOVX    @DPTR,A
+        INC     ?V0
+        INC     ?V1
+??Protocol_To_Uart_0:
+        MOV     A,R6
+        ADD     A,#0xc
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R7
+        MOV     DPH,A
+        MOVX    A,@DPTR
+        ADD     A,#-0x1
+        MOV     R2,A
+        CLR     A
+        ADDC    A,#-0x1
+        MOV     R3,A
+        CLR     C
+        MOV     A,?V1
+        SUBB    A,R2
+        CLR     A
+        SUBB    A,R3
+        MOV     C,0xD0 /* PSW */.2
+        XRL     A,PSW
+        RLC     A
+        JNC     ??Protocol_To_Uart_3
+        MOV     R0,?V1
+        MOVX    A,@DPTR
+        ADD     A,#-0x2
+        DEC     R2
+        CLR     A
+        ADDC    A,#-0x1
+        MOV     R3,A
+        MOV     A,R2
+        XRL     A,R0
+        ORL     A,R3
+        JNZ     ??Protocol_To_Uart_4
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        SJMP    ??Protocol_To_Uart_5
+??Protocol_To_Uart_4:
+        MOV     A,R6
+        ADD     A,R0
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R7
+        MOV     DPH,A
+??Protocol_To_Uart_5:
+        MOVX    A,@DPTR
+        MOV     R1,A
+        MOV     A,#-0x3
+        XRL     A,R1
+        JZ      ??Protocol_To_Uart_6
+        MOV     A,#-0x8
+        XRL     A,R1
+        JZ      ??Protocol_To_Uart_6
+        MOV     A,#-0x2
+        XRL     A,R1
+        JNZ     ??Protocol_To_Uart_1
+??Protocol_To_Uart_6:
+        ; Setup parameters for call to function char_special
+        LCALL   `??char_special::?relay`; Banked call to: char_special
+        LCALL   ?Subroutine11 & 0xFFFF
+??CrossCallReturnLabel_31:
+        MOV     A,R3
+        MOVX    @DPTR,A
+        INC     ?V0
+        INC     R0
+        LCALL   ??Subroutine19_0 & 0xFFFF
+//  370 	}
+??CrossCallReturnLabel_29:
+        MOV     A,R2
+        SJMP    ??Protocol_To_Uart_2
+//  371 	//data[index++] = pi->checksum;
+//  372 	data[index++] = pi->tail;
+??Protocol_To_Uart_3:
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        PUSH    A
+          CFI CFA_SP SP+-1
+        LCALL   ?Subroutine11 & 0xFFFF
+??CrossCallReturnLabel_32:
+        POP     A
+          CFI CFA_SP SP+0
+        MOVX    @DPTR,A
+//  373         if(pi->Desc_T != NULL)
+        MOV     A,R6
+        ADD     A,#0xd
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R7
+        LCALL   ?Subroutine10 & 0xFFFF
+??CrossCallReturnLabel_28:
+        JZ      ??Protocol_To_Uart_7
+//  374             pi->Desc_T->send(data, index);
+        ; Setup parameters for indirect call
+        MOV     A,#0x1
+        ADD     A,?V0
+        MOV     R1,A
+        MOV     R2,?XSP + 0
+        MOV     R3,?XSP + 1
+        LCALL   ?Subroutine13 & 0xFFFF
+??CrossCallReturnLabel_18:
+        INC     DPTR
+        MOVX    A,@DPTR
+        XCH     A,R0
+        ADD     A,#0x6
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R0
+        MOV     DPH,A
+        LCALL   ??Subroutine20_0 & 0xFFFF
+??CrossCallReturnLabel_35:
+        LCALL   ?CALL_IND
+//  375 	return 0;
+??Protocol_To_Uart_7:
+        MOV     R1,#0x0
+        MOV     A,#0x64
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 12)
+        MOV     R7,#0x4
+        LJMP    ?BANKED_LEAVE_XDATA
+//  376 }
+          CFI EndBlock cfiBlock52
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine13:
+          CFI Block cfiCond53 Using cfiCommon0
+          CFI Function _Protocol_Put
+          CFI Conditional ??CrossCallReturnLabel_17
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond54 Using cfiCommon0
+          CFI (cfiCond54) Function Protocol_To_Uart
+          CFI (cfiCond54) Conditional ??CrossCallReturnLabel_18
+          CFI (cfiCond54) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond54) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond54) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond54) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond54) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond54) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond54) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond54) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond54) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond54) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond54) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond54) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond54) CFA_SP SP+-2
+          CFI (cfiCond54) CFA_XSP16 add(XSP16, 112)
+          CFI Block cfiPicker55 Using cfiCommon1
+          CFI (cfiPicker55) NoFunction
+          CFI (cfiPicker55) Picker
+        MOV     A,R6
+        ADD     A,#0xd
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R7
+        MOV     DPH,A
+        RET
+          CFI EndBlock cfiCond53
+          CFI EndBlock cfiCond54
+          CFI EndBlock cfiPicker55
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine11:
+          CFI Block cfiCond56 Using cfiCommon0
+          CFI Function Protocol_To_Uart
+          CFI Conditional ??CrossCallReturnLabel_30
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 112)
+          CFI Block cfiCond57 Using cfiCommon0
+          CFI (cfiCond57) Function Protocol_To_Uart
+          CFI (cfiCond57) Conditional ??CrossCallReturnLabel_31
+          CFI (cfiCond57) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond57) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond57) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond57) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond57) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond57) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond57) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond57) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond57) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond57) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond57) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond57) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond57) CFA_SP SP+-2
+          CFI (cfiCond57) CFA_XSP16 add(XSP16, 112)
+          CFI Block cfiCond58 Using cfiCommon0
+          CFI (cfiCond58) Function Protocol_To_Uart
+          CFI (cfiCond58) Conditional ??CrossCallReturnLabel_32
+          CFI (cfiCond58) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond58) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond58) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond58) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond58) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond58) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond58) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond58) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond58) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond58) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond58) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond58) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond58) CFA_XSP16 add(XSP16, 112)
+          CFI Block cfiPicker59 Using cfiCommon1
+          CFI (cfiPicker59) NoFunction
+          CFI (cfiPicker59) Picker
+        MOV     R0,?V0
+          CFI EndBlock cfiCond56
+          CFI EndBlock cfiCond57
+          CFI EndBlock cfiCond58
+          CFI EndBlock cfiPicker59
+        REQUIRE ??Subroutine19_0
+        ; // Fall through to label ??Subroutine19_0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+??Subroutine19_0:
+          CFI Block cfiCond60 Using cfiCommon0
+          CFI Function Protocol_To_Uart
+          CFI Conditional ??CrossCallReturnLabel_29
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 112)
+          CFI Block cfiCond61 Using cfiCommon0
+          CFI (cfiCond61) Function Protocol_To_Uart
+          CFI (cfiCond61) Conditional ??CrossCallReturnLabel_30
+          CFI (cfiCond61) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond61) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond61) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond61) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond61) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond61) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond61) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond61) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond61) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond61) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond61) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond61) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond61) CFA_SP SP+-2
+          CFI (cfiCond61) CFA_XSP16 add(XSP16, 112)
+          CFI Block cfiCond62 Using cfiCommon0
+          CFI (cfiCond62) Function Protocol_To_Uart
+          CFI (cfiCond62) Conditional ??CrossCallReturnLabel_31
+          CFI (cfiCond62) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond62) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond62) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond62) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond62) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond62) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond62) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond62) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond62) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond62) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond62) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond62) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond62) CFA_SP SP+-2
+          CFI (cfiCond62) CFA_XSP16 add(XSP16, 112)
+          CFI Block cfiCond63 Using cfiCommon0
+          CFI (cfiCond63) Function Protocol_To_Uart
+          CFI (cfiCond63) Conditional ??CrossCallReturnLabel_32
+          CFI (cfiCond63) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond63) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond63) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond63) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond63) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond63) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond63) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond63) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond63) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond63) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond63) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond63) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond63) CFA_XSP16 add(XSP16, 112)
+          CFI Block cfiPicker64 Using cfiCommon1
+          CFI (cfiPicker64) NoFunction
+          CFI (cfiPicker64) Picker
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     A,DPL
+        ADD     A,R0
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,DPH
+        MOV     DPH,A
+        RET
+          CFI EndBlock cfiCond60
+          CFI EndBlock cfiCond61
+          CFI EndBlock cfiCond62
+          CFI EndBlock cfiCond63
+          CFI EndBlock cfiPicker64
+//  377 
+//  378 //###################################自定义扩展函数区###################################
+//  379 /****************************************************
+//  380 	函数名:	Protocol_Send
+//  381 	功能:		发送协议
+//  382 	参数:		目标板,参数结构体,参数结构体长度
+//  383 	注：协议历史编号统一处理
+//  384 	作者:		liyao 2016年9月18日11:50:55
+//  385 ****************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  386 void Protocol_Send(MODULE_ACTION ModuleAction,PROTOCOL_T* Protocol_t,u8 Len){ 
+Protocol_Send:
+          CFI Block cfiBlock65 Using cfiCommon0
+          CFI Function Protocol_Send
+        CODE
+        FUNCALL Protocol_Send, Get_Protocol_Description
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 33, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 33, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL Protocol_Send, getCheckSum_ByProtocolInfo
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 33, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 33, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL Protocol_Send, Protocol_To_Uart
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 33, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 33, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V2
+        REQUIRE ?V3
+        REQUIRE ?V4
+        REQUIRE ?V5
+        MOV     A,#-0xe
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 14)
+        ; Saved register size: 14
+        ; Auto size: 19
+        MOV     A,#-0x13
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 33)
+        MOV     A,R2
+        MOV     R6,A
+        MOV     A,R3
+        MOV     R7,A
+        MOV     ?V2,R4
+        MOV     ?V3,R5
+        MOV     ?V0,R1
+//  387 	PROTOCOL_INFO_T pi = {0}; 
+        MOV     DPTR,#`?<Constant {0}>`
+        MOV     R4,?XSP + 0
+        MOV     R5,?XSP + 1
+        MOV     A,#0x13
+        LCALL   ?MOVE_LONG8_XDATA_XDATA
+//  388 	PROTOCOL_DESC_T* Desc_T = Get_Protocol_Description(ModuleAction, SEND);
+        ; Setup parameters for call to function Get_Protocol_Description
+        MOV     R1,A
+        LCALL   `??Get_Protocol_Description::?relay`; Banked call to: Get_Protocol_Description
+//  389 	pi.Desc_T = Desc_T;
+        MOV     A,R2
+        MOV     R0,A
+        MOV     A,R3
+        MOV     R1,A
+        MOV     A,#0xd
+        LCALL   ?XSTACK_DISP0_8
+        MOV     A,R0
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,R1
+        MOVX    @DPTR,A
+//  390 	pi.head = 0xFD;
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     A,#-0x3
+        MOVX    @DPTR,A
+//  391 	pi.plen = Len + 3;//参数个数+3   帧长度
+        MOV     A,#0x3
+        ADD     A,?V0
+        PUSH    A
+          CFI CFA_SP SP+-1
+        MOV     A,#0x2
+        LCALL   ?XSTACK_DISP0_8
+        POP     A
+          CFI CFA_SP SP+0
+        MOVX    @DPTR,A
+//  392 	pi.module = ModuleAction >> 8; 
+        MOV     ?V4,R6
+        MOV     ?V5,R7
+        MOV     A,#0x8
+        MOV     R0,#?V4
+        LCALL   ?SS_SHR
+        MOV     A,#0x3
+        LCALL   ?XSTACK_DISP0_8
+        MOV     A,?V4
+        MOVX    @DPTR,A
+//  393 	pi.serial = Desc_T->Serial++;
+        MOV     A,R2
+        ADD     A,#0x5
+        MOV     R0,A
+        CLR     A
+        ADDC    A,R3
+        MOV     R1,A
+        MOV     DPL,R0
+        MOV     DPH,R1
+        MOVX    A,@DPTR
+        PUSH    A
+          CFI CFA_SP SP+-1
+        MOV     A,#0x4
+        LCALL   ?XSTACK_DISP0_8
+        POP     A
+          CFI CFA_SP SP+0
+        MOVX    @DPTR,A
+        MOV     DPL,R0
+        MOV     DPH,R1
+        MOVX    A,@DPTR
+        INC     A
+        MOVX    @DPTR,A
+//  394 	pi.action = ModuleAction & 0x00ff;
+        MOV     A,#0x5
+        LCALL   ?XSTACK_DISP0_8
+        MOV     A,R6
+        MOVX    @DPTR,A
+//  395 	pi.protocol = *Protocol_t; 
+        MOV     DPL,?V2
+        MOV     DPH,?V3
+        PUSH    DPL
+          CFI CFA_SP SP+-1
+        PUSH    DPH
+          CFI CFA_SP SP+-2
+        MOV     A,#0x6
+        LCALL   ?XSTACK_DISP0_8
+        MOV     R4,DPL
+        MOV     R5,DPH
+        POP     DPH
+          CFI CFA_SP SP+-1
+        POP     DPL
+          CFI CFA_SP SP+0
+        MOV     A,#0x3
+        LCALL   ?MOVE_LONG8_XDATA_XDATA
+//  396 	pi.checksum = getCheckSum_ByProtocolInfo(&pi);
+        ; Setup parameters for call to function getCheckSum_ByProtocolInfo
+        MOV     R2,?XSP + 0
+        MOV     R3,?XSP + 1
+        LCALL   `??getCheckSum_ByProtocolInfo::?relay`; Banked call to: getCheckSum_ByProtocolInfo
+        MOV     A,#0x9
+        LCALL   ?XSTACK_DISP0_8
+        MOV     A,R1
+        MOVX    @DPTR,A
+//  397 	pi.tail = 0xF8;
+        MOV     A,#0xa
+        LCALL   ?XSTACK_DISP0_8
+        MOV     A,#-0x8
+        MOVX    @DPTR,A
+//  398 	pi.paralen = Len;
+        MOV     A,#0xb
+        LCALL   ?XSTACK_DISP0_8
+        MOV     A,?V0
+        MOVX    @DPTR,A
+//  399 	pi.alen = pi.plen + 5; 
+        MOV     A,#0x2
+        LCALL   ?XSTACK_DISP0_8
+        MOVX    A,@DPTR
+        ADD     A,#0x5
+        PUSH    A
+          CFI CFA_SP SP+-1
+        MOV     A,#0xc
+        LCALL   ?XSTACK_DISP0_8
+        POP     A
+          CFI CFA_SP SP+0
+        MOVX    @DPTR,A
+//  400 //         printf("%x,%x,%x,%x,%x,%x,%x,%x,%x,%x\r\n",
+//  401 //                                                               pi.head,
+//  402 //                                                               pi.standby1,
+//  403 //                                                               pi.plen,
+//  404 //                                                               pi.module,
+//  405 //                                                               pi.serial,
+//  406 //                                                               pi.action,
+//  407 //                                                               pi.protocol.AddrReport_P.para1,
+//  408 //                                                               pi.protocol.AddrReport_P.para2,
+//  409 //                                                               pi.checksum,
+//  410 //                                                               pi.tail);
+//  411 	Protocol_To_Uart(&pi);	
+        ; Setup parameters for call to function Protocol_To_Uart
+        MOV     R2,?XSP + 0
+        MOV     R3,?XSP + 1
+        LCALL   `??Protocol_To_Uart::?relay`; Banked call to: Protocol_To_Uart
+//  412 }
+        MOV     A,#0x13
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 14)
+        MOV     R7,#0x6
+        LJMP    ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock65
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant {0}>`:
+        DB 0
+        DB 0, 0, 0, 0, 0, 0, 0, 0
+        DB 0, 0, 0, 0, 0, 0, 0, 0
+        DB 0, 0
+//  413 
+//  414 /****************************************************
+//  415 	函数名:	Protocol_Send_Transpond
+//  416 	功能:		转发协议
+//  417 	参数:		PROTOCOL_INFO_T结构体
+//  418 	作者:		liyao 2016年9月18日11:51:35
+//  419 ****************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  420 void Protocol_Send_Transpond(PROTOCOL_INFO_T* pi){  
+Protocol_Send_Transpond:
+          CFI Block cfiBlock66 Using cfiCommon0
+          CFI Function Protocol_Send_Transpond
+        CODE
+        FUNCALL Protocol_Send_Transpond, Protocol_To_Uart
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  421 	Protocol_To_Uart(pi);	
+        ; Setup parameters for call to function Protocol_To_Uart
+        LCALL   `??Protocol_To_Uart::?relay`; Banked call to: Protocol_To_Uart
+//  422 }
+          CFI EndBlock cfiBlock66
+        REQUIRE ?Subroutine2
+        ; // Fall through to label ?Subroutine2
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine2:
+          CFI Block cfiBlock67 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+-5
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+        POP     DPH
+          CFI CFA_SP SP+-4
+          CFI DPH0 SameValue
+        POP     DPL
+          CFI CFA_SP SP+-3
+          CFI DPL0 SameValue
+        LJMP    ?BRET
+          CFI EndBlock cfiBlock67
+//  423 
+//  424 /*****************************************************************
+//  425 函数名:FetchProtocols
+//  426 备注: 处理上位机串口命令总函数
+//  427 ******************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  428 void FetchProtocols(void)
+FetchProtocols:
+          CFI Block cfiBlock68 Using cfiCommon0
+          CFI Function FetchProtocols
+        CODE
+//  429 {
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  430 	#if UART1_PROTOCOL_RESOLVER
+//  431 		UART1_Resolver->Fetch_Protocol(UART1_Resolver);
+        ; Setup parameters for indirect call
+        MOV     DPTR,#UART1_Resolver
+        MOVX    A,@DPTR
+        MOV     R2,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R3,A
+        MOV     DPTR,#UART1_Resolver
+        MOVX    A,@DPTR
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        XCH     A,R0
+        LCALL   ?Subroutine14 & 0xFFFF
+??CrossCallReturnLabel_20:
+        LCALL   ??Subroutine20_0 & 0xFFFF
+??CrossCallReturnLabel_36:
+        LCALL   ?CALL_IND
+//  432 	#endif
+//  433 	#if UART2_PROTOCOL_RESOLVER
+//  434 		UART2_Resolver->Fetch_Protocol(UART2_Resolver);
+//  435 	#endif
+//  436 	#if UART3_PROTOCOL_RESOLVER
+//  437 		UART3_Resolver->Fetch_Protocol(UART3_Resolver);
+//  438 	#endif
+//  439 	#if UART4_PROTOCOL_RESOLVER
+//  440 		UART4_Resolver->Fetch_Protocol(UART4_Resolver);
+//  441 	#endif
+//  442 }
+        SJMP    ?Subroutine2
+          CFI EndBlock cfiBlock68
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine14:
+          CFI Block cfiCond69 Using cfiCommon0
+          CFI Function ProtocolFrame_Init
+          CFI Conditional ??CrossCallReturnLabel_19
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond70 Using cfiCommon0
+          CFI (cfiCond70) Function FetchProtocols
+          CFI (cfiCond70) Conditional ??CrossCallReturnLabel_20
+          CFI (cfiCond70) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond70) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond70) CFA_SP SP+-7
+          CFI Block cfiPicker71 Using cfiCommon1
+          CFI (cfiPicker71) NoFunction
+          CFI (cfiPicker71) Picker
+        ADD     A,#0x1f
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R0
+        MOV     DPH,A
+        RET
+          CFI EndBlock cfiCond69
+          CFI EndBlock cfiCond70
+          CFI EndBlock cfiPicker71
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine9:
+          CFI Block cfiCond72 Using cfiCommon0
+          CFI Function _Fetch_Protocol
+          CFI Conditional ??CrossCallReturnLabel_37
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 28)
+          CFI Block cfiCond73 Using cfiCommon0
+          CFI (cfiCond73) Function _Protocol_Put
+          CFI (cfiCond73) Conditional ??CrossCallReturnLabel_38
+          CFI (cfiCond73) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond73) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond73) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond73) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond73) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond73) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond73) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond73) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond73) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond73) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond73) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond73) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond73) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond73) CFA_SP SP+-2
+          CFI (cfiCond73) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond74 Using cfiCommon0
+          CFI (cfiCond74) Function _Protocol_Put
+          CFI (cfiCond74) Conditional ??CrossCallReturnLabel_39
+          CFI (cfiCond74) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond74) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond74) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond74) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond74) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond74) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond74) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond74) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond74) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond74) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond74) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond74) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond74) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond74) CFA_SP SP+-2
+          CFI (cfiCond74) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond75 Using cfiCommon0
+          CFI (cfiCond75) Function _Protocol_Put
+          CFI (cfiCond75) Conditional ??CrossCallReturnLabel_40
+          CFI (cfiCond75) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond75) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond75) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond75) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond75) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond75) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond75) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond75) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond75) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond75) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond75) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond75) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond75) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond75) CFA_SP SP+-2
+          CFI (cfiCond75) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond76 Using cfiCommon0
+          CFI (cfiCond76) Function _Protocol_Put
+          CFI (cfiCond76) Conditional ??CrossCallReturnLabel_41
+          CFI (cfiCond76) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond76) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond76) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond76) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond76) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond76) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond76) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond76) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond76) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond76) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond76) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond76) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond76) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond76) CFA_SP SP+-2
+          CFI (cfiCond76) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond77 Using cfiCommon0
+          CFI (cfiCond77) Function _Protocol_Put
+          CFI (cfiCond77) Conditional ??CrossCallReturnLabel_42
+          CFI (cfiCond77) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond77) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond77) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond77) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond77) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond77) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond77) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond77) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond77) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond77) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond77) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond77) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond77) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond77) CFA_SP SP+-2
+          CFI (cfiCond77) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond78 Using cfiCommon0
+          CFI (cfiCond78) Function Protocol_Register
+          CFI (cfiCond78) Conditional ??CrossCallReturnLabel_43
+          CFI (cfiCond78) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond78) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond78) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond78) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond78) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond78) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond78) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond78) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond78) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond78) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond78) CFA_SP SP+-2
+          CFI (cfiCond78) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond79 Using cfiCommon0
+          CFI (cfiCond79) Function Get_Protocol_Description
+          CFI (cfiCond79) Conditional ??CrossCallReturnLabel_44
+          CFI (cfiCond79) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond79) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond79) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond79) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond79) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond79) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond79) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond79) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond79) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond79) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond79) CFA_SP SP+-2
+          CFI (cfiCond79) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiPicker80 Using cfiCommon1
+          CFI (cfiPicker80) NoFunction
+          CFI (cfiPicker80) Picker
+        MOV     DPTR,#Log + 2
+          CFI EndBlock cfiCond72
+          CFI EndBlock cfiCond73
+          CFI EndBlock cfiCond74
+          CFI EndBlock cfiCond75
+          CFI EndBlock cfiCond76
+          CFI EndBlock cfiCond77
+          CFI EndBlock cfiCond78
+          CFI EndBlock cfiCond79
+          CFI EndBlock cfiPicker80
+        REQUIRE ??Subroutine20_0
+        ; // Fall through to label ??Subroutine20_0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+??Subroutine20_0:
+          CFI Block cfiCond81 Using cfiCommon0
+          CFI Function _Protocol_Put
+          CFI Conditional ??CrossCallReturnLabel_33
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond82 Using cfiCommon0
+          CFI (cfiCond82) Function ProtocolFrame_Init
+          CFI (cfiCond82) Conditional ??CrossCallReturnLabel_34
+          CFI (cfiCond82) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond82) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond82) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond82) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond82) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond82) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond82) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond82) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond82) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond82) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond82) CFA_SP SP+-2
+          CFI (cfiCond82) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond83 Using cfiCommon0
+          CFI (cfiCond83) Function Protocol_To_Uart
+          CFI (cfiCond83) Conditional ??CrossCallReturnLabel_35
+          CFI (cfiCond83) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond83) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond83) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond83) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond83) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond83) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond83) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond83) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond83) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond83) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond83) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond83) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond83) CFA_SP SP+-2
+          CFI (cfiCond83) CFA_XSP16 add(XSP16, 112)
+          CFI Block cfiCond84 Using cfiCommon0
+          CFI (cfiCond84) Function FetchProtocols
+          CFI (cfiCond84) Conditional ??CrossCallReturnLabel_36
+          CFI (cfiCond84) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond84) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond84) CFA_SP SP+-7
+          CFI Block cfiCond85 Using cfiCommon0
+          CFI (cfiCond85) Function _Fetch_Protocol
+          CFI (cfiCond85) Conditional ??CrossCallReturnLabel_37
+          CFI (cfiCond85) R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond85) VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond85) V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond85) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond85) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond85) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond85) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond85) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond85) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond85) CFA_SP SP+-2
+          CFI (cfiCond85) CFA_XSP16 add(XSP16, 28)
+          CFI Block cfiCond86 Using cfiCommon0
+          CFI (cfiCond86) Function _Protocol_Put
+          CFI (cfiCond86) Conditional ??CrossCallReturnLabel_38
+          CFI (cfiCond86) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond86) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond86) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond86) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond86) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond86) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond86) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond86) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond86) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond86) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond86) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond86) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond86) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond86) CFA_SP SP+-2
+          CFI (cfiCond86) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond87 Using cfiCommon0
+          CFI (cfiCond87) Function _Protocol_Put
+          CFI (cfiCond87) Conditional ??CrossCallReturnLabel_39
+          CFI (cfiCond87) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond87) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond87) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond87) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond87) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond87) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond87) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond87) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond87) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond87) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond87) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond87) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond87) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond87) CFA_SP SP+-2
+          CFI (cfiCond87) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond88 Using cfiCommon0
+          CFI (cfiCond88) Function _Protocol_Put
+          CFI (cfiCond88) Conditional ??CrossCallReturnLabel_40
+          CFI (cfiCond88) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond88) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond88) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond88) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond88) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond88) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond88) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond88) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond88) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond88) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond88) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond88) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond88) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond88) CFA_SP SP+-2
+          CFI (cfiCond88) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond89 Using cfiCommon0
+          CFI (cfiCond89) Function _Protocol_Put
+          CFI (cfiCond89) Conditional ??CrossCallReturnLabel_41
+          CFI (cfiCond89) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond89) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond89) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond89) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond89) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond89) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond89) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond89) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond89) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond89) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond89) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond89) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond89) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond89) CFA_SP SP+-2
+          CFI (cfiCond89) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond90 Using cfiCommon0
+          CFI (cfiCond90) Function _Protocol_Put
+          CFI (cfiCond90) Conditional ??CrossCallReturnLabel_42
+          CFI (cfiCond90) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond90) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond90) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond90) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond90) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond90) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond90) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond90) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond90) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond90) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond90) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond90) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond90) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond90) CFA_SP SP+-2
+          CFI (cfiCond90) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond91 Using cfiCommon0
+          CFI (cfiCond91) Function Protocol_Register
+          CFI (cfiCond91) Conditional ??CrossCallReturnLabel_43
+          CFI (cfiCond91) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond91) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond91) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond91) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond91) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond91) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond91) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond91) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond91) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond91) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond91) CFA_SP SP+-2
+          CFI (cfiCond91) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond92 Using cfiCommon0
+          CFI (cfiCond92) Function Get_Protocol_Description
+          CFI (cfiCond92) Conditional ??CrossCallReturnLabel_44
+          CFI (cfiCond92) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond92) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond92) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond92) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond92) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond92) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond92) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond92) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond92) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond92) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond92) CFA_SP SP+-2
+          CFI (cfiCond92) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiPicker93 Using cfiCommon1
+          CFI (cfiPicker93) NoFunction
+          CFI (cfiPicker93) Picker
+        MOVX    A,@DPTR
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     DPH,A
+        MOV     DPL,R0
+        RET
+          CFI EndBlock cfiCond81
+          CFI EndBlock cfiCond82
+          CFI EndBlock cfiCond83
+          CFI EndBlock cfiCond84
+          CFI EndBlock cfiCond85
+          CFI EndBlock cfiCond86
+          CFI EndBlock cfiCond87
+          CFI EndBlock cfiCond88
+          CFI EndBlock cfiCond89
+          CFI EndBlock cfiCond90
+          CFI EndBlock cfiCond91
+          CFI EndBlock cfiCond92
+          CFI EndBlock cfiPicker93
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for UART1_Resolver>`:
+        DATA16
+        DW _UART1_Resolver
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??_clean_recv_buf::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    _clean_recv_buf
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??_Fetch_Protocol::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    _Fetch_Protocol
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??_Protocol_Put::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    _Protocol_Put
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??char_special::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    char_special
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??getCheckSum_ByProtocolInfo::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    getCheckSum_ByProtocolInfo
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??Protocol_Register::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    Protocol_Register
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??Get_Protocol_Description::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    Get_Protocol_Description
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??ProtocolFrame_Init::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    ProtocolFrame_Init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??Protocol_To_Uart::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    Protocol_To_Uart
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??Protocol_Send::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    Protocol_Send
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??Protocol_Send_Transpond::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    Protocol_Send_Transpond
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??FetchProtocols::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    FetchProtocols
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "\\320\\255\\322\\351\\320\\243\\321\\351\\2`:
+        DB "\320\255\322\351\320\243\321\351\262\273\315\250\271\375\015\012"
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "\\312\\325\\265\\275\\320\\255\\322\\351\\2`:
+        DB "\312\325\265\275\320\255\322\351\265\253\312\307\316\336\264\246\300\355\272\257\312\375\015\012"
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "\\320\\255\\322\\351\\326\\320\\315\\276\\2`:
+        DB "\320\255\322\351\326\320\315\276\263\366\317\3260xFD\015\012"
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "\\264\\246\\300\\355\\326\\241\\263\\244\\2`:
+        DB "\264\246\300\355\326\241\263\244\264\355\316\363\015\012"
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "\\320\\255\\322\\351\\320\\243\\321\\351\\2_1`:
+        DB "\320\255\322\351\320\243\321\351\272\315\264\355\316\363\015\012"
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "\\326\\241\\316\\262\\316\\273\\326\\303\\2`:
+        DB "\326\241\316\262\316\273\326\303\267\3070xF8\264\355\316\363\015\012"
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "\\317\\326\\323\\320\\320\\255\\322\\351\\2`:
+        DB "\317\326\323\320\320\255\322\351\277\342\316\336\306\245\305\344\265\261\307\260\320\255\322\351\015\012"
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "\\320\\255\\322\\351\\327\\242\\262\\341\\3`:
+        DB "\320\255\322\351\327\242\262\341\312\247\260\334,\312\375\327\351\302\372\015\012"
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "Get_Protocol_Descript...">`:
+        DB "Get_Protocol_Description\316\264\325\322\265\275\320\255\322\351\303\350\312\366\015\012"
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0`:
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+
+        END
+// 
+// 2 022 bytes in segment BANKED_CODE
+//    72 bytes in segment BANK_RELAYS
+//     2 bytes in segment XDATA_I
+//     2 bytes in segment XDATA_ID
+//   323 bytes in segment XDATA_ROM_C
+//   148 bytes in segment XDATA_Z
+// 
+// 2 096 bytes of CODE  memory
+//   323 bytes of CONST memory
+//   150 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none

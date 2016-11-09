@@ -1,0 +1,403 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                24/Oct/2016  15:09:37
+# Copyright 2004-2015 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Components\osal\common\OSAL_PwrMgr.c
+#    Command line       =  
+#        -f "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=50 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)
+#        -DREJOIN_POLL_RATE=440 "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack
+#        Mesh 1.0.0\Components\osal\common\OSAL_PwrMgr.c" -D LOG_OUT -D
+#        UART1_PROTOCOL_RESOLVER=1 -D xISQC -D NWK_AUTO_POLL -D ZTOOL_P1 -D
+#        ISR_KEYINTERRUPT -D xMT_TASK -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
+#        xLCD_SUPPORTED=DEBUG -D xPOWER_SAVING -lC
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\WaterMachine\List"
+#        -lA "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\WaterMachine\List"
+#        --diag_suppress Pe001,Pa010 -o
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\WaterMachine\Obj"
+#        -e --no_code_motion --debug --core=plain --dptr=16,1
+#        --data_model=large --code_model=banked
+#        --calling_convention=xdata_reentrant --place_constants=data_rom
+#        --nr_virtual_regs 8 -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack
+#        Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\Source\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\Frame\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\Module\WaterMachine\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz
+#    List file          =  
+#        E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\WaterMachine\List\OSAL_PwrMgr.lst
+#    Object file        =  
+#        E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.5饮水机控制\CC2530DB\WaterMachine\Obj\OSAL_PwrMgr.r51
+#
+###############################################################################
+
+E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh 1.0.0\Components\osal\common\OSAL_PwrMgr.c
+      1          #include "comdef.h"
+      2          #include "OnBoard.h"
+      3          #include "OSAL.h"
+      4          #include "OSAL_Tasks.h"
+      5          #include "OSAL_Timers.h"
+      6          #include "OSAL_PwrMgr.h"
+      7          
+      8          /*********************************************************************
+      9           * MACROS
+     10           */
+     11          
+     12          /*********************************************************************
+     13           * CONSTANTS
+     14           */
+     15          
+     16          /*********************************************************************
+     17           * TYPEDEFS
+     18           */
+     19          
+     20          /*********************************************************************
+     21           * GLOBAL VARIABLES
+     22           */
+     23          
+     24          /* This global variable stores the power management attributes.
+     25           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     26          pwrmgr_attribute_t pwrmgr_attribute;
+   \                     pwrmgr_attribute:
+   \   000000                DS 7
+   \   000007                REQUIRE __INIT_XDATA_Z
+     27          
+     28          /*********************************************************************
+     29           * EXTERNAL VARIABLES
+     30           */
+     31          
+     32          /*********************************************************************
+     33           * EXTERNAL FUNCTIONS
+     34           */
+     35          
+     36          /*********************************************************************
+     37           * LOCAL VARIABLES
+     38           */
+     39          
+     40          /*********************************************************************
+     41           * LOCAL FUNCTION PROTOTYPES
+     42           */
+     43          
+     44          /*********************************************************************
+     45           * FUNCTIONS
+     46           *********************************************************************/
+     47          
+     48          /*********************************************************************
+     49           * @fn      osal_pwrmgr_init
+     50           *
+     51           * @brief   Initialize the power management system.
+     52           *
+     53           * @param   none.
+     54           *
+     55           * @return  none.
+     56           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     57          void osal_pwrmgr_init( void )
+   \                     osal_pwrmgr_init:
+     58          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     59            pwrmgr_attribute.pwrmgr_device = PWRMGR_ALWAYS_ON; // Default to no power conservation.
+   \   000004   90....       MOV     DPTR,#pwrmgr_attribute + 6
+   \   000007   E4           CLR     A
+   \   000008   F0           MOVX    @DPTR,A
+     60            pwrmgr_attribute.pwrmgr_task_state = 0;            // Cleared.  All set to conserve
+   \   000009   90....       MOV     DPTR,#pwrmgr_attribute
+   \   00000C   F0           MOVX    @DPTR,A
+   \   00000D   A3           INC     DPTR
+   \   00000E                REQUIRE ?Subroutine0
+   \   00000E                ; // Fall through to label ?Subroutine0
+     61          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   D083         POP     DPH
+   \   000003   D082         POP     DPL
+   \   000005   02....       LJMP    ?BRET
+     62          
+     63          /*********************************************************************
+     64           * @fn      osal_pwrmgr_device
+     65           *
+     66           * @brief   Sets the device power characteristic.
+     67           *
+     68           * @param   pwrmgr_device - type of power devices. With PWRMGR_ALWAYS_ON
+     69           *          selection, there is no power savings and the device is most
+     70           *          likely on mains power. The PWRMGR_BATTERY selection allows the
+     71           *          HAL sleep manager to enter sleep.
+     72           *
+     73           * @return  none
+     74           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     75          void osal_pwrmgr_device( uint8 pwrmgr_device )
+   \                     osal_pwrmgr_device:
+     76          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     77            pwrmgr_attribute.pwrmgr_device = pwrmgr_device;
+   \   000004   E9           MOV     A,R1
+   \   000005   90....       MOV     DPTR,#pwrmgr_attribute + 6
+   \   000008   80..         SJMP    ?Subroutine0
+     78          }
+     79          
+     80          /*********************************************************************
+     81           * @fn      osal_pwrmgr_task_state
+     82           *
+     83           * @brief   This function is called by each task to state whether or
+     84           *          not this task wants to conserve power.
+     85           *
+     86           * @param   task_id - calling task ID.
+     87           *          state - whether the calling task wants to
+     88           *          conserve power or not.
+     89           *
+     90           * @return  SUCCESS if task complete
+     91           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     92          uint8 osal_pwrmgr_task_state( uint8 task_id, uint8 state )
+   \                     osal_pwrmgr_task_state:
+     93          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FB           MOV     R3,A
+     94            if ( task_id >= tasksCnt )
+   \   000007   90....       MOV     DPTR,#tasksCnt
+   \   00000A   E0           MOVX    A,@DPTR
+   \   00000B   F8           MOV     R0,A
+   \   00000C   EB           MOV     A,R3
+   \   00000D   C3           CLR     C
+   \   00000E   98           SUBB    A,R0
+   \   00000F   4004         JC      ??osal_pwrmgr_task_state_0
+     95              return ( INVALID_TASK );
+   \   000011   7903         MOV     R1,#0x3
+   \   000013   8036         SJMP    ??osal_pwrmgr_task_state_1
+     96          
+     97            if ( state == PWRMGR_CONSERVE )
+   \                     ??osal_pwrmgr_task_state_0:
+   \   000015   EA           MOV     A,R2
+   \   000016   75..01       MOV     ?V0,#0x1
+   \   000019   75..00       MOV     ?V1,#0x0
+   \   00001C   7019         JNZ     ??osal_pwrmgr_task_state_2
+     98            {
+     99              // Clear the task state flag
+    100              pwrmgr_attribute.pwrmgr_task_state &= ~(1 << task_id );
+   \   00001E   EB           MOV     A,R3
+   \   00001F   78..         MOV     R0,#?V0
+   \   000021   12....       LCALL   ?S_SHL
+   \   000024   E5..         MOV     A,?V0
+   \   000026   F4           CPL     A
+   \   000027   F8           MOV     R0,A
+   \   000028   E5..         MOV     A,?V1
+   \   00002A   F4           CPL     A
+   \   00002B   F9           MOV     R1,A
+   \   00002C   90....       MOV     DPTR,#pwrmgr_attribute
+   \   00002F   E0           MOVX    A,@DPTR
+   \   000030   58           ANL     A,R0
+   \   000031   F0           MOVX    @DPTR,A
+   \   000032   A3           INC     DPTR
+   \   000033   E0           MOVX    A,@DPTR
+   \   000034   59           ANL     A,R1
+   \   000035   8011         SJMP    ??osal_pwrmgr_task_state_3
+    101            }
+    102            else
+    103            {
+    104              // Set the task state flag
+    105              pwrmgr_attribute.pwrmgr_task_state |= (1 << task_id);
+   \                     ??osal_pwrmgr_task_state_2:
+   \   000037   EB           MOV     A,R3
+   \   000038   78..         MOV     R0,#?V0
+   \   00003A   12....       LCALL   ?S_SHL
+   \   00003D   90....       MOV     DPTR,#pwrmgr_attribute
+   \   000040   E0           MOVX    A,@DPTR
+   \   000041   45..         ORL     A,?V0
+   \   000043   F0           MOVX    @DPTR,A
+   \   000044   A3           INC     DPTR
+   \   000045   E0           MOVX    A,@DPTR
+   \   000046   45..         ORL     A,?V1
+   \                     ??osal_pwrmgr_task_state_3:
+   \   000048   F0           MOVX    @DPTR,A
+    106            }
+    107          
+    108            return ( SUCCESS );
+   \   000049   7900         MOV     R1,#0x0
+   \                     ??osal_pwrmgr_task_state_1:
+   \   00004B   7F02         MOV     R7,#0x2
+   \   00004D   02....       LJMP    ?BANKED_LEAVE_XDATA
+    109          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??osal_pwrmgr_init::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    osal_pwrmgr_init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??osal_pwrmgr_device::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    osal_pwrmgr_device
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??osal_pwrmgr_task_state::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    osal_pwrmgr_task_state
+    110          
+    111          #if defined( POWER_SAVING )
+    112          /*********************************************************************
+    113           * @fn      osal_pwrmgr_powerconserve
+    114           *
+    115           * @brief   This function is called from the main OSAL loop when there are
+    116           *          no events scheduled and shouldn't be called from anywhere else.
+    117           *
+    118           * @param   none.
+    119           *
+    120           * @return  none.
+    121           */
+    122          void osal_pwrmgr_powerconserve( void )
+    123          {
+    124            uint32        next;
+    125            halIntState_t intState;
+    126          
+    127            // Should we even look into power conservation
+    128            if ( pwrmgr_attribute.pwrmgr_device != PWRMGR_ALWAYS_ON )
+    129            {
+    130              // Are all tasks in agreement to conserve
+    131              if ( pwrmgr_attribute.pwrmgr_task_state == 0 )
+    132              {
+    133                // Hold off interrupts.
+    134                HAL_ENTER_CRITICAL_SECTION( intState );
+    135          
+    136                // Get next time-out
+    137                next = osal_next_timeout();
+    138          
+    139                // Re-enable interrupts.
+    140                HAL_EXIT_CRITICAL_SECTION( intState );
+    141          
+    142                // Put the processor into sleep mode
+    143                OSAL_SET_CPU_INTO_SLEEP( next );
+    144              }
+    145            }
+    146          }
+    147          #endif /* POWER_SAVING */
+    148          
+    149          /*********************************************************************
+    150          *********************************************************************/
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      2      0   osal_pwrmgr_device
+      2      0   osal_pwrmgr_init
+      0     10   osal_pwrmgr_task_state
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       8  ?Subroutine0
+      10  osal_pwrmgr_device
+       6  osal_pwrmgr_device::?relay
+      14  osal_pwrmgr_init
+       6  osal_pwrmgr_init::?relay
+      80  osal_pwrmgr_task_state
+       6  osal_pwrmgr_task_state::?relay
+       7  pwrmgr_attribute
+
+ 
+ 112 bytes in segment BANKED_CODE
+  18 bytes in segment BANK_RELAYS
+   7 bytes in segment XDATA_Z
+ 
+ 130 bytes of CODE  memory
+   7 bytes of XDATA memory
+
+Errors: none
+Warnings: none

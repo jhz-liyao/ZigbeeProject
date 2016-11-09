@@ -1,0 +1,1457 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                20/Oct/2016  12:47:58
+# Copyright 2004-2015 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\Module\WaterMachine\WaterMachineApp.c
+#    Command line       =  
+#        -f "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg" (-DCPU32MHZ
+#        -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3 -DMAC_CFG_TX_MAX=6
+#        -DMAC_CFG_RX_MAX=3) -f "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack
+#        Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg" (-DZIGBEEPRO
+#        -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=100 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)
+#        -DREJOIN_POLL_RATE=440 "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack
+#        Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\Module\WaterMachine\WaterMachineApp.c" -D LOG_OUT -D
+#        UART1_PROTOCOL_RESOLVER=1 -D xISQC -D NWK_AUTO_POLL -D ZTOOL_P1 -D
+#        ISR_KEYINTERRUPT -D xMT_TASK -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
+#        xLCD_SUPPORTED=DEBUG -D xPOWER_SAVING -lC
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\WaterMachine\List" -lA
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\WaterMachine\List" --diag_suppress Pe001,Pa010 -o
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\WaterMachine\Obj" -e --no_code_motion --debug
+#        --core=plain --dptr=16,1 --data_model=large --code_model=banked
+#        --calling_convention=xdata_reentrant --place_constants=data_rom
+#        --nr_virtual_regs 8 -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack
+#        Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\" -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\Source\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\Frame\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\Module\WaterMachine\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\ZMain\TI2530DB\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\hal\include\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\mac\include\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\mac\high_level\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\mt\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\osal\include\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\services\saddr\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\services\sdata\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\stack\af\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\stack\nwk\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\stack\sapi\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\stack\sec\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\stack\sys\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\stack\zdo\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\zmac\" -I
+#        "E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\..\..\..\..\..\Components\zmac\f8w\" -Ohz
+#    List file          =  
+#        E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\WaterMachine\List\WaterMachineApp.lst
+#    Object file        =  
+#        E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 -
+#        副本\CC2530DB\WaterMachine\Obj\WaterMachineApp.r51
+#
+###############################################################################
+
+E:\资源(G：)\#个人项目\ZigbeeProject\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V1.4饮水机控制 - 副本\Module\WaterMachine\WaterMachineApp.c
+      1          #include "OSAL.h"
+      2          #include "AF.h"
+      3          #include "ZDApp.h"
+      4          #include "ZDObject.h"
+      5          #include "ZDProfile.h"
+      6          
+      7          #include "DemoApp.h"
+      8          #include "DebugTrace.h"
+      9          
+     10          #if !defined( WIN32 ) || defined( ZBIT )
+     11            #include "OnBoard.h"
+
+   \                                 In  segment SFR_AN, at 0x90
+   \   union <unnamed> volatile __sfr _A_P1
+   \                     _A_P1:
+   \   000000                DS 1
+     12          #endif
+     13           
+     14          /* HAL */
+     15          #include "hal_led.h"
+     16          #include "hal_key.h"
+     17          #include "hal_uart.h" 
+     18          #include "Tool.h"  
+     19          #include "Protocol.h"
+     20          #include "ProtocolFrame.h"
+     21          #include "LOG.h"
+     22          #include "ModuleManager.h"
+     23          #include "WaterMachineDriver.h"
+     24          
+     25          #define DEMO_SEND_MSG_TIMEOUT   1000     
+     26          #define HEARTBEAT_CHECK_TIMEOUT 3000
+     27          #define HEARTBEAT_SEND_TIMEOUT  1000
+     28          #define DEMO_SEND_MSG_EVT                     (BV(0))
+     29          #define WATER_MACHINE_STATE_CHECK_EVT             (BV(1))
+     30          #define HEARTBEAT_CHECK_EVT                       (BV(2))
+     31          #define HEARTBEAT_SEND_EVT                       (BV(3))
+     32          
+     33          /*********************************************************************
+     34           * GLOBAL VARIABLES
+     35           */ 
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     36          const cId_t Demo_ClusterList[DEMO_MAX_CLUSTERS] = { DEMO_CLUSTERID };//簇列表
+   \                     Demo_ClusterList:
+   \   000000   0100         DW 1
+     37          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     38          const SimpleDescriptionFormat_t Demo_SimpleDesc =       //简单描述符
+   \                     Demo_SimpleDesc:
+   \   000000   0A           DB 10
+   \   000001   040F         DW 3844
+   \   000003   0100         DW 1
+   \   000005   00           DB 0
+   \   000006   01           DB 1
+   \   000007   ....         DW Demo_ClusterList
+   \   000009   01           DB 1
+   \   00000A   ....         DW Demo_ClusterList
+     39          {
+     40            DEMO_ENDPOINT,              //  int Endpoint;
+     41            DEMO_PROFID,                //  uint16 AppProfId[2];
+     42            DEMO_DEVICEID,              //  uint16 AppDeviceId[2];
+     43            DEMO_DEVICE_VERSION,        //  int   AppDevVer:4;
+     44            DEMO_FLAGS,                 //  int   AppFlags:4;
+     45            DEMO_MAX_CLUSTERS,          //  byte  AppNumInClusters;
+     46            (cId_t *)Demo_ClusterList,  //  byte *pAppInClusterList;
+     47            DEMO_MAX_CLUSTERS,          //  byte  AppNumInClusters;
+     48            (cId_t *)Demo_ClusterList   //  byte *pAppInClusterList;
+     49          };
+     50          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     51          endPointDesc_t Demo_epDesc; //端点描述符
+   \                     Demo_epDesc:
+   \   000000                DS 6
+   \   000006                REQUIRE __INIT_XDATA_Z
+     52          /*********************************************************************
+     53           * 本地变量
+     54           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     55          byte Demo_TaskID; 
+   \                     Demo_TaskID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     56          devStates_t Demo_NwkState; 
+   \                     Demo_NwkState:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     57          byte Demo_TransID; 
+   \                     Demo_TransID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     58          afAddrType_t Demo_DstAddr; 
+   \                     Demo_DstAddr:
+   \   000000                DS 12
+   \   00000C                REQUIRE __INIT_XDATA_Z
+     59           
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     60          PROTOCOL_T protocol = {0}; 
+   \                     protocol:
+   \   000000                DS 3
+   \   000003                REQUIRE __INIT_XDATA_Z
+     61          /*********************************************************************
+     62           * LOCAL FUNCTIONS
+     63           */
+     64          static void Demo_ProcessZDOMsgs( zdoIncomingMsg_t *inMsg );
+     65          static void Demo_HandleKeys( byte shift, byte keys );
+     66          static void Demo_ReceiveHandle( afIncomingMSGPacket_t *pckt );
+     67          static void Demo_SendHandle( void );
+     68          
+     69           
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     70          void SendHandle(uint8_t* data, uint8_t len){
+   \                     SendHandle:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FE           MOV     R6,A
+     71            
+     72            Demo_DstAddr.addr.shortAddr = 0x00;
+   \   000007   90....       MOV     DPTR,#Demo_DstAddr
+   \   00000A   E4           CLR     A
+   \   00000B   F0           MOVX    @DPTR,A
+   \   00000C   A3           INC     DPTR
+   \   00000D   F0           MOVX    @DPTR,A
+     73            //Protocol_Printf(data, len);
+     74            if ( AF_DataRequest( &Demo_DstAddr, &Demo_epDesc,
+     75                                 DEMO_CLUSTERID,
+     76                                 len,
+     77                                 (byte *)data,
+     78                                 &Demo_TransID,
+     79                                 AF_DISCV_ROUTE, AF_DEFAULT_RADIUS ) == afStatus_SUCCESS );
+   \   00000E                ; Setup parameters for call to function AF_DataRequest
+   \   00000E   75..1E       MOV     ?V0,#0x1e
+   \   000011   78..         MOV     R0,#?V0
+   \   000013   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000016   75....       MOV     ?V0,#Demo_TransID & 0xff
+   \   000019   75....       MOV     ?V1,#(Demo_TransID >> 8) & 0xff
+   \   00001C   78..         MOV     R0,#?V0
+   \   00001E   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000021   8A..         MOV     ?V0,R2
+   \   000023   8B..         MOV     ?V1,R3
+   \   000025   78..         MOV     R0,#?V0
+   \   000027   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00002A   8E..         MOV     ?V0,R6
+   \   00002C   75..00       MOV     ?V1,#0x0
+   \   00002F   78..         MOV     R0,#?V0
+   \   000031   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000034   75..01       MOV     ?V0,#0x1
+   \   000037   78..         MOV     R0,#?V0
+   \   000039   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00003C   7900         MOV     R1,#0x0
+   \   00003E   7C..         MOV     R4,#Demo_epDesc & 0xff
+   \   000040   7D..         MOV     R5,#(Demo_epDesc >> 8) & 0xff
+   \   000042   7A..         MOV     R2,#Demo_DstAddr & 0xff
+   \   000044   7B..         MOV     R3,#(Demo_DstAddr >> 8) & 0xff
+   \   000046   12....       LCALL   `??AF_DataRequest::?relay`; Banked call to: AF_DataRequest
+   \   000049   7409         MOV     A,#0x9
+   \   00004B                REQUIRE ?Subroutine0
+   \   00004B                ; // Fall through to label ?Subroutine0
+     80          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000003   7F02         MOV     R7,#0x2
+   \   000005   02....       LJMP    ?BANKED_LEAVE_XDATA
+     81          /****************************************************
+     82          *      函数名: Demo_Init
+     83          *        功能: 应用初始化
+     84          *        参数: 应用层任务ID 
+     85          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     86          void Demo_Init( uint8 task_id ){
+   \                     Demo_Init:
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+     87            
+     88            Demo_TaskID = task_id;
+   \   000006   90....       MOV     DPTR,#Demo_TaskID
+   \   000009   F0           MOVX    @DPTR,A
+     89            Demo_NwkState = DEV_INIT;
+   \   00000A   90....       MOV     DPTR,#Demo_NwkState
+   \   00000D   7401         MOV     A,#0x1
+   \   00000F   F0           MOVX    @DPTR,A
+     90            Demo_TransID = 0; 
+   \   000010   90....       MOV     DPTR,#Demo_TransID
+   \   000013   E4           CLR     A
+   \   000014   F0           MOVX    @DPTR,A
+     91          
+     92            Demo_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
+   \   000015   90....       MOV     DPTR,#Demo_DstAddr + 8
+   \   000018   7402         MOV     A,#0x2
+   \   00001A   F0           MOVX    @DPTR,A
+     93            Demo_DstAddr.endPoint = DEMO_ENDPOINT;
+   \   00001B   A3           INC     DPTR
+   \   00001C   740A         MOV     A,#0xa
+   \   00001E   F0           MOVX    @DPTR,A
+     94            Demo_DstAddr.addr.shortAddr = 0;
+   \   00001F   90....       MOV     DPTR,#Demo_DstAddr
+   \   000022   E4           CLR     A
+   \   000023   F0           MOVX    @DPTR,A
+   \   000024   A3           INC     DPTR
+   \   000025   F0           MOVX    @DPTR,A
+     95           
+     96            Demo_epDesc.endPoint = DEMO_ENDPOINT;
+   \   000026   90....       MOV     DPTR,#Demo_epDesc
+   \   000029   740A         MOV     A,#0xa
+   \   00002B   F0           MOVX    @DPTR,A
+     97            Demo_epDesc.task_id = &Demo_TaskID;
+   \   00002C   A3           INC     DPTR
+   \   00002D   74..         MOV     A,#Demo_TaskID & 0xff
+   \   00002F   F0           MOVX    @DPTR,A
+   \   000030   A3           INC     DPTR
+   \   000031   74..         MOV     A,#(Demo_TaskID >> 8) & 0xff
+   \   000033   F0           MOVX    @DPTR,A
+     98            Demo_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&Demo_SimpleDesc;
+   \   000034   A3           INC     DPTR
+   \   000035   74..         MOV     A,#Demo_SimpleDesc & 0xff
+   \   000037   F0           MOVX    @DPTR,A
+   \   000038   A3           INC     DPTR
+   \   000039   74..         MOV     A,#(Demo_SimpleDesc >> 8) & 0xff
+   \   00003B   F0           MOVX    @DPTR,A
+     99            Demo_epDesc.latencyReq = noLatencyReqs;
+   \   00003C   A3           INC     DPTR
+   \   00003D   E4           CLR     A
+   \   00003E   F0           MOVX    @DPTR,A
+    100           
+    101            afRegister( &Demo_epDesc );
+   \   00003F                ; Setup parameters for call to function afRegister
+   \   00003F   7A..         MOV     R2,#Demo_epDesc & 0xff
+   \   000041   7B..         MOV     R3,#(Demo_epDesc >> 8) & 0xff
+   \   000043   12....       LCALL   `??afRegister::?relay`; Banked call to: afRegister
+    102           
+    103            RegisterForKeys( Demo_TaskID );
+   \   000046                ; Setup parameters for call to function RegisterForKeys
+   \   000046   90....       MOV     DPTR,#Demo_TaskID
+   \   000049   E0           MOVX    A,@DPTR
+   \   00004A   F9           MOV     R1,A
+   \   00004B   12....       LCALL   `??RegisterForKeys::?relay`; Banked call to: RegisterForKeys
+    104           
+    105            Device_Info();
+   \   00004E                ; Setup parameters for call to function Device_Info
+   \   00004E   12....       LCALL   `??Device_Info::?relay`; Banked call to: Device_Info
+    106           
+    107          
+    108            ZDO_RegisterForZDOMsg( Demo_TaskID, End_Device_Bind_rsp );
+   \   000051                ; Setup parameters for call to function ZDO_RegisterForZDOMsg
+   \   000051   7A20         MOV     R2,#0x20
+   \   000053   7B80         MOV     R3,#-0x80
+   \   000055   90....       MOV     DPTR,#Demo_TaskID
+   \   000058   E0           MOVX    A,@DPTR
+   \   000059   F9           MOV     R1,A
+   \   00005A   12....       LCALL   `??ZDO_RegisterForZDOMsg::?relay`; Banked call to: ZDO_RegisterForZDOMsg
+    109            ZDO_RegisterForZDOMsg( Demo_TaskID, Match_Desc_req );
+   \   00005D                ; Setup parameters for call to function ZDO_RegisterForZDOMsg
+   \   00005D   7A06         MOV     R2,#0x6
+   \   00005F   7B00         MOV     R3,#0x0
+   \   000061   90....       MOV     DPTR,#Demo_TaskID
+   \   000064   E0           MOVX    A,@DPTR
+   \   000065   F9           MOV     R1,A
+   \   000066   12....       LCALL   `??ZDO_RegisterForZDOMsg::?relay`; Banked call to: ZDO_RegisterForZDOMsg
+    110            ZDO_RegisterForZDOMsg( Demo_TaskID, Match_Desc_rsp );
+   \   000069                ; Setup parameters for call to function ZDO_RegisterForZDOMsg
+   \   000069   7A06         MOV     R2,#0x6
+   \   00006B   7B80         MOV     R3,#-0x80
+   \   00006D   90....       MOV     DPTR,#Demo_TaskID
+   \   000070   E0           MOVX    A,@DPTR
+   \   000071   F9           MOV     R1,A
+   \   000072   12....       LCALL   `??ZDO_RegisterForZDOMsg::?relay`; Banked call to: ZDO_RegisterForZDOMsg
+    111           
+    112            ProtocolFrame_Init(SendHandle);
+   \   000075                ; Setup parameters for call to function ProtocolFrame_Init
+   \   000075   7A..         MOV     R2,#`??SendHandle::?relay` & 0xff
+   \   000077   7B..         MOV     R3,#(`??SendHandle::?relay` >> 8) & 0xff
+   \   000079   12....       LCALL   `??ProtocolFrame_Init::?relay`; Banked call to: ProtocolFrame_Init
+    113            WaterMachine_Init();
+   \   00007C                ; Setup parameters for call to function WaterMachine_Init
+   \   00007C   12....       LCALL   `??WaterMachine_Init::?relay`; Banked call to: WaterMachine_Init
+    114            Log_Init();
+   \   00007F                ; Setup parameters for call to function Log_Init
+   \   00007F   12....       LCALL   `??Log_Init::?relay` ; Banked call to: Log_Init
+    115            osal_start_timerEx( Demo_TaskID, WATER_MACHINE_STATE_CHECK_EVT, 50 );
+   \   000082                ; Setup parameters for call to function osal_start_timerEx
+   \   000082   90....       MOV     DPTR,#__Constant_32
+   \   000085   12....       LCALL   ?PUSH_XSTACK8_X_FOUR
+   \   000088   7A02         MOV     R2,#0x2
+   \   00008A   7B00         MOV     R3,#0x0
+   \   00008C   90....       MOV     DPTR,#Demo_TaskID
+   \   00008F   E0           MOVX    A,@DPTR
+   \   000090   F9           MOV     R1,A
+   \   000091   12....       LCALL   `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+   \   000094   7404         MOV     A,#0x4
+   \   000096   12....       LCALL   ?DEALLOC_XSTACK8
+    116            
+    117            
+    118          }
+   \   000099   7F01         MOV     R7,#0x1
+   \   00009B   02....       LJMP    ?BANKED_LEAVE_XDATA
+    119          
+    120          
+    121          
+    122          /****************************************************
+    123          *      函数名: Demo_HandleKeys
+    124          *        功能: 按键事件处理函数
+    125          ****************************************************/
+    126          void Demo_HandleKeys( uint8 shift, uint8 keys )
+    127          { 
+    128            if ( shift ){
+    129              if ( keys & HAL_KEY_SW_1 ) {}
+    130              if ( keys & HAL_KEY_SW_2 ) {}
+    131              if ( keys & HAL_KEY_SW_3 ) {}
+    132              if ( keys & HAL_KEY_SW_4 ) {}
+    133            }else{
+    134              if ( keys & HAL_KEY_SW_1 ){ 
+    135                printf("HAL_KEY_SW_1\r\n"); 
+    136              }
+    137          
+    138              if ( keys & HAL_KEY_SW_2 ){
+    139                printf("HAL_KEY_SW_2\r\n"); 
+    140              } 
+    141              if ( keys & HAL_KEY_SW_3 ){ } 
+    142              if ( keys & HAL_KEY_SW_4 ){ }
+    143            }
+    144          }
+    145          
+    146          /****************************************************
+    147          *      函数名: Demo_ReceiveHandle
+    148          *        功能: 数据接收处理函数
+    149          ****************************************************/ 
+    150          static void Demo_ReceiveHandle( afIncomingMSGPacket_t *pkt )
+    151          {
+    152            switch ( pkt->clusterId ){
+    153              case DEMO_CLUSTERID:  
+    154                printf("收到数据\r\n");
+    155                Protocol_Printf(pkt->cmd.Data, pkt->cmd.DataLength);
+    156                if(pkt->cmd.DataLength > 1)
+    157                  UART1_Resolver->Protocol_Put(UART1_Resolver,pkt->cmd.Data, pkt->cmd.DataLength);
+    158                HeartBeat_Set(COORDINATOR_MODULE);
+    159                break;
+    160            }
+    161          }
+    162          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    163          void SendHearBeat(void){
+   \                     SendHearBeat:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 3
+   \   000005   74FD         MOV     A,#-0x3
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    164            static uint8_t cnt = 0; 
+    165            afAddrType_t HearBeat_DstAddr;  //地址描述符
+                                ^
+Warning[Pe550]: variable "HearBeat_DstAddr" was set but never used
+    166            endPointDesc_t HearBeat_epDesc; //端点描述符
+                                  ^
+Warning[Pe550]: variable "HearBeat_epDesc" was set but never used
+    167            PROTOCOL_T protocol = {0}; 
+   \   00000A   90....       MOV     DPTR,#`?<Constant {{0}}>`
+   \   00000D   AC..         MOV     R4,?XSP + 0
+   \   00000F   AD..         MOV     R5,?XSP + 1
+   \   000011   7403         MOV     A,#0x3
+   \   000013   12....       LCALL   ?MOVE_LONG8_XDATA_XDATA
+    168            
+    169            uint16 ShortAddr = NLME_GetShortAddr();
+   \   000016                ; Setup parameters for call to function NLME_GetShortAddr
+   \   000016   12....       LCALL   `??NLME_GetShortAddr::?relay`; Banked call to: NLME_GetShortAddr
+    170            HearBeat_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
+    171            HearBeat_DstAddr.endPoint = DEMO_ENDPOINT;
+    172            HearBeat_DstAddr.addr.shortAddr = 0;
+    173           
+    174            HearBeat_epDesc.endPoint = DEMO_ENDPOINT;
+    175            HearBeat_epDesc.task_id = &Demo_TaskID;
+    176            HearBeat_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&Demo_SimpleDesc;
+    177            HearBeat_epDesc.latencyReq = noLatencyReqs;
+    178            
+    179            protocol.Heartbeat_P.para1 = cnt++;
+   \   000019   90....       MOV     DPTR,#??cnt
+   \   00001C   E0           MOVX    A,@DPTR
+   \   00001D   85..82       MOV     DPL,?XSP + 0
+   \   000020   85..83       MOV     DPH,?XSP + 1
+   \   000023   F0           MOVX    @DPTR,A
+   \   000024   90....       MOV     DPTR,#??cnt
+   \   000027   E0           MOVX    A,@DPTR
+   \   000028   04           INC     A
+   \   000029   F0           MOVX    @DPTR,A
+    180            protocol.Heartbeat_P.para2 = ShortAddr >> 8;
+   \   00002A   7401         MOV     A,#0x1
+   \   00002C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00002F   EB           MOV     A,R3
+   \   000030   F0           MOVX    @DPTR,A
+    181            protocol.Heartbeat_P.para3 = ShortAddr & 0xff;
+   \   000031   7402         MOV     A,#0x2
+   \   000033   12....       LCALL   ?XSTACK_DISP0_8
+   \   000036   EA           MOV     A,R2
+   \   000037   F0           MOVX    @DPTR,A
+    182            Protocol_Send(HEARTBEAT_PROTOCOL, &protocol, sizeof(protocol.Heartbeat_P));
+   \   000038                ; Setup parameters for call to function Protocol_Send
+   \   000038   7903         MOV     R1,#0x3
+   \   00003A   AC..         MOV     R4,?XSP + 0
+   \   00003C   AD..         MOV     R5,?XSP + 1
+   \   00003E   7A31         MOV     R2,#0x31
+   \   000040   7B10         MOV     R3,#0x10
+   \   000042   12....       LCALL   `??Protocol_Send::?relay`; Banked call to: Protocol_Send
+    183          }
+   \   000045   7403         MOV     A,#0x3
+   \   000047   02....       LJMP    ?Subroutine0 & 0xFFFF
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     ??cnt:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant {{0}}>`:
+   \   000000   00           DB 0
+   \   000001   0000         DB 0, 0
+    184          
+    185          /****************************************************
+    186          *      函数名: Demo_SendHandle
+    187          *        功能: 数据发送函数
+    188          ****************************************************/ 
+    189          static void Demo_SendHandle( void )
+    190          {
+    191            if(Demo_NwkState != DEV_END_DEVICE)
+    192              return; 
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    193            static uint8_t cnt = 0;  
+   \                     ??cnt_1:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    194            uint16 Short_Addr = NLME_GetShortAddr();
+    195            protocol.Heartbeat_P.para1 = cnt++;
+    196            protocol.Heartbeat_P.para2 = Short_Addr >> 8;
+    197            protocol.Heartbeat_P.para3 = Short_Addr & 0xff;
+    198            Protocol_Send(HEARTBEAT_PROTOCOL, &protocol, sizeof(protocol.Heartbeat_P));
+    199            printf("本机地址：%X,%X\r\n",Short_Addr >> 8, Short_Addr & 0x00ff);
+    200          //  if ( AF_DataRequest( &Demo_DstAddr, &Demo_epDesc, DEMO_CLUSTERID,
+    201          //                       10, (byte *)&shortaddr,
+    202          //                       &Demo_TransID, AF_ACK_REQUEST, AF_DEFAULT_RADIUS ) == afStatus_SUCCESS );
+    203            
+    204            
+    205          //  Protocol_Send(HEARTBEAT_PROTOCOL, &protocol, sizeof(protocol.Heartbeat_P)); 
+    206          //  Protocol_Send(STATE_PROTOCOL, &protocol, sizeof(protocol.State_P));
+    207          //  Protocol_Send(ACK_PROTOCOL, &protocol, sizeof(protocol.Ack_P));  
+    208              
+    209          //  LED_Flag = ~LED_Flag;
+    210          //  P1_0 = LED_Flag;
+    211          //  P1_1 = LED_Flag;
+    212          //  P1_4 = LED_Flag;
+    213          //  //P0_4 = LED_Flag;
+    214          //  P0_6 = LED_Flag;
+    215            printf("温控输入:%d\r\n", P1_3); 
+    216          }
+    217          
+    218          
+    219           
+    220          
+    221          /****************************************************
+    222          *      函数名: Demo_ProcessEvent
+    223          *        功能: 应用初事件处理函数
+    224          *        参数: 应用层任务ID， 事件源
+    225          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    226          uint16 Demo_ProcessEvent( uint8 task_id, uint16 events ){
+   \                     Demo_ProcessEvent:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    227            afIncomingMSGPacket_t *MSGpkt;
+    228            afDataConfirm_t *afDataConfirm;
+    229           
+    230            if ( events & SYS_EVENT_MSG ){
+   \   000009   5480         ANL     A,#0x80
+   \   00000B   7003         JNZ     $+5
+   \   00000D   02....       LJMP    ??Demo_ProcessEvent_0 & 0xFFFF
+    231              MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( Demo_TaskID );
+   \   000010                ; Setup parameters for call to function osal_msg_receive
+   \   000010   8051         SJMP    ??Demo_ProcessEvent_1
+    232              while ( MSGpkt ){
+    233                switch ( MSGpkt->hdr.event )
+    234                {
+    235                  case ZDO_CB_MSG:
+    236                    Demo_ProcessZDOMsgs( (zdoIncomingMsg_t *)MSGpkt );
+    237                    break;
+    238          
+    239                  case KEY_CHANGE:
+    240                    Demo_HandleKeys( ((keyChange_t *)MSGpkt)->state, ((keyChange_t *)MSGpkt)->keys );
+    241                    break;
+    242          
+    243                  case AF_DATA_CONFIRM_CMD:
+    244                    afDataConfirm = (afDataConfirm_t *)MSGpkt;
+    245          //          byte sentEP = afDataConfirm->endpoint; (void)sentEP;
+    246          //          byte sentTransID = afDataConfirm->transID;(void)sentTransID;  
+    247                    if ( afDataConfirm->hdr.status != ZSuccess ){
+    248                      printf("发送失败\r\n");
+    249                    }
+    250                    break; 
+    251                  case AF_INCOMING_MSG_CMD:
+    252                    Demo_ReceiveHandle( MSGpkt );
+    253                    break;
+    254          
+    255                  case ZDO_STATE_CHANGE:
+    256                    Demo_NwkState = (devStates_t)(MSGpkt->hdr.status);
+   \                     ??Demo_ProcessEvent_2:
+   \   000012   A3           INC     DPTR
+   \   000013   E0           MOVX    A,@DPTR
+   \   000014   90....       MOV     DPTR,#Demo_NwkState
+   \   000017   F0           MOVX    @DPTR,A
+    257                    ZdoStateChange_printf(Demo_NwkState); 
+   \   000018                ; Setup parameters for call to function ZdoStateChange_printf
+   \   000018   F9           MOV     R1,A
+   \   000019   12....       LCALL   `??ZdoStateChange_printf::?relay`; Banked call to: ZdoStateChange_printf
+    258                    if ( (Demo_NwkState == DEV_ZB_COORD) || (Demo_NwkState == DEV_ROUTER) || (Demo_NwkState == DEV_END_DEVICE) ){ 
+   \   00001C   90....       MOV     DPTR,#Demo_NwkState
+   \   00001F   E0           MOVX    A,@DPTR
+   \   000020   6409         XRL     A,#0x9
+   \   000022   600A         JZ      ??Demo_ProcessEvent_3
+   \   000024   E0           MOVX    A,@DPTR
+   \   000025   6407         XRL     A,#0x7
+   \   000027   6005         JZ      ??Demo_ProcessEvent_3
+   \   000029   E0           MOVX    A,@DPTR
+   \   00002A   6406         XRL     A,#0x6
+   \   00002C   702E         JNZ     ??Demo_ProcessEvent_4
+    259                      //osal_start_timerEx( Demo_TaskID, DEMO_SEND_MSG_EVT, DEMO_SEND_MSG_TIMEOUT ); 
+    260                      
+    261                      osal_start_timerEx( Demo_TaskID, HEARTBEAT_SEND_EVT , HEARTBEAT_SEND_TIMEOUT ); //发送心跳
+   \                     ??Demo_ProcessEvent_3:
+   \   00002E                ; Setup parameters for call to function osal_start_timerEx
+   \   00002E   90....       MOV     DPTR,#__Constant_3e8
+   \   000031   12....       LCALL   ?PUSH_XSTACK8_X_FOUR
+   \   000034   7A08         MOV     R2,#0x8
+   \   000036   7B00         MOV     R3,#0x0
+   \   000038   90....       MOV     DPTR,#Demo_TaskID
+   \   00003B   E0           MOVX    A,@DPTR
+   \   00003C   F9           MOV     R1,A
+   \   00003D   12....       LCALL   `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+   \   000040   7404         MOV     A,#0x4
+   \   000042   12....       LCALL   ?DEALLOC_XSTACK8
+    262                      osal_start_timerEx( Demo_TaskID, HEARTBEAT_CHECK_EVT, HEARTBEAT_CHECK_TIMEOUT );//启动心跳检查
+   \   000045                ; Setup parameters for call to function osal_start_timerEx
+   \   000045   90....       MOV     DPTR,#__Constant_bb8
+   \   000048   12....       LCALL   ?PUSH_XSTACK8_X_FOUR
+   \   00004B   7A04         MOV     R2,#0x4
+   \   00004D   7B00         MOV     R3,#0x0
+   \   00004F   90....       MOV     DPTR,#Demo_TaskID
+   \   000052   E0           MOVX    A,@DPTR
+   \   000053   F9           MOV     R1,A
+   \   000054   12....       LCALL   `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+   \   000057   7404         MOV     A,#0x4
+   \   000059   12....       LCALL   ?DEALLOC_XSTACK8
+    263                    }
+    264                    break; 
+    265                  default:
+    266                    break;
+    267                } 
+    268                osal_msg_deallocate( (uint8 *)MSGpkt ); 
+   \                     ??Demo_ProcessEvent_4:
+   \   00005C                ; Setup parameters for call to function osal_msg_deallocate
+   \   00005C   AA..         MOV     R2,?V0
+   \   00005E   AB..         MOV     R3,?V1
+   \   000060   12....       LCALL   `??osal_msg_deallocate::?relay`; Banked call to: osal_msg_deallocate
+    269                MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( Demo_TaskID );
+   \   000063                ; Setup parameters for call to function osal_msg_receive
+   \                     ??Demo_ProcessEvent_1:
+   \   000063   90....       MOV     DPTR,#Demo_TaskID
+   \   000066   E0           MOVX    A,@DPTR
+   \   000067   F9           MOV     R1,A
+   \   000068   12....       LCALL   `??osal_msg_receive::?relay`; Banked call to: osal_msg_receive
+   \   00006B   8A..         MOV     ?V0,R2
+   \   00006D   8B..         MOV     ?V1,R3
+   \   00006F   E5..         MOV     A,?V0
+   \   000071   45..         ORL     A,?V1
+   \   000073   7003         JNZ     $+5
+   \   000075   02....       LJMP    ??Demo_ProcessEvent_5 & 0xFFFF
+   \   000078   85..82       MOV     DPL,?V0
+   \   00007B   85..83       MOV     DPH,?V1
+   \   00007E   E0           MOVX    A,@DPTR
+   \   00007F   24E6         ADD     A,#-0x1a
+   \   000081   6052         JZ      ??Demo_ProcessEvent_6
+   \   000083   245A         ADD     A,#0x5a
+   \   000085   6017         JZ      ??Demo_ProcessEvent_7
+   \   000087   24EF         ADD     A,#-0x11
+   \   000089   6087         JZ      ??Demo_ProcessEvent_2
+   \   00008B   24FE         ADD     A,#-0x2
+   \   00008D   6006         JZ      ??Demo_ProcessEvent_8
+   \   00008F   24D6         ADD     A,#-0x2a
+   \   000091   6038         JZ      ??Demo_ProcessEvent_9
+   \   000093   80C7         SJMP    ??Demo_ProcessEvent_4
+   \                     ??Demo_ProcessEvent_8:
+   \   000095                ; Setup parameters for call to function Demo_ProcessZDOMsgs
+   \   000095   AA..         MOV     R2,?V0
+   \   000097   AB..         MOV     R3,?V1
+   \   000099   12....       LCALL   `??Demo_ProcessZDOMsgs::?relay`; Banked call to: Demo_ProcessZDOMsgs
+   \   00009C   80BE         SJMP    ??Demo_ProcessEvent_4
+   \                     ??Demo_ProcessEvent_7:
+   \   00009E   A3           INC     DPTR
+   \   00009F   A3           INC     DPTR
+   \   0000A0   A3           INC     DPTR
+   \   0000A1   E0           MOVX    A,@DPTR
+   \   0000A2   F5..         MOV     ?V2,A
+   \   0000A4   85..82       MOV     DPL,?V0
+   \   0000A7   85..83       MOV     DPH,?V1
+   \   0000AA   A3           INC     DPTR
+   \   0000AB   A3           INC     DPTR
+   \   0000AC   E0           MOVX    A,@DPTR
+   \   0000AD   70AD         JNZ     ??Demo_ProcessEvent_4
+   \   0000AF   E5..         MOV     A,?V2
+   \   0000B1   A2E0         MOV     C,0xE0 /* A   */.0
+   \   0000B3   5007         JNC     ??Demo_ProcessEvent_10
+   \   0000B5                ; Setup parameters for call to function printf
+   \   0000B5   7A..         MOV     R2,#`?<Constant "HAL_KEY_SW_1\\r\\n">` & 0xff
+   \   0000B7   7B..         MOV     R3,#(`?<Constant "HAL_KEY_SW_1\\r\\n">` >> 8) & 0xff
+   \   0000B9   12....       LCALL   `??printf::?relay`   ; Banked call to: printf
+   \                     ??Demo_ProcessEvent_10:
+   \   0000BC   E5..         MOV     A,?V2
+   \   0000BE   A2E1         MOV     C,0xE0 /* A   */.1
+   \   0000C0   509A         JNC     ??Demo_ProcessEvent_4
+   \   0000C2                ; Setup parameters for call to function printf
+   \   0000C2   7A..         MOV     R2,#`?<Constant "HAL_KEY_SW_2\\r\\n">` & 0xff
+   \   0000C4   7B..         MOV     R3,#(`?<Constant "HAL_KEY_SW_2\\r\\n">` >> 8) & 0xff
+   \                     ??Demo_ProcessEvent_11:
+   \   0000C6   12....       LCALL   `??printf::?relay`   ; Banked call to: printf
+   \   0000C9   8091         SJMP    ??Demo_ProcessEvent_4
+   \                     ??Demo_ProcessEvent_9:
+   \   0000CB   A3           INC     DPTR
+   \   0000CC   E0           MOVX    A,@DPTR
+   \   0000CD   608D         JZ      ??Demo_ProcessEvent_4
+   \   0000CF                ; Setup parameters for call to function printf
+   \   0000CF   7A..         MOV     R2,#`?<Constant "\\267\\242\\313\\315\\312\\247\\260\\334\\r` & 0xff
+   \   0000D1   7B..         MOV     R3,#(`?<Constant "\\267\\242\\313\\315\\312\\247\\260\\334\\r` >> 8) & 0xff
+   \   0000D3   80F1         SJMP    ??Demo_ProcessEvent_11
+   \                     ??Demo_ProcessEvent_6:
+   \   0000D5   A3           INC     DPTR
+   \   0000D6   A3           INC     DPTR
+   \   0000D7   A3           INC     DPTR
+   \   0000D8   A3           INC     DPTR
+   \   0000D9   E0           MOVX    A,@DPTR
+   \   0000DA   6401         XRL     A,#0x1
+   \   0000DC   7002         JNZ     ??Demo_ProcessEvent_12
+   \   0000DE   A3           INC     DPTR
+   \   0000DF   E0           MOVX    A,@DPTR
+   \                     ??Demo_ProcessEvent_12:
+   \   0000E0   6003         JZ      $+5
+   \   0000E2   02....       LJMP    ??Demo_ProcessEvent_4 & 0xFFFF
+   \   0000E5                ; Setup parameters for call to function printf
+   \   0000E5   7A..         MOV     R2,#`?<Constant "\\312\\325\\265\\275\\312\\375\\276\\335\\r` & 0xff
+   \   0000E7   7B..         MOV     R3,#(`?<Constant "\\312\\325\\265\\275\\312\\375\\276\\335\\r` >> 8) & 0xff
+   \   0000E9   12....       LCALL   `??printf::?relay`   ; Banked call to: printf
+   \   0000EC   E5..         MOV     A,?V0
+   \   0000EE   2420         ADD     A,#0x20
+   \   0000F0   F5..         MOV     ?V2,A
+   \   0000F2   E4           CLR     A
+   \   0000F3   35..         ADDC    A,?V1
+   \   0000F5   F5..         MOV     ?V3,A
+   \   0000F7                ; Setup parameters for call to function Protocol_Printf
+   \   0000F7   85..82       MOV     DPL,?V2
+   \   0000FA   12....       LCALL   ?Subroutine2 & 0xFFFF
+    270              } 
+   \                     ??CrossCallReturnLabel_0:
+   \   0000FD   FA           MOV     R2,A
+   \   0000FE   A3           INC     DPTR
+   \   0000FF   E0           MOVX    A,@DPTR
+   \   000100   FB           MOV     R3,A
+   \   000101   12....       LCALL   `??Protocol_Printf::?relay`; Banked call to: Protocol_Printf
+   \   000104   85..82       MOV     DPL,?V2
+   \   000107   85..83       MOV     DPH,?V3
+   \   00010A   C3           CLR     C
+   \   00010B   E0           MOVX    A,@DPTR
+   \   00010C   9402         SUBB    A,#0x2
+   \   00010E   A3           INC     DPTR
+   \   00010F   E0           MOVX    A,@DPTR
+   \   000110   9400         SUBB    A,#0x0
+   \   000112   402C         JC      ??Demo_ProcessEvent_13
+   \   000114                ; Setup parameters for indirect call
+   \   000114   E5..         MOV     A,?V0
+   \   000116   2420         ADD     A,#0x20
+   \   000118   F582         MOV     DPL,A
+   \   00011A   E4           CLR     A
+   \   00011B   35..         ADDC    A,?V1
+   \   00011D   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   000120   FC           MOV     R4,A
+   \   000121   A3           INC     DPTR
+   \   000122   E0           MOVX    A,@DPTR
+   \   000123   FD           MOV     R5,A
+   \   000124   90....       MOV     DPTR,#UART1_Resolver
+   \   000127   E0           MOVX    A,@DPTR
+   \   000128   FA           MOV     R2,A
+   \   000129   A3           INC     DPTR
+   \   00012A   E0           MOVX    A,@DPTR
+   \   00012B   FB           MOV     R3,A
+   \   00012C   90....       MOV     DPTR,#UART1_Resolver
+   \   00012F   E0           MOVX    A,@DPTR
+   \   000130   F8           MOV     R0,A
+   \   000131   A3           INC     DPTR
+   \   000132   E0           MOVX    A,@DPTR
+   \   000133   C8           XCH     A,R0
+   \   000134   241D         ADD     A,#0x1d
+   \   000136   F582         MOV     DPL,A
+   \   000138   E4           CLR     A
+   \   000139   38           ADDC    A,R0
+   \   00013A   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   00013D   12....       LCALL   ?CALL_IND
+   \                     ??Demo_ProcessEvent_13:
+   \   000140                ; Setup parameters for call to function HeartBeat_Set
+   \   000140   7900         MOV     R1,#0x0
+   \   000142   12....       LCALL   `??HeartBeat_Set::?relay`; Banked call to: HeartBeat_Set
+   \   000145   02....       LJMP    ??Demo_ProcessEvent_4 & 0xFFFF
+    271              return (events ^ SYS_EVENT_MSG);
+   \                     ??Demo_ProcessEvent_5:
+   \   000148   EE           MOV     A,R6
+   \   000149   FA           MOV     R2,A
+   \   00014A   EF           MOV     A,R7
+   \   00014B   6480         XRL     A,#0x80
+   \   00014D   02....       LJMP    ??Demo_ProcessEvent_14 & 0xFFFF
+    272            }
+    273            
+    274            if ( events & DEMO_SEND_MSG_EVT ){ 
+   \                     ??Demo_ProcessEvent_0:
+   \   000150   EE           MOV     A,R6
+   \   000151   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000153   4003         JC      $+5
+   \   000155   02....       LJMP    ??Demo_ProcessEvent_15 & 0xFFFF
+    275              Demo_SendHandle(); 
+   \   000158   90....       MOV     DPTR,#Demo_NwkState
+   \   00015B   E0           MOVX    A,@DPTR
+   \   00015C   6406         XRL     A,#0x6
+   \   00015E   705D         JNZ     ??Demo_ProcessEvent_16
+   \   000160                ; Setup parameters for call to function NLME_GetShortAddr
+   \   000160   12....       LCALL   `??NLME_GetShortAddr::?relay`; Banked call to: NLME_GetShortAddr
+   \   000163   8B..         MOV     ?V3,R3
+   \   000165   8A..         MOV     ?V0,R2
+   \   000167   90....       MOV     DPTR,#??cnt_1
+   \   00016A   E0           MOVX    A,@DPTR
+   \   00016B   90....       MOV     DPTR,#protocol
+   \   00016E   F0           MOVX    @DPTR,A
+   \   00016F   90....       MOV     DPTR,#??cnt_1
+   \   000172   04           INC     A
+   \   000173   F0           MOVX    @DPTR,A
+   \   000174   E4           CLR     A
+   \   000175   C5..         XCH     A,?V3
+   \   000177   F5..         MOV     ?V2,A
+   \   000179   90....       MOV     DPTR,#protocol + 1
+   \   00017C   F0           MOVX    @DPTR,A
+   \   00017D   EA           MOV     A,R2
+   \   00017E   A3           INC     DPTR
+   \   00017F   F0           MOVX    @DPTR,A
+   \   000180                ; Setup parameters for call to function Protocol_Send
+   \   000180   7903         MOV     R1,#0x3
+   \   000182   7C..         MOV     R4,#protocol & 0xff
+   \   000184   7D..         MOV     R5,#(protocol >> 8) & 0xff
+   \   000186   7A31         MOV     R2,#0x31
+   \   000188   7B10         MOV     R3,#0x10
+   \   00018A   12....       LCALL   `??Protocol_Send::?relay`; Banked call to: Protocol_Send
+   \   00018D                ; Setup parameters for call to function printf
+   \   00018D   75..00       MOV     ?V1,#0x0
+   \   000190   78..         MOV     R0,#?V0
+   \   000192   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000195   78..         MOV     R0,#?V2
+   \   000197   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00019A   7A..         MOV     R2,#`?<Constant "\\261\\276\\273\\372\\265\\330\\326\\267\\2` & 0xff
+   \   00019C   7B..         MOV     R3,#(`?<Constant "\\261\\276\\273\\372\\265\\330\\326\\267\\2` >> 8) & 0xff
+   \   00019E   12....       LCALL   `??printf::?relay`   ; Banked call to: printf
+   \   0001A1   7404         MOV     A,#0x4
+   \   0001A3   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0001A6                ; Setup parameters for call to function printf
+   \   0001A6   A293         MOV     C,0x90.3
+   \   0001A8   E4           CLR     A
+   \   0001A9   33           RLC     A
+   \   0001AA   F5..         MOV     ?V0,A
+   \   0001AC   78..         MOV     R0,#?V0
+   \   0001AE   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0001B1   7A..         MOV     R2,#`?<Constant "\\316\\302\\277\\330\\312\\344\\310\\353:%` & 0xff
+   \   0001B3   7B..         MOV     R3,#(`?<Constant "\\316\\302\\277\\330\\312\\344\\310\\353:%` >> 8) & 0xff
+   \   0001B5   12....       LCALL   `??printf::?relay`   ; Banked call to: printf
+   \   0001B8   7402         MOV     A,#0x2
+   \   0001BA   12....       LCALL   ?DEALLOC_XSTACK8
+    276              osal_start_timerEx( Demo_TaskID, DEMO_SEND_MSG_EVT, DEMO_SEND_MSG_TIMEOUT ); 
+   \                     ??Demo_ProcessEvent_16:
+   \   0001BD                ; Setup parameters for call to function osal_start_timerEx
+   \   0001BD   90....       MOV     DPTR,#__Constant_3e8
+   \   0001C0   12....       LCALL   ?PUSH_XSTACK8_X_FOUR
+   \   0001C3   7A01         MOV     R2,#0x1
+   \   0001C5   7B00         MOV     R3,#0x0
+   \   0001C7   90....       MOV     DPTR,#Demo_TaskID
+   \   0001CA   E0           MOVX    A,@DPTR
+   \   0001CB   F9           MOV     R1,A
+   \   0001CC   12....       LCALL   `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+   \   0001CF   7404         MOV     A,#0x4
+   \   0001D1   12....       LCALL   ?DEALLOC_XSTACK8
+    277              return (events ^ DEMO_SEND_MSG_EVT);
+   \   0001D4   EE           MOV     A,R6
+   \   0001D5   6401         XRL     A,#0x1
+   \   0001D7   8069         SJMP    ??Demo_ProcessEvent_17
+    278            }
+    279            
+    280            if( events & WATER_MACHINE_STATE_CHECK_EVT){
+   \                     ??Demo_ProcessEvent_15:
+   \   0001D9   5402         ANL     A,#0x2
+   \   0001DB   601F         JZ      ??Demo_ProcessEvent_18
+    281              State_Check();
+   \   0001DD                ; Setup parameters for call to function State_Check
+   \   0001DD   12....       LCALL   `??State_Check::?relay`; Banked call to: State_Check
+    282              osal_start_timerEx( Demo_TaskID, WATER_MACHINE_STATE_CHECK_EVT, 50 );
+   \   0001E0                ; Setup parameters for call to function osal_start_timerEx
+   \   0001E0   90....       MOV     DPTR,#__Constant_32
+   \   0001E3   12....       LCALL   ?PUSH_XSTACK8_X_FOUR
+   \   0001E6   7A02         MOV     R2,#0x2
+   \   0001E8   7B00         MOV     R3,#0x0
+   \   0001EA   90....       MOV     DPTR,#Demo_TaskID
+   \   0001ED   E0           MOVX    A,@DPTR
+   \   0001EE   F9           MOV     R1,A
+   \   0001EF   12....       LCALL   `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+   \   0001F2   7404         MOV     A,#0x4
+   \   0001F4   12....       LCALL   ?DEALLOC_XSTACK8
+    283              return (events ^ WATER_MACHINE_STATE_CHECK_EVT);
+   \   0001F7   EE           MOV     A,R6
+   \   0001F8   6402         XRL     A,#0x2
+   \   0001FA   8046         SJMP    ??Demo_ProcessEvent_17
+    284            }
+    285            
+    286            if ( events & HEARTBEAT_CHECK_EVT ){ 
+   \                     ??Demo_ProcessEvent_18:
+   \   0001FC   EE           MOV     A,R6
+   \   0001FD   5404         ANL     A,#0x4
+   \   0001FF   601F         JZ      ??Demo_ProcessEvent_19
+    287              HeartBeat_Check(); 
+   \   000201                ; Setup parameters for call to function HeartBeat_Check
+   \   000201   12....       LCALL   `??HeartBeat_Check::?relay`; Banked call to: HeartBeat_Check
+    288              osal_start_timerEx( Demo_TaskID, HEARTBEAT_CHECK_EVT, HEARTBEAT_CHECK_TIMEOUT ); 
+   \   000204                ; Setup parameters for call to function osal_start_timerEx
+   \   000204   90....       MOV     DPTR,#__Constant_bb8
+   \   000207   12....       LCALL   ?PUSH_XSTACK8_X_FOUR
+   \   00020A   7A04         MOV     R2,#0x4
+   \   00020C   7B00         MOV     R3,#0x0
+   \   00020E   90....       MOV     DPTR,#Demo_TaskID
+   \   000211   E0           MOVX    A,@DPTR
+   \   000212   F9           MOV     R1,A
+   \   000213   12....       LCALL   `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+   \   000216   7404         MOV     A,#0x4
+   \   000218   12....       LCALL   ?DEALLOC_XSTACK8
+    289              return (events ^ HEARTBEAT_CHECK_EVT);
+   \   00021B   EE           MOV     A,R6
+   \   00021C   6404         XRL     A,#0x4
+   \   00021E   8022         SJMP    ??Demo_ProcessEvent_17
+    290            }
+    291            
+    292            if ( events & HEARTBEAT_SEND_EVT ){ 
+   \                     ??Demo_ProcessEvent_19:
+   \   000220   EE           MOV     A,R6
+   \   000221   5408         ANL     A,#0x8
+   \   000223   6022         JZ      ??Demo_ProcessEvent_20
+    293              SendHearBeat(); 
+   \   000225                ; Setup parameters for call to function SendHearBeat
+   \   000225   12....       LCALL   `??SendHearBeat::?relay`; Banked call to: SendHearBeat
+    294              osal_start_timerEx( Demo_TaskID, HEARTBEAT_SEND_EVT, HEARTBEAT_SEND_TIMEOUT ); 
+   \   000228                ; Setup parameters for call to function osal_start_timerEx
+   \   000228   90....       MOV     DPTR,#__Constant_3e8
+   \   00022B   12....       LCALL   ?PUSH_XSTACK8_X_FOUR
+   \   00022E   7A08         MOV     R2,#0x8
+   \   000230   7B00         MOV     R3,#0x0
+   \   000232   90....       MOV     DPTR,#Demo_TaskID
+   \   000235   E0           MOVX    A,@DPTR
+   \   000236   F9           MOV     R1,A
+   \   000237   12....       LCALL   `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+   \   00023A   7404         MOV     A,#0x4
+   \   00023C   12....       LCALL   ?DEALLOC_XSTACK8
+    295              return (events ^ HEARTBEAT_SEND_EVT);
+   \   00023F   EE           MOV     A,R6
+   \   000240   6408         XRL     A,#0x8
+   \                     ??Demo_ProcessEvent_17:
+   \   000242   FA           MOV     R2,A
+   \   000243   EF           MOV     A,R7
+   \                     ??Demo_ProcessEvent_14:
+   \   000244   FB           MOV     R3,A
+   \   000245   8004         SJMP    ??Demo_ProcessEvent_21
+    296            }
+    297            
+    298            return 0;
+   \                     ??Demo_ProcessEvent_20:
+   \   000247   7A00         MOV     R2,#0x0
+   \   000249   7B00         MOV     R3,#0x0
+   \                     ??Demo_ProcessEvent_21:
+   \   00024B                REQUIRE ?Subroutine1
+   \   00024B                REQUIRE _A_P1
+   \   00024B                ; // Fall through to label ?Subroutine1
+    299          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F04         MOV     R7,#0x4
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   F583         MOV     DPH,A
+   \   000002   E0           MOVX    A,@DPTR
+   \   000003   F9           MOV     R1,A
+   \   000004   E5..         MOV     A,?V0
+   \   000006   2422         ADD     A,#0x22
+   \   000008   F582         MOV     DPL,A
+   \   00000A   E4           CLR     A
+   \   00000B   35..         ADDC    A,?V1
+   \   00000D   F583         MOV     DPH,A
+   \   00000F   E0           MOVX    A,@DPTR
+   \   000010   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   F583         MOV     DPH,A
+   \   000002   E0           MOVX    A,@DPTR
+   \   000003   F8           MOV     R0,A
+   \   000004   A3           INC     DPTR
+   \   000005   E0           MOVX    A,@DPTR
+   \   000006   F583         MOV     DPH,A
+   \   000008   8882         MOV     DPL,R0
+   \   00000A   22           RET
+    300          
+    301          /****************************************************
+    302          *      函数名: Demo_ProcessZDOMsgs
+    303          *        功能: ZDO设备对象层消息处理 
+    304          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    305          static void Demo_ProcessZDOMsgs( zdoIncomingMsg_t *inMsg ){
+   \                     Demo_ProcessZDOMsgs:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+    306            switch ( inMsg->clusterID ){
+   \   000005   EA           MOV     A,R2
+   \   000006   240C         ADD     A,#0xc
+   \   000008   F582         MOV     DPL,A
+   \   00000A   E4           CLR     A
+   \   00000B   3B           ADDC    A,R3
+   \   00000C   F583         MOV     DPH,A
+   \   00000E   E0           MOVX    A,@DPTR
+   \   00000F   F5..         MOV     ?V0,A
+   \   000011   A3           INC     DPTR
+   \   000012   E0           MOVX    A,@DPTR
+   \   000013   F5..         MOV     ?V1,A
+   \   000015   78..         MOV     R0,#?V0
+   \   000017   12....       LCALL   ?US_SWITCH_SPARSE
+   \                     `?<Jumptable for Demo_ProcessZDOMsgs>_0`:
+   \   00001A   0000         DW        0
+   \   00001C   0300         DW        3
+   \   00001E   0600         DW        6
+   \   000020   ....         DW        ??Demo_ProcessZDOMsgs_0
+   \   000022   0680         DW        32774
+   \   000024   ....         DW        ??Demo_ProcessZDOMsgs_1
+   \   000026   2080         DW        32800
+   \   000028   ....         DW        ??Demo_ProcessZDOMsgs_2
+   \   00002A   ....         DW        ??Demo_ProcessZDOMsgs_3
+    307              case End_Device_Bind_rsp:
+    308                if ( ZDO_ParseBindRsp( inMsg ) == ZSuccess ){
+   \                     ??Demo_ProcessZDOMsgs_2:
+   \   00002C   EA           MOV     A,R2
+   \   00002D   2413         ADD     A,#0x13
+   \   00002F   F582         MOV     DPL,A
+   \   000031   E4           CLR     A
+   \   000032   3B           ADDC    A,R3
+   \   000033   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   000036   E0           MOVX    A,@DPTR
+   \   000037   6003         JZ      $+5
+   \   000039   02....       LJMP    ??Demo_ProcessZDOMsgs_3 & 0xFFFF
+    309                  // Light LED
+    310                  HalLedSet( HAL_LED_4, HAL_LED_MODE_ON );
+   \   00003C                ; Setup parameters for call to function HalLedSet
+   \   00003C   7A01         MOV     R2,#0x1
+   \   00003E   7908         MOV     R1,#0x8
+   \   000040   12....       LCALL   `??HalLedSet::?relay`; Banked call to: HalLedSet
+   \   000043   02....       LJMP    ??Demo_ProcessZDOMsgs_3 & 0xFFFF
+    311                }
+    312                break;
+    313          
+    314              case Match_Desc_rsp:
+    315                {
+    316                  ZDO_ActiveEndpointRsp_t *pRsp = ZDO_ParseEPListRsp( inMsg );
+   \                     ??Demo_ProcessZDOMsgs_1:
+   \   000046                ; Setup parameters for call to function ZDO_ParseEPListRsp
+   \   000046   12....       LCALL   `??ZDO_ParseEPListRsp::?relay`; Banked call to: ZDO_ParseEPListRsp
+   \   000049   8A..         MOV     ?V0,R2
+   \   00004B   8B..         MOV     ?V1,R3
+   \   00004D   AE..         MOV     R6,?V0
+   \   00004F   AF..         MOV     R7,?V1
+    317                  if ( pRsp ){
+   \   000051   EE           MOV     A,R6
+   \   000052   4F           ORL     A,R7
+   \   000053   6077         JZ      ??Demo_ProcessZDOMsgs_3
+    318                    if ( pRsp->status == ZSuccess && pRsp->cnt ){
+   \   000055   8E82         MOV     DPL,R6
+   \   000057   8F83         MOV     DPH,R7
+   \   000059   E0           MOVX    A,@DPTR
+   \   00005A   7032         JNZ     ??Demo_ProcessZDOMsgs_4
+   \   00005C   A3           INC     DPTR
+   \   00005D   A3           INC     DPTR
+   \   00005E   A3           INC     DPTR
+   \   00005F   E0           MOVX    A,@DPTR
+   \   000060   602C         JZ      ??Demo_ProcessZDOMsgs_4
+    319                      Demo_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
+   \   000062   90....       MOV     DPTR,#Demo_DstAddr + 8
+   \   000065   7402         MOV     A,#0x2
+   \   000067   F0           MOVX    @DPTR,A
+    320                      Demo_DstAddr.addr.shortAddr = pRsp->nwkAddr; 
+   \   000068   8E82         MOV     DPL,R6
+   \   00006A   8F83         MOV     DPH,R7
+   \   00006C   A3           INC     DPTR
+   \   00006D   E0           MOVX    A,@DPTR
+   \   00006E   F8           MOV     R0,A
+   \   00006F   A3           INC     DPTR
+   \   000070   E0           MOVX    A,@DPTR
+   \   000071   F9           MOV     R1,A
+   \   000072   90....       MOV     DPTR,#Demo_DstAddr
+   \   000075   E8           MOV     A,R0
+   \   000076   F0           MOVX    @DPTR,A
+   \   000077   A3           INC     DPTR
+   \   000078   E9           MOV     A,R1
+   \   000079   F0           MOVX    @DPTR,A
+    321                      Demo_DstAddr.endPoint = pRsp->epList[0];
+   \   00007A   8E82         MOV     DPL,R6
+   \   00007C   8F83         MOV     DPH,R7
+   \   00007E   A3           INC     DPTR
+   \   00007F   A3           INC     DPTR
+   \   000080   A3           INC     DPTR
+   \   000081   A3           INC     DPTR
+   \   000082   E0           MOVX    A,@DPTR
+   \   000083   90....       MOV     DPTR,#Demo_DstAddr + 9
+   \   000086   F0           MOVX    @DPTR,A
+    322          
+    323                      // Light LED
+    324                      HalLedSet( HAL_LED_4, HAL_LED_MODE_ON );
+   \   000087                ; Setup parameters for call to function HalLedSet
+   \   000087   7A01         MOV     R2,#0x1
+   \   000089   7908         MOV     R1,#0x8
+   \   00008B   12....       LCALL   `??HalLedSet::?relay`; Banked call to: HalLedSet
+   \                     ??Demo_ProcessZDOMsgs_4:
+   \   00008E   8E82         MOV     DPL,R6
+   \   000090   8F83         MOV     DPH,R7
+   \   000092   A3           INC     DPTR
+   \   000093   E0           MOVX    A,@DPTR
+   \   000094   F5..         MOV     ?V0,A
+   \   000096   A3           INC     DPTR
+   \   000097   E0           MOVX    A,@DPTR
+   \   000098   F5..         MOV     ?V1,A
+   \   00009A                ; Setup parameters for call to function printf
+   \   00009A   E5..         MOV     A,?V0
+   \   00009C   F5..         MOV     ?V2,A
+   \   00009E   75..00       MOV     ?V3,#0x0
+   \   0000A1   78..         MOV     R0,#?V2
+   \   0000A3   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000A6   E4           CLR     A
+   \   0000A7   C5..         XCH     A,?V1
+   \   0000A9   F5..         MOV     ?V0,A
+   \   0000AB   78..         MOV     R0,#?V0
+   \   0000AD   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000B0   7A..         MOV     R2,#`?<Constant "Match_Desc_rsp,addr:%...">` & 0xff
+   \   0000B2   7B..         MOV     R3,#(`?<Constant "Match_Desc_rsp,addr:%...">` >> 8) & 0xff
+    325                    }
+    326                    printf("Match_Desc_rsp,addr:%X,%X\r\n", pRsp->nwkAddr >> 8, pRsp->nwkAddr & 0x00FF);
+   \   0000B4   12....       LCALL   `??printf::?relay`   ; Banked call to: printf
+   \   0000B7   7404         MOV     A,#0x4
+   \   0000B9   12....       LCALL   ?DEALLOC_XSTACK8
+    327                    osal_mem_free( pRsp );
+   \   0000BC                ; Setup parameters for call to function osal_mem_free
+   \   0000BC   EE           MOV     A,R6
+   \   0000BD   FA           MOV     R2,A
+   \   0000BE   EF           MOV     A,R7
+   \   0000BF   FB           MOV     R3,A
+   \   0000C0   12....       LCALL   `??osal_mem_free::?relay`; Banked call to: osal_mem_free
+   \   0000C3   8007         SJMP    ??Demo_ProcessZDOMsgs_3
+    328                  }
+    329                }
+    330                break;
+    331              case Match_Desc_req:
+    332                printf("Match_Desc_rsp\r\n");
+   \                     ??Demo_ProcessZDOMsgs_0:
+   \   0000C5                ; Setup parameters for call to function printf
+   \   0000C5   7A..         MOV     R2,#`?<Constant "Match_Desc_rsp\\r\\n">` & 0xff
+   \   0000C7   7B..         MOV     R3,#(`?<Constant "Match_Desc_rsp\\r\\n">` >> 8) & 0xff
+   \   0000C9   12....       LCALL   `??printf::?relay`   ; Banked call to: printf
+    333                break;
+    334            }
+    335          }
+   \                     ??Demo_ProcessZDOMsgs_3:
+   \   0000CC   02....       LJMP    ?Subroutine1 & 0xFFFF
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??SendHandle::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SendHandle
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??Demo_Init::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Demo_Init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??SendHearBeat::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SendHearBeat
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??Demo_ProcessEvent::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Demo_ProcessEvent
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??Demo_ProcessZDOMsgs::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Demo_ProcessZDOMsgs
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "HAL_KEY_SW_1\\r\\n">`:
+   \   000000   48414C5F     DB "HAL_KEY_SW_1\015\012"
+   \            4B45595F
+   \            53575F31
+   \            0D0A00  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "HAL_KEY_SW_2\\r\\n">`:
+   \   000000   48414C5F     DB "HAL_KEY_SW_2\015\012"
+   \            4B45595F
+   \            53575F32
+   \            0D0A00  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\312\\325\\265\\275\\312\\375\\276\\335\\r`:
+   \   000000   CAD5B5BD     DB "\312\325\265\275\312\375\276\335\015\012"
+   \            CAFDBEDD
+   \            0D0A00  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\261\\276\\273\\372\\265\\330\\326\\267\\2`:
+   \   000000   B1BEBBFA     DB "\261\276\273\372\265\330\326\267\243\272%X,%X\015\012"
+   \            B5D8D6B7
+   \            A3BA2558
+   \            2C25580D
+   \            0A00    
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\316\\302\\277\\330\\312\\344\\310\\353:%`:
+   \   000000   CEC2BFD8     DB "\316\302\277\330\312\344\310\353:%d\015\012"
+   \            CAE4C8EB
+   \            3A25640D
+   \            0A00    
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\267\\242\\313\\315\\312\\247\\260\\334\\r`:
+   \   000000   B7A2CBCD     DB "\267\242\313\315\312\247\260\334\015\012"
+   \            CAA7B0DC
+   \            0D0A00  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "Match_Desc_rsp,addr:%...">`:
+   \   000000   4D617463     DB "Match_Desc_rsp,addr:%X,%X\015\012"
+   \            685F4465
+   \            73635F72
+   \            73702C61
+   \            6464723A
+   \            25582C25
+   \            580D0A00
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "Match_Desc_rsp\\r\\n">`:
+   \   000000   4D617463     DB "Match_Desc_rsp\015\012"
+   \            685F4465
+   \            73635F72
+   \            73700D0A
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_32:
+   \   000000   32000000     DD 50
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3e8:
+   \   000000   E8030000     DD 1000
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_bb8:
+   \   000000   B80B0000     DD 3000
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      0     13   Demo_Init
+        0      9   -> Device_Info
+        0      9   -> Log_Init
+        0      9   -> ProtocolFrame_Init
+        0      9   -> RegisterForKeys
+        0      9   -> WaterMachine_Init
+        0      9   -> ZDO_RegisterForZDOMsg
+        0      9   -> afRegister
+        0     13   -> osal_start_timerEx
+      0     16   Demo_ProcessEvent
+        0     12   -> Demo_ProcessZDOMsgs
+        0     12   -> HeartBeat_Check
+        0     12   -> HeartBeat_Set
+        0     12   -> NLME_GetShortAddr
+        0     12   -> Protocol_Printf
+        0     12   -> Protocol_Send
+        0     12   -> SendHearBeat
+        0     12   -> State_Check
+        0     12   -> ZdoStateChange_printf
+        0     12   -> osal_msg_deallocate
+        0     12   -> osal_msg_receive
+        0     16   -> osal_start_timerEx
+        0     12   -> printf
+        0     14   -> printf
+        0     16   -> printf
+      0     28   Demo_ProcessZDOMsgs
+        0     12   -> HalLedSet
+        0     12   -> ZDO_ParseEPListRsp
+        0     12   -> osal_mem_free
+        0     12   -> printf
+        0     16   -> printf
+      0     19   SendHandle
+        0     19   -> AF_DataRequest
+      1     25   SendHearBeat
+        0     13   -> NLME_GetShortAddr
+        0     13   -> Protocol_Send
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      15  ?<Constant "HAL_KEY_SW_1\r\n">
+      15  ?<Constant "HAL_KEY_SW_2\r\n">
+      28  ?<Constant "Match_Desc_rsp,addr:%...">
+      17  ?<Constant "Match_Desc_rsp\r\n">
+      18  ?<Constant "\261\276\273\372\265\330\326\267\2
+      11  ?<Constant "\267\242\313\315\312\247\260\334\r
+      11  ?<Constant "\312\325\265\275\312\375\276\335\r
+      14  ?<Constant "\316\302\277\330\312\344\310\353:%
+       3  ?<Constant {{0}}>
+       8  ?Subroutine0
+       5  ?Subroutine1
+      17  ?Subroutine2
+      11  ?Subroutine3
+       2  Demo_ClusterList
+      12  Demo_DstAddr
+     158  Demo_Init
+       6  Demo_Init::?relay
+       1  Demo_NwkState
+     587  Demo_ProcessEvent
+       6  Demo_ProcessEvent::?relay
+     207  Demo_ProcessZDOMsgs
+       6  Demo_ProcessZDOMsgs::?relay
+      12  Demo_SimpleDesc
+       1  Demo_TaskID
+       1  Demo_TransID
+       6  Demo_epDesc
+      75  SendHandle
+       6  SendHandle::?relay
+      74  SendHearBeat
+       6  SendHearBeat::?relay
+       1  _A_P1
+       4  __Constant_32
+       4  __Constant_3e8
+       4  __Constant_bb8
+       1  cnt
+       1  cnt
+       3  protocol
+
+ 
+ 1 142 bytes in segment BANKED_CODE
+    30 bytes in segment BANK_RELAYS
+     1 byte  in segment SFR_AN
+   158 bytes in segment XDATA_ROM_C
+    26 bytes in segment XDATA_Z
+ 
+ 1 172 bytes of CODE  memory
+   146 bytes of CONST memory (+ 12 bytes shared)
+     0 bytes of DATA  memory (+  1 byte  shared)
+    26 bytes of XDATA memory
+
+Errors: none
+Warnings: 2

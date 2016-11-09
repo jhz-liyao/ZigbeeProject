@@ -1,0 +1,401 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                31/Oct/2016  13:38:17
+# Copyright 2004-2015 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\Module\WaterMachine\ProtocolHandle.c
+#    Command line       =  
+#        -f "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f
+#        "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=50 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)
+#        -DREJOIN_POLL_RATE=440 "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\Module\WaterMachine\ProtocolHandle.c"
+#        -D HAL_UART=TRUE -D HAL_UART_ISR=1 -D HAL_UART_DMA=0 -D LOG_OUT -D
+#        UART1_PROTOCOL_RESOLVER=1 -D xISQC -D NWK_AUTO_POLL -D xZTOOL_P1 -D
+#        ISR_KEYINTERRUPT -D xMT_TASK -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
+#        xLCD_SUPPORTED=DEBUG -D xPOWER_SAVING -lC
+#        "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\WaterMachine\List"
+#        -lA "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\WaterMachine\List"
+#        --diag_suppress Pe001,Pa010 -o "E:\资源\个人项目\ZigbeeProject\Z-Stack
+#        Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\WaterMachine\Obj"
+#        -e --no_code_motion --debug --core=plain --dptr=16,1
+#        --data_model=large --code_model=banked
+#        --calling_convention=xdata_reentrant --place_constants=data_rom
+#        --nr_virtual_regs 8 -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\" -I
+#        "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\Source\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\Frame\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\Module\WaterMachine\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz
+#    List file          =  
+#        E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\WaterMachine\List\ProtocolHandle.lst
+#    Object file        =  
+#        E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\WaterMachine\Obj\ProtocolHandle.r51
+#
+###############################################################################
+
+E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\Module\WaterMachine\ProtocolHandle.c
+      1          #include "ProtocolHandle.h"
+      2          #include "WaterMachineDriver.h"
+      3          #include "ModuleManager.h"
+      4          //void Cmd_P_Handle(Protocol_Info_T* pi){
+      5          //    printf("控制指令:%X\r\n", pi->protocol.Cmd_P.para1);
+      6          //}
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+      7          void ReportState(void){
+   \                     ReportState:
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 1
+   \   000004   74FF         MOV     A,#-0x1
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+      8              STATE_PROTOCOL_T spt = {0};
+      9              spt.para1 = WaterM.State;
+   \   000009   90....       MOV     DPTR,#WaterM + 2
+   \   00000C   E0           MOVX    A,@DPTR
+   \   00000D   85..82       MOV     DPL,?XSP + 0
+   \   000010   85..83       MOV     DPH,?XSP + 1
+   \   000013   F0           MOVX    @DPTR,A
+     10              Protocol_Send(STATE_PROTOCOL, &spt, sizeof(STATE_PROTOCOL_T)); 
+   \   000014                ; Setup parameters for call to function Protocol_Send
+   \   000014   7901         MOV     R1,#0x1
+   \   000016   AC..         MOV     R4,?XSP + 0
+   \   000018   AD..         MOV     R5,?XSP + 1
+   \   00001A   7A20         MOV     R2,#0x20
+   \   00001C   7B10         MOV     R3,#0x10
+   \   00001E   12....       LCALL   `??Protocol_Send::?relay`; Banked call to: Protocol_Send
+     11          }
+   \   000021   7401         MOV     A,#0x1
+   \   000023   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000026   D083         POP     DPH
+   \   000028   D082         POP     DPL
+   \   00002A   02....       LJMP    ?BRET
+     12          
+     13          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     14          void StateGet_P_Handle(Protocol_Info_T* pi){ 
+   \                     StateGet_P_Handle:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+     15              STATEGET_PROTOCOL_T* p = pi->ParameterList;
+     16              printf("获取状态:%X\r\n", p->para1); 
+   \   000005                ; Setup parameters for call to function printf
+   \   000005   8A82         MOV     DPL,R2
+   \   000007   8B83         MOV     DPH,R3
+   \   000009   A3           INC     DPTR
+   \   00000A   A3           INC     DPTR
+   \   00000B   A3           INC     DPTR
+   \   00000C   A3           INC     DPTR
+   \   00000D   A3           INC     DPTR
+   \   00000E   A3           INC     DPTR
+   \   00000F   E0           MOVX    A,@DPTR
+   \   000010   F8           MOV     R0,A
+   \   000011   A3           INC     DPTR
+   \   000012   E0           MOVX    A,@DPTR
+   \   000013   F583         MOV     DPH,A
+   \   000015   8882         MOV     DPL,R0
+   \   000017   E0           MOVX    A,@DPTR
+   \   000018   F5..         MOV     ?V0,A
+   \   00001A   75..00       MOV     ?V1,#0x0
+   \   00001D   78..         MOV     R0,#?V0
+   \   00001F   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000022   7A..         MOV     R2,#`?<Constant "\\273\\361\\310\\241\\327\\264\\314\\254:%` & 0xff
+   \   000024   7B..         MOV     R3,#(`?<Constant "\\273\\361\\310\\241\\327\\264\\314\\254:%` >> 8) & 0xff
+   \   000026   12....       LCALL   `??printf::?relay`   ; Banked call to: printf
+   \   000029   7402         MOV     A,#0x2
+   \   00002B   12....       LCALL   ?DEALLOC_XSTACK8
+     17              ReportState(); 
+   \   00002E                ; Setup parameters for call to function ReportState
+   \   00002E   12....       LCALL   `??ReportState::?relay`; Banked call to: ReportState
+     18          } 
+   \   000031   7F02         MOV     R7,#0x2
+   \   000033   02....       LJMP    ?BANKED_LEAVE_XDATA
+     19          
+     20          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     21          void HearBeat_P_Handle(Protocol_Info_T* pi){
+   \                     HearBeat_P_Handle:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000   74F2         MOV     A,#-0xe
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 0
+     22              HEARTBEAT_PROTOCOL_T* hp = pi->ParameterList;
+   \   000005   8A82         MOV     DPL,R2
+   \   000007   8B83         MOV     DPH,R3
+   \   000009   A3           INC     DPTR
+   \   00000A   A3           INC     DPTR
+   \   00000B   A3           INC     DPTR
+   \   00000C   A3           INC     DPTR
+   \   00000D   A3           INC     DPTR
+   \   00000E   A3           INC     DPTR
+   \   00000F   E0           MOVX    A,@DPTR
+   \   000010   FE           MOV     R6,A
+   \   000011   A3           INC     DPTR
+   \   000012   E0           MOVX    A,@DPTR
+   \   000013   FF           MOV     R7,A
+     23              //printf("心跳:%X\r\n", pi->protocol.Heartbeat_P.para1);
+     24              ModuleBoard_T *ModuleBoard = getModuleByModuleID((MODULE)(pi->Module >> 4));
+   \   000014                ; Setup parameters for call to function getModuleByModuleID
+   \   000014   8A82         MOV     DPL,R2
+   \   000016   8B83         MOV     DPH,R3
+   \   000018   A3           INC     DPTR
+   \   000019   A3           INC     DPTR
+   \   00001A   A3           INC     DPTR
+   \   00001B   E0           MOVX    A,@DPTR
+   \   00001C   C4           SWAP    A
+   \   00001D   540F         ANL     A,#0xf
+   \   00001F   F9           MOV     R1,A
+   \   000020   12....       LCALL   `??getModuleByModuleID::?relay`; Banked call to: getModuleByModuleID
+   \   000023   8A..         MOV     ?V0,R2
+   \   000025   8B..         MOV     ?V1,R3
+     25              if(ModuleBoard == NULL){printf("收到心跳但是无法匹配到模块\r\n");return;} 
+   \   000027   EA           MOV     A,R2
+   \   000028   45..         ORL     A,?V1
+   \   00002A   7009         JNZ     ??HearBeat_P_Handle_0
+   \   00002C                ; Setup parameters for call to function printf
+   \   00002C   7A..         MOV     R2,#`?<Constant "\\312\\325\\265\\275\\320\\304\\314\\370\\2` & 0xff
+   \   00002E   7B..         MOV     R3,#(`?<Constant "\\312\\325\\265\\275\\320\\304\\314\\370\\2` >> 8) & 0xff
+   \   000030   12....       LCALL   `??printf::?relay`   ; Banked call to: printf
+   \   000033   8063         SJMP    ??HearBeat_P_Handle_1
+     26              ModuleBoard->ShortAddr = hp->para2 << 8 | hp->para3;
+   \                     ??HearBeat_P_Handle_0:
+   \   000035   EA           MOV     A,R2
+   \   000036   240B         ADD     A,#0xb
+   \   000038   F8           MOV     R0,A
+   \   000039   E4           CLR     A
+   \   00003A   35..         ADDC    A,?V1
+   \   00003C   F9           MOV     R1,A
+   \   00003D   8E82         MOV     DPL,R6
+   \   00003F   8F83         MOV     DPH,R7
+   \   000041   A3           INC     DPTR
+   \   000042   E0           MOVX    A,@DPTR
+   \   000043   FA           MOV     R2,A
+   \   000044   E4           CLR     A
+   \   000045   CA           XCH     A,R2
+   \   000046   FB           MOV     R3,A
+   \   000047   8E82         MOV     DPL,R6
+   \   000049   8F83         MOV     DPH,R7
+   \   00004B   A3           INC     DPTR
+   \   00004C   A3           INC     DPTR
+   \   00004D   E0           MOVX    A,@DPTR
+   \   00004E   8882         MOV     DPL,R0
+   \   000050   8983         MOV     DPH,R1
+   \   000052   F0           MOVX    @DPTR,A
+   \   000053   A3           INC     DPTR
+   \   000054   EB           MOV     A,R3
+   \   000055   F0           MOVX    @DPTR,A
+     27              ModuleBoard->ModuleState = ONLINE;
+   \   000056   85..82       MOV     DPL,?V0
+   \   000059   85..83       MOV     DPH,?V1
+   \   00005C   A3           INC     DPTR
+   \   00005D   A3           INC     DPTR
+   \   00005E   A3           INC     DPTR
+   \   00005F   A3           INC     DPTR
+   \   000060   A3           INC     DPTR
+   \   000061   A3           INC     DPTR
+   \   000062   A3           INC     DPTR
+   \   000063   A3           INC     DPTR
+   \   000064   A3           INC     DPTR
+   \   000065   E4           CLR     A
+   \   000066   F0           MOVX    @DPTR,A
+     28              printf("收到%s模块心跳，地址为%X,%X\r\n", ModuleBoard->Name,ModuleBoard->ShortAddr>> 8, ModuleBoard->ShortAddr & 0xff); 
+   \   000067   8882         MOV     DPL,R0
+   \   000069   8983         MOV     DPH,R1
+   \   00006B   E0           MOVX    A,@DPTR
+   \   00006C   F5..         MOV     ?V2,A
+   \   00006E   A3           INC     DPTR
+   \   00006F   E0           MOVX    A,@DPTR
+   \   000070   F5..         MOV     ?V3,A
+   \   000072                ; Setup parameters for call to function printf
+   \   000072   E5..         MOV     A,?V2
+   \   000074   F5..         MOV     ?V4,A
+   \   000076   8A..         MOV     ?V5,R2
+   \   000078   78..         MOV     R0,#?V4
+   \   00007A   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00007D   E4           CLR     A
+   \   00007E   C5..         XCH     A,?V3
+   \   000080   F5..         MOV     ?V2,A
+   \   000082   78..         MOV     R0,#?V2
+   \   000084   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000087   78..         MOV     R0,#?V0
+   \   000089   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00008C   7A..         MOV     R2,#`?<Constant "\\312\\325\\265\\275%s\\304\\243\\277\\351` & 0xff
+   \   00008E   7B..         MOV     R3,#(`?<Constant "\\312\\325\\265\\275%s\\304\\243\\277\\351` >> 8) & 0xff
+   \   000090   12....       LCALL   `??printf::?relay`   ; Banked call to: printf
+   \   000093   7406         MOV     A,#0x6
+   \   000095   12....       LCALL   ?DEALLOC_XSTACK8
+     29          }
+   \                     ??HearBeat_P_Handle_1:
+   \   000098   7F06         MOV     R7,#0x6
+   \   00009A   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ReportState::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ReportState
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??StateGet_P_Handle::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    StateGet_P_Handle
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??HearBeat_P_Handle::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    HearBeat_P_Handle
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\273\\361\\310\\241\\327\\264\\314\\254:%`:
+   \   000000   BBF1C8A1     DB "\273\361\310\241\327\264\314\254:%X\015\012"
+   \            D7B4CCAC
+   \            3A25580D
+   \            0A00    
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\312\\325\\265\\275\\320\\304\\314\\370\\2`:
+   \   000000   CAD5B5BD     DB "\312\325\265\275\320\304\314\370\265\253\312\307\316\336\267\250\306\245\305\344\265\275\304\243\277\351\015\012"
+   \            D0C4CCF8
+   \            B5ABCAC7
+   \            CEDEB7A8
+   \            C6A5C5E4
+   \            B5BDC4A3
+   \            BFE90D0A
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\312\\325\\265\\275%s\\304\\243\\277\\351`:
+   \   000000   CAD5B5BD     DB "\312\325\265\275%s\304\243\277\351\320\304\314\370\243\254\265\330\326\267\316\252%X,%X\015\012"
+   \            2573C4A3
+   \            BFE9D0C4
+   \            CCF8A3AC
+   \            B5D8D6B7
+   \            CEAA2558
+   \            2C25580D
+   \            0A00    
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      0     20   HearBeat_P_Handle
+        0     14   -> getModuleByModuleID
+        0     14   -> printf
+        0     20   -> printf
+      3     11   ReportState
+        2      1   -> Protocol_Send
+      0     12   StateGet_P_Handle
+        0     10   -> ReportState
+        0     12   -> printf
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      14  ?<Constant "\273\361\310\241\327\264\314\254:%
+      30  ?<Constant "\312\325\265\275%s\304\243\277\351
+      29  ?<Constant "\312\325\265\275\320\304\314\370\2
+     157  HearBeat_P_Handle
+       6  HearBeat_P_Handle::?relay
+      45  ReportState
+       6  ReportState::?relay
+      54  StateGet_P_Handle
+       6  StateGet_P_Handle::?relay
+
+ 
+ 256 bytes in segment BANKED_CODE
+  18 bytes in segment BANK_RELAYS
+  73 bytes in segment XDATA_ROM_C
+ 
+ 274 bytes of CODE  memory
+  73 bytes of CONST memory
+
+Errors: none
+Warnings: none
