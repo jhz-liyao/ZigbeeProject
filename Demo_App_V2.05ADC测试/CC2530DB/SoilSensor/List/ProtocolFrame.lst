@@ -1,0 +1,2790 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                24/Nov/2016  11:19:08
+# Copyright 2004-2015 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\Frame\ProtocolFrame.c
+#    Command line       =  
+#        -f "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f
+#        "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=50 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)
+#        -DREJOIN_POLL_RATE=440 "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\Frame\ProtocolFrame.c"
+#        -D HAL_UART=TRUE -D HAL_UART_ISR=1 -D HAL_UART_DMA=2 -D
+#        HOLD_AUTO_START -D LOG_OUT -D UART1_PROTOCOL_RESOLVER=1 -D xISQC -D
+#        NWK_AUTO_POLL -D xZTOOL_P1 -D ISR_KEYINTERRUPT -D xMT_TASK -D
+#        xMT_SYS_FUNC -D xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG -D xPOWER_SAVING
+#        -lC "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\SoilSensor\List"
+#        -lA "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\SoilSensor\List"
+#        --diag_suppress Pe001,Pa010 -o "E:\LiyaoProject\Zigbee_Project\Z-Stack
+#        Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\SoilSensor\Obj"
+#        -e --no_code_motion --debug --core=plain --dptr=16,1
+#        --data_model=large --code_model=banked
+#        --calling_convention=xdata_reentrant --place_constants=data_rom
+#        --nr_virtual_regs 8 -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\" -I
+#        "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\Source\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\Frame\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\Module\SoilSensor\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz
+#    List file          =  
+#        E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\SoilSensor\List\ProtocolFrame.lst
+#    Object file        =  
+#        E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\SoilSensor\Obj\ProtocolFrame.r51
+#
+###############################################################################
+
+E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\Frame\ProtocolFrame.c
+      1          #include "ProtocolFrame.h" 
+      2          #include "ProtocolHandle.h"
+      3          #include "LOG.h"
+      4          #include "Protocol.h"
+      5          #include "List.h"
+      6           
+      7          //###################################对外变量区###################################
+      8          //Protocol_Info_T protocol_send_infos[SEND_PROTOCOL_NUM] = {0};//发送协议栈
+      9          //Protocol_Info_T recv_protocol_infos[RECV_PROTOCOL_NUM] = {0};//接收协议栈 
+     10          //static uint8_t _Recv_Protocol_Arr[RECV_PROTOCOL_NUM] = {0};//已经接收到协议的索引  
+     11          //Protocol_Desc_T Send_Desc_P[SEND_PROTOCOL_NUM];//发送协议栈
+     12          //Protocol_Desc_T Recv_Desc_P[RECV_PROTOCOL_NUM];//接收协议栈 
+     13          //Protocol_Desc_T Transpond_Desc_P[TRANSPOND_PROTOCOL_NUM];//接收协议栈 
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     14          Protocol_Desc_T Desc_P_Arr[PROTOCOL_NUM];//协议栈
+   \                     Desc_P_Arr:
+   \   000000                DS 120
+   \   000078                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     15          List_Head_T* Desc_P_List = NULL;
+   \                     Desc_P_List:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     16          uint8_t Protocol_Size = 0;
+   \                     Protocol_Size:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     17          //###################################对内变量区################################### 
+     18           
+     19          
+     20          
+     21          #if UART1_PROTOCOL_RESOLVER
+     22            #define UART1_RPQUEUE_SIZE    10 //接收协议缓冲区（存储多条协议） 
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     23            Protocol_Resolver_T _UART1_Resolver;
+   \                     _UART1_Resolver:
+   \   000000                DS 132
+   \   000084                REQUIRE __INIT_XDATA_Z
+     24            //Protocol_Info_T _UART1_Protocol_QueueBuf[UART1_RPQUEUE_SIZE] = {0}; 
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+     25            Protocol_Resolver_T *UART1_Resolver = &_UART1_Resolver;
+   \                     UART1_Resolver:
+   \   000000                DS 2
+   \   000002                REQUIRE `?<Initializer for UART1_Resolver>`
+   \   000002                REQUIRE __INIT_XDATA_I
+     26          #endif
+     27          #if UART2_PROTOCOL_RESOLVER
+     28            #define UART2_RPQUEUE_SIZE    30 //接收协议缓冲区（存储多条协议） 
+     29            Protocol_Resolver_T _UART2_Resolver;
+     30            //Protocol_Info_T _UART2_Protocol_QueueBuf[UART2_RPQUEUE_SIZE] = {0}; 
+     31            Protocol_Resolver_T *UART2_Resolver = &_UART2_Resolver;
+     32          #endif
+     33          #if UART3_PROTOCOL_RESOLVER
+     34            #define UART3_RPQUEUE_SIZE    30 //接收协议缓冲区（存储多条协议） 
+     35            Protocol_Resolver_T _UART3_Resolver;
+     36            //Protocol_Info_T _UART3_Protocol_QueueBuf[UART3_RPQUEUE_SIZE] = {0}; 
+     37            Protocol_Resolver_T *UART3_Resolver = &_UART3_Resolver;
+     38          #endif
+     39          #if UART4_PROTOCOL_RESOLVER
+     40            #define UART4_RPQUEUE_SIZE    30 //接收协议缓冲区（存储多条协议） 
+     41            Protocol_Resolver_T _UART4_Resolver;
+     42            //Protocol_Info_T _UART4_Protocol_QueueBuf[UART4_RPQUEUE_SIZE] = {0}; 
+     43            Protocol_Resolver_T *UART1_Resolver = &_UART4_Resolver;
+     44          #endif
+     45          //-----------------------------------------------------  
+     46          //###################################对内函数区###################################
+     47          /****************************************************
+     48            函数名:  clean_recv_buf
+     49            功能:    清除协议栈正在写入的协议
+     50            作者:    liyao 2015年9月8日14:10:51
+     51          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     52          void _clean_recv_buf(Protocol_Resolver_T* pr){  
+   \                     _clean_recv_buf:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+     53            memset(&pr->pi, 0, sizeof(Protocol_Info_T)); 
+   \   000009                ; Setup parameters for call to function memset
+   \   000009   75..12       MOV     ?V0,#0x12
+   \   00000C   75..00       MOV     ?V1,#0x0
+   \   00000F   78..         MOV     R0,#?V0
+   \   000011   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000014   7C00         MOV     R4,#0x0
+   \   000016   7D00         MOV     R5,#0x0
+   \   000018   EE           MOV     A,R6
+   \   000019   2404         ADD     A,#0x4
+   \   00001B   FA           MOV     R2,A
+   \   00001C   E4           CLR     A
+   \   00001D   3F           ADDC    A,R7
+   \   00001E   FB           MOV     R3,A
+   \   00001F   12....       LCALL   `??memset::?relay`   ; Banked call to: memset
+   \   000022   7402         MOV     A,#0x2
+   \   000024   12....       LCALL   ?DEALLOC_XSTACK8
+     54            pr->Recv_State = 0;
+   \   000027   EE           MOV     A,R6
+   \   000028   247F         ADD     A,#0x7f
+   \   00002A   12....       LCALL   ?Subroutine4 & 0xFFFF
+     55            pr->Cnt = 0;
+   \                     ??CrossCallReturnLabel_3:
+   \   00002D   2416         ADD     A,#0x16
+   \   00002F   12....       LCALL   ?Subroutine4 & 0xFFFF
+     56            pr->Index = 0;
+   \                     ??CrossCallReturnLabel_4:
+   \   000032   247B         ADD     A,#0x7b
+   \   000034   12....       LCALL   ?Subroutine4 & 0xFFFF
+     57            pr->Is_FE = 0;
+   \                     ??CrossCallReturnLabel_5:
+   \   000037   247C         ADD     A,#0x7c
+   \   000039   12....       LCALL   ?Subroutine4 & 0xFFFF
+     58            pr->CheckSum = 0;
+   \                     ??CrossCallReturnLabel_6:
+   \   00003C   247D         ADD     A,#0x7d
+   \   00003E   F582         MOV     DPL,A
+   \   000040   E4           CLR     A
+   \   000041   3F           ADDC    A,R7
+   \   000042   F583         MOV     DPH,A
+   \   000044   E4           CLR     A
+   \   000045   F0           MOVX    @DPTR,A
+   \   000046   A3           INC     DPTR
+   \   000047                REQUIRE ?Subroutine0
+   \   000047                ; // Fall through to label ?Subroutine0
+     59          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001                REQUIRE ??Subroutine16_0
+   \   000001                ; // Fall through to label ??Subroutine16_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine16_0:
+   \   000000   7F02         MOV     R7,#0x2
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   F582         MOV     DPL,A
+   \   000002   E4           CLR     A
+   \   000003   3F           ADDC    A,R7
+   \   000004   F583         MOV     DPH,A
+   \   000006   E4           CLR     A
+   \   000007   F0           MOVX    @DPTR,A
+   \   000008   EE           MOV     A,R6
+   \   000009   22           RET
+     60          
+     61          /****************************************************
+     62            函数名:  _Fetch_Protocol
+     63            功能:    提取并执行已经缓存的协议
+     64            作者:    liyao 2016年9月8日10:54:34
+     65          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     66          void _Fetch_Protocol(Protocol_Resolver_T* pr){
+   \                     _Fetch_Protocol:
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 18
+   \   000005   74EE         MOV     A,#-0x12
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   EA           MOV     A,R2
+   \   00000B   FE           MOV     R6,A
+   \   00000C   EB           MOV     A,R3
+   \   00000D   FF           MOV     R7,A
+   \   00000E   801A         SJMP    ??_Fetch_Protocol_0
+     67                  Protocol_Info_T pi;
+     68            while(Queue_Link_Get(pr->Protocol_Queue,&pi) == 0){ 
+     69          //    if(pi.Check != NULL){
+     70          //      if(pi.Check(&pi) < 0){
+     71          //        Log.error("协议校验不通过\r\n");
+     72          //        break;
+     73          //      }
+     74          //    }
+     75              if(pi.Handle != NULL){
+     76                pi.Handle(&pi);
+     77              }else{
+     78                Log.error("收到协议但是无处理函数\r\n");
+   \                     ??_Fetch_Protocol_1:
+   \   000010                ; Setup parameters for indirect call
+   \   000010   7A..         MOV     R2,#`?<Constant "\\312\\325\\265\\275\\320\\255\\322\\351\\2` & 0xff
+   \   000012   7B..         MOV     R3,#(`?<Constant "\\312\\325\\265\\275\\320\\255\\322\\351\\2` >> 8) & 0xff
+   \   000014   90....       MOV     DPTR,#Log + 4
+   \   000017   E0           MOVX    A,@DPTR
+   \   000018   F8           MOV     R0,A
+     79              } 
+   \                     ??_Fetch_Protocol_2:
+   \   000019   12....       LCALL   ??Subroutine22_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_50:
+   \   00001C   12....       LCALL   ?CALL_IND
+     80              FREE(pi.ParameterList);
+   \   00001F                ; Setup parameters for call to function osal_mem_free
+   \   00001F   7406         MOV     A,#0x6
+   \   000021   12....       LCALL   ?XSTACK_DISP0_8
+   \   000024   12....       LCALL   ??Subroutine18_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_36:
+   \   000027   12....       LCALL   `??osal_mem_free::?relay`; Banked call to: osal_mem_free
+   \                     ??_Fetch_Protocol_0:
+   \   00002A                ; Setup parameters for call to function Queue_Link_Get
+   \   00002A   AC..         MOV     R4,?XSP + 0
+   \   00002C   AD..         MOV     R5,?XSP + 1
+   \   00002E   8E82         MOV     DPL,R6
+   \   000030   8F83         MOV     DPH,R7
+   \   000032   12....       LCALL   ??Subroutine18_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_37:
+   \   000035   12....       LCALL   `??Queue_Link_Get::?relay`; Banked call to: Queue_Link_Get
+   \   000038   E9           MOV     A,R1
+   \   000039   7017         JNZ     ??_Fetch_Protocol_3
+   \   00003B   740E         MOV     A,#0xe
+   \   00003D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000040   12....       LCALL   ??Subroutine20_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_45:
+   \   000043   E8           MOV     A,R0
+   \   000044   49           ORL     A,R1
+   \   000045   60C9         JZ      ??_Fetch_Protocol_1
+   \   000047                ; Setup parameters for indirect call
+   \   000047   AA..         MOV     R2,?XSP + 0
+   \   000049   AB..         MOV     R3,?XSP + 1
+   \   00004B   740E         MOV     A,#0xe
+   \   00004D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000050   80C7         SJMP    ??_Fetch_Protocol_2
+     81            }
+     82          }
+   \                     ??_Fetch_Protocol_3:
+   \   000052   7412         MOV     A,#0x12
+   \   000054   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000057                REQUIRE ?Subroutine1
+   \   000057                ; // Fall through to label ?Subroutine1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F01         MOV     R7,#0x1
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine18_0:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   FA           MOV     R2,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   FB           MOV     R3,A
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine20_0:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F9           MOV     R1,A
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine22_0:
+   \   000000   A3           INC     DPTR
+   \   000001   E0           MOVX    A,@DPTR
+   \   000002   F583         MOV     DPH,A
+   \   000004   8882         MOV     DPL,R0
+   \   000006   22           RET
+     83           
+     84          /****************************************************
+     85            函数名:  Protocol_Put
+     86            功能:    接收协议数据并解析封装
+     87            参数:    协议数据
+     88            注意:   通过protocol_flag标志位标示是否解析出新的协议
+     89            作者:    liyao 2015年9月8日14:10:51
+     90          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     91          int8_t _Protocol_Put(Protocol_Resolver_T* pr,uint8_t* datas,uint8_t len){
+   \                     _Protocol_Put:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 2
+   \   000005   74FE         MOV     A,#-0x2
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   85..82       MOV     DPL,?XSP + 0
+   \   00000D   85..83       MOV     DPH,?XSP + 1
+   \   000010   EC           MOV     A,R4
+   \   000011   F0           MOVX    @DPTR,A
+   \   000012   A3           INC     DPTR
+   \   000013   ED           MOV     A,R5
+   \   000014   F0           MOVX    @DPTR,A
+   \   000015   EA           MOV     A,R2
+   \   000016   FE           MOV     R6,A
+   \   000017   EB           MOV     A,R3
+   \   000018   FF           MOV     R7,A
+   \   000019   89..         MOV     ?V7,R1
+     92            uint8_t i, data; 
+     93            uint16_t src_board_action;
+     94            List_Node_T* Cur_Node = Desc_P_List->Head;
+   \   00001B   90....       MOV     DPTR,#Desc_P_List
+   \   00001E   12....       LCALL   ??Subroutine21_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_51:
+   \   000021   E0           MOVX    A,@DPTR
+   \   000022   F5..         MOV     ?V2,A
+   \   000024   A3           INC     DPTR
+   \   000025   E0           MOVX    A,@DPTR
+   \   000026   F5..         MOV     ?V3,A
+     95            
+     96            for(i = 0; i < len; i++){
+   \   000028   75..00       MOV     ?V6,#0x0
+   \   00002B   8032         SJMP    ??_Protocol_Put_0
+     97              data = datas[i];
+     98                          if(pr->pi.Head != 0xFD && data != 0xFD)
+     99                            continue;
+    100              if(pr->pi.Head == 0xFD && data == 0xFD){ //协议被切断抛弃
+    101                _clean_recv_buf(pr);
+    102                Log.error("协议中途出现0xFD\r\n");
+    103                return -1;
+    104              }
+    105              if(data == 0xFE){//处理转义
+    106                pr->Is_FE = 1;
+    107                continue;
+    108              }else if(pr->Is_FE){
+    109                switch(data){
+    110                  case 0x7D: data = 0xFD;break;
+   \                     ??_Protocol_Put_1:
+   \   00002D   7AFD         MOV     R2,#-0x3
+   \   00002F   8072         SJMP    ??_Protocol_Put_2
+   \                     ??_Protocol_Put_3:
+   \   000031   74FD         MOV     A,#-0x3
+   \   000033   6A           XRL     A,R2
+   \   000034   7016         JNZ     ??_Protocol_Put_4
+   \   000036                ; Setup parameters for call to function _clean_recv_buf
+   \   000036   EE           MOV     A,R6
+   \   000037   FA           MOV     R2,A
+   \   000038   EF           MOV     A,R7
+   \   000039   FB           MOV     R3,A
+   \   00003A   12....       LCALL   `??_clean_recv_buf::?relay`; Banked call to: _clean_recv_buf
+   \   00003D                ; Setup parameters for indirect call
+   \   00003D   7A..         MOV     R2,#`?<Constant "\\320\\255\\322\\351\\326\\320\\315\\276\\2` & 0xff
+   \   00003F   7B..         MOV     R3,#(`?<Constant "\\320\\255\\322\\351\\326\\320\\315\\276\\2` >> 8) & 0xff
+   \   000041   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_56:
+   \   000044   12....       LCALL   ?CALL_IND
+   \   000047   79FF         MOV     R1,#-0x1
+   \   000049   02....       LJMP    ??_Protocol_Put_5 & 0xFFFF
+   \                     ??_Protocol_Put_4:
+   \   00004C   74FE         MOV     A,#-0x2
+   \   00004E   6A           XRL     A,R2
+   \   00004F   7036         JNZ     ??_Protocol_Put_6
+   \   000051   EE           MOV     A,R6
+   \   000052   247C         ADD     A,#0x7c
+   \   000054   F582         MOV     DPL,A
+   \   000056   E4           CLR     A
+   \   000057   3F           ADDC    A,R7
+   \   000058   F583         MOV     DPH,A
+   \   00005A   7401         MOV     A,#0x1
+   \                     ??_Protocol_Put_7:
+   \   00005C   F0           MOVX    @DPTR,A
+   \                     ??_Protocol_Put_8:
+   \   00005D   05..         INC     ?V6
+   \                     ??_Protocol_Put_0:
+   \   00005F   E5..         MOV     A,?V6
+   \   000061   C3           CLR     C
+   \   000062   95..         SUBB    A,?V7
+   \   000064   4003         JC      $+5
+   \   000066   02....       LJMP    ??_Protocol_Put_9 & 0xFFFF
+   \   000069   A8..         MOV     R0,?V6
+   \   00006B   85..82       MOV     DPL,?XSP + 0
+   \   00006E   85..83       MOV     DPH,?XSP + 1
+   \   000071   12....       LCALL   ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_19:
+   \   000074   FA           MOV     R2,A
+   \   000075   8E82         MOV     DPL,R6
+   \   000077   8F83         MOV     DPH,R7
+   \   000079   A3           INC     DPTR
+   \   00007A   A3           INC     DPTR
+   \   00007B   A3           INC     DPTR
+   \   00007C   A3           INC     DPTR
+   \   00007D   E0           MOVX    A,@DPTR
+   \   00007E   64FD         XRL     A,#0xfd
+   \   000080   60AF         JZ      ??_Protocol_Put_3
+   \   000082   74FD         MOV     A,#-0x3
+   \   000084   6A           XRL     A,R2
+   \   000085   70D6         JNZ     ??_Protocol_Put_8
+   \                     ??_Protocol_Put_6:
+   \   000087   EE           MOV     A,R6
+   \   000088   247C         ADD     A,#0x7c
+   \   00008A   12....       LCALL   ??Subroutine17_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_30:
+   \   00008D   6016         JZ      ??_Protocol_Put_10
+   \   00008F   EA           MOV     A,R2
+   \   000090   2488         ADD     A,#-0x78
+   \   000092   6009         JZ      ??_Protocol_Put_11
+   \   000094   24FB         ADD     A,#-0x5
+   \   000096   6095         JZ      ??_Protocol_Put_1
+   \   000098   14           DEC     A
+   \   000099   6006         JZ      ??_Protocol_Put_12
+   \   00009B   8006         SJMP    ??_Protocol_Put_2
+    111                  case 0x78: data = 0xF8;break;
+   \                     ??_Protocol_Put_11:
+   \   00009D   7AF8         MOV     R2,#-0x8
+   \   00009F   8002         SJMP    ??_Protocol_Put_2
+    112                  case 0x7E: data = 0xFE;break;
+   \                     ??_Protocol_Put_12:
+   \   0000A1   7AFE         MOV     R2,#-0x2
+    113                } 
+    114                pr->Is_FE = 0;
+   \                     ??_Protocol_Put_2:
+   \   0000A3   E4           CLR     A
+   \   0000A4   F0           MOVX    @DPTR,A
+    115              }
+    116                
+    117              if(pr->Recv_State > 0 && pr->Recv_State < 7)//排除帧头帧尾计算校验和
+   \                     ??_Protocol_Put_10:
+   \   0000A5   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   0000A8   6043         JZ      ??_Protocol_Put_13
+   \   0000AA   C3           CLR     C
+   \   0000AB   9407         SUBB    A,#0x7
+   \   0000AD   500C         JNC     ??_Protocol_Put_14
+    118                pr->CheckSum += data;
+   \   0000AF   EA           MOV     A,R2
+   \   0000B0   F8           MOV     R0,A
+   \   0000B1   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_34:
+   \   0000B4   28           ADD     A,R0
+   \   0000B5   F0           MOVX    @DPTR,A
+   \   0000B6   A3           INC     DPTR
+   \   0000B7   E0           MOVX    A,@DPTR
+   \   0000B8   3400         ADDC    A,#0x0
+   \   0000BA   F0           MOVX    @DPTR,A
+    119            //协议解析状态机
+    120              switch(pr->Recv_State){
+   \                     ??_Protocol_Put_14:
+   \   0000BB   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   0000BE   602D         JZ      ??_Protocol_Put_13
+   \   0000C0   14           DEC     A
+   \   0000C1   603B         JZ      ??_Protocol_Put_15
+   \   0000C3   14           DEC     A
+   \   0000C4   6040         JZ      ??_Protocol_Put_16
+   \   0000C6   14           DEC     A
+   \   0000C7   7003         JNZ     $+5
+   \   0000C9   02....       LJMP    ??_Protocol_Put_17 & 0xFFFF
+   \   0000CC   14           DEC     A
+   \   0000CD   7003         JNZ     $+5
+   \   0000CF   02....       LJMP    ??_Protocol_Put_18 & 0xFFFF
+   \   0000D2   14           DEC     A
+   \   0000D3   7003         JNZ     $+5
+   \   0000D5   02....       LJMP    ??_Protocol_Put_19 & 0xFFFF
+   \   0000D8   14           DEC     A
+   \   0000D9   7003         JNZ     $+5
+   \   0000DB   02....       LJMP    ??_Protocol_Put_20 & 0xFFFF
+   \   0000DE   14           DEC     A
+   \   0000DF   7003         JNZ     $+5
+   \   0000E1   02....       LJMP    ??_Protocol_Put_21 & 0xFFFF
+   \   0000E4   14           DEC     A
+   \   0000E5   7003         JNZ     $+5
+   \   0000E7   02....       LJMP    ??_Protocol_Put_22 & 0xFFFF
+   \   0000EA   02....       LJMP    ??_Protocol_Put_8 & 0xFFFF
+    121                case 0:  //处理帧头
+    122                      pr->pi.Head = data;
+   \                     ??_Protocol_Put_13:
+   \   0000ED   EA           MOV     A,R2
+   \   0000EE   8E82         MOV     DPL,R6
+   \   0000F0   8F83         MOV     DPH,R7
+   \                     ??_Protocol_Put_23:
+   \   0000F2   A3           INC     DPTR
+   \   0000F3   A3           INC     DPTR
+   \   0000F4   A3           INC     DPTR
+   \   0000F5   A3           INC     DPTR
+   \   0000F6   F0           MOVX    @DPTR,A
+    123                      pr->Recv_State++; 
+    124                      break;
+    125                case 1:  //处理预留位
+    126                      pr->pi.Standby1 = data;
+    127                      pr->Recv_State++; 
+    128                      break;
+    129                case 2: //处理帧长(从ID到数据位最后一个)
+    130                      pr->Recv_State++; 
+    131                      pr->pi.Plen = data;
+    132                      if(data < 4){
+    133                        _clean_recv_buf(pr);
+    134                        Log.error("处理帧长错误\r\n");
+    135                        return -2;
+    136                      }
+    137                      else
+    138                        pr->Cnt = pr->pi.ParaLen = data - 3;//计算结果为参数个数
+    139                        pr->pi.AllLen = data + 5;//计算结果为协议总长度包括FD、F8
+    140                      break;
+    141                case 3: //处理目标板
+    142                      pr->pi.Module = data;
+    143                      pr->Recv_State++; 
+    144                      break;
+    145                case 4: //处理编号
+    146                      pr->pi.Serial = data;
+    147                      pr->Recv_State++; 
+    148                      break;
+    149                case 5: //处理指令码(ACTION)
+    150                      pr->pi.Action = data;
+    151                      pr->Recv_State++; 
+    152                      break;
+    153                case 6: //处理参数 
+    154                      pr->ParaData[pr->Index++] = data;
+    155                      //((uint8_t *)(&pr->pi.ParameterList))[pr->index++] = data;  
+    156                      if(--pr->Cnt == 0)
+    157                        pr->Recv_State++;
+    158                      break;
+    159                case 7: //处理校验和校验  
+    160                      pr->pi.CheckSum = data;
+    161                      /*校验和暂时关闭*/
+    162                      if(((uint8_t)pr->CheckSum & 0xff) != data){
+    163                        _clean_recv_buf(pr);
+    164                        Log.error("协议校验和错误\r\n");
+    165                        return -3;
+    166                      }else{ 
+    167                        pr->Recv_State++; 
+   \                     ??_Protocol_Put_24:
+   \   0000F7   12....       LCALL   ?Subroutine3 & 0xFFFF
+    168                      } 
+   \                     ??CrossCallReturnLabel_2:
+   \   0000FA   04           INC     A
+   \   0000FB   02....       LJMP    ??_Protocol_Put_7 & 0xFFFF
+   \                     ??_Protocol_Put_15:
+   \   0000FE   EA           MOV     A,R2
+   \   0000FF   8E82         MOV     DPL,R6
+   \   000101   8F83         MOV     DPH,R7
+   \                     ??_Protocol_Put_25:
+   \   000103   A3           INC     DPTR
+   \   000104   80EC         SJMP    ??_Protocol_Put_23
+   \                     ??_Protocol_Put_16:
+   \   000106   E0           MOVX    A,@DPTR
+   \   000107   04           INC     A
+   \   000108   F0           MOVX    @DPTR,A
+   \   000109   EA           MOV     A,R2
+   \   00010A   8E82         MOV     DPL,R6
+   \   00010C   8F83         MOV     DPH,R7
+   \   00010E   A3           INC     DPTR
+   \   00010F   A3           INC     DPTR
+   \   000110   A3           INC     DPTR
+   \   000111   A3           INC     DPTR
+   \   000112   A3           INC     DPTR
+   \   000113   A3           INC     DPTR
+   \   000114   F0           MOVX    @DPTR,A
+   \   000115   C3           CLR     C
+   \   000116   9404         SUBB    A,#0x4
+   \   000118   5016         JNC     ??_Protocol_Put_26
+   \   00011A                ; Setup parameters for call to function _clean_recv_buf
+   \   00011A   EE           MOV     A,R6
+   \   00011B   FA           MOV     R2,A
+   \   00011C   EF           MOV     A,R7
+   \   00011D   FB           MOV     R3,A
+   \   00011E   12....       LCALL   `??_clean_recv_buf::?relay`; Banked call to: _clean_recv_buf
+   \   000121                ; Setup parameters for indirect call
+   \   000121   7A..         MOV     R2,#`?<Constant "\\264\\246\\300\\355\\326\\241\\263\\244\\2` & 0xff
+   \   000123   7B..         MOV     R3,#(`?<Constant "\\264\\246\\300\\355\\326\\241\\263\\244\\2` >> 8) & 0xff
+   \   000125   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_57:
+   \   000128   12....       LCALL   ?CALL_IND
+   \   00012B   79FE         MOV     R1,#-0x2
+   \   00012D   02....       LJMP    ??_Protocol_Put_5 & 0xFFFF
+   \                     ??_Protocol_Put_26:
+   \   000130   74FD         MOV     A,#-0x3
+   \   000132   2A           ADD     A,R2
+   \   000133   F8           MOV     R0,A
+   \   000134   EE           MOV     A,R6
+   \   000135   240E         ADD     A,#0xe
+   \   000137   F582         MOV     DPL,A
+   \   000139   E4           CLR     A
+   \   00013A   3F           ADDC    A,R7
+   \   00013B   F583         MOV     DPH,A
+   \   00013D   E8           MOV     A,R0
+   \   00013E   F0           MOVX    @DPTR,A
+   \   00013F   EE           MOV     A,R6
+   \   000140   2416         ADD     A,#0x16
+   \   000142   F582         MOV     DPL,A
+   \   000144   E4           CLR     A
+   \   000145   3F           ADDC    A,R7
+   \   000146   F583         MOV     DPH,A
+   \   000148   E8           MOV     A,R0
+   \   000149   F0           MOVX    @DPTR,A
+   \   00014A   7405         MOV     A,#0x5
+   \   00014C   2A           ADD     A,R2
+   \   00014D   C0E0         PUSH    A
+   \   00014F   EE           MOV     A,R6
+   \   000150   240F         ADD     A,#0xf
+   \   000152   F582         MOV     DPL,A
+   \   000154   E4           CLR     A
+   \   000155   3F           ADDC    A,R7
+   \   000156   F583         MOV     DPH,A
+   \   000158   D0E0         POP     A
+   \   00015A   02....       LJMP    ??_Protocol_Put_7 & 0xFFFF
+   \                     ??_Protocol_Put_17:
+   \   00015D   EA           MOV     A,R2
+   \   00015E   8E82         MOV     DPL,R6
+   \   000160   8F83         MOV     DPH,R7
+   \                     ??_Protocol_Put_27:
+   \   000162   A3           INC     DPTR
+   \   000163   A3           INC     DPTR
+   \   000164   809D         SJMP    ??_Protocol_Put_25
+   \                     ??_Protocol_Put_18:
+   \   000166   EA           MOV     A,R2
+   \   000167   8E82         MOV     DPL,R6
+   \   000169   8F83         MOV     DPH,R7
+   \                     ??_Protocol_Put_28:
+   \   00016B   A3           INC     DPTR
+   \   00016C   80F4         SJMP    ??_Protocol_Put_27
+   \                     ??_Protocol_Put_19:
+   \   00016E   EA           MOV     A,R2
+   \   00016F   8E82         MOV     DPL,R6
+   \   000171   8F83         MOV     DPH,R7
+   \   000173   A3           INC     DPTR
+   \   000174   80F5         SJMP    ??_Protocol_Put_28
+   \                     ??_Protocol_Put_20:
+   \   000176   EE           MOV     A,R6
+   \   000177   247B         ADD     A,#0x7b
+   \   000179   F8           MOV     R0,A
+   \   00017A   E4           CLR     A
+   \   00017B   3F           ADDC    A,R7
+   \   00017C   F9           MOV     R1,A
+   \   00017D   EA           MOV     A,R2
+   \   00017E   C0E0         PUSH    A
+   \   000180   8882         MOV     DPL,R0
+   \   000182   8983         MOV     DPH,R1
+   \   000184   E0           MOVX    A,@DPTR
+   \   000185   FA           MOV     R2,A
+   \   000186   EE           MOV     A,R6
+   \   000187   2A           ADD     A,R2
+   \   000188   FA           MOV     R2,A
+   \   000189   E4           CLR     A
+   \   00018A   3F           ADDC    A,R7
+   \   00018B   FB           MOV     R3,A
+   \   00018C   EA           MOV     A,R2
+   \   00018D   2417         ADD     A,#0x17
+   \   00018F   F582         MOV     DPL,A
+   \   000191   E4           CLR     A
+   \   000192   3B           ADDC    A,R3
+   \   000193   F583         MOV     DPH,A
+   \   000195   D0E0         POP     A
+   \   000197   F0           MOVX    @DPTR,A
+   \   000198   8882         MOV     DPL,R0
+   \   00019A   8983         MOV     DPH,R1
+   \   00019C   E0           MOVX    A,@DPTR
+   \   00019D   04           INC     A
+   \   00019E   F0           MOVX    @DPTR,A
+   \   00019F   EE           MOV     A,R6
+   \   0001A0   2416         ADD     A,#0x16
+   \   0001A2   12....       LCALL   ??Subroutine17_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_31:
+   \   0001A5   14           DEC     A
+   \   0001A6   F0           MOVX    @DPTR,A
+   \   0001A7   6003         JZ      $+5
+   \   0001A9   02....       LJMP    ??_Protocol_Put_8 & 0xFFFF
+   \   0001AC   02....       LJMP    ??_Protocol_Put_24 & 0xFFFF
+   \                     ??_Protocol_Put_21:
+   \   0001AF   EE           MOV     A,R6
+   \   0001B0   240C         ADD     A,#0xc
+   \   0001B2   F582         MOV     DPL,A
+   \   0001B4   E4           CLR     A
+   \   0001B5   3F           ADDC    A,R7
+   \   0001B6   F583         MOV     DPH,A
+   \   0001B8   EA           MOV     A,R2
+   \   0001B9   F0           MOVX    @DPTR,A
+   \   0001BA   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_35:
+   \   0001BD   6A           XRL     A,R2
+   \   0001BE   7003         JNZ     $+5
+   \   0001C0   02....       LJMP    ??_Protocol_Put_24 & 0xFFFF
+   \   0001C3                ; Setup parameters for call to function _clean_recv_buf
+   \   0001C3   EE           MOV     A,R6
+   \   0001C4   FA           MOV     R2,A
+   \   0001C5   EF           MOV     A,R7
+   \   0001C6   FB           MOV     R3,A
+   \   0001C7   12....       LCALL   `??_clean_recv_buf::?relay`; Banked call to: _clean_recv_buf
+   \   0001CA                ; Setup parameters for indirect call
+   \   0001CA   7A..         MOV     R2,#`?<Constant "\\320\\255\\322\\351\\320\\243\\321\\351\\2` & 0xff
+   \   0001CC   7B..         MOV     R3,#(`?<Constant "\\320\\255\\322\\351\\320\\243\\321\\351\\2` >> 8) & 0xff
+   \   0001CE   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_58:
+   \   0001D1   12....       LCALL   ?CALL_IND
+   \   0001D4   79FD         MOV     R1,#-0x3
+   \   0001D6   02....       LJMP    ??_Protocol_Put_5 & 0xFFFF
+    169                      break;
+    170                case 8: //处理帧尾 帧类型和长度进行匹配 
+    171                      if(data != 0xF8){
+   \                     ??_Protocol_Put_22:
+   \   0001D9   74F8         MOV     A,#-0x8
+   \   0001DB   6A           XRL     A,R2
+   \   0001DC   6016         JZ      ??_Protocol_Put_29
+    172                        _clean_recv_buf(pr);
+   \   0001DE                ; Setup parameters for call to function _clean_recv_buf
+   \   0001DE   EE           MOV     A,R6
+   \   0001DF   FA           MOV     R2,A
+   \   0001E0   EF           MOV     A,R7
+   \   0001E1   FB           MOV     R3,A
+   \   0001E2   12....       LCALL   `??_clean_recv_buf::?relay`; Banked call to: _clean_recv_buf
+    173                        Log.error("帧尾位置非0xF8错误\r\n");
+   \   0001E5                ; Setup parameters for indirect call
+   \   0001E5   7A..         MOV     R2,#`?<Constant "\\326\\241\\316\\262\\316\\273\\326\\303\\2` & 0xff
+   \   0001E7   7B..         MOV     R3,#(`?<Constant "\\326\\241\\316\\262\\316\\273\\326\\303\\2` >> 8) & 0xff
+   \   0001E9   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_59:
+   \   0001EC   12....       LCALL   ?CALL_IND
+    174                        return -4;
+   \   0001EF   79FC         MOV     R1,#-0x4
+   \   0001F1   02....       LJMP    ??_Protocol_Put_5 & 0xFFFF
+    175                      }
+    176                      pr->pi.Tail = data;
+   \                     ??_Protocol_Put_29:
+   \   0001F4   EE           MOV     A,R6
+   \   0001F5   240D         ADD     A,#0xd
+   \   0001F7   F582         MOV     DPL,A
+   \   0001F9   E4           CLR     A
+   \   0001FA   3F           ADDC    A,R7
+   \   0001FB   F583         MOV     DPH,A
+   \   0001FD   74F8         MOV     A,#-0x8
+   \   0001FF   F0           MOVX    @DPTR,A
+    177                      src_board_action = pr->pi.Module << 8 | pr->pi.Action;
+   \   000200   8E82         MOV     DPL,R6
+   \   000202   8F83         MOV     DPH,R7
+   \   000204   A3           INC     DPTR
+   \   000205   A3           INC     DPTR
+   \   000206   A3           INC     DPTR
+   \   000207   A3           INC     DPTR
+   \   000208   A3           INC     DPTR
+   \   000209   A3           INC     DPTR
+   \   00020A   A3           INC     DPTR
+   \   00020B   E0           MOVX    A,@DPTR
+   \   00020C   F9           MOV     R1,A
+   \   00020D   8E82         MOV     DPL,R6
+   \   00020F   8F83         MOV     DPH,R7
+   \   000211   A3           INC     DPTR
+   \   000212   A3           INC     DPTR
+   \   000213   A3           INC     DPTR
+   \   000214   A3           INC     DPTR
+   \   000215   A3           INC     DPTR
+   \   000216   A3           INC     DPTR
+   \   000217   A3           INC     DPTR
+   \   000218   A3           INC     DPTR
+   \   000219   A3           INC     DPTR
+   \   00021A   E0           MOVX    A,@DPTR
+   \   00021B   F8           MOV     R0,A
+   \   00021C   8011         SJMP    ??_Protocol_Put_30
+    178          
+    179                      while(Cur_Node != NULL){
+    180                        Protocol_Desc_T* pdt = Cur_Node->Data;
+    181                        if(  src_board_action ==  pdt->ModuleAction &&//目标板匹配,动作匹配 
+    182                            pr->pi.ParaLen == pdt->ProtocolSize)//帧长度匹配
+    183                        {
+    184                          pr->pi.ParameterList = MALLOC(pr->Index);
+    185                          MALLOC_CHECK(pr->pi.ParameterList, "_Protocol_Put");
+    186                          memcpy(pr->pi.ParameterList, pr->ParaData, pr->Index);
+    187                          pr->pi.Handle = pdt->Handle;
+    188                          pr->pi.Check = pdt->Check;
+    189                          pr->pi.ProtocolDesc = pdt;
+    190                          break;
+    191                        }
+    192                        Cur_Node = Cur_Node->Next;
+   \                     ??_Protocol_Put_31:
+   \   00021E   85..82       MOV     DPL,?V2
+   \   000221   85..83       MOV     DPH,?V3
+   \   000224   A3           INC     DPTR
+   \   000225   A3           INC     DPTR
+   \   000226   A3           INC     DPTR
+   \   000227   A3           INC     DPTR
+   \   000228   E0           MOVX    A,@DPTR
+   \   000229   F5..         MOV     ?V2,A
+   \   00022B   A3           INC     DPTR
+   \   00022C   E0           MOVX    A,@DPTR
+   \   00022D   F5..         MOV     ?V3,A
+   \                     ??_Protocol_Put_30:
+   \   00022F   E5..         MOV     A,?V2
+   \   000231   45..         ORL     A,?V3
+   \   000233   7003         JNZ     $+5
+   \   000235   02....       LJMP    ??_Protocol_Put_32 & 0xFFFF
+   \   000238   85..82       MOV     DPL,?V2
+   \   00023B   85..83       MOV     DPH,?V3
+   \   00023E   E0           MOVX    A,@DPTR
+   \   00023F   F5..         MOV     ?V0,A
+   \   000241   A3           INC     DPTR
+   \   000242   E0           MOVX    A,@DPTR
+   \   000243   F5..         MOV     ?V1,A
+   \   000245   85..82       MOV     DPL,?V0
+   \   000248   F583         MOV     DPH,A
+   \   00024A   E0           MOVX    A,@DPTR
+   \   00024B   68           XRL     A,R0
+   \   00024C   7003         JNZ     ??_Protocol_Put_33
+   \   00024E   A3           INC     DPTR
+   \   00024F   E0           MOVX    A,@DPTR
+   \   000250   69           XRL     A,R1
+   \                     ??_Protocol_Put_33:
+   \   000251   70CB         JNZ     ??_Protocol_Put_31
+   \   000253   EE           MOV     A,R6
+   \   000254   240E         ADD     A,#0xe
+   \   000256   12....       LCALL   ??Subroutine17_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_32:
+   \   000259   FA           MOV     R2,A
+   \   00025A   85..82       MOV     DPL,?V0
+   \   00025D   85..83       MOV     DPH,?V1
+   \   000260   A3           INC     DPTR
+   \   000261   A3           INC     DPTR
+   \   000262   A3           INC     DPTR
+   \   000263   A3           INC     DPTR
+   \   000264   E0           MOVX    A,@DPTR
+   \   000265   6A           XRL     A,R2
+   \   000266   70B6         JNZ     ??_Protocol_Put_31
+   \   000268   EE           MOV     A,R6
+   \   000269   247B         ADD     A,#0x7b
+   \   00026B   F8           MOV     R0,A
+   \   00026C   E4           CLR     A
+   \   00026D   3F           ADDC    A,R7
+   \   00026E   F9           MOV     R1,A
+   \   00026F                ; Setup parameters for call to function osal_mem_alloc
+   \   00026F   8882         MOV     DPL,R0
+   \   000271   8983         MOV     DPH,R1
+   \   000273   E0           MOVX    A,@DPTR
+   \   000274   FA           MOV     R2,A
+   \   000275   7B00         MOV     R3,#0x0
+   \   000277   12....       LCALL   `??osal_mem_alloc::?relay`; Banked call to: osal_mem_alloc
+   \   00027A   8A..         MOV     ?V4,R2
+   \   00027C   8B..         MOV     ?V5,R3
+   \   00027E   A8..         MOV     R0,?V4
+   \   000280   A9..         MOV     R1,?V5
+   \   000282   8E82         MOV     DPL,R6
+   \   000284   8F83         MOV     DPH,R7
+   \   000286   A3           INC     DPTR
+   \   000287   A3           INC     DPTR
+   \   000288   A3           INC     DPTR
+   \   000289   A3           INC     DPTR
+   \   00028A   A3           INC     DPTR
+   \   00028B   A3           INC     DPTR
+   \   00028C   A3           INC     DPTR
+   \   00028D   A3           INC     DPTR
+   \   00028E   A3           INC     DPTR
+   \   00028F   A3           INC     DPTR
+   \   000290   E8           MOV     A,R0
+   \   000291   F0           MOVX    @DPTR,A
+   \   000292   A3           INC     DPTR
+   \   000293   E9           MOV     A,R1
+   \   000294   F0           MOVX    @DPTR,A
+   \   000295   E8           MOV     A,R0
+   \   000296   49           ORL     A,R1
+   \   000297   700A         JNZ     ??_Protocol_Put_34
+   \   000299                ; Setup parameters for indirect call
+   \   000299   7A..         MOV     R2,#`?<Constant "\\"_Protocol_Put\\"\\277\\325\\274\\344\\` & 0xff
+   \   00029B   7B..         MOV     R3,#(`?<Constant "\\"_Protocol_Put\\"\\277\\325\\274\\344\\` >> 8) & 0xff
+   \   00029D   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_60:
+   \   0002A0   12....       LCALL   ?CALL_IND
+   \                     ??_Protocol_Put_34:
+   \   0002A3                ; Setup parameters for call to function memcpy
+   \   0002A3   EE           MOV     A,R6
+   \   0002A4   247B         ADD     A,#0x7b
+   \   0002A6   12....       LCALL   ??Subroutine17_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_33:
+   \   0002A9   F5..         MOV     ?V4,A
+   \   0002AB   75..00       MOV     ?V5,#0x0
+   \   0002AE   78..         MOV     R0,#?V4
+   \   0002B0   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0002B3   EE           MOV     A,R6
+   \   0002B4   2417         ADD     A,#0x17
+   \   0002B6   FC           MOV     R4,A
+   \   0002B7   E4           CLR     A
+   \   0002B8   3F           ADDC    A,R7
+   \   0002B9   FD           MOV     R5,A
+   \   0002BA   12....       LCALL   ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_43:
+   \   0002BD   12....       LCALL   `??memcpy::?relay`   ; Banked call to: memcpy
+   \   0002C0   7402         MOV     A,#0x2
+   \   0002C2   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0002C5   85..82       MOV     DPL,?V0
+   \   0002C8   85..83       MOV     DPH,?V1
+   \   0002CB   12....       LCALL   ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_48:
+   \   0002CE   EE           MOV     A,R6
+   \   0002CF   2412         ADD     A,#0x12
+   \   0002D1   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   0002D4   85..82       MOV     DPL,?V0
+   \   0002D7   85..83       MOV     DPH,?V1
+   \   0002DA   A3           INC     DPTR
+   \   0002DB   A3           INC     DPTR
+   \   0002DC   12....       LCALL   ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_49:
+   \   0002DF   EE           MOV     A,R6
+   \   0002E0   2414         ADD     A,#0x14
+   \   0002E2   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   0002E5   EE           MOV     A,R6
+   \   0002E6   2410         ADD     A,#0x10
+   \   0002E8   F582         MOV     DPL,A
+   \   0002EA   E4           CLR     A
+   \   0002EB   3F           ADDC    A,R7
+   \   0002EC   F583         MOV     DPH,A
+   \   0002EE   E5..         MOV     A,?V0
+   \   0002F0   F0           MOVX    @DPTR,A
+   \   0002F1   A3           INC     DPTR
+   \   0002F2   E5..         MOV     A,?V1
+   \   0002F4   F0           MOVX    @DPTR,A
+    193                      }
+    194                       
+    195                      if(Cur_Node == NULL){//校验不通过 
+    196                        FREE(pr->pi.ParameterList);
+    197                        _clean_recv_buf(pr);
+    198                        Log.error("现有协议库无匹配当前协议\r\n");
+    199                        return -5;
+    200                      }else{
+    201                        Queue_Link_Put(pr->Protocol_Queue, &pr->pi, sizeof(Protocol_Info_T));//将协议信息放入协议缓冲队列
+   \   0002F5                ; Setup parameters for call to function Queue_Link_Put
+   \   0002F5   75..12       MOV     ?V0,#0x12
+   \   0002F8   75..00       MOV     ?V1,#0x0
+   \   0002FB   78..         MOV     R0,#?V0
+   \   0002FD   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000300   EE           MOV     A,R6
+   \   000301   2404         ADD     A,#0x4
+   \   000303   FC           MOV     R4,A
+   \   000304   E4           CLR     A
+   \   000305   3F           ADDC    A,R7
+   \   000306   FD           MOV     R5,A
+   \   000307   8E82         MOV     DPL,R6
+   \   000309   8F83         MOV     DPH,R7
+   \   00030B   12....       LCALL   ??Subroutine18_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_38:
+   \   00030E   12....       LCALL   `??Queue_Link_Put::?relay`; Banked call to: Queue_Link_Put
+   \   000311   7402         MOV     A,#0x2
+   \   000313   12....       LCALL   ?DEALLOC_XSTACK8
+    202                                                                  FetchProtocols();
+   \   000316                ; Setup parameters for call to function FetchProtocols
+   \   000316   12....       LCALL   `??FetchProtocols::?relay`; Banked call to: FetchProtocols
+    203                        _clean_recv_buf(pr); 
+   \   000319                ; Setup parameters for call to function _clean_recv_buf
+   \   000319   EE           MOV     A,R6
+   \   00031A   FA           MOV     R2,A
+   \   00031B   EF           MOV     A,R7
+   \   00031C   FB           MOV     R3,A
+   \   00031D   12....       LCALL   `??_clean_recv_buf::?relay`; Banked call to: _clean_recv_buf
+    204                      }
+    205                      break;
+   \   000320   02....       LJMP    ??_Protocol_Put_8 & 0xFFFF
+   \                     ??_Protocol_Put_32:
+   \   000323                ; Setup parameters for call to function osal_mem_free
+   \   000323   12....       LCALL   ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_44:
+   \   000326   12....       LCALL   `??osal_mem_free::?relay`; Banked call to: osal_mem_free
+   \   000329                ; Setup parameters for call to function _clean_recv_buf
+   \   000329   EE           MOV     A,R6
+   \   00032A   FA           MOV     R2,A
+   \   00032B   EF           MOV     A,R7
+   \   00032C   FB           MOV     R3,A
+   \   00032D   12....       LCALL   `??_clean_recv_buf::?relay`; Banked call to: _clean_recv_buf
+   \   000330                ; Setup parameters for indirect call
+   \   000330   7A..         MOV     R2,#`?<Constant "\\317\\326\\323\\320\\320\\255\\322\\351\\2` & 0xff
+   \   000332   7B..         MOV     R3,#(`?<Constant "\\317\\326\\323\\320\\320\\255\\322\\351\\2` >> 8) & 0xff
+   \   000334   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_61:
+   \   000337   12....       LCALL   ?CALL_IND
+   \   00033A   79FB         MOV     R1,#-0x5
+   \   00033C   8002         SJMP    ??_Protocol_Put_5
+    206              }
+    207            }; 
+    208            return 0;
+   \                     ??_Protocol_Put_9:
+   \   00033E   7900         MOV     R1,#0x0
+   \                     ??_Protocol_Put_5:
+   \   000340   7402         MOV     A,#0x2
+   \   000342   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000345   7F08         MOV     R7,#0x8
+   \   000347   02....       LJMP    ?BANKED_LEAVE_XDATA
+    209          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   F582         MOV     DPL,A
+   \   000002   E4           CLR     A
+   \   000003   3F           ADDC    A,R7
+   \   000004   F583         MOV     DPH,A
+   \   000006   E8           MOV     A,R0
+   \   000007   F0           MOVX    @DPTR,A
+   \   000008   A3           INC     DPTR
+   \   000009   E9           MOV     A,R1
+   \   00000A   F0           MOVX    @DPTR,A
+   \   00000B   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   EE           MOV     A,R6
+   \   000001   247D         ADD     A,#0x7d
+   \   000003                REQUIRE ??Subroutine17_0
+   \   000003                ; // Fall through to label ??Subroutine17_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine17_0:
+   \   000000   F582         MOV     DPL,A
+   \   000002   E4           CLR     A
+   \   000003   3F           ADDC    A,R7
+   \   000004   F583         MOV     DPH,A
+   \   000006   E0           MOVX    A,@DPTR
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   EE           MOV     A,R6
+   \   000001   247F         ADD     A,#0x7f
+   \   000003   F582         MOV     DPL,A
+   \   000005   E4           CLR     A
+   \   000006   3F           ADDC    A,R7
+   \   000007   F583         MOV     DPH,A
+   \   000009   E0           MOVX    A,@DPTR
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine9:
+   \   000000   8E82         MOV     DPL,R6
+   \   000002   8F83         MOV     DPH,R7
+   \   000004   A3           INC     DPTR
+   \   000005   A3           INC     DPTR
+   \   000006   A3           INC     DPTR
+   \   000007   A3           INC     DPTR
+   \   000008   A3           INC     DPTR
+   \   000009   A3           INC     DPTR
+   \   00000A   A3           INC     DPTR
+   \   00000B   A3           INC     DPTR
+   \   00000C   A3           INC     DPTR
+   \   00000D   A3           INC     DPTR
+   \   00000E                REQUIRE ??Subroutine18_0
+   \   00000E                ; // Fall through to label ??Subroutine18_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine13:
+   \   000000   A3           INC     DPTR
+   \   000001   A3           INC     DPTR
+   \   000002   A3           INC     DPTR
+   \   000003   A3           INC     DPTR
+   \   000004                REQUIRE ??Subroutine19_0
+   \   000004                ; // Fall through to label ??Subroutine19_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine19_0:
+   \   000000   A3           INC     DPTR
+   \   000001   A3           INC     DPTR
+   \   000002   A3           INC     DPTR
+   \   000003   A3           INC     DPTR
+   \   000004                REQUIRE ??Subroutine20_0
+   \   000004                ; // Fall through to label ??Subroutine20_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine11:
+   \   000000   90....       MOV     DPTR,#Log + 4
+   \   000003                REQUIRE ??Subroutine21_0
+   \   000003                ; // Fall through to label ??Subroutine21_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine21_0:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002                REQUIRE ??Subroutine22_0
+   \   000002                ; // Fall through to label ??Subroutine22_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine12:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   28           ADD     A,R0
+   \   000002   FA           MOV     R2,A
+   \   000003   A3           INC     DPTR
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   3400         ADDC    A,#0x0
+   \   000007   8A82         MOV     DPL,R2
+   \   000009   F583         MOV     DPH,A
+   \   00000B   E0           MOVX    A,@DPTR
+   \   00000C   22           RET
+    210          /****************************************************
+    211            函数名:  IsShift
+    212            参数:    原字符
+    213            功能:   字符转义
+    214          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    215           uint16_t IsShift(uint8_t* Data){
+   \                     IsShift:
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    216            if(*Data == 0xFD || *Data == 0xF8 || *Data == 0xFE){//转义
+   \   000004   8A82         MOV     DPL,R2
+   \   000006   8B83         MOV     DPH,R3
+   \   000008   E0           MOVX    A,@DPTR
+   \   000009   64FD         XRL     A,#0xfd
+   \   00000B   600E         JZ      ??IsShift_0
+   \   00000D   E0           MOVX    A,@DPTR
+   \   00000E   64F8         XRL     A,#0xf8
+   \   000010   600D         JZ      ??IsShift_1
+   \   000012   E0           MOVX    A,@DPTR
+   \   000013   64FE         XRL     A,#0xfe
+   \   000015   700E         JNZ     ??IsShift_2
+    217               switch(*Data){
+    218                  case 0xFD:return 0xFE<<8 | 0x7D;
+    219                  case 0xF8:return 0xFE<<8 | 0x78;
+    220                  case 0xFE:return 0xFE<<8 | 0x7E;
+   \   000017   7A7E         MOV     R2,#0x7e
+   \   000019   8006         SJMP    ??IsShift_3
+   \                     ??IsShift_0:
+   \   00001B   7A7D         MOV     R2,#0x7d
+   \   00001D   8002         SJMP    ??IsShift_3
+   \                     ??IsShift_1:
+   \   00001F   7A78         MOV     R2,#0x78
+   \                     ??IsShift_3:
+   \   000021   7BFE         MOV     R3,#-0x2
+   \   000023   8004         SJMP    ??IsShift_4
+    221              }
+    222            }else{
+    223                return 0;
+   \                     ??IsShift_2:
+   \   000025   7A00         MOV     R2,#0x0
+   \   000027   7B00         MOV     R3,#0x0
+    224            }
+   \                     ??IsShift_4:
+   \   000029                REQUIRE ?Subroutine2
+   \   000029                ; // Fall through to label ?Subroutine2
+    225            return 0;
+    226          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+    227          
+    228          
+    229          //###################################对外函数区###################################
+    230          
+    231          /****************************************************
+    232            函数名:  getCheckSum_ByProtocolInfo
+    233            功能:    根据协议信息获得校验和
+    234            参数:    Protocol_Info_T协议描述信息
+    235            返回值:  校验和结果
+    236            注意：  只返回低8位
+    237            作者:    liyao 2015年9月8日14:10:51
+    238          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    239          uint8_t getCheckSum_ByProtocolInfo(Protocol_Info_T* pi){
+   \                     getCheckSum_ByProtocolInfo:
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+    240            uint8_t i, sum = 0; 
+    241            sum += pi->Standby1;
+    242            sum += pi->Plen;
+    243            sum += pi->Module;
+    244            sum += pi->Serial;
+    245            sum += pi->Action;
+   \   000005   8A82         MOV     DPL,R2
+   \   000007   8B83         MOV     DPH,R3
+   \   000009   A3           INC     DPTR
+   \   00000A   A3           INC     DPTR
+   \   00000B   A3           INC     DPTR
+   \   00000C   A3           INC     DPTR
+   \   00000D   A3           INC     DPTR
+   \   00000E   E0           MOVX    A,@DPTR
+   \   00000F   FD           MOV     R5,A
+   \   000010   8A82         MOV     DPL,R2
+   \   000012   8B83         MOV     DPH,R3
+   \   000014   A3           INC     DPTR
+   \   000015   A3           INC     DPTR
+   \   000016   A3           INC     DPTR
+   \   000017   A3           INC     DPTR
+   \   000018   E0           MOVX    A,@DPTR
+   \   000019   FC           MOV     R4,A
+   \   00001A   8A82         MOV     DPL,R2
+   \   00001C   8B83         MOV     DPH,R3
+   \   00001E   A3           INC     DPTR
+   \   00001F   A3           INC     DPTR
+   \   000020   A3           INC     DPTR
+   \   000021   E0           MOVX    A,@DPTR
+   \   000022   F9           MOV     R1,A
+   \   000023   8A82         MOV     DPL,R2
+   \   000025   8B83         MOV     DPH,R3
+   \   000027   A3           INC     DPTR
+   \   000028   A3           INC     DPTR
+   \   000029   E0           MOVX    A,@DPTR
+   \   00002A   F8           MOV     R0,A
+   \   00002B   8A82         MOV     DPL,R2
+   \   00002D   8B83         MOV     DPH,R3
+   \   00002F   A3           INC     DPTR
+   \   000030   E0           MOVX    A,@DPTR
+   \   000031   28           ADD     A,R0
+   \   000032   29           ADD     A,R1
+   \   000033   2C           ADD     A,R4
+   \   000034   2D           ADD     A,R5
+   \   000035   F9           MOV     R1,A
+    246            for(i = 0; i < pi->ParaLen; i++)
+   \   000036   7800         MOV     R0,#0x0
+   \   000038   801B         SJMP    ??getCheckSum_ByProtocolInfo_0
+    247              sum+=((uint8_t*)pi->ParameterList)[i];  
+   \                     ??getCheckSum_ByProtocolInfo_1:
+   \   00003A   E8           MOV     A,R0
+   \   00003B   FC           MOV     R4,A
+   \   00003C   8A82         MOV     DPL,R2
+   \   00003E   8B83         MOV     DPH,R3
+   \   000040   A3           INC     DPTR
+   \   000041   A3           INC     DPTR
+   \   000042   A3           INC     DPTR
+   \   000043   A3           INC     DPTR
+   \   000044   A3           INC     DPTR
+   \   000045   A3           INC     DPTR
+   \   000046   E0           MOVX    A,@DPTR
+   \   000047   2C           ADD     A,R4
+   \   000048   FE           MOV     R6,A
+   \   000049   A3           INC     DPTR
+   \   00004A   E0           MOVX    A,@DPTR
+   \   00004B   3400         ADDC    A,#0x0
+   \   00004D   8E82         MOV     DPL,R6
+   \   00004F   F583         MOV     DPH,A
+   \   000051   E0           MOVX    A,@DPTR
+   \   000052   29           ADD     A,R1
+   \   000053   F9           MOV     R1,A
+   \   000054   08           INC     R0
+   \                     ??getCheckSum_ByProtocolInfo_0:
+   \   000055   8A82         MOV     DPL,R2
+   \   000057   8B83         MOV     DPH,R3
+   \   000059   A3           INC     DPTR
+   \   00005A   A3           INC     DPTR
+   \   00005B   A3           INC     DPTR
+   \   00005C   A3           INC     DPTR
+   \   00005D   A3           INC     DPTR
+   \   00005E   A3           INC     DPTR
+   \   00005F   A3           INC     DPTR
+   \   000060   A3           INC     DPTR
+   \   000061   A3           INC     DPTR
+   \   000062   A3           INC     DPTR
+   \   000063   E0           MOVX    A,@DPTR
+   \   000064   FC           MOV     R4,A
+   \   000065   E8           MOV     A,R0
+   \   000066   C3           CLR     C
+   \   000067   9C           SUBB    A,R4
+   \   000068   40D0         JC      ??getCheckSum_ByProtocolInfo_1
+    248            return (uint8_t)sum;
+   \   00006A   02....       LJMP    ?Subroutine1 & 0xFFFF
+    249          }
+    250          
+    251          /****************************************************
+    252            函数名:  Protocol_Register
+    253            功能:    协议注册
+    254            作者:    liyao 2016年9月18日16:12:16  
+    255          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    256          int8_t Protocol_Register(Protocol_Desc_T* ProtocolDesc,PROTOCOL_TYPE Protocol_Type){
+   \                     Protocol_Register:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+    257          //  switch((uint8_t)Protocol_Type){
+    258          //    case (uint8_t)SEND: 
+    259          //      tmp_Desc_Head = Send_Desc_P;
+    260          //      break;
+    261          //    case (uint8_t)RECEIVE: 
+    262          //      tmp_Desc_Head = Recv_Desc_P;
+    263          //      break;
+    264          //    case (uint8_t)TRANSPOND: 
+    265          //      tmp_Desc_Head = Transpond_Desc_P;
+    266          //      break;  
+    267          //  }
+    268            
+    269            ProtocolDesc->SrcModule = (MODULE)(ProtocolDesc->ModuleAction >> 12);
+   \   000005   8A82         MOV     DPL,R2
+   \   000007   8B83         MOV     DPH,R3
+   \   000009   E0           MOVX    A,@DPTR
+   \   00000A   FC           MOV     R4,A
+   \   00000B   A3           INC     DPTR
+   \   00000C   E0           MOVX    A,@DPTR
+   \   00000D   FD           MOV     R5,A
+   \   00000E   8C..         MOV     ?V0,R4
+   \   000010   8D..         MOV     ?V1,R5
+   \   000012   740C         MOV     A,#0xc
+   \   000014   78..         MOV     R0,#?V0
+   \   000016   12....       LCALL   ?SS_SHR
+   \   000019   8A82         MOV     DPL,R2
+   \   00001B   8B83         MOV     DPH,R3
+   \   00001D   A3           INC     DPTR
+   \   00001E   A3           INC     DPTR
+   \   00001F   A3           INC     DPTR
+   \   000020   E5..         MOV     A,?V0
+   \   000022   F0           MOVX    @DPTR,A
+    270            ProtocolDesc->TargetModule = (MODULE)(ProtocolDesc->ModuleAction & 0x0f);
+   \   000023   EC           MOV     A,R4
+   \   000024   540F         ANL     A,#0xf
+   \   000026   8A82         MOV     DPL,R2
+   \   000028   8B83         MOV     DPH,R3
+   \   00002A   A3           INC     DPTR
+   \   00002B   A3           INC     DPTR
+   \   00002C   F0           MOVX    @DPTR,A
+    271            List_Add(Desc_P_List, ProtocolDesc, sizeof(Protocol_Desc_T)); 
+   \   00002D                ; Setup parameters for call to function List_Add
+   \   00002D   75..0C       MOV     ?V0,#0xc
+   \   000030   75..00       MOV     ?V1,#0x0
+   \   000033   78..         MOV     R0,#?V0
+   \   000035   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000038   EA           MOV     A,R2
+   \   000039   FC           MOV     R4,A
+   \   00003A   EB           MOV     A,R3
+   \   00003B   FD           MOV     R5,A
+   \   00003C   90....       MOV     DPTR,#Desc_P_List
+   \   00003F   12....       LCALL   ??Subroutine18_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_39:
+   \   000042   12....       LCALL   `??List_Add::?relay` ; Banked call to: List_Add
+   \   000045   7402         MOV     A,#0x2
+   \   000047   12....       LCALL   ?DEALLOC_XSTACK8
+    272            return -1;
+   \   00004A   79FF         MOV     R1,#-0x1
+   \   00004C   02....       LJMP    ??Subroutine16_0 & 0xFFFF
+    273            
+    274          }
+    275          
+    276          /****************************************************
+    277            函数名:  Get_Protocol_Description
+    278            功能:    获取协议描述信息
+    279            作者:    liyao 2016年9月18日16:12:16  
+    280          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    281          Protocol_Desc_T* Get_Protocol_Description(MODULE_ACTION ModuleAction,PROTOCOL_TYPE Protocol_Type){
+   \                     Get_Protocol_Description:
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+    282            //Protocol_Desc_T* tmp_Desc_T;
+    283            List_Node_T* Cur_Node = NULL;
+    284          //  switch((uint8_t)Protocol_Type){
+    285          //    case (uint8_t)SEND: 
+    286          //      tmp_Desc_Head = Send_Desc_P;
+    287          //      break;
+    288          //    case (uint8_t)RECEIVE: 
+    289          //      tmp_Desc_Head = Recv_Desc_P;
+    290          //      break;
+    291          //    case (uint8_t)TRANSPOND: 
+    292          //      tmp_Desc_Head = Transpond_Desc_P;
+    293          //      break;  
+    294          //  }
+    295            
+    296            Cur_Node = Desc_P_List->Head;
+   \   000005   90....       MOV     DPTR,#Desc_P_List
+   \   000008   12....       LCALL   ??Subroutine21_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_52:
+   \   00000B   E0           MOVX    A,@DPTR
+   \   00000C   FC           MOV     R4,A
+   \   00000D   A3           INC     DPTR
+   \   00000E   E0           MOVX    A,@DPTR
+   \   00000F   800A         SJMP    ??Get_Protocol_Description_0
+    297            while(Cur_Node != NULL){
+    298              Protocol_Desc_T* pdt = Cur_Node->Data;
+    299              if(ModuleAction == pdt->ModuleAction)
+    300                return pdt;
+    301              Cur_Node = Cur_Node->Next;
+   \                     ??Get_Protocol_Description_1:
+   \   000011   8C82         MOV     DPL,R4
+   \   000013   8D83         MOV     DPH,R5
+   \   000015   12....       LCALL   ??Subroutine19_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_47:
+   \   000018   E8           MOV     A,R0
+   \   000019   FC           MOV     R4,A
+   \   00001A   E9           MOV     A,R1
+   \                     ??Get_Protocol_Description_0:
+   \   00001B   FD           MOV     R5,A
+   \   00001C   EC           MOV     A,R4
+   \   00001D   4D           ORL     A,R5
+   \   00001E   601A         JZ      ??Get_Protocol_Description_2
+   \   000020   8C82         MOV     DPL,R4
+   \   000022   8D83         MOV     DPH,R5
+   \   000024   12....       LCALL   ??Subroutine20_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_46:
+   \   000027   8882         MOV     DPL,R0
+   \   000029   8983         MOV     DPH,R1
+   \   00002B   E0           MOVX    A,@DPTR
+   \   00002C   6A           XRL     A,R2
+   \   00002D   7003         JNZ     ??Get_Protocol_Description_3
+   \   00002F   A3           INC     DPTR
+   \   000030   E0           MOVX    A,@DPTR
+   \   000031   6B           XRL     A,R3
+   \                     ??Get_Protocol_Description_3:
+   \   000032   70DD         JNZ     ??Get_Protocol_Description_1
+   \   000034   E8           MOV     A,R0
+   \   000035   FA           MOV     R2,A
+   \   000036   E9           MOV     A,R1
+   \   000037   FB           MOV     R3,A
+   \   000038   800E         SJMP    ??Get_Protocol_Description_4
+    302            } 
+    303            Log.error("Get_Protocol_Description?′?òμ??èê??á11ì?");
+   \                     ??Get_Protocol_Description_2:
+   \   00003A                ; Setup parameters for indirect call
+   \   00003A   7A..         MOV     R2,#`?<Constant "Get_Protocol_Descript...">` & 0xff
+   \   00003C   7B..         MOV     R3,#(`?<Constant "Get_Protocol_Descript...">` >> 8) & 0xff
+   \   00003E   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_62:
+   \   000041   12....       LCALL   ?CALL_IND
+    304            return NULL;
+   \   000044   7A00         MOV     R2,#0x0
+   \   000046   7B00         MOV     R3,#0x0
+   \                     ??Get_Protocol_Description_4:
+   \   000048   02....       LJMP    ?Subroutine1 & 0xFFFF
+    305            
+    306          }
+    307          
+    308          
+    309          
+    310          /****************************************************
+    311            函数名:  ProtocolFrame_Init
+    312            功能:    初始化全部协议和相关校验、执行函数
+    313            作者:    liyao 2015年9月8日14:10:51      
+    314          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    315          void ProtocolFrame_Init(){
+   \                     ProtocolFrame_Init:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+    316          //  memset(Send_Desc_P,0,sizeof(Protocol_Desc_T) * SEND_PROTOCOL_NUM);
+    317          //  memset(Recv_Desc_P,0,sizeof(Protocol_Desc_T) * RECV_PROTOCOL_NUM);
+    318          //  memset(Transpond_Desc_P,0,sizeof(Protocol_Desc_T) * TRANSPOND_PROTOCOL_NUM);
+    319                  memset(Desc_P_Arr,0,sizeof(Protocol_Desc_T) * PROTOCOL_NUM);
+   \   000005                ; Setup parameters for call to function memset
+   \   000005   75..78       MOV     ?V0,#0x78
+   \   000008   75..00       MOV     ?V1,#0x0
+   \   00000B   78..         MOV     R0,#?V0
+   \   00000D   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000010   7C00         MOV     R4,#0x0
+   \   000012   7D00         MOV     R5,#0x0
+   \   000014   7A..         MOV     R2,#Desc_P_Arr & 0xff
+   \   000016   7B..         MOV     R3,#(Desc_P_Arr >> 8) & 0xff
+   \   000018   12....       LCALL   `??memset::?relay`   ; Banked call to: memset
+   \   00001B   7402         MOV     A,#0x2
+   \   00001D   12....       LCALL   ?DEALLOC_XSTACK8
+    320                  Desc_P_List = List_Init(0);
+   \   000020                ; Setup parameters for call to function List_Init
+   \   000020   7A00         MOV     R2,#0x0
+   \   000022   7B00         MOV     R3,#0x0
+   \   000024   12....       LCALL   `??List_Init::?relay`; Banked call to: List_Init
+   \   000027   90....       MOV     DPTR,#Desc_P_List
+   \   00002A   EA           MOV     A,R2
+   \   00002B   F0           MOVX    @DPTR,A
+   \   00002C   A3           INC     DPTR
+   \   00002D   EB           MOV     A,R3
+   \   00002E   F0           MOVX    @DPTR,A
+    321            //协议列表初始化
+    322            Protocol_Init();
+   \   00002F                ; Setup parameters for call to function Protocol_Init
+   \   00002F   12....       LCALL   `??Protocol_Init::?relay`; Banked call to: Protocol_Init
+    323            //发送数据队列初始化 
+    324          #if UART1_PROTOCOL_RESOLVER
+    325            //UART1_Resolver->Protocol_Queue = Queue_Init( _UART1_Protocol_QueueBuf,sizeof(Protocol_Info_T), UART1_RPQUEUE_SIZE);
+    326                  UART1_Resolver->Protocol_Queue = Queue_Link_Init(UART1_RPQUEUE_SIZE);
+   \   000032                ; Setup parameters for call to function Queue_Link_Init
+   \   000032   7A0A         MOV     R2,#0xa
+   \   000034   7B00         MOV     R3,#0x0
+   \   000036   12....       LCALL   `??Queue_Link_Init::?relay`; Banked call to: Queue_Link_Init
+   \   000039   8A..         MOV     ?V0,R2
+   \   00003B   90....       MOV     DPTR,#UART1_Resolver
+   \   00003E   E0           MOVX    A,@DPTR
+   \   00003F   FA           MOV     R2,A
+   \   000040   A3           INC     DPTR
+   \   000041   E0           MOVX    A,@DPTR
+   \   000042   F583         MOV     DPH,A
+   \   000044   8A82         MOV     DPL,R2
+   \   000046   E5..         MOV     A,?V0
+   \   000048   F0           MOVX    @DPTR,A
+   \   000049   A3           INC     DPTR
+   \   00004A   EB           MOV     A,R3
+   \   00004B   F0           MOVX    @DPTR,A
+    327            UART1_Resolver->RPQueue_Size = UART1_RPQUEUE_SIZE; 
+   \   00004C   90....       MOV     DPTR,#UART1_Resolver
+   \   00004F   12....       LCALL   ??Subroutine21_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_53:
+   \   000052   A3           INC     DPTR
+   \   000053   A3           INC     DPTR
+   \   000054   740A         MOV     A,#0xa
+   \   000056   F0           MOVX    @DPTR,A
+   \   000057   A3           INC     DPTR
+   \   000058   E4           CLR     A
+   \   000059   12....       LCALL   ?Subroutine8 & 0xFFFF
+    328            UART1_Resolver->Protocol_Put = _Protocol_Put;
+   \                     ??CrossCallReturnLabel_15:
+   \   00005C   2480         ADD     A,#-0x80
+   \   00005E   F582         MOV     DPL,A
+   \   000060   E4           CLR     A
+   \   000061   38           ADDC    A,R0
+   \   000062   F583         MOV     DPH,A
+   \   000064   74..         MOV     A,#`??_Protocol_Put::?relay` & 0xff
+   \   000066   F0           MOVX    @DPTR,A
+   \   000067   A3           INC     DPTR
+   \   000068   74..         MOV     A,#(`??_Protocol_Put::?relay` >> 8) & 0xff
+   \   00006A   12....       LCALL   ?Subroutine8 & 0xFFFF
+    329            UART1_Resolver->Fetch_Protocol = _Fetch_Protocol;
+   \                     ??CrossCallReturnLabel_16:
+   \   00006D   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_28:
+   \   000070   74..         MOV     A,#`??_Fetch_Protocol::?relay` & 0xff
+   \   000072   F0           MOVX    @DPTR,A
+   \   000073   A3           INC     DPTR
+   \   000074   74..         MOV     A,#(`??_Fetch_Protocol::?relay` >> 8) & 0xff
+   \   000076   02....       LJMP    ?Subroutine0 & 0xFFFF
+    330          #endif  
+    331          
+    332          #if UART2_PROTOCOL_RESOLVER
+    333          //  UART2_Resolver->Protocol_Queue = Queue_Init( _UART2_Protocol_QueueBuf,sizeof(Protocol_Info_T), UART2_RPQUEUE_SIZE);
+    334                  UART2_Resolver->Protocol_Queue = Queue_Link_Init(UART2_RPQUEUE_SIZE);
+    335            UART2_Resolver->RPQueue_Size = UART2_RPQUEUE_SIZE; 
+    336            UART2_Resolver->Protocol_Put = _Protocol_Put;
+    337            UART2_Resolver->Fetch_Protocol = _Fetch_Protocol;
+    338          #endif  
+    339            
+    340          #if UART3_PROTOCOL_RESOLVER
+    341            //UART3_Resolver->Protocol_Queue = Queue_Init( _UART3_Protocol_QueueBuf,sizeof(Protocol_Info_T), UART3_RPQUEUE_SIZE);
+    342                  UART3_Resolver->Protocol_Queue = Queue_Link_Init(UART3_RPQUEUE_SIZE);
+    343            UART3_Resolver->RPQueue_Size = UART3_RPQUEUE_SIZE; 
+    344            UART3_Resolver->Protocol_Put = _Protocol_Put;
+    345            UART3_Resolver->Fetch_Protocol = _Fetch_Protocol;
+    346          #endif 
+    347            
+    348          #if UART4_PROTOCOL_RESOLVER
+    349          //  UART4_Resolver->Protocol_Queue = Queue_Init( _UART4_Protocol_QueueBuf,sizeof(Protocol_Info_T), UART4_RPQUEUE_SIZE);
+    350                  UART4_Resolver->Protocol_Queue = Queue_Link_Init(UART4_RPQUEUE_SIZE);
+    351            UART4_Resolver->RPQueue_Size = UART4_RPQUEUE_SIZE; 
+    352            UART4_Resolver->Protocol_Put = _Protocol_Put;
+    353            UART4_Resolver->Fetch_Protocol = _Fetch_Protocol;
+    354          #endif 
+    355            
+    356          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   90....       MOV     DPTR,#UART1_Resolver
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   F8           MOV     R0,A
+   \   000006   A3           INC     DPTR
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   C8           XCH     A,R0
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine15:
+   \   000000   2482         ADD     A,#-0x7e
+   \   000002   F582         MOV     DPL,A
+   \   000004   E4           CLR     A
+   \   000005   38           ADDC    A,R0
+   \   000006   F583         MOV     DPH,A
+   \   000008   22           RET
+    357          
+    358          
+    359          
+    360          
+    361          /****************************************************
+    362            函数名:  Protocol_To_Uart
+    363            功能:    向缓冲区写入待发送至串口
+    364            参数:    Protocol_Info_T协议描述信息
+    365            作者:    liyao 2015年9月8日14:10:51
+    366          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    367          int8_t Protocol_To_Uart(Protocol_Info_T* pi){ 
+   \                     Protocol_To_Uart:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 100
+   \   000005   749C         MOV     A,#-0x64
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   8A..         MOV     ?V0,R2
+   \   00000C   8B..         MOV     ?V1,R3
+    368            uint8_t data[PROTOCOL_SINGLE_BUFF] = {0},i = 0, index = 0; 
+   \   00000E   90....       MOV     DPTR,#`?<Constant {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0`
+   \   000011   AC..         MOV     R4,?XSP + 0
+   \   000013   AD..         MOV     R5,?XSP + 1
+   \   000015   7464         MOV     A,#0x64
+   \   000017   12....       LCALL   ?MOVE_LONG8_XDATA_XDATA
+   \   00001A   7F00         MOV     R7,#0x0
+    369            uint16_t tmpData = 0; 
+    370            
+    371            tmpData = pi->Head;
+    372            data[index++] = tmpData; 
+   \   00001C   8A82         MOV     DPL,R2
+   \   00001E   8B83         MOV     DPH,R3
+   \   000020   E0           MOVX    A,@DPTR
+   \   000021   85..82       MOV     DPL,?XSP + 0
+   \   000024   85..83       MOV     DPH,?XSP + 1
+   \   000027   F0           MOVX    @DPTR,A
+    373            if((tmpData = IsShift(&pi->Standby1)) > 0){
+   \   000028                ; Setup parameters for call to function IsShift
+   \   000028   8A82         MOV     DPL,R2
+   \   00002A   8B83         MOV     DPH,R3
+   \   00002C   A3           INC     DPTR
+   \   00002D   AA82         MOV     R2,DPL
+   \   00002F   AB83         MOV     R3,DPH
+   \   000031   12....       LCALL   `??IsShift::?relay`  ; Banked call to: IsShift
+   \   000034   8A..         MOV     ?V2,R2
+   \   000036   8B..         MOV     ?V3,R3
+   \   000038   A8..         MOV     R0,?V2
+   \   00003A   A9..         MOV     R1,?V3
+   \   00003C   E8           MOV     A,R0
+   \   00003D   49           ORL     A,R1
+   \   00003E   6012         JZ      ??Protocol_To_Uart_0
+    374              data[index++] = tmpData>>8; 
+   \   000040   7401         MOV     A,#0x1
+   \   000042   12....       LCALL   ?XSTACK_DISP0_8
+   \   000045   E9           MOV     A,R1
+   \   000046   F0           MOVX    @DPTR,A
+    375              data[index++] = tmpData&0xff; 
+   \   000047   7402         MOV     A,#0x2
+   \   000049   12....       LCALL   ?XSTACK_DISP0_8
+   \   00004C   E8           MOV     A,R0
+   \   00004D   F0           MOVX    @DPTR,A
+   \   00004E   7E03         MOV     R6,#0x3
+   \   000050   8014         SJMP    ??Protocol_To_Uart_1
+    376            }else{
+    377              data[index++] = pi->Standby1;
+   \                     ??Protocol_To_Uart_0:
+   \   000052   85..82       MOV     DPL,?V0
+   \   000055   85..83       MOV     DPH,?V1
+   \   000058   A3           INC     DPTR
+   \   000059   E0           MOVX    A,@DPTR
+   \   00005A   C0E0         PUSH    A
+   \   00005C   7401         MOV     A,#0x1
+   \   00005E   12....       LCALL   ?XSTACK_DISP0_8
+   \   000061   D0E0         POP     A
+   \   000063   F0           MOVX    @DPTR,A
+   \   000064   7E02         MOV     R6,#0x2
+    378            }
+    379            if((tmpData = IsShift(&pi->Plen)) > 0){
+   \                     ??Protocol_To_Uart_1:
+   \   000066                ; Setup parameters for call to function IsShift
+   \   000066   E5..         MOV     A,?V0
+   \   000068   2402         ADD     A,#0x2
+   \   00006A   FA           MOV     R2,A
+   \   00006B   E4           CLR     A
+   \   00006C   35..         ADDC    A,?V1
+   \   00006E   FB           MOV     R3,A
+   \   00006F   12....       LCALL   `??IsShift::?relay`  ; Banked call to: IsShift
+   \   000072   8A..         MOV     ?V2,R2
+   \   000074   8B..         MOV     ?V3,R3
+   \   000076   A8..         MOV     R0,?V2
+   \   000078   A9..         MOV     R1,?V3
+   \   00007A   E8           MOV     A,R0
+   \   00007B   49           ORL     A,R1
+   \   00007C   6005         JZ      ??Protocol_To_Uart_2
+    380              data[index++] = tmpData>>8; 
+   \   00007E   12....       LCALL   ?Subroutine7 & 0xFFFF
+    381              data[index++] = tmpData&0xff; 
+    382            }else{
+   \                     ??CrossCallReturnLabel_9:
+   \   000081   8010         SJMP    ??Protocol_To_Uart_3
+    383              data[index++] = pi->Plen;
+   \                     ??Protocol_To_Uart_2:
+   \   000083   85..82       MOV     DPL,?V0
+   \   000086   85..83       MOV     DPH,?V1
+   \   000089   A3           INC     DPTR
+   \   00008A   A3           INC     DPTR
+   \   00008B   E0           MOVX    A,@DPTR
+   \   00008C   C0E0         PUSH    A
+   \   00008E   12....       LCALL   ?Subroutine14 & 0xFFFF
+    384            }
+   \                     ??CrossCallReturnLabel_21:
+   \   000091   D0E0         POP     A
+   \                     ??Protocol_To_Uart_3:
+   \   000093   F0           MOVX    @DPTR,A
+   \   000094   0E           INC     R6
+    385            if((tmpData = IsShift(&pi->Module)) > 0){
+   \   000095                ; Setup parameters for call to function IsShift
+   \   000095   E5..         MOV     A,?V0
+   \   000097   2403         ADD     A,#0x3
+   \   000099   FA           MOV     R2,A
+   \   00009A   E4           CLR     A
+   \   00009B   35..         ADDC    A,?V1
+   \   00009D   FB           MOV     R3,A
+   \   00009E   12....       LCALL   `??IsShift::?relay`  ; Banked call to: IsShift
+   \   0000A1   8A..         MOV     ?V2,R2
+   \   0000A3   8B..         MOV     ?V3,R3
+   \   0000A5   A8..         MOV     R0,?V2
+   \   0000A7   A9..         MOV     R1,?V3
+   \   0000A9   E8           MOV     A,R0
+   \   0000AA   49           ORL     A,R1
+   \   0000AB   6005         JZ      ??Protocol_To_Uart_4
+    386              data[index++] = tmpData>>8; 
+   \   0000AD   12....       LCALL   ?Subroutine7 & 0xFFFF
+    387              data[index++] = tmpData&0xff; 
+    388            }else{
+   \                     ??CrossCallReturnLabel_10:
+   \   0000B0   8011         SJMP    ??Protocol_To_Uart_5
+    389              data[index++] = pi->Module;
+   \                     ??Protocol_To_Uart_4:
+   \   0000B2   85..82       MOV     DPL,?V0
+   \   0000B5   85..83       MOV     DPH,?V1
+   \   0000B8   A3           INC     DPTR
+   \   0000B9   A3           INC     DPTR
+   \   0000BA   A3           INC     DPTR
+   \   0000BB   E0           MOVX    A,@DPTR
+   \   0000BC   C0E0         PUSH    A
+   \   0000BE   12....       LCALL   ?Subroutine14 & 0xFFFF
+    390            }
+   \                     ??CrossCallReturnLabel_22:
+   \   0000C1   D0E0         POP     A
+   \                     ??Protocol_To_Uart_5:
+   \   0000C3   F0           MOVX    @DPTR,A
+   \   0000C4   0E           INC     R6
+    391            if((tmpData = IsShift(&pi->Serial)) > 0){
+   \   0000C5                ; Setup parameters for call to function IsShift
+   \   0000C5   E5..         MOV     A,?V0
+   \   0000C7   2404         ADD     A,#0x4
+   \   0000C9   FA           MOV     R2,A
+   \   0000CA   E4           CLR     A
+   \   0000CB   35..         ADDC    A,?V1
+   \   0000CD   FB           MOV     R3,A
+   \   0000CE   12....       LCALL   `??IsShift::?relay`  ; Banked call to: IsShift
+   \   0000D1   8A..         MOV     ?V2,R2
+   \   0000D3   8B..         MOV     ?V3,R3
+   \   0000D5   A8..         MOV     R0,?V2
+   \   0000D7   A9..         MOV     R1,?V3
+   \   0000D9   E8           MOV     A,R0
+   \   0000DA   49           ORL     A,R1
+   \   0000DB   6005         JZ      ??Protocol_To_Uart_6
+    392              data[index++] = tmpData>>8; 
+   \   0000DD   12....       LCALL   ?Subroutine7 & 0xFFFF
+    393              data[index++] = tmpData&0xff; 
+    394            }else{
+   \                     ??CrossCallReturnLabel_11:
+   \   0000E0   8012         SJMP    ??Protocol_To_Uart_7
+    395              data[index++] = pi->Serial;
+   \                     ??Protocol_To_Uart_6:
+   \   0000E2   85..82       MOV     DPL,?V0
+   \   0000E5   85..83       MOV     DPH,?V1
+   \   0000E8   A3           INC     DPTR
+   \   0000E9   A3           INC     DPTR
+   \   0000EA   A3           INC     DPTR
+   \   0000EB   A3           INC     DPTR
+   \   0000EC   E0           MOVX    A,@DPTR
+   \   0000ED   C0E0         PUSH    A
+   \   0000EF   12....       LCALL   ?Subroutine14 & 0xFFFF
+    396            }  
+   \                     ??CrossCallReturnLabel_23:
+   \   0000F2   D0E0         POP     A
+   \                     ??Protocol_To_Uart_7:
+   \   0000F4   F0           MOVX    @DPTR,A
+   \   0000F5   0E           INC     R6
+    397            if((tmpData = IsShift(&pi->Action)) > 0){
+   \   0000F6                ; Setup parameters for call to function IsShift
+   \   0000F6   E5..         MOV     A,?V0
+   \   0000F8   2405         ADD     A,#0x5
+   \   0000FA   FA           MOV     R2,A
+   \   0000FB   E4           CLR     A
+   \   0000FC   35..         ADDC    A,?V1
+   \   0000FE   FB           MOV     R3,A
+   \   0000FF   12....       LCALL   `??IsShift::?relay`  ; Banked call to: IsShift
+   \   000102   8A..         MOV     ?V2,R2
+   \   000104   8B..         MOV     ?V3,R3
+   \   000106   A8..         MOV     R0,?V2
+   \   000108   A9..         MOV     R1,?V3
+   \   00010A   E8           MOV     A,R0
+   \   00010B   49           ORL     A,R1
+   \   00010C   6005         JZ      ??Protocol_To_Uart_8
+    398              data[index++] = tmpData>>8; 
+   \   00010E   12....       LCALL   ?Subroutine7 & 0xFFFF
+    399              data[index++] = tmpData&0xff; 
+    400            }else{
+   \                     ??CrossCallReturnLabel_12:
+   \   000111   8013         SJMP    ??Protocol_To_Uart_9
+    401              data[index++] = pi->Action;
+   \                     ??Protocol_To_Uart_8:
+   \   000113   85..82       MOV     DPL,?V0
+   \   000116   85..83       MOV     DPH,?V1
+   \   000119   A3           INC     DPTR
+   \   00011A   A3           INC     DPTR
+   \   00011B   A3           INC     DPTR
+   \   00011C   A3           INC     DPTR
+   \   00011D   A3           INC     DPTR
+   \   00011E   E0           MOVX    A,@DPTR
+   \   00011F   C0E0         PUSH    A
+   \   000121   12....       LCALL   ?Subroutine14 & 0xFFFF
+    402            }    
+   \                     ??CrossCallReturnLabel_24:
+   \   000124   D0E0         POP     A
+   \                     ??Protocol_To_Uart_9:
+   \   000126   F0           MOVX    @DPTR,A
+   \   000127   0E           INC     R6
+   \   000128   801B         SJMP    ??Protocol_To_Uart_10
+    403            
+    404            for(i = 0; i < pi->ParaLen; i++){
+    405              if((tmpData = IsShift((uint8_t*)pi->ParameterList + i)) > 0){
+    406                data[index++] = tmpData>>8;
+    407                data[index++] = tmpData&0xff;
+    408              }else{
+    409                data[index++] = ((uint8_t*)pi->ParameterList)[i];
+   \                     ??Protocol_To_Uart_11:
+   \   00012A   EF           MOV     A,R7
+   \   00012B   F8           MOV     R0,A
+   \   00012C   85..82       MOV     DPL,?V0
+   \   00012F   85..83       MOV     DPH,?V1
+   \   000132   A3           INC     DPTR
+   \   000133   A3           INC     DPTR
+   \   000134   A3           INC     DPTR
+   \   000135   A3           INC     DPTR
+   \   000136   A3           INC     DPTR
+   \   000137   A3           INC     DPTR
+   \   000138   12....       LCALL   ?Subroutine12 & 0xFFFF
+    410              }
+   \                     ??CrossCallReturnLabel_20:
+   \   00013B   C0E0         PUSH    A
+   \   00013D   12....       LCALL   ?Subroutine14 & 0xFFFF
+   \                     ??CrossCallReturnLabel_25:
+   \   000140   D0E0         POP     A
+   \                     ??Protocol_To_Uart_12:
+   \   000142   F0           MOVX    @DPTR,A
+   \   000143   0E           INC     R6
+   \   000144   0F           INC     R7
+   \                     ??Protocol_To_Uart_10:
+   \   000145   85..82       MOV     DPL,?V0
+   \   000148   85..83       MOV     DPH,?V1
+   \   00014B   A3           INC     DPTR
+   \   00014C   A3           INC     DPTR
+   \   00014D   A3           INC     DPTR
+   \   00014E   A3           INC     DPTR
+   \   00014F   A3           INC     DPTR
+   \   000150   A3           INC     DPTR
+   \   000151   A3           INC     DPTR
+   \   000152   A3           INC     DPTR
+   \   000153   A3           INC     DPTR
+   \   000154   A3           INC     DPTR
+   \   000155   E0           MOVX    A,@DPTR
+   \   000156   F8           MOV     R0,A
+   \   000157   EF           MOV     A,R7
+   \   000158   C3           CLR     C
+   \   000159   98           SUBB    A,R0
+   \   00015A   502A         JNC     ??Protocol_To_Uart_13
+   \   00015C                ; Setup parameters for call to function IsShift
+   \   00015C   EF           MOV     A,R7
+   \   00015D   F8           MOV     R0,A
+   \   00015E   85..82       MOV     DPL,?V0
+   \   000161   85..83       MOV     DPH,?V1
+   \   000164   A3           INC     DPTR
+   \   000165   A3           INC     DPTR
+   \   000166   A3           INC     DPTR
+   \   000167   A3           INC     DPTR
+   \   000168   A3           INC     DPTR
+   \   000169   A3           INC     DPTR
+   \   00016A   E0           MOVX    A,@DPTR
+   \   00016B   28           ADD     A,R0
+   \   00016C   FA           MOV     R2,A
+   \   00016D   A3           INC     DPTR
+   \   00016E   E0           MOVX    A,@DPTR
+   \   00016F   3400         ADDC    A,#0x0
+   \   000171   FB           MOV     R3,A
+   \   000172   12....       LCALL   `??IsShift::?relay`  ; Banked call to: IsShift
+   \   000175   8A..         MOV     ?V2,R2
+   \   000177   8B..         MOV     ?V3,R3
+   \   000179   A8..         MOV     R0,?V2
+   \   00017B   A9..         MOV     R1,?V3
+   \   00017D   E8           MOV     A,R0
+   \   00017E   49           ORL     A,R1
+   \   00017F   60A9         JZ      ??Protocol_To_Uart_11
+   \   000181   12....       LCALL   ?Subroutine7 & 0xFFFF
+    411            }
+   \                     ??CrossCallReturnLabel_13:
+   \   000184   80BC         SJMP    ??Protocol_To_Uart_12
+    412            if((tmpData = IsShift(&pi->CheckSum)) > 0){
+   \                     ??Protocol_To_Uart_13:
+   \   000186                ; Setup parameters for call to function IsShift
+   \   000186   E5..         MOV     A,?V0
+   \   000188   2408         ADD     A,#0x8
+   \   00018A   FA           MOV     R2,A
+   \   00018B   E4           CLR     A
+   \   00018C   35..         ADDC    A,?V1
+   \   00018E   FB           MOV     R3,A
+   \   00018F   12....       LCALL   `??IsShift::?relay`  ; Banked call to: IsShift
+   \   000192   8A..         MOV     ?V2,R2
+   \   000194   8B..         MOV     ?V3,R3
+   \   000196   A8..         MOV     R0,?V2
+   \   000198   A9..         MOV     R1,?V3
+   \   00019A   E8           MOV     A,R0
+   \   00019B   49           ORL     A,R1
+   \   00019C   6005         JZ      ??Protocol_To_Uart_14
+    413              data[index++] = tmpData>>8; 
+   \   00019E   12....       LCALL   ?Subroutine7 & 0xFFFF
+    414              data[index++] = tmpData&0xff; 
+    415            }else{
+   \                     ??CrossCallReturnLabel_14:
+   \   0001A1   8016         SJMP    ??Protocol_To_Uart_15
+    416              data[index++] = pi->CheckSum;
+   \                     ??Protocol_To_Uart_14:
+   \   0001A3   85..82       MOV     DPL,?V0
+   \   0001A6   85..83       MOV     DPH,?V1
+   \   0001A9   A3           INC     DPTR
+   \   0001AA   A3           INC     DPTR
+   \   0001AB   A3           INC     DPTR
+   \   0001AC   A3           INC     DPTR
+   \   0001AD   A3           INC     DPTR
+   \   0001AE   A3           INC     DPTR
+   \   0001AF   A3           INC     DPTR
+   \   0001B0   A3           INC     DPTR
+   \   0001B1   E0           MOVX    A,@DPTR
+   \   0001B2   C0E0         PUSH    A
+   \   0001B4   12....       LCALL   ?Subroutine14 & 0xFFFF
+    417            }  
+   \                     ??CrossCallReturnLabel_26:
+   \   0001B7   D0E0         POP     A
+   \                     ??Protocol_To_Uart_15:
+   \   0001B9   F0           MOVX    @DPTR,A
+   \   0001BA   0E           INC     R6
+    418            data[index++] = pi->Tail; 
+   \   0001BB   85..82       MOV     DPL,?V0
+   \   0001BE   85..83       MOV     DPH,?V1
+   \   0001C1   A3           INC     DPTR
+   \   0001C2   A3           INC     DPTR
+   \   0001C3   A3           INC     DPTR
+   \   0001C4   A3           INC     DPTR
+   \   0001C5   A3           INC     DPTR
+   \   0001C6   A3           INC     DPTR
+   \   0001C7   A3           INC     DPTR
+   \   0001C8   A3           INC     DPTR
+   \   0001C9   A3           INC     DPTR
+   \   0001CA   E0           MOVX    A,@DPTR
+   \   0001CB   C0E0         PUSH    A
+   \   0001CD   12....       LCALL   ?Subroutine14 & 0xFFFF
+   \                     ??CrossCallReturnLabel_27:
+   \   0001D0   D0E0         POP     A
+   \   0001D2   F0           MOVX    @DPTR,A
+    419            
+    420            pi->ProtocolDesc->Send(data, index);  
+   \   0001D3                ; Setup parameters for indirect call
+   \   0001D3   7401         MOV     A,#0x1
+   \   0001D5   28           ADD     A,R0
+   \   0001D6   F9           MOV     R1,A
+   \   0001D7   AA..         MOV     R2,?XSP + 0
+   \   0001D9   AB..         MOV     R3,?XSP + 1
+   \   0001DB   E5..         MOV     A,?V0
+   \   0001DD   240C         ADD     A,#0xc
+   \   0001DF   F582         MOV     DPL,A
+   \   0001E1   E4           CLR     A
+   \   0001E2   35..         ADDC    A,?V1
+   \   0001E4   F583         MOV     DPH,A
+   \   0001E6   E0           MOVX    A,@DPTR
+   \   0001E7   F8           MOV     R0,A
+   \   0001E8   A3           INC     DPTR
+   \   0001E9   E0           MOVX    A,@DPTR
+   \   0001EA   C8           XCH     A,R0
+   \   0001EB   2406         ADD     A,#0x6
+   \   0001ED   F582         MOV     DPL,A
+   \   0001EF   E4           CLR     A
+   \   0001F0   38           ADDC    A,R0
+   \   0001F1   F583         MOV     DPH,A
+   \   0001F3   12....       LCALL   ??Subroutine21_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_54:
+   \   0001F6   12....       LCALL   ?CALL_IND
+    421            return 0;
+   \   0001F9   7900         MOV     R1,#0x0
+   \   0001FB   7464         MOV     A,#0x64
+   \   0001FD   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000200   7F04         MOV     R7,#0x4
+   \   000202   02....       LJMP    ?BANKED_LEAVE_XDATA
+    422          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine14:
+   \   000000   EE           MOV     A,R6
+   \   000001   F8           MOV     R0,A
+   \   000002   85..82       MOV     DPL,?XSP + 0
+   \   000005   85..83       MOV     DPH,?XSP + 1
+   \   000008   E582         MOV     A,DPL
+   \   00000A   28           ADD     A,R0
+   \   00000B   F582         MOV     DPL,A
+   \   00000D   E4           CLR     A
+   \   00000E   3583         ADDC    A,DPH
+   \   000010   F583         MOV     DPH,A
+   \   000012   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   EE           MOV     A,R6
+   \   000001   FA           MOV     R2,A
+   \   000002   85..82       MOV     DPL,?XSP + 0
+   \   000005   85..83       MOV     DPH,?XSP + 1
+   \   000008   E582         MOV     A,DPL
+   \   00000A   2A           ADD     A,R2
+   \   00000B   F582         MOV     DPL,A
+   \   00000D   E4           CLR     A
+   \   00000E   3583         ADDC    A,DPH
+   \   000010   F583         MOV     DPH,A
+   \   000012   E9           MOV     A,R1
+   \   000013   F0           MOVX    @DPTR,A
+   \   000014   0E           INC     R6
+   \   000015   85..82       MOV     DPL,?XSP + 0
+   \   000018   85..83       MOV     DPH,?XSP + 1
+   \   00001B   E582         MOV     A,DPL
+   \   00001D   2E           ADD     A,R6
+   \   00001E   F582         MOV     DPL,A
+   \   000020   E4           CLR     A
+   \   000021   3583         ADDC    A,DPH
+   \   000023   F583         MOV     DPH,A
+   \   000025   E8           MOV     A,R0
+   \   000026   22           RET
+    423          
+    424          //###################################自定义扩展函数区###################################
+    425          /****************************************************
+    426            函数名:  Protocol_Send
+    427            功能:    发送协议
+    428            参数:    目标板,参数结构体,参数结构体长度
+    429            注：协议历史编号统一处理
+    430            作者:    liyao 2016年9月18日11:50:55
+    431          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    432          void Protocol_Send(MODULE_ACTION ModuleAction,void* Data,u8 Len){ 
+   \                     Protocol_Send:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000   74F2         MOV     A,#-0xe
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 18
+   \   000005   74EE         MOV     A,#-0x12
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   EA           MOV     A,R2
+   \   00000B   FE           MOV     R6,A
+   \   00000C   EB           MOV     A,R3
+   \   00000D   FF           MOV     R7,A
+   \   00000E   8C..         MOV     ?V2,R4
+   \   000010   8D..         MOV     ?V3,R5
+   \   000012   89..         MOV     ?V0,R1
+    433            Protocol_Info_T pi = {0}; 
+   \   000014   90....       MOV     DPTR,#`?<Constant {0}>`
+   \   000017   AC..         MOV     R4,?XSP + 0
+   \   000019   AD..         MOV     R5,?XSP + 1
+   \   00001B   7412         MOV     A,#0x12
+   \   00001D   12....       LCALL   ?MOVE_LONG8_XDATA_XDATA
+    434            
+    435            pi.ParaLen = Len;
+   \   000020   740A         MOV     A,#0xa
+   \   000022   12....       LCALL   ?XSTACK_DISP0_8
+   \   000025   E9           MOV     A,R1
+   \   000026   F0           MOVX    @DPTR,A
+    436            pi.AllLen = pi.Plen + 5;
+   \   000027   7402         MOV     A,#0x2
+   \   000029   12....       LCALL   ?XSTACK_DISP0_8
+   \   00002C   E0           MOVX    A,@DPTR
+   \   00002D   2405         ADD     A,#0x5
+   \   00002F   C0E0         PUSH    A
+   \   000031   740B         MOV     A,#0xb
+   \   000033   12....       LCALL   ?XSTACK_DISP0_8
+   \   000036   D0E0         POP     A
+   \   000038   F0           MOVX    @DPTR,A
+   \   000039                ; Setup parameters for call to function osal_mem_alloc
+   \   000039   AA..         MOV     R2,?V0
+   \   00003B   7B00         MOV     R3,#0x0
+    437            pi.ParameterList = MALLOC(Len);
+   \   00003D   12....       LCALL   `??osal_mem_alloc::?relay`; Banked call to: osal_mem_alloc
+   \   000040   8A..         MOV     ?V4,R2
+   \   000042   8B..         MOV     ?V5,R3
+   \   000044   A8..         MOV     R0,?V4
+   \   000046   A9..         MOV     R1,?V5
+   \   000048   7406         MOV     A,#0x6
+   \   00004A   12....       LCALL   ?XSTACK_DISP0_8
+   \   00004D   E8           MOV     A,R0
+   \   00004E   F0           MOVX    @DPTR,A
+   \   00004F   A3           INC     DPTR
+   \   000050   E9           MOV     A,R1
+   \   000051   F0           MOVX    @DPTR,A
+    438            MALLOC_CHECK(pi.ParameterList, "Protocol_Send"); 
+   \   000052   E8           MOV     A,R0
+   \   000053   49           ORL     A,R1
+   \   000054   700A         JNZ     ??Protocol_Send_0
+   \   000056                ; Setup parameters for indirect call
+   \   000056   7A..         MOV     R2,#`?<Constant "\\"Protocol_Send\\"\\277\\325\\274\\344\\` & 0xff
+   \   000058   7B..         MOV     R3,#(`?<Constant "\\"Protocol_Send\\"\\277\\325\\274\\344\\` >> 8) & 0xff
+   \   00005A   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_63:
+   \   00005D   12....       LCALL   ?CALL_IND
+    439            pi.ProtocolDesc = Get_Protocol_Description(ModuleAction, SEND);
+   \                     ??Protocol_Send_0:
+   \   000060                ; Setup parameters for call to function Get_Protocol_Description
+   \   000060   7900         MOV     R1,#0x0
+   \   000062   EE           MOV     A,R6
+   \   000063   FA           MOV     R2,A
+   \   000064   EF           MOV     A,R7
+   \   000065   FB           MOV     R3,A
+   \   000066   12....       LCALL   `??Get_Protocol_Description::?relay`; Banked call to: Get_Protocol_Description
+   \   000069   740C         MOV     A,#0xc
+   \   00006B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00006E   EA           MOV     A,R2
+   \   00006F   F0           MOVX    @DPTR,A
+   \   000070   A3           INC     DPTR
+   \   000071   EB           MOV     A,R3
+   \   000072   F0           MOVX    @DPTR,A
+    440            pi.Head = 0xFD;
+   \   000073   85..82       MOV     DPL,?XSP + 0
+   \   000076   85..83       MOV     DPH,?XSP + 1
+   \   000079   74FD         MOV     A,#-0x3
+   \   00007B   F0           MOVX    @DPTR,A
+    441            pi.Plen = Len + 3;//参数个数+3   帧长度
+   \   00007C   7403         MOV     A,#0x3
+   \   00007E   25..         ADD     A,?V0
+   \   000080   C0E0         PUSH    A
+   \   000082   7402         MOV     A,#0x2
+   \   000084   12....       LCALL   ?XSTACK_DISP0_8
+   \   000087   D0E0         POP     A
+   \   000089   F0           MOVX    @DPTR,A
+    442            pi.Module = ModuleAction >> 8; 
+   \   00008A   8E..         MOV     ?V4,R6
+   \   00008C   8F..         MOV     ?V5,R7
+   \   00008E   7408         MOV     A,#0x8
+   \   000090   78..         MOV     R0,#?V4
+   \   000092   12....       LCALL   ?SS_SHR
+   \   000095   7403         MOV     A,#0x3
+   \   000097   12....       LCALL   ?XSTACK_DISP0_8
+   \   00009A   E5..         MOV     A,?V4
+   \   00009C   F0           MOVX    @DPTR,A
+    443            pi.Serial = pi.ProtocolDesc->Serial++;
+   \   00009D   740C         MOV     A,#0xc
+   \   00009F   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000A2   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_17:
+   \   0000A5   C0E0         PUSH    A
+   \   0000A7   7404         MOV     A,#0x4
+   \   0000A9   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000AC   D0E0         POP     A
+   \   0000AE   F0           MOVX    @DPTR,A
+   \   0000AF   740C         MOV     A,#0xc
+   \   0000B1   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000B4   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_18:
+   \   0000B7   04           INC     A
+   \   0000B8   F0           MOVX    @DPTR,A
+    444            pi.Action = ModuleAction & 0x00ff;
+   \   0000B9   7405         MOV     A,#0x5
+   \   0000BB   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000BE   EE           MOV     A,R6
+   \   0000BF   F0           MOVX    @DPTR,A
+    445            memcpy(pi.ParameterList, Data, Len);
+   \   0000C0                ; Setup parameters for call to function memcpy
+   \   0000C0   85....       MOV     ?V4,?V0
+   \   0000C3   75..00       MOV     ?V5,#0x0
+   \   0000C6   78..         MOV     R0,#?V4
+   \   0000C8   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000CB   AC..         MOV     R4,?V2
+   \   0000CD   AD..         MOV     R5,?V3
+   \   0000CF   7408         MOV     A,#0x8
+   \   0000D1   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000D4   12....       LCALL   ??Subroutine18_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_40:
+   \   0000D7   12....       LCALL   `??memcpy::?relay`   ; Banked call to: memcpy
+   \   0000DA   7402         MOV     A,#0x2
+   \   0000DC   12....       LCALL   ?DEALLOC_XSTACK8
+    446          //  pi.ParameterList = *Protocol_t; 
+    447          //  memcpy(pi.ParameterList, Data, Len);
+    448            pi.CheckSum = getCheckSum_ByProtocolInfo(&pi); 
+   \   0000DF                ; Setup parameters for call to function getCheckSum_ByProtocolInfo
+   \   0000DF   AA..         MOV     R2,?XSP + 0
+   \   0000E1   AB..         MOV     R3,?XSP + 1
+   \   0000E3   12....       LCALL   `??getCheckSum_ByProtocolInfo::?relay`; Banked call to: getCheckSum_ByProtocolInfo
+   \   0000E6   7408         MOV     A,#0x8
+   \   0000E8   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000EB   E9           MOV     A,R1
+   \   0000EC   F0           MOVX    @DPTR,A
+    449            pi.Tail = 0xF8;
+   \   0000ED   7409         MOV     A,#0x9
+   \   0000EF   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000F2   74F8         MOV     A,#-0x8
+   \   0000F4   F0           MOVX    @DPTR,A
+    450            Protocol_To_Uart(&pi);  
+   \   0000F5                ; Setup parameters for call to function Protocol_To_Uart
+   \   0000F5   AA..         MOV     R2,?XSP + 0
+   \   0000F7   AB..         MOV     R3,?XSP + 1
+   \   0000F9   12....       LCALL   `??Protocol_To_Uart::?relay`; Banked call to: Protocol_To_Uart
+    451            FREE(pi.ParameterList);
+   \   0000FC                ; Setup parameters for call to function osal_mem_free
+   \   0000FC   7406         MOV     A,#0x6
+   \   0000FE   12....       LCALL   ?XSTACK_DISP0_8
+   \   000101   12....       LCALL   ??Subroutine18_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_41:
+   \   000104   12....       LCALL   `??osal_mem_free::?relay`; Banked call to: osal_mem_free
+    452          }
+   \   000107   7412         MOV     A,#0x12
+   \   000109   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00010C   7F06         MOV     R7,#0x6
+   \   00010E   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine10:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F583         MOV     DPH,A
+   \   000006   8882         MOV     DPL,R0
+   \   000008   A3           INC     DPTR
+   \   000009   A3           INC     DPTR
+   \   00000A   A3           INC     DPTR
+   \   00000B   A3           INC     DPTR
+   \   00000C   A3           INC     DPTR
+   \   00000D   E0           MOVX    A,@DPTR
+   \   00000E   22           RET
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant {0}>`:
+   \   000000   00           DB 0
+   \   000001   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   000009   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   000011   00           DB 0
+    453          
+    454          /****************************************************
+    455            函数名:  Protocol_Send_Transpond
+    456            功能:    转发协议
+    457            参数:    Protocol_Info_T结构体
+    458            作者:    liyao 2016年9月18日11:51:35
+    459          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    460          void Protocol_Send_Transpond(Protocol_Info_T* pi){  
+   \                     Protocol_Send_Transpond:
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    461            Protocol_To_Uart(pi);  
+   \   000004                ; Setup parameters for call to function Protocol_To_Uart
+   \   000004   12....       LCALL   `??Protocol_To_Uart::?relay`; Banked call to: Protocol_To_Uart
+    462          }
+   \   000007   02....       LJMP    ?Subroutine2 & 0xFFFF
+    463          
+    464          /*****************************************************************
+    465          函数名:FetchProtocols
+    466          备注: 处理上位机串口命令总函数
+    467          ******************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    468          void FetchProtocols(void)
+   \                     FetchProtocols:
+    469          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    470            #if UART1_PROTOCOL_RESOLVER
+    471              UART1_Resolver->Fetch_Protocol(UART1_Resolver);
+   \   000004                ; Setup parameters for indirect call
+   \   000004   90....       MOV     DPTR,#UART1_Resolver
+   \   000007   12....       LCALL   ??Subroutine18_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_42:
+   \   00000A   90....       MOV     DPTR,#UART1_Resolver
+   \   00000D   E0           MOVX    A,@DPTR
+   \   00000E   F8           MOV     R0,A
+   \   00000F   A3           INC     DPTR
+   \   000010   E0           MOVX    A,@DPTR
+   \   000011   C8           XCH     A,R0
+   \   000012   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_29:
+   \   000015   12....       LCALL   ??Subroutine21_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_55:
+   \   000018   12....       LCALL   ?CALL_IND
+    472            #endif
+    473            #if UART2_PROTOCOL_RESOLVER
+    474              UART2_Resolver->Fetch_Protocol(UART2_Resolver);
+    475            #endif
+    476            #if UART3_PROTOCOL_RESOLVER
+    477              UART3_Resolver->Fetch_Protocol(UART3_Resolver);
+    478            #endif
+    479            #if UART4_PROTOCOL_RESOLVER
+    480              UART4_Resolver->Fetch_Protocol(UART4_Resolver);
+    481            #endif
+    482          }
+   \   00001B   02....       LJMP    ?Subroutine2 & 0xFFFF
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for UART1_Resolver>`:
+   \   000000   ....         DW _UART1_Resolver
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??_clean_recv_buf::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    _clean_recv_buf
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??_Fetch_Protocol::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    _Fetch_Protocol
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??_Protocol_Put::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    _Protocol_Put
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??IsShift::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    IsShift
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??getCheckSum_ByProtocolInfo::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    getCheckSum_ByProtocolInfo
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??Protocol_Register::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Protocol_Register
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??Get_Protocol_Description::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Get_Protocol_Description
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ProtocolFrame_Init::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ProtocolFrame_Init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??Protocol_To_Uart::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Protocol_To_Uart
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??Protocol_Send::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Protocol_Send
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??Protocol_Send_Transpond::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Protocol_Send_Transpond
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??FetchProtocols::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    FetchProtocols
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\312\\325\\265\\275\\320\\255\\322\\351\\2`:
+   \   000000   CAD5B5BD     DB "\312\325\265\275\320\255\322\351\265\253\312\307\316\336\264\246\300\355\272\257\312\375\015\012"
+   \            D0ADD2E9
+   \            B5ABCAC7
+   \            CEDEB4A6
+   \            C0EDBAAF
+   \            CAFD0D0A
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\320\\255\\322\\351\\326\\320\\315\\276\\2`:
+   \   000000   D0ADD2E9     DB "\320\255\322\351\326\320\315\276\263\366\317\3260xFD\015\012"
+   \            D6D0CDBE
+   \            B3F6CFD6
+   \            30784644
+   \            0D0A00  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\264\\246\\300\\355\\326\\241\\263\\244\\2`:
+   \   000000   B4A6C0ED     DB "\264\246\300\355\326\241\263\244\264\355\316\363\015\012"
+   \            D6A1B3A4
+   \            B4EDCEF3
+   \            0D0A00  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\320\\255\\322\\351\\320\\243\\321\\351\\2`:
+   \   000000   D0ADD2E9     DB "\320\255\322\351\320\243\321\351\272\315\264\355\316\363\015\012"
+   \            D0A3D1E9
+   \            BACDB4ED
+   \            CEF30D0A
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\326\\241\\316\\262\\316\\273\\326\\303\\2`:
+   \   000000   D6A1CEB2     DB "\326\241\316\262\316\273\326\303\267\3070xF8\264\355\316\363\015\012"
+   \            CEBBD6C3
+   \            B7C73078
+   \            4638B4ED
+   \            CEF30D0A
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\"_Protocol_Put\\"\\277\\325\\274\\344\\`:
+   \   000000   225F5072     DB "\"_Protocol_Put\"\277\325\274\344\267\326\305\344\312\247\260\334"
+   \            6F746F63
+   \            6F6C5F50
+   \            757422BF
+   \            D5BCE4B7
+   \            D6C5E4CA
+   \            A7B0DC00
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\317\\326\\323\\320\\320\\255\\322\\351\\2`:
+   \   000000   CFD6D3D0     DB "\317\326\323\320\320\255\322\351\277\342\316\336\306\245\305\344\265\261\307\260\320\255\322\351\015\012"
+   \            D0ADD2E9
+   \            BFE2CEDE
+   \            C6A5C5E4
+   \            B5B1C7B0
+   \            D0ADD2E9
+   \            0D0A00  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "Get_Protocol_Descript...">`:
+   \   000000   4765745F     DB "Get_Protocol_Description?\241\344?\250\260\246\314??\250\250\250\272??\250\24211\250\254?"
+   \            50726F74
+   \            6F636F6C
+   \            5F446573
+   \            63726970
+   \            74696F6E
+   \            3FA1E43F
+   \            A8B0A6CC
+   \            3F3FA8A8
+   \            A8BA3F3F
+   \            A8A23131
+   \            A8AC3F00
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0`:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   00           DB 0
+   \   000007   00           DB 0
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   00           DB 0
+   \   00000B   00           DB 0
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   \   000010   00           DB 0
+   \   000011   00           DB 0
+   \   000012   00           DB 0
+   \   000013   00           DB 0
+   \   000014   00           DB 0
+   \   000015   00           DB 0
+   \   000016   00           DB 0
+   \   000017   00           DB 0
+   \   000018   00           DB 0
+   \   000019   00           DB 0
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+   \   000020   00           DB 0
+   \   000021   00           DB 0
+   \   000022   00           DB 0
+   \   000023   00           DB 0
+   \   000024   00           DB 0
+   \   000025   00           DB 0
+   \   000026   00           DB 0
+   \   000027   00           DB 0
+   \   000028   00           DB 0
+   \   000029   00           DB 0
+   \   00002A   00           DB 0
+   \   00002B   00           DB 0
+   \   00002C   00           DB 0
+   \   00002D   00           DB 0
+   \   00002E   00           DB 0
+   \   00002F   00           DB 0
+   \   000030   00           DB 0
+   \   000031   00           DB 0
+   \   000032   00           DB 0
+   \   000033   00           DB 0
+   \   000034   00           DB 0
+   \   000035   00           DB 0
+   \   000036   00           DB 0
+   \   000037   00           DB 0
+   \   000038   00           DB 0
+   \   000039   00           DB 0
+   \   00003A   00           DB 0
+   \   00003B   00           DB 0
+   \   00003C   00           DB 0
+   \   00003D   00           DB 0
+   \   00003E   00           DB 0
+   \   00003F   00           DB 0
+   \   000040   00           DB 0
+   \   000041   00           DB 0
+   \   000042   00           DB 0
+   \   000043   00           DB 0
+   \   000044   00           DB 0
+   \   000045   00           DB 0
+   \   000046   00           DB 0
+   \   000047   00           DB 0
+   \   000048   00           DB 0
+   \   000049   00           DB 0
+   \   00004A   00           DB 0
+   \   00004B   00           DB 0
+   \   00004C   00           DB 0
+   \   00004D   00           DB 0
+   \   00004E   00           DB 0
+   \   00004F   00           DB 0
+   \   000050   00           DB 0
+   \   000051   00           DB 0
+   \   000052   00           DB 0
+   \   000053   00           DB 0
+   \   000054   00           DB 0
+   \   000055   00           DB 0
+   \   000056   00           DB 0
+   \   000057   00           DB 0
+   \   000058   00           DB 0
+   \   000059   00           DB 0
+   \   00005A   00           DB 0
+   \   00005B   00           DB 0
+   \   00005C   00           DB 0
+   \   00005D   00           DB 0
+   \   00005E   00           DB 0
+   \   00005F   00           DB 0
+   \   000060   00           DB 0
+   \   000061   00           DB 0
+   \   000062   00           DB 0
+   \   000063   00           DB 0
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\"Protocol_Send\\"\\277\\325\\274\\344\\`:
+   \   000000   2250726F     DB "\"Protocol_Send\"\277\325\274\344\267\326\305\344\312\247\260\334"
+   \            746F636F
+   \            6C5F5365
+   \            6E6422BF
+   \            D5BCE4B7
+   \            D6C5E4CA
+   \            A7B0DC00
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      2     18   FetchProtocols
+      0     41   Get_Protocol_Description
+      2    112   IsShift
+      0     12   ProtocolFrame_Init
+        0     10   -> List_Init
+        0     10   -> Protocol_Init
+        0     10   -> Queue_Link_Init
+        0     12   -> memset
+      1     12   Protocol_Register
+        0     12   -> List_Add
+      1     34   Protocol_Send
+        0     32   -> Get_Protocol_Description
+        0     32   -> Protocol_To_Uart
+        0     32   -> getCheckSum_ByProtocolInfo
+        0     34   -> memcpy
+        0     32   -> osal_mem_alloc
+        0     32   -> osal_mem_free
+      2      0   Protocol_Send_Transpond
+        2      0   -> Protocol_To_Uart
+      1    144   Protocol_To_Uart
+        0    112   -> IsShift
+      0     27   _Fetch_Protocol
+        0     27   -> Queue_Link_Get
+        0     27   -> osal_mem_free
+      1     20   _Protocol_Put
+        0     18   -> FetchProtocols
+        0     20   -> Queue_Link_Put
+        0     18   -> _clean_recv_buf
+        0     20   -> memcpy
+        0     18   -> osal_mem_alloc
+        0     18   -> osal_mem_free
+      0     30   _clean_recv_buf
+        0     12   -> memset
+      0     41   getCheckSum_ByProtocolInfo
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      48  ?<Constant "Get_Protocol_Descript...">
+      28  ?<Constant "\"Protocol_Send\"\277\325\274\344\
+      28  ?<Constant "\"_Protocol_Put\"\277\325\274\344\
+      15  ?<Constant "\264\246\300\355\326\241\263\244\2
+      25  ?<Constant "\312\325\265\275\320\255\322\351\2
+      27  ?<Constant "\317\326\323\320\320\255\322\351\2
+      17  ?<Constant "\320\255\322\351\320\243\321\351\2
+      19  ?<Constant "\320\255\322\351\326\320\315\276\2
+      21  ?<Constant "\326\241\316\262\316\273\326\303\2
+     100  ?<Constant {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      18  ?<Constant {0}>
+       2  ?<Initializer for UART1_Resolver>
+       5  ??Subroutine16_0
+       8  ??Subroutine17_0
+       6  ??Subroutine18_0
+       4  ??Subroutine19_0
+       6  ??Subroutine20_0
+       2  ??Subroutine21_0
+       7  ??Subroutine22_0
+       1  ?Subroutine0
+       5  ?Subroutine1
+      15  ?Subroutine10
+       3  ?Subroutine11
+      13  ?Subroutine12
+       4  ?Subroutine13
+      19  ?Subroutine14
+       9  ?Subroutine15
+       7  ?Subroutine2
+      11  ?Subroutine3
+      10  ?Subroutine4
+       3  ?Subroutine5
+      12  ?Subroutine6
+      39  ?Subroutine7
+      10  ?Subroutine8
+      14  ?Subroutine9
+     120  Desc_P_Arr
+       2  Desc_P_List
+      30  FetchProtocols
+       6  FetchProtocols::?relay
+      75  Get_Protocol_Description
+       6  Get_Protocol_Description::?relay
+      41  IsShift
+       6  IsShift::?relay
+     121  ProtocolFrame_Init
+       6  ProtocolFrame_Init::?relay
+      79  Protocol_Register
+       6  Protocol_Register::?relay
+     273  Protocol_Send
+       6  Protocol_Send::?relay
+      10  Protocol_Send_Transpond
+       6  Protocol_Send_Transpond::?relay
+       1  Protocol_Size
+     517  Protocol_To_Uart
+       6  Protocol_To_Uart::?relay
+       2  UART1_Resolver
+      87  _Fetch_Protocol
+       6  _Fetch_Protocol::?relay
+     842  _Protocol_Put
+       6  _Protocol_Put::?relay
+     132  _UART1_Resolver
+      71  _clean_recv_buf
+       6  _clean_recv_buf::?relay
+     109  getCheckSum_ByProtocolInfo
+       6  getCheckSum_ByProtocolInfo::?relay
+
+ 
+ 2 468 bytes in segment BANKED_CODE
+    72 bytes in segment BANK_RELAYS
+     2 bytes in segment XDATA_I
+     2 bytes in segment XDATA_ID
+   346 bytes in segment XDATA_ROM_C
+   255 bytes in segment XDATA_Z
+ 
+ 2 542 bytes of CODE  memory
+   346 bytes of CONST memory
+   257 bytes of XDATA memory
+
+Errors: none
+Warnings: none

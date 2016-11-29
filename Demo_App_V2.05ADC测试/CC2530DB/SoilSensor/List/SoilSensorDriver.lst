@@ -1,0 +1,342 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                25/Nov/2016  09:09:54
+# Copyright 2004-2015 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\Module\SoilSensor\SoilSensorDriver.c
+#    Command line       =  
+#        -f "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f
+#        "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=50 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)
+#        -DREJOIN_POLL_RATE=440 "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\Module\SoilSensor\SoilSensorDriver.c"
+#        -D HAL_UART=TRUE -D HAL_UART_ISR=1 -D HAL_UART_DMA=2 -D
+#        HOLD_AUTO_START -D LOG_OUT -D UART1_PROTOCOL_RESOLVER=1 -D xISQC -D
+#        NWK_AUTO_POLL -D xZTOOL_P1 -D ISR_KEYINTERRUPT -D xMT_TASK -D
+#        xMT_SYS_FUNC -D xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG -D xPOWER_SAVING
+#        -lC "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\SoilSensor\List"
+#        -lA "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\SoilSensor\List"
+#        --diag_suppress Pe001,Pa010 -o "E:\LiyaoProject\Zigbee_Project\Z-Stack
+#        Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\SoilSensor\Obj"
+#        -e --no_code_motion --debug --core=plain --dptr=16,1
+#        --data_model=large --code_model=banked
+#        --calling_convention=xdata_reentrant --place_constants=data_rom
+#        --nr_virtual_regs 8 -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\" -I
+#        "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\Source\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\Frame\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\Module\SoilSensor\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz
+#    List file          =  
+#        E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\SoilSensor\List\SoilSensorDriver.lst
+#    Object file        =  
+#        E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\CC2530DB\SoilSensor\Obj\SoilSensorDriver.r51
+#
+###############################################################################
+
+E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.05ADC测试\Module\SoilSensor\SoilSensorDriver.c
+      1          #include "SoilSensorDriver.h"
+      2          
+      3          #include "SoilSensorProtocol.h"
+      4          #include "ProtocolHandle.h"
+      5          #include "hal_adc.h"
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+      6          SoilSensor_Info_T SoilSensorM;
+   \                     SoilSensorM:
+   \   000000                DS 16
+   \   000010                REQUIRE __INIT_XDATA_Z
+      7          /****************************************************
+      8          	函数名:	SoilSensor_Init
+      9          	功能:	土壤湿度传感器IO相关初始化  
+     10            作者:	2016年11月24日09:56:30
+     11          ****************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     12          void SoilSensor_Init(void){ 
+   \                     SoilSensor_Init:
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     13            HalAdcInit();
+   \   000004                ; Setup parameters for call to function HalAdcInit
+   \   000004   12....       LCALL   `??HalAdcInit::?relay`; Banked call to: HalAdcInit
+     14          }
+   \   000007   D083         POP     DPH
+   \   000009   D082         POP     DPL
+   \   00000B   02....       LJMP    ?BRET
+     15          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     16          void SoilSensor_Read(void){
+   \                     SoilSensor_Read:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 16
+   \   000005   74F0         MOV     A,#-0x10
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+     17            uint16 val[8] = {0};
+   \   00000A   90....       MOV     DPTR,#`?<Constant {0, 0, 0, 0, 0, 0, 0, 0}>`
+   \   00000D   AC..         MOV     R4,?XSP + 0
+   \   00000F   AD..         MOV     R5,?XSP + 1
+   \   000011   7410         MOV     A,#0x10
+   \   000013   12....       LCALL   ?MOVE_LONG8_XDATA_XDATA
+     18            for(int i = 0; i < 8; i++){
+   \   000016   FE           MOV     R6,A
+   \   000017   FF           MOV     R7,A
+     19              val[i] = HalAdcRead(i,HAL_ADC_RESOLUTION_14);
+   \                     ??SoilSensor_Read_0:
+   \   000018                ; Setup parameters for call to function HalAdcRead
+   \   000018   7A04         MOV     R2,#0x4
+   \   00001A   EE           MOV     A,R6
+   \   00001B   F9           MOV     R1,A
+   \   00001C   12....       LCALL   `??HalAdcRead::?relay`; Banked call to: HalAdcRead
+   \   00001F   8A..         MOV     ?V0,R2
+   \   000021   8B..         MOV     ?V1,R3
+   \   000023   EE           MOV     A,R6
+   \   000024   F8           MOV     R0,A
+   \   000025   EF           MOV     A,R7
+   \   000026   F9           MOV     R1,A
+   \   000027   E8           MOV     A,R0
+   \   000028   28           ADD     A,R0
+   \   000029   F8           MOV     R0,A
+   \   00002A   E9           MOV     A,R1
+   \   00002B   33           RLC     A
+   \   00002C   F9           MOV     R1,A
+   \   00002D   85..82       MOV     DPL,?XSP + 0
+   \   000030   85..83       MOV     DPH,?XSP + 1
+   \   000033   E582         MOV     A,DPL
+   \   000035   28           ADD     A,R0
+   \   000036   F582         MOV     DPL,A
+   \   000038   E583         MOV     A,DPH
+   \   00003A   39           ADDC    A,R1
+   \   00003B   F583         MOV     DPH,A
+   \   00003D   EA           MOV     A,R2
+   \   00003E   F0           MOVX    @DPTR,A
+   \   00003F   A3           INC     DPTR
+   \   000040   EB           MOV     A,R3
+   \   000041   F0           MOVX    @DPTR,A
+     20              printf("%d ", val[i]);
+   \   000042                ; Setup parameters for call to function printf
+   \   000042   78..         MOV     R0,#?V0
+   \   000044   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000047   7A..         MOV     R2,#`?<Constant "%d ">` & 0xff
+   \   000049   7B..         MOV     R3,#(`?<Constant "%d ">` >> 8) & 0xff
+   \   00004B   12....       LCALL   `??printf::?relay`   ; Banked call to: printf
+   \   00004E   7402         MOV     A,#0x2
+   \   000050   12....       LCALL   ?DEALLOC_XSTACK8
+     21            }
+   \   000053   0E           INC     R6
+   \   000054   EE           MOV     A,R6
+   \   000055   7001         JNZ     ??SoilSensor_Read_1
+   \   000057   0F           INC     R7
+   \                     ??SoilSensor_Read_1:
+   \   000058   C3           CLR     C
+   \   000059   9408         SUBB    A,#0x8
+   \   00005B   EF           MOV     A,R7
+   \   00005C   9400         SUBB    A,#0x0
+   \   00005E   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000060   65D0         XRL     A,PSW
+   \   000062   33           RLC     A
+   \   000063   40B3         JC      ??SoilSensor_Read_0
+     22            printf("\r\n");
+   \   000065                ; Setup parameters for call to function printf
+   \   000065   7A..         MOV     R2,#`?<Constant "\\r\\n">` & 0xff
+   \   000067   7B..         MOV     R3,#(`?<Constant "\\r\\n">` >> 8) & 0xff
+   \   000069   12....       LCALL   `??printf::?relay`   ; Banked call to: printf
+     23          }
+   \   00006C   7410         MOV     A,#0x10
+   \   00006E   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000071   7F04         MOV     R7,#0x4
+   \   000073   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??SoilSensor_Init::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SoilSensor_Init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??SoilSensor_Read::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SoilSensor_Read
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant {0, 0, 0, 0, 0, 0, 0, 0}>`:
+   \   000000   0000         DW 0
+   \   000002   0000         DW 0
+   \   000004   0000         DW 0
+   \   000006   0000         DW 0
+   \   000008   0000         DW 0
+   \   00000A   0000         DW 0
+   \   00000C   0000         DW 0
+   \   00000E   0000         DW 0
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "%d ">`:
+   \   000000   25642000     DB "%d "
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\r\\n">`:
+   \   000000   0D0A00       DB "\015\012"
+     24          /****************************************************
+     25          	函数名:	WaterMachine_Init
+     26          	功能:	饮水机IO相关初始化  
+     27                  作者:	2016年10月18日20:44:34
+     28          ***************************************************
+     29          void State_Check(void){
+     30            RUN_STATE oldstate = WaterM.State;
+     31            if(WaterM.State != WATERM_AWAIT){//如果没有关闭电源智控 
+     32              PWRLED_ENABLE;
+     33              if(TEMPCTRL_READ == TEMPCTRL_ENABLE){//如果温控数据需要加热
+     34                  JDQ_ENABLE;//打开继电器所控电阻丝
+     35                  WaterM.State = WATERM_RUN;
+     36                  //printf("电阻丝加热工作\r\n");
+     37              }else{
+     38                  JDQ_DISABLE;//关闭继电器所控电阻丝
+     39                  WaterM.State = WATERM_FINISH;
+     40                  //printf("电阻丝加热停止\r\n");
+     41              }
+     42            }else{
+     43              JDQ_DISABLE;
+     44              PWRLED_DISABLE;
+     45            }
+     46            if(WaterM.State != oldstate)
+     47              ReportState();
+     48          }
+     49          */
+     50          /****************************************************
+     51          	函数名:	Cmd_P_Handle
+     52          	功能:	接收主控指令 
+     53                  作者:	2016年10月18日20:44:34
+     54          ***************************************************
+     55          void Cmd_P_Handle(Protocol_Info_T* pi){
+     56            CMD_PROTOCOL_T* cp = pi->ParameterList;
+     57            printf("收到控制命令\r\n");
+     58            if(cp->para1 == (uint8_t)WATERM_CLOSE){
+     59              WaterM.State = WATERM_AWAIT;
+     60              printf("智控关闭\r\n");
+     61            }else if(cp->para1 == (uint8_t)WATERM_OPEN){
+     62              WaterM.State = WATERM_RUN;
+     63              printf("智控开启\r\n");
+     64            }
+     65            ReportState();
+     66            
+     67            
+     68          }*/
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      2      0   SoilSensor_Init
+        2      0   -> HalAdcInit
+      0     30   SoilSensor_Read
+        0     28   -> HalAdcRead
+        0     28   -> printf
+        0     30   -> printf
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ?<Constant "%d ">
+       3  ?<Constant "\r\n">
+      16  ?<Constant {0, 0, 0, 0, 0, 0, 0, 0}>
+      16  SoilSensorM
+      14  SoilSensor_Init
+       6  SoilSensor_Init::?relay
+     118  SoilSensor_Read
+       6  SoilSensor_Read::?relay
+
+ 
+ 132 bytes in segment BANKED_CODE
+  12 bytes in segment BANK_RELAYS
+  23 bytes in segment XDATA_ROM_C
+  16 bytes in segment XDATA_Z
+ 
+ 144 bytes of CODE  memory
+  23 bytes of CONST memory
+  16 bytes of XDATA memory
+
+Errors: none
+Warnings: none

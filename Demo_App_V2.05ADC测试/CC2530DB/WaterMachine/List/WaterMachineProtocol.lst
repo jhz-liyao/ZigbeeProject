@@ -1,0 +1,468 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                31/Oct/2016  17:47:28
+# Copyright 2004-2015 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\Module\WaterMachine\WaterMachineProtocol.c
+#    Command line       =  
+#        -f "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f
+#        "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=50 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)
+#        -DREJOIN_POLL_RATE=440 "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\Module\WaterMachine\WaterMachineProtocol.c"
+#        -D HAL_UART=TRUE -D HAL_UART_ISR=1 -D HAL_UART_DMA=0 -D LOG_OUT -D
+#        UART1_PROTOCOL_RESOLVER=1 -D xISQC -D NWK_AUTO_POLL -D xZTOOL_P1 -D
+#        ISR_KEYINTERRUPT -D xMT_TASK -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
+#        xLCD_SUPPORTED=DEBUG -D xPOWER_SAVING -lC
+#        "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\WaterMachine\List"
+#        -lA "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\WaterMachine\List"
+#        --diag_suppress Pe001,Pa010 -o "E:\资源\个人项目\ZigbeeProject\Z-Stack
+#        Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\WaterMachine\Obj"
+#        -e --no_code_motion --debug --core=plain --dptr=16,1
+#        --data_model=large --code_model=banked
+#        --calling_convention=xdata_reentrant --place_constants=data_rom
+#        --nr_virtual_regs 8 -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\" -I
+#        "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\Source\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\Frame\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\Module\WaterMachine\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz
+#    List file          =  
+#        E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\WaterMachine\List\WaterMachineProtocol.lst
+#    Object file        =  
+#        E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh
+#        1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\WaterMachine\Obj\WaterMachineProtocol.r51
+#
+###############################################################################
+
+E:\资源\个人项目\ZigbeeProject\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\Module\WaterMachine\WaterMachineProtocol.c
+      1          #include "ProtocolFrame.h"
+      2          #include "WaterMachineProtocol.h"
+      3          #include "protocol.h"
+      4          #include "ProtocolHandle.h"
+      5          
+      6          #include "af.h"
+      7          #include "DemoApp.h"
+      8          #include "tool.h"
+      9          #include "ModuleManager.h"
+     10          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     11          void ProtocolSend(uint8_t* data, uint8_t len){
+   \                     ProtocolSend:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 18
+   \   000005   74EE         MOV     A,#-0x12
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   8A..         MOV     ?V0,R2
+   \   00000C   8B..         MOV     ?V1,R3
+   \   00000E   E9           MOV     A,R1
+   \   00000F   FE           MOV     R6,A
+     12            static byte TransID = 0;
+     13          //  printf("准备发送:%d\r\n",len);
+     14            Protocol_Printf(data, len); 
+   \   000010                ; Setup parameters for call to function Protocol_Printf
+   \   000010   12....       LCALL   `??Protocol_Printf::?relay`; Banked call to: Protocol_Printf
+     15            ModuleBoard_T *module = getModuleByModuleID((MODULE)(data[3] & 0x0f));
+   \   000013                ; Setup parameters for call to function getModuleByModuleID
+   \   000013   85..82       MOV     DPL,?V0
+   \   000016   85..83       MOV     DPH,?V1
+   \   000019   A3           INC     DPTR
+   \   00001A   A3           INC     DPTR
+   \   00001B   A3           INC     DPTR
+   \   00001C   E0           MOVX    A,@DPTR
+   \   00001D   540F         ANL     A,#0xf
+   \   00001F   F9           MOV     R1,A
+   \   000020   12....       LCALL   `??getModuleByModuleID::?relay`; Banked call to: getModuleByModuleID
+   \   000023   8B..         MOV     ?V3,R3
+   \   000025   A9..         MOV     R1,?V3
+     16            afAddrType_t Protocol_DstAddr;  //地址描述符
+     17            endPointDesc_t Protocol_epDesc; //端点描述符 
+     18            
+     19            Protocol_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
+   \   000027   740E         MOV     A,#0xe
+   \   000029   12....       LCALL   ?XSTACK_DISP0_8
+   \   00002C   7402         MOV     A,#0x2
+   \   00002E   F0           MOVX    @DPTR,A
+     20            Protocol_DstAddr.endPoint = APP_ENDPOINT;
+   \   00002F   740F         MOV     A,#0xf
+   \   000031   12....       LCALL   ?XSTACK_DISP0_8
+   \   000034   740A         MOV     A,#0xa
+   \   000036   F0           MOVX    @DPTR,A
+     21            Protocol_DstAddr.addr.shortAddr = module->ShortAddr;
+   \   000037   EA           MOV     A,R2
+   \   000038   240B         ADD     A,#0xb
+   \   00003A   F582         MOV     DPL,A
+   \   00003C   E4           CLR     A
+   \   00003D   39           ADDC    A,R1
+   \   00003E   F583         MOV     DPH,A
+   \   000040   E0           MOVX    A,@DPTR
+   \   000041   F8           MOV     R0,A
+   \   000042   A3           INC     DPTR
+   \   000043   E0           MOVX    A,@DPTR
+   \   000044   F9           MOV     R1,A
+   \   000045   7406         MOV     A,#0x6
+   \   000047   12....       LCALL   ?XSTACK_DISP0_8
+   \   00004A   E8           MOV     A,R0
+   \   00004B   F0           MOVX    @DPTR,A
+   \   00004C   A3           INC     DPTR
+   \   00004D   E9           MOV     A,R1
+   \   00004E   F0           MOVX    @DPTR,A
+     22           
+     23            Protocol_epDesc = App_GetepDesc();
+   \   00004F                ; Setup parameters for call to function App_GetepDesc
+   \   00004F   AA..         MOV     R2,?XSP + 0
+   \   000051   AB..         MOV     R3,?XSP + 1
+   \   000053   12....       LCALL   `??App_GetepDesc::?relay`; Banked call to: App_GetepDesc
+     24            TransID++;
+   \   000056   90....       MOV     DPTR,#??TransID
+   \   000059   E0           MOVX    A,@DPTR
+   \   00005A   04           INC     A
+   \   00005B   F0           MOVX    @DPTR,A
+     25            if ( AF_DataRequest( &Protocol_DstAddr, &Protocol_epDesc,
+     26                                 APP_CLUSTERID,
+     27                                 len,
+     28                                 (byte *)data,
+     29                                 &TransID,
+     30                                 AF_ACK_REQUEST, AF_DEFAULT_RADIUS ) == afStatus_SUCCESS );
+   \   00005C                ; Setup parameters for call to function AF_DataRequest
+   \   00005C   75..1E       MOV     ?V2,#0x1e
+   \   00005F   78..         MOV     R0,#?V2
+   \   000061   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000064   75....       MOV     ?V2,#??TransID & 0xff
+   \   000067   75....       MOV     ?V3,#(??TransID >> 8) & 0xff
+   \   00006A   78..         MOV     R0,#?V2
+   \   00006C   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00006F   78..         MOV     R0,#?V0
+   \   000071   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000074   8E..         MOV     ?V0,R6
+   \   000076   75..00       MOV     ?V1,#0x0
+   \   000079   78..         MOV     R0,#?V0
+   \   00007B   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00007E   75..01       MOV     ?V0,#0x1
+   \   000081   78..         MOV     R0,#?V0
+   \   000083   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000086   7910         MOV     R1,#0x10
+   \   000088   7409         MOV     A,#0x9
+   \   00008A   12....       LCALL   ?XSTACK_DISP102_8
+   \   00008D   740F         MOV     A,#0xf
+   \   00008F   12....       LCALL   ?XSTACK_DISP101_8
+   \   000092   12....       LCALL   `??AF_DataRequest::?relay`; Banked call to: AF_DataRequest
+   \   000095   7409         MOV     A,#0x9
+   \   000097   12....       LCALL   ?DEALLOC_XSTACK8
+     31          
+     32          }
+   \   00009A   7412         MOV     A,#0x12
+   \   00009C   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00009F   7F04         MOV     R7,#0x4
+   \   0000A1   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     ??TransID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     33          
+     34          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     35          void Protocol_Init(){ 
+   \                     Protocol_Init:
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 12
+   \   000004   74F4         MOV     A,#-0xc
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+     36          	Protocol_Desc_T pdt; 
+     37                  //公共协议初始化
+     38          	pdt.ProtocolSize = sizeof(HEARTBEAT_PROTOCOL_T);
+   \   000009   7404         MOV     A,#0x4
+   \   00000B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00000E   7403         MOV     A,#0x3
+   \   000010   12....       LCALL   ??Subroutine3_0 & 0xFFFF
+     39          	pdt.ModuleAction = HEARTBEAT_PROTOCOL; 
+   \                     ??CrossCallReturnLabel_11:
+   \   000013   7431         MOV     A,#0x31
+   \   000015   12....       LCALL   ?Subroutine2 & 0xFFFF
+     40                  pdt.Send = ProtocolSend; 
+   \                     ??CrossCallReturnLabel_4:
+   \   000018   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001B   12....       LCALL   ?Subroutine0 & 0xFFFF
+     41          	Protocol_Register(&pdt, SEND);
+   \                     ??CrossCallReturnLabel_0:
+   \   00001E   12....       LCALL   `??Protocol_Register::?relay`; Banked call to: Protocol_Register
+     42          	
+     43                  pdt.ProtocolSize = sizeof(STATE_PROTOCOL_T);
+   \   000021   7404         MOV     A,#0x4
+   \   000023   12....       LCALL   ?XSTACK_DISP0_8
+   \   000026   7401         MOV     A,#0x1
+   \   000028   12....       LCALL   ??Subroutine3_0 & 0xFFFF
+     44          	pdt.ModuleAction = STATE_PROTOCOL; 
+   \                     ??CrossCallReturnLabel_12:
+   \   00002B   7420         MOV     A,#0x20
+   \   00002D   12....       LCALL   ?Subroutine2 & 0xFFFF
+     45                  pdt.Send = ProtocolSend; 
+   \                     ??CrossCallReturnLabel_5:
+   \   000030   12....       LCALL   ?XSTACK_DISP0_8
+   \   000033   12....       LCALL   ?Subroutine0 & 0xFFFF
+     46          	Protocol_Register(&pdt, SEND);
+   \                     ??CrossCallReturnLabel_1:
+   \   000036   12....       LCALL   `??Protocol_Register::?relay`; Banked call to: Protocol_Register
+     47                  
+     48          	pdt.ProtocolSize = sizeof(ACK_PROTOCOL_T);
+   \   000039   7404         MOV     A,#0x4
+   \   00003B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00003E   7401         MOV     A,#0x1
+   \   000040   12....       LCALL   ??Subroutine3_0 & 0xFFFF
+     49          	pdt.ModuleAction = ACK_PROTOCOL; 
+   \                     ??CrossCallReturnLabel_13:
+   \   000043   74A1         MOV     A,#-0x5f
+   \   000045   12....       LCALL   ?Subroutine2 & 0xFFFF
+     50                  pdt.Send = ProtocolSend; 
+   \                     ??CrossCallReturnLabel_6:
+   \   000048   12....       LCALL   ?XSTACK_DISP0_8
+   \   00004B   12....       LCALL   ?Subroutine0 & 0xFFFF
+     51          	Protocol_Register(&pdt, SEND);
+   \                     ??CrossCallReturnLabel_2:
+   \   00004E   12....       LCALL   `??Protocol_Register::?relay`; Banked call to: Protocol_Register
+     52                  
+     53          	pdt.ProtocolSize = sizeof(ADDRREPORT_PROTOCOL_T);
+   \   000051   7404         MOV     A,#0x4
+   \   000053   12....       LCALL   ?XSTACK_DISP0_8
+   \   000056   12....       LCALL   ?Subroutine1 & 0xFFFF
+     54          	pdt.ModuleAction = ADDRREPORT_PROTOCOL; 
+   \                     ??CrossCallReturnLabel_8:
+   \   000059   74B1         MOV     A,#-0x4f
+   \   00005B   12....       LCALL   ?Subroutine2 & 0xFFFF
+     55                  pdt.Send = ProtocolSend; 
+   \                     ??CrossCallReturnLabel_7:
+   \   00005E   12....       LCALL   ?XSTACK_DISP0_8
+   \   000061   12....       LCALL   ?Subroutine0 & 0xFFFF
+     56          	Protocol_Register(&pdt, SEND);
+   \                     ??CrossCallReturnLabel_3:
+   \   000064   12....       LCALL   `??Protocol_Register::?relay`; Banked call to: Protocol_Register
+     57          
+     58                  
+     59                  pdt.ProtocolSize = sizeof(CMD_PROTOCOL_T);
+   \   000067   7404         MOV     A,#0x4
+   \   000069   12....       LCALL   ?XSTACK_DISP0_8
+   \   00006C   12....       LCALL   ?Subroutine1 & 0xFFFF
+     60          	pdt.ModuleAction = CMD_PROTOCOL;  
+   \                     ??CrossCallReturnLabel_9:
+   \   00006F   14           DEC     A
+   \   000070   F0           MOVX    @DPTR,A
+   \   000071   A3           INC     DPTR
+   \   000072   F0           MOVX    @DPTR,A
+     61          	pdt.Handle = Cmd_P_Handle;
+   \   000073   7408         MOV     A,#0x8
+   \   000075   12....       LCALL   ?XSTACK_DISP0_8
+   \   000078   74..         MOV     A,#`??Cmd_P_Handle::?relay` & 0xff
+   \   00007A   F0           MOVX    @DPTR,A
+   \   00007B   A3           INC     DPTR
+   \   00007C   74..         MOV     A,#(`??Cmd_P_Handle::?relay` >> 8) & 0xff
+   \   00007E   F0           MOVX    @DPTR,A
+     62          	Protocol_Register(&pdt, RECEIVE);
+   \   00007F                ; Setup parameters for call to function Protocol_Register
+   \   00007F   7901         MOV     R1,#0x1
+   \   000081   AA..         MOV     R2,?XSP + 0
+   \   000083   AB..         MOV     R3,?XSP + 1
+   \   000085   12....       LCALL   `??Protocol_Register::?relay`; Banked call to: Protocol_Register
+     63          	
+     64                  pdt.ProtocolSize = sizeof(STATEGET_PROTOCOL_T);
+   \   000088   7404         MOV     A,#0x4
+   \   00008A   12....       LCALL   ?XSTACK_DISP0_8
+   \   00008D   12....       LCALL   ?Subroutine1 & 0xFFFF
+     65          	pdt.ModuleAction = STATEGET_PROTOCOL;  
+   \                     ??CrossCallReturnLabel_10:
+   \   000090   F0           MOVX    @DPTR,A
+   \   000091   A3           INC     DPTR
+   \   000092   14           DEC     A
+   \   000093   F0           MOVX    @DPTR,A
+     66          	pdt.Handle = StateGet_P_Handle;
+   \   000094   7408         MOV     A,#0x8
+   \   000096   12....       LCALL   ?XSTACK_DISP0_8
+   \   000099   74..         MOV     A,#`??StateGet_P_Handle::?relay` & 0xff
+   \   00009B   F0           MOVX    @DPTR,A
+   \   00009C   A3           INC     DPTR
+   \   00009D   74..         MOV     A,#(`??StateGet_P_Handle::?relay` >> 8) & 0xff
+   \   00009F   F0           MOVX    @DPTR,A
+     67          	Protocol_Register(&pdt, RECEIVE);
+   \   0000A0                ; Setup parameters for call to function Protocol_Register
+   \   0000A0   7901         MOV     R1,#0x1
+   \   0000A2   AA..         MOV     R2,?XSP + 0
+   \   0000A4   AB..         MOV     R3,?XSP + 1
+   \   0000A6   12....       LCALL   `??Protocol_Register::?relay`; Banked call to: Protocol_Register
+     68                  
+     69                  //特有协议初始化	
+     70          
+     71          }
+   \   0000A9   740C         MOV     A,#0xc
+   \   0000AB   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000AE   D083         POP     DPH
+   \   0000B0   D082         POP     DPL
+   \   0000B2   02....       LJMP    ?BRET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   A3           INC     DPTR
+   \   000002   7410         MOV     A,#0x10
+   \   000004   F0           MOVX    @DPTR,A
+   \   000005   7406         MOV     A,#0x6
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7402         MOV     A,#0x2
+   \   000002                REQUIRE ??Subroutine3_0
+   \   000002                ; // Fall through to label ??Subroutine3_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine3_0:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   85..82       MOV     DPL,?XSP + 0
+   \   000004   85..83       MOV     DPH,?XSP + 1
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   74..         MOV     A,#`??ProtocolSend::?relay` & 0xff
+   \   000002   F0           MOVX    @DPTR,A
+   \   000003   A3           INC     DPTR
+   \   000004   74..         MOV     A,#(`??ProtocolSend::?relay` >> 8) & 0xff
+   \   000006   F0           MOVX    @DPTR,A
+   \   000007                ; Setup parameters for call to function Protocol_Register
+   \   000007                ; Setup parameters for call to function Protocol_Register
+   \   000007                ; Setup parameters for call to function Protocol_Register
+   \   000007                ; Setup parameters for call to function Protocol_Register
+   \   000007   7900         MOV     R1,#0x0
+   \   000009   AA..         MOV     R2,?XSP + 0
+   \   00000B   AB..         MOV     R3,?XSP + 1
+   \   00000D   22           RET
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ProtocolSend::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ProtocolSend
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??Protocol_Init::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Protocol_Init
+     72          
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      0     39   ProtocolSend
+        0     39   -> AF_DataRequest
+        0     30   -> App_GetepDesc
+        0     30   -> Protocol_Printf
+        0     30   -> getModuleByModuleID
+      2     12   Protocol_Init
+        2     12   -> Protocol_Register
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       8  ??Subroutine3_0
+      14  ?Subroutine0
+       2  ?Subroutine1
+       8  ?Subroutine2
+     164  ProtocolSend
+       6  ProtocolSend::?relay
+     181  Protocol_Init
+       6  Protocol_Init::?relay
+       1  TransID
+
+ 
+ 377 bytes in segment BANKED_CODE
+  12 bytes in segment BANK_RELAYS
+   1 byte  in segment XDATA_Z
+ 
+ 389 bytes of CODE  memory
+   1 byte  of XDATA memory
+
+Errors: none
+Warnings: none
