@@ -24,16 +24,25 @@ const SimpleDescriptionFormat_t Liyao_SimpleDesc =
 
 __near_func int putchar(int c)
 {
+#if HAL_UART_ISR == 1 || HAL_UART_DMA == 1
   HalUARTWrite(HAL_UART_PORT_0,(unsigned char*)&c,1);
-    HalUARTWrite(HAL_UART_PORT_1,(unsigned char*)&c,1);
-    return(c);
+#endif
+#if HAL_UART_ISR == 2 || HAL_UART_DMA == 2
+  HalUARTWrite(HAL_UART_PORT_1,(unsigned char*)&c,1);
+#endif
+  return(c);
 }
 
 void Device_Info(void){
   Liyao_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
   Liyao_DstAddr.endPoint = LIYAO_ENDPOINT;
   Liyao_DstAddr.addr.shortAddr = 0x0000;
-  UART_Config_L();
+#if HAL_UART_ISR == 1 || HAL_UART_DMA == 1
+  UART_Config_1();
+#endif
+#if HAL_UART_ISR == 2 || HAL_UART_DMA == 2
+  UART_Config_2();
+#endif
   //uint16 short_Addr = NLME_GetShortAddr();
   //byte* shortAddr_byte = (byte*)&short_Addr;
   byte* longAddr = NLME_GetExtAddr();
@@ -93,7 +102,7 @@ void UART1_CallBack( uint8 port, uint8 event ){
     HalUARTWrite( HAL_UART_PORT_1, data, cnt ); 
 }
 
-void UART_Config_L(void){  
+void UART_Config_1(void){  
   halUARTCfg_t uartConfig;
   /* UART Configuration */
   uartConfig.configured           = TRUE;
@@ -105,7 +114,20 @@ void UART_Config_L(void){
   uartConfig.idleTimeout          = MT_UART_DEFAULT_IDLE_TIMEOUT;
   uartConfig.intEnable            = TRUE; 
   uartConfig.callBackFunc         = UART0_CallBack;
-  HalUARTOpen (HAL_UART_PORT_0, &uartConfig);
+  HalUARTOpen (HAL_UART_PORT_0, &uartConfig); 
+}
+
+void UART_Config_2(void){  
+  halUARTCfg_t uartConfig;
+  /* UART Configuration */
+  uartConfig.configured           = TRUE;
+  uartConfig.baudRate             = HAL_UART_BR_115200;
+  uartConfig.flowControl          = FALSE;
+  uartConfig.flowControlThreshold = MT_UART_DEFAULT_THRESHOLD;
+  uartConfig.rx.maxBufSize        = MT_UART_DEFAULT_MAX_RX_BUFF;
+  uartConfig.tx.maxBufSize        = MT_UART_DEFAULT_MAX_TX_BUFF;
+  uartConfig.idleTimeout          = MT_UART_DEFAULT_IDLE_TIMEOUT;
+  uartConfig.intEnable            = TRUE;  
   uartConfig.callBackFunc         = UART1_CallBack;
   HalUARTOpen (HAL_UART_PORT_1, &uartConfig);
 }

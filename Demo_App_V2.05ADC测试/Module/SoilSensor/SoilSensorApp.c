@@ -183,7 +183,7 @@ void SendHearBeat(void){
   Heartbeat_P.para1 = cnt++;
   Heartbeat_P.para2 = ShortAddr >> 8;
   Heartbeat_P.para3 = ShortAddr & 0xff;
-  Protocol_Send(HEARTBEAT_PROTOCOL, &Heartbeat_P, sizeof(HEARTBEAT_PROTOCOL_T));
+  Protocol_Send(SOIL_SENSOR_HEARTBEAT_PROTOCOL, &Heartbeat_P, sizeof(HEARTBEAT_PROTOCOL_T));
 }
 
 /****************************************************
@@ -200,7 +200,7 @@ static void App_SendHandle( void )
   Heartbeat_P.para1 = cnt++;
   Heartbeat_P.para2 = Short_Addr >> 8;
   Heartbeat_P.para3 = Short_Addr & 0xff;
-  Protocol_Send(HEARTBEAT_PROTOCOL, &Heartbeat_P, sizeof(HEARTBEAT_PROTOCOL_T));
+  Protocol_Send(SOIL_SENSOR_HEARTBEAT_PROTOCOL, &Heartbeat_P, sizeof(HEARTBEAT_PROTOCOL_T));
   printf("±¾»úµØÖ·£º%X,%X\r\n",Short_Addr >> 8, Short_Addr & 0x00ff);
 }
 

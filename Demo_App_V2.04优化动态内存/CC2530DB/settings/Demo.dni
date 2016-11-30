@@ -35,8 +35,8 @@ Bp5=_ "STD_CODE" "{$PROJ_DIR$\..\..\Demo_App_V1.7饮水机控制增加uart}.28.2" 0 0 0
 Bp6=_ "STD_CODE" "{$PROJ_DIR$\..\..\Demo_App_V1.7饮水机控制增加uart}.35.2" 0 0 0 0 "" 0 ""
 Bp7=_ "STD_CODE" "{$PROJ_DIR$\..\..\Demo_App_V1.7饮水机控制增加uart}.13.2" 0 0 0 0 "" 0 ""
 Bp8=_ "STD_CODE" "{$PROJ_DIR$\..\..\..\..\..\..\..\..\资源\个人项目\ZigbeeProject\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存}.482.1" 0 0 0 0 "" 0 ""
-Bp9=_ "STD_CODE" "{E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存}.14.3" 0 0 0 0 "" 0 ""
-Bp10=_ "STD_CODE" "{E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存}.36.7" 0 0 0 0 "" 0 ""
+Bp9=_ "STD_CODE" "{$PROJ_DIR$\..\..\..\..\..\..\..\Zigbee_Project\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存}.14.3" 0 0 0 0 "" 0 ""
+Bp10=_ "STD_CODE" "{$PROJ_DIR$\..\..\..\..\..\..\..\Zigbee_Project\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存}.36.7" 0 0 0 0 "" 0 ""
 Count=11
 [ChipconEmu]
 Stop timers on halt=0

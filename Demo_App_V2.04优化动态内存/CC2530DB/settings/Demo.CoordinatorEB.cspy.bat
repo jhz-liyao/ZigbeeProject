@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\common\bin\cspybat" -f "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\settings\Demo.CoordinatorEB.general.xcl" --backend -f "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\settings\Demo.CoordinatorEB.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\common\bin\cspybat" -f "E:\LiyaoProject\ZigbeeProject\Z-Stack Mesh 1.0.0\Projects\zstack\Zigbee_Project\Demo_App_V2.04优化动态内存\CC2530DB\settings\Demo.CoordinatorEB.general.xcl" --backend -f "E:\LiyaoProject\ZigbeeProject\Z-Stack Mesh 1.0.0\Projects\zstack\Zigbee_Project\Demo_App_V2.04优化动态内存\CC2530DB\settings\Demo.CoordinatorEB.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\common\bin\cspybat" -f "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\settings\Demo.CoordinatorEB.general.xcl" "--debug_file=%~1" --backend -f "E:\LiyaoProject\Zigbee_Project\Z-Stack Mesh 1.0.0\Projects\zstack\Samples\Demo_App_V2.04优化动态内存\CC2530DB\settings\Demo.CoordinatorEB.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\common\bin\cspybat" -f "E:\LiyaoProject\ZigbeeProject\Z-Stack Mesh 1.0.0\Projects\zstack\Zigbee_Project\Demo_App_V2.04优化动态内存\CC2530DB\settings\Demo.CoordinatorEB.general.xcl" "--debug_file=%~1" --backend -f "E:\LiyaoProject\ZigbeeProject\Z-Stack Mesh 1.0.0\Projects\zstack\Zigbee_Project\Demo_App_V2.04优化动态内存\CC2530DB\settings\Demo.CoordinatorEB.driver.xcl" 
 
 @echo off 
 :end

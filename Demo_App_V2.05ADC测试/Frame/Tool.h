@@ -38,7 +38,8 @@
 
 extern afAddrType_t Liyao_DstAddr;
 extern void Device_Info(void);
-extern void UART_Config_L(void);
+extern void UART_Config_1(void);
+extern void UART_Config_2(void);
 extern void SendDataToShortAddr(uint8 TaskID,uint16 shortAddr,unsigned char* data, uint16 len);
 extern void ZdoStateChange_printf(devStates_t devStates);
 extern void Meter_Leave(void);

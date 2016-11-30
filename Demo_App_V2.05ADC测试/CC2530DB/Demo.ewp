@@ -310,7 +310,7 @@
           <state>UART1_PROTOCOL_RESOLVER=1</state>
           <state>xZTOOL_P1</state>
           <state>ISR_KEYINTERRUPT</state>
-          <state>NV_RESTORE</state>
+          <state>xNV_RESTORE</state>
           <state>xMT_TASK</state>
           <state>xMT_SYS_FUNC</state>
           <state>xMT_ZDO_FUNC</state>
@@ -4866,8 +4866,9 @@
         <option>
           <name>CCDefines</name>
           <state>HAL_UART=TRUE</state>
-          <state>HAL_UART_ISR=1</state>
-          <state>HAL_UART_DMA=2</state>
+          <state>HAL_UART_ISR=2</state>
+          <state>HAL_UART_DMA=FALSE</state>
+          <state>HAL_KEY=FALSE</state>
           <state>xHOLD_AUTO_START</state>
           <state>LOG_OUT</state>
           <state>UART1_PROTOCOL_RESOLVER=1</state>
@@ -5764,16 +5765,21 @@
       <name>Module</name>
       <group>
         <name>SoilSensor</name>
+        <excluded>
+          <configuration>WaterMachine</configuration>
+        </excluded>
         <file>
           <name>$PROJ_DIR$\..\Module\SoilSensor\ProtocolHandle.c</name>
           <excluded>
             <configuration>CoordinatorEB</configuration>
+            <configuration>WaterMachine</configuration>
           </excluded>
         </file>
         <file>
           <name>$PROJ_DIR$\..\Module\SoilSensor\ProtocolHandle.h</name>
           <excluded>
             <configuration>CoordinatorEB</configuration>
+            <configuration>WaterMachine</configuration>
           </excluded>
         </file>
         <file>

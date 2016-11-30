@@ -36,7 +36,7 @@ void Protocol_Init(){
 	Protocol_Desc_T pdt; 
         //公共协议初始化
 	pdt.ProtocolSize = sizeof(HEARTBEAT_PROTOCOL_T);
-	pdt.ModuleAction = HEARTBEAT_PROTOCOL; 
+	pdt.ModuleAction = WATER_HEARTBEAT_PROTOCOL; 
         pdt.Send = ProtocolSend; 
 	Protocol_Register(&pdt, SEND);
 	

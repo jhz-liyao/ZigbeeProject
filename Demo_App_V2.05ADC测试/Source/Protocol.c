@@ -39,44 +39,50 @@ void ProtocolSend(uint8_t* data, uint8_t len){
 
 void Protocol_Init(){ 
 	Protocol_Desc_T pdt; 
-        memset(&pdt, 0, sizeof(Protocol_Desc_T));
+  memset(&pdt, 0, sizeof(Protocol_Desc_T));
 	pdt.ProtocolSize = sizeof(HEARTBEAT_PROTOCOL_T);
-	pdt.ModuleAction = HEARTBEAT_PROTOCOL;  
+	pdt.ModuleAction = WATER_HEARTBEAT_PROTOCOL;  
+	pdt.Handle = HearBeat_P_Handle;
+	Protocol_Register(&pdt,RECEIVE);
+  
+  memset(&pdt, 0, sizeof(Protocol_Desc_T));
+	pdt.ProtocolSize = sizeof(HEARTBEAT_PROTOCOL_T);
+	pdt.ModuleAction = SOIL_SENSOR_HEARTBEAT_PROTOCOL;  
 	pdt.Handle = HearBeat_P_Handle;
 	Protocol_Register(&pdt,RECEIVE);
 	
-        memset(&pdt, 0, sizeof(Protocol_Desc_T));
-        pdt.ProtocolSize = sizeof(STATE_PROTOCOL_T);
+  memset(&pdt, 0, sizeof(Protocol_Desc_T));
+  pdt.ProtocolSize = sizeof(STATE_PROTOCOL_T);
 	pdt.ModuleAction = STATE_PROTOCOL;  
 	pdt.Handle = State_P_Handle; 
 	Protocol_Register(&pdt,RECEIVE);
         
-        memset(&pdt, 0, sizeof(Protocol_Desc_T));
+  memset(&pdt, 0, sizeof(Protocol_Desc_T));
 	pdt.ProtocolSize = sizeof(ACK_PROTOCOL_T);
 	pdt.ModuleAction = ACK_PROTOCOL;  
 	pdt.Handle = Ack_P_Handle; 
 	Protocol_Register(&pdt,RECEIVE);
         	
-        memset(&pdt, 0, sizeof(Protocol_Desc_T));
-        pdt.ProtocolSize = sizeof(ADDRREPORT_PROTOCOL_T);
+  memset(&pdt, 0, sizeof(Protocol_Desc_T));
+  pdt.ProtocolSize = sizeof(ADDRREPORT_PROTOCOL_T);
 	pdt.ModuleAction = ADDRREPORT_PROTOCOL;  
-        pdt.Handle = AddrReport_P_Handle; 
+  pdt.Handle = AddrReport_P_Handle; 
 	Protocol_Register(&pdt,RECEIVE);
         
         
         
-        memset(&pdt, 0, sizeof(Protocol_Desc_T));
-        pdt.ProtocolSize = sizeof(CMD_PROTOCOL_T);
+  memset(&pdt, 0, sizeof(Protocol_Desc_T));
+  pdt.ProtocolSize = sizeof(CMD_PROTOCOL_T);
 	pdt.ModuleAction = CMD_PROTOCOL; 
-        pdt.Handle = TranspondHandle;
-        pdt.Send = ProtocolSend; 
+  pdt.Handle = TranspondHandle;
+  pdt.Send = ProtocolSend; 
 	Protocol_Register(&pdt,SEND);
 	
-        memset(&pdt, 0, sizeof(Protocol_Desc_T));
-        pdt.ProtocolSize = sizeof(STATEGET_PROTOCOL_T);
+  memset(&pdt, 0, sizeof(Protocol_Desc_T));
+  pdt.ProtocolSize = sizeof(STATEGET_PROTOCOL_T);
 	pdt.ModuleAction = STATEGET_PROTOCOL; 
-        pdt.Handle = TranspondHandle;
-        pdt.Send = ProtocolSend; 
+  pdt.Handle = TranspondHandle;
+  pdt.Send = ProtocolSend; 
 	Protocol_Register(&pdt,SEND);
         
 	

@@ -5,6 +5,8 @@
 ModuleBoard_T ModuleList[] = {
   {"主控", COORDINATOR_MODULE, OFFLINE ,0 ,0 },
   {"饮水机", WATER_MODULE    , OFFLINE ,0 ,0 },
+  {"土壤监测", SOIL_SENSOR_MODULE    , OFFLINE ,0 ,0 },
+  
 };
 uint8_t Module_Count = sizeof(ModuleList)/sizeof(ModuleBoard_T);
 
