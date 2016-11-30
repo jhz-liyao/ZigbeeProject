@@ -503,6 +503,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\Components\stack\zdo</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Components\zmac</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Components\zmac\f8w</state>
+          <state>$PROJ_DIR$\..\Module\SoilSensor</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -4867,7 +4868,7 @@
           <state>HAL_UART=TRUE</state>
           <state>HAL_UART_ISR=1</state>
           <state>HAL_UART_DMA=2</state>
-          <state>HOLD_AUTO_START</state>
+          <state>xHOLD_AUTO_START</state>
           <state>LOG_OUT</state>
           <state>UART1_PROTOCOL_RESOLVER=1</state>
           <state>xISQC</state>
@@ -5765,21 +5766,36 @@
         <name>SoilSensor</name>
         <file>
           <name>$PROJ_DIR$\..\Module\SoilSensor\ProtocolHandle.c</name>
+          <excluded>
+            <configuration>CoordinatorEB</configuration>
+          </excluded>
         </file>
         <file>
           <name>$PROJ_DIR$\..\Module\SoilSensor\ProtocolHandle.h</name>
+          <excluded>
+            <configuration>CoordinatorEB</configuration>
+          </excluded>
         </file>
         <file>
           <name>$PROJ_DIR$\..\Module\SoilSensor\SoilSensorApp.c</name>
+          <excluded>
+            <configuration>CoordinatorEB</configuration>
+          </excluded>
         </file>
         <file>
           <name>$PROJ_DIR$\..\Module\SoilSensor\SoilSensorDriver.c</name>
+          <excluded>
+            <configuration>CoordinatorEB</configuration>
+          </excluded>
         </file>
         <file>
           <name>$PROJ_DIR$\..\Module\SoilSensor\SoilSensorDriver.h</name>
         </file>
         <file>
           <name>$PROJ_DIR$\..\Module\SoilSensor\SoilSensorProtocol.c</name>
+          <excluded>
+            <configuration>CoordinatorEB</configuration>
+          </excluded>
         </file>
         <file>
           <name>$PROJ_DIR$\..\Module\SoilSensor\SoilSensorProtocol.h</name>
