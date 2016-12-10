@@ -1,6 +1,7 @@
 #include "ProtocolHandle.h" 
 #include "ModuleManager.h"
 #include "ESP8266_Driver.h"
+#include "SoilSensorProtocol.h"
 //void Cmd_P_Handle(Protocol_Info_T* pi){
 //    printf("控制指令:%X\r\n", pi->protocol.Cmd_P.para1);
 //}
@@ -26,7 +27,6 @@ void HearBeat_P_Handle(Protocol_Info_T* pi){
 void State_P_Handle(Protocol_Info_T* pi){
     STATE_PROTOCOL_T* sp = pi->ParameterList;
     printf("客户端状态:%X\r\n", sp->para1);
-    ESP8266_Protocol_Send(pi);
 }
 void Ack_P_Handle(Protocol_Info_T* pi){
     //printf("客户端应答:%X\r\n", pi->protocol.Ack_P.para1);
@@ -35,3 +35,17 @@ void AddrReport_P_Handle(Protocol_Info_T* pi){
     //printf("客户端上报地址:%X,%X\r\n", pi->protocol.AddrReport_P.para1, pi->protocol.AddrReport_P.para2);
      
 } 
+
+uint8_t SoliSensor_Data[8] = {0};
+void SolidSensor_State_P_Handle(Protocol_Info_T* pi){
+  SolidSensor_State_P_T* SolidSensor_State = pi->ParameterList;
+  memcpy(SoliSensor_Data, SolidSensor_State, 8);
+  printf("%d, %d, %d, %d, %d, %d, %d, %d\r\n", SolidSensor_State->vcc
+                                         , SolidSensor_State->para1
+                                         , SolidSensor_State->para2
+                                         , SolidSensor_State->para3
+                                         , SolidSensor_State->para4
+                                         , SolidSensor_State->para5
+                                         , SolidSensor_State->para6
+                                         , SolidSensor_State->para7);
+}

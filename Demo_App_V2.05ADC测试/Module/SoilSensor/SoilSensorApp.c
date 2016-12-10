@@ -22,15 +22,15 @@
 #include "ModuleManager.h"
 #include "SoilSensorDriver.h"
 
-#define APP_SEND_MSG_TIMEOUT   1000     
-#define HEARTBEAT_CHECK_TIMEOUT 3000
-#define HEARTBEAT_SEND_TIMEOUT  1000
-#define SOILSENSOR_READ_TIMEOUT 1000
+#define APP_SEND_MSG_TIMEOUT    30000     
+#define HEARTBEAT_CHECK_TIMEOUT 60100
+#define HEARTBEAT_SEND_TIMEOUT  30000
+#define SOILSENSOR_READ_TIMEOUT 30000
 
 #define APP_SEND_MSG_EVT                     (BV(0))
 #define HEARTBEAT_CHECK_EVT                  (BV(1))
 #define HEARTBEAT_SEND_EVT                   (BV(2))
-#define SOILSENSOR_READ_EVT                   (BV(3))
+#define SOILSENSOR_READ_EVT                  (BV(3))
 
 /*********************************************************************
  * GLOBAL VARIABLES
@@ -102,17 +102,12 @@ void App_Init( uint8 task_id ){
   afRegister( &App_epDesc );
  
   RegisterForKeys( App_TaskId );
- 
-  Device_Info();
- 
-
-//  ZDO_RegisterForZDOMsg( App_TaskId, End_Device_Bind_rsp );
-//  ZDO_RegisterForZDOMsg( App_TaskId, Match_Desc_req );
-//  ZDO_RegisterForZDOMsg( App_TaskId, Match_Desc_rsp );
+ printf("%X,%X,%X\r\n", P0SEL, P0DIR, P0INP);
+  Device_Info(); 
  
   Log_Init();
   ProtocolFrame_Init(); 
-  osal_start_timerEx( App_TaskId, SOILSENSOR_READ_EVT , SOILSENSOR_READ_TIMEOUT ); //发送心跳
+  SoilSensor_Init();
   
   
 }
@@ -265,6 +260,8 @@ uint16 App_ProcessEvent( uint8 task_id, uint16 events ){
             
             osal_start_timerEx( App_TaskId, HEARTBEAT_SEND_EVT , HEARTBEAT_SEND_TIMEOUT ); //发送心跳
             osal_start_timerEx( App_TaskId, HEARTBEAT_CHECK_EVT, HEARTBEAT_CHECK_TIMEOUT );//启动心跳检查  
+            osal_start_timerEx( App_TaskId, SOILSENSOR_READ_EVT , SOILSENSOR_READ_TIMEOUT ); //发送数据
+            SoilSensor_Read(); 
           }
           break; 
         default:

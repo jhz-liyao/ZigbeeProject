@@ -65,7 +65,7 @@ void _clean_recv_buf(Protocol_Resolver_T* pr){
 ****************************************************/
 void _Fetch_Protocol(Protocol_Resolver_T* pr){
         Protocol_Info_T pi;
-  while(Queue_Link_Get(pr->Protocol_Queue,&pi) == 0){ 
+  while(Queue_Link_Get(pr->Protocol_Queue,&pi) == 0){  
 //    if(pi.Check != NULL){
 //      if(pi.Check(&pi) < 0){
 //        Log.error("协议校验不通过\r\n");
@@ -78,9 +78,9 @@ void _Fetch_Protocol(Protocol_Resolver_T* pr){
       Log.error("收到协议但是无处理函数\r\n");
     } 
     FREE(pi.ParameterList);
-  }
+  } 
 }
- 
+
 /****************************************************
   函数名:  Protocol_Put
   功能:    接收协议数据并解析封装
@@ -91,13 +91,13 @@ void _Fetch_Protocol(Protocol_Resolver_T* pr){
 int8_t _Protocol_Put(Protocol_Resolver_T* pr,uint8_t* datas,uint8_t len){
   uint8_t i, data; 
   uint16_t src_board_action;
-  List_Node_T* Cur_Node = Desc_P_List->Head;
-  
+  List_Node_T* Cur_Node = Desc_P_List->Head; 
   for(i = 0; i < len; i++){
     data = datas[i];
-                if(pr->pi.Head != 0xFD && data != 0xFD)
-                  continue;
-    if(pr->pi.Head == 0xFD && data == 0xFD){ //协议被切断抛弃
+    if(pr->pi.Head != 0xFD && data != 0xFD){
+      _clean_recv_buf(pr);
+      continue;
+    }if(pr->pi.Head == 0xFD && data == 0xFD){ //协议被切断抛弃
       _clean_recv_buf(pr);
       Log.error("协议中途出现0xFD\r\n");
       return -1;
@@ -193,14 +193,14 @@ int8_t _Protocol_Put(Protocol_Resolver_T* pr,uint8_t* datas,uint8_t len){
             }
              
             if(Cur_Node == NULL){//校验不通过 
-              FREE(pr->pi.ParameterList);
+              //FREE(pr->pi.ParameterList);
               _clean_recv_buf(pr);
               Log.error("现有协议库无匹配当前协议\r\n");
               return -5;
             }else{
               Queue_Link_Put(pr->Protocol_Queue, &pr->pi, sizeof(Protocol_Info_T));//将协议信息放入协议缓冲队列
-                                                        FetchProtocols();
-              _clean_recv_buf(pr); 
+              FetchProtocols();
+              _clean_recv_buf(pr);
             }
             break;
     }
@@ -324,7 +324,7 @@ void ProtocolFrame_Init(){
 #if UART1_PROTOCOL_RESOLVER
   //UART1_Resolver->Protocol_Queue = Queue_Init( _UART1_Protocol_QueueBuf,sizeof(Protocol_Info_T), UART1_RPQUEUE_SIZE);
         UART1_Resolver->Protocol_Queue = Queue_Link_Init(UART1_RPQUEUE_SIZE);
-  UART1_Resolver->RPQueue_Size = UART1_RPQUEUE_SIZE; 
+  //UART1_Resolver->RPQueue_Size = UART1_RPQUEUE_SIZE; 
   UART1_Resolver->Protocol_Put = _Protocol_Put;
   UART1_Resolver->Fetch_Protocol = _Fetch_Protocol;
 #endif  
@@ -332,23 +332,23 @@ void ProtocolFrame_Init(){
 #if UART2_PROTOCOL_RESOLVER
 //  UART2_Resolver->Protocol_Queue = Queue_Init( _UART2_Protocol_QueueBuf,sizeof(Protocol_Info_T), UART2_RPQUEUE_SIZE);
         UART2_Resolver->Protocol_Queue = Queue_Link_Init(UART2_RPQUEUE_SIZE);
-  UART2_Resolver->RPQueue_Size = UART2_RPQUEUE_SIZE; 
+  //UART2_Resolver->RPQueue_Size = UART2_RPQUEUE_SIZE; 
   UART2_Resolver->Protocol_Put = _Protocol_Put;
   UART2_Resolver->Fetch_Protocol = _Fetch_Protocol;
 #endif  
   
 #if UART3_PROTOCOL_RESOLVER
   //UART3_Resolver->Protocol_Queue = Queue_Init( _UART3_Protocol_QueueBuf,sizeof(Protocol_Info_T), UART3_RPQUEUE_SIZE);
-        UART3_Resolver->Protocol_Queue = Queue_Link_Init(UART3_RPQUEUE_SIZE);
-  UART3_Resolver->RPQueue_Size = UART3_RPQUEUE_SIZE; 
+  UART3_Resolver->Protocol_Queue = Queue_Link_Init(UART3_RPQUEUE_SIZE);
+  //UART3_Resolver->RPQueue_Size = UART3_RPQUEUE_SIZE; 
   UART3_Resolver->Protocol_Put = _Protocol_Put;
   UART3_Resolver->Fetch_Protocol = _Fetch_Protocol;
 #endif 
   
 #if UART4_PROTOCOL_RESOLVER
 //  UART4_Resolver->Protocol_Queue = Queue_Init( _UART4_Protocol_QueueBuf,sizeof(Protocol_Info_T), UART4_RPQUEUE_SIZE);
-        UART4_Resolver->Protocol_Queue = Queue_Link_Init(UART4_RPQUEUE_SIZE);
-  UART4_Resolver->RPQueue_Size = UART4_RPQUEUE_SIZE; 
+  UART4_Resolver->Protocol_Queue = Queue_Link_Init(UART4_RPQUEUE_SIZE);
+  //UART4_Resolver->RPQueue_Size = UART4_RPQUEUE_SIZE; 
   UART4_Resolver->Protocol_Put = _Protocol_Put;
   UART4_Resolver->Fetch_Protocol = _Fetch_Protocol;
 #endif 
@@ -358,13 +358,14 @@ void ProtocolFrame_Init(){
 
 
 
+
 /****************************************************
-  函数名:  Protocol_To_Uart
-  功能:    向缓冲区写入待发送至串口
-  参数:    Protocol_Info_T协议描述信息
+  函数名:  Protocol_Serialization
+  功能:    将Protocol_Info对象序列号为数组
+  参数:    Protocol_Info_T协议描述信息, 回填数组, 数组大小
   作者:    liyao 2015年9月8日14:10:51
 ****************************************************/
-int8_t Protocol_To_Uart(Protocol_Info_T* pi){ 
+int8_t Protocol_Serialization(Protocol_Info_T* pi, uint8_t* _data, uint8_t len){ 
   uint8_t data[PROTOCOL_SINGLE_BUFF] = {0},i = 0, index = 0; 
   uint16_t tmpData = 0; 
   
@@ -416,11 +417,29 @@ int8_t Protocol_To_Uart(Protocol_Info_T* pi){
     data[index++] = pi->CheckSum;
   }  
   data[index++] = pi->Tail; 
-  
-  pi->ProtocolDesc->Send(data, index);  
-  return 0;
+  if(index > len)
+    return -1;
+  memcpy(_data, data, len);
+  return index;
 }
 
+
+
+/****************************************************
+  函数名:  Protocol_To_Send
+  功能:    向缓冲区写入待发送至串口
+  参数:    Protocol_Info_T协议描述信息
+  作者:    liyao 2015年9月8日14:10:51
+***************************************************
+int8_t Protocol_To_Send(Protocol_Info_T* pi){ 
+  uint8_t data[100] = {0};
+  int8_t cnt = Protocol_Serialization(pi, data, 100);
+  if(cnt > 0)
+    pi->ProtocolDesc->Send(data, cnt); 
+  else
+    Log.error("协议序列化失败\r\n");
+  return 0;
+}*/
 //###################################自定义扩展函数区###################################
 /****************************************************
   函数名:  Protocol_Send
@@ -447,7 +466,13 @@ void Protocol_Send(MODULE_ACTION ModuleAction,void* Data,u8 Len){
 //  memcpy(pi.ParameterList, Data, Len);
   pi.CheckSum = getCheckSum_ByProtocolInfo(&pi); 
   pi.Tail = 0xF8;
-  Protocol_To_Uart(&pi);  
+  
+  uint8_t data[100] = {0};
+  int8_t cnt = Protocol_Serialization(&pi, data, 100);
+  if(cnt > 0)
+    pi.ProtocolDesc->Send(data, cnt); 
+  else
+    Log.error("协议序列化失败\r\n");
   FREE(pi.ParameterList);
 }
 
@@ -458,7 +483,18 @@ void Protocol_Send(MODULE_ACTION ModuleAction,void* Data,u8 Len){
   作者:    liyao 2016年9月18日11:51:35
 ****************************************************/
 void Protocol_Send_Transpond(Protocol_Info_T* pi){  
-  Protocol_To_Uart(pi);  
+  uint8_t data[100] = {0};
+  int8_t cnt = Protocol_Serialization(pi, data, 100);
+  if(cnt > 0){
+    printf("Protocol_Send_Transpond:");
+    for(int i = 0; i < cnt; i++){
+      printf("%x ", data[i]);
+    }
+    printf("\r\n");
+    ;//pi->ProtocolDesc->Send(data, cnt); 
+  }else{
+    Log.error("协议序列化失败\r\n");
+  }  
 }
 
 /*****************************************************************

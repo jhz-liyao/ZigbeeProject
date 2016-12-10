@@ -16,23 +16,27 @@
 #include "hal_key.h"
 #include "hal_uart.h"
  
+#include <stdio.h>
+#include <string.h>
 #include "Tool.h" 
 #include "Protocol.h"
 #include "ProtocolFrame.h"
 #include "LOG.h" 
 #include "ModuleManager.h"  
 #include "WaterMachineDriver.h"
-#include "ESP8266_Driver.h"
+//#include "ESP8266_Driver.h"
 
 #define APP_SEND_MSG_TIMEOUT   50     
 #define HEARTBEAT_CHECK_TIMEOUT 3000    
-#define HEARTBEAT_SEND_TIMEOUT  1000
-#define ESP8266_TIMEOUT        50
+#define HEARTBEAT_SEND_TIMEOUT  30000
+#define ESP8266_TIMEOUT        50 
+#define PROTOCOL_TRANSMIT_TIMEOUT        50
 #define APP_SEND_MSG_EVT               (BV(0)) 
 #define HEARTBEAT_CHECK_EVT             (BV(1)) //心跳检查
 #define HEARTBEAT_SEND_EVT              (BV(2)) //心跳发送
 #define WIFI_INIT_EVT                   (BV(3)) //WIFI初始化
 #define ESP8266_EVT                     (BV(4)) //ESP8266 
+#define PROTOCOL_TRANSMIT_EVT               (BV(5)) //wifi协议处理
 static void App_ProcessZDOMsgs( zdoIncomingMsg_t *inMsg );
 /*********************************************************************
  * GLOBAL VARIABLES
@@ -75,32 +79,6 @@ void App_ReceiveHandle( afIncomingMSGPacket_t *pckt );
 void App_SendHandle( void );
   
 
-//void SendHandle(uint8_t* data, uint8_t len){
-////  printf("准备发送:%d\r\n",len);
-//  Protocol_Printf(data, len);
-//  /*if ( AF_DataRequest( &App_DstAddr, &App_epDesc,
-//                       APP_CLUSTERID,
-//                       len,
-//                       (byte *)data,
-//                       &App_TransID,
-//                       AF_ACK_REQUEST, AF_DEFAULT_RADIUS ) == afStatus_SUCCESS );*/
-//  
-//  static uint8_t cnt = 0; 
-//  afAddrType_t HearBeat_DstAddr;  //地址描述符
-//  endPointDesc_t HearBeat_epDesc; //端点描述符 
-//  
-//  HearBeat_DstAddr.addrMode = (afAddrMode_t)AddrBroadcast;
-//  HearBeat_DstAddr.endPoint = APP_ENDPOINT;
-//  HearBeat_DstAddr.addr.shortAddr = 0xFFFF;
-// 
-//  HearBeat_epDesc.endPoint = APP_ENDPOINT;
-//  HearBeat_epDesc.task_id = &App_TaskId;
-//  HearBeat_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&App_SimpleDesc;
-//  HearBeat_epDesc.latencyReq = noLatencyReqs;
-//  cnt++;
-//  if ( AF_DataRequest( &HearBeat_DstAddr, &HearBeat_epDesc, APP_CLUSTERID, len, (byte *)data, &App_TransID, AF_DISCV_ROUTE, AF_DEFAULT_RADIUS ) == afStatus_SUCCESS );
-//
-//}
 
 
 /****************************************************
@@ -132,7 +110,7 @@ void App_Init( uint8 task_id ){
   Log_Init();
   ProtocolFrame_Init();
   Device_Info(); 
-  ESP8266_Init();
+//  ESP8266_Init();
 //  ZDO_RegisterForZDOMsg( App_TaskId, End_Device_Bind_rsp );
 //  ZDO_RegisterForZDOMsg( App_TaskId, Match_Desc_req );
 //  ZDO_RegisterForZDOMsg( App_TaskId, Match_Desc_rsp );
@@ -210,14 +188,9 @@ void App_ReceiveHandle( afIncomingMSGPacket_t *pkt )
 {
   switch ( pkt->clusterId ){
     case APP_CLUSTERID: 
-      HalLedSet ( HAL_LED_4, HAL_LED_MODE_BLINK );  // Blink an LED
-      uint8_t data[100] = {0},len = 0; 
-      len = pkt->cmd.DataLength;
-      memcpy(data,pkt->cmd.Data, pkt->cmd.DataLength );
-      UART1_Resolver->Protocol_Put(UART1_Resolver,data, len);
-      
-      //uint8_t data1[]={0xfd,0x00,0x04,0x10,0x00,0x20,0x10,0x44,0xf8};
-      
+      HalLedSet ( HAL_LED_4, HAL_LED_MODE_BLINK );  // Blink an LED  
+      Queue_Link_Put(UartToWifi_Queue, pkt->cmd.Data,pkt->cmd.DataLength);
+      Queue_Link_Put(DeviceRecv_Queue, pkt->cmd.Data,pkt->cmd.DataLength);
       break;
   }
 }
@@ -242,6 +215,7 @@ void BroadcastHearBeat(void){
   HearBeat_DstAddr.addr.shortAddr = 0xFFFF; 
   cnt++;
   if ( AF_DataRequest( &HearBeat_DstAddr, &HearBeat_epDesc, APP_CLUSTERID, 1, (byte *)&cnt, &App_TransID, AF_DISCV_ROUTE, AF_DEFAULT_RADIUS ) == afStatus_SUCCESS );
+  printf("发送心跳\r\n");
 }
 
 void BrodcastData(uint8* data,uint8 len){
@@ -305,8 +279,10 @@ uint16 App_ProcessEvent( uint8 task_id, uint16 events ){
             
             osal_start_timerEx( App_TaskId, HEARTBEAT_SEND_EVT , HEARTBEAT_SEND_TIMEOUT ); //发送心跳
             osal_start_timerEx( App_TaskId, HEARTBEAT_CHECK_EVT, HEARTBEAT_CHECK_TIMEOUT );//启动心跳检查
-            osal_start_timerEx( App_TaskId, WIFI_INIT_EVT, 3000 );
-            osal_start_timerEx( App_TaskId, ESP8266_EVT, ESP8266_TIMEOUT );//ESP8266
+            osal_start_timerEx( App_TaskId, PROTOCOL_TRANSMIT_EVT, PROTOCOL_TRANSMIT_TIMEOUT );//wifi协议处理
+            
+            //osal_start_timerEx( App_TaskId, WIFI_INIT_EVT, 3000 );
+            //osal_start_timerEx( App_TaskId, ESP8266_EVT, ESP8266_TIMEOUT );//ESP8266
           }
           
           break; 
@@ -335,17 +311,24 @@ uint16 App_ProcessEvent( uint8 task_id, uint16 events ){
     osal_start_timerEx( App_TaskId, HEARTBEAT_SEND_EVT, HEARTBEAT_SEND_TIMEOUT ); 
     return (events ^ HEARTBEAT_SEND_EVT);
   }  
-  
-  if(events & WIFI_INIT_EVT){
-    HalUARTWrite(HAL_UART_PORT_1,"AT\r\n",4);
-    return (events ^ WIFI_INIT_EVT);
+  if( events & PROTOCOL_TRANSMIT_EVT){
+    WifiToUart_Handle(); 
+    UartToWifi_Handle();
+    DeviceRecv_Handle();
+    osal_start_timerEx( App_TaskId, PROTOCOL_TRANSMIT_EVT, PROTOCOL_TRANSMIT_TIMEOUT );//wifi协议处理
+    return (events ^ PROTOCOL_TRANSMIT_EVT);
   }
   
-  if(events & ESP8266_EVT){
-    ESP8266_Run();
-    osal_start_timerEx( App_TaskId, ESP8266_EVT, ESP8266_TIMEOUT );
-    return (events ^ ESP8266_EVT);
-  }
+//  if(events & WIFI_INIT_EVT){
+//    HalUARTWrite(HAL_UART_PORT_1,"AT\r\n",4);
+//    return (events ^ WIFI_INIT_EVT);
+//  }
+  
+//  if(events & ESP8266_EVT){
+//    ESP8266_Run();
+//    osal_start_timerEx( App_TaskId, ESP8266_EVT, ESP8266_TIMEOUT );
+//    return (events ^ ESP8266_EVT);
+//  }
   
   return 0;
 }

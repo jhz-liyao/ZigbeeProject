@@ -3,23 +3,35 @@
 #include "SoilSensorProtocol.h"
 #include "ProtocolHandle.h"
 #include "hal_adc.h"
+#include "OnBoard.h"
 SoilSensor_Info_T SoilSensorM;
 /****************************************************
 	函数名:	SoilSensor_Init
 	功能:	土壤湿度传感器IO相关初始化  
   作者:	2016年11月24日09:56:30
 ****************************************************/
-void SoilSensor_Init(void){ 
-  HalAdcInit();
+void SoilSensor_Init(void){
+  P0SEL = 0x00; 
+  P0DIR = 0xff; 
+  P0 = 0xff; 
+  P1SEL = P1SEL & ~BV(0);
+  P1DIR = P1DIR | BV(0);
+  P1 = P1 & ~BV(0); 
 }
 
+void SoilSensor_AdcConfig(void){
+  P1 = P1 | BV(0); 
+}
 void SoilSensor_Read(void){
-  uint16 val[8] = {0};
+  SolidSensor_State_P_T SolidSensor_State = {0};
+  SoilSensor_AdcConfig(); 
   for(int i = 0; i < 8; i++){
-    val[i] = HalAdcRead(i,HAL_ADC_RESOLUTION_14);
-    printf("%d ", val[i]);
-  }
-  printf("\r\n");
+    uint16_t adc_value = HalAdcRead(i,HAL_ADC_RESOLUTION_14);  
+    PERCENT_VALUE(((uint8* )&SolidSensor_State)[i], adc_value);
+    printf("%d %d %d \r\n", i, ((uint8* )&SolidSensor_State)[i], adc_value); 
+  } 
+  SoilSensor_Init();
+  Protocol_Send(SOIL_SENSOR_STATE_PROTOCOL, &SolidSensor_State, sizeof(SolidSensor_State_P_T));
 }
 /****************************************************
 	函数名:	WaterMachine_Init

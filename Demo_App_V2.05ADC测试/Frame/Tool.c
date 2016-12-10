@@ -1,6 +1,7 @@
 #include "Tool.h"
-#include "ESP8266_Driver.h"
+//#include "ESP8266_Driver.h"
 #include "ProtocolFrame.h" 
+#include "Protocol.h"
 afAddrType_t Liyao_DstAddr;
 
 const cId_t Liyao_ClusterList[LIYAO_MAX_CLUSTERS] =
@@ -24,12 +25,21 @@ const SimpleDescriptionFormat_t Liyao_SimpleDesc =
 
 __near_func int putchar(int c)
 {
-#if HAL_UART_ISR == 1 || HAL_UART_DMA == 1
-  HalUARTWrite(HAL_UART_PORT_0,(unsigned char*)&c,1);
+#ifdef DEBUG_PORT
+  #if DEBUG_PORT == 1
+    HalUARTWrite(HAL_UART_PORT_0,(unsigned char*)&c,1);
+  #elif DEBUG_PORT == 2
+    HalUARTWrite(HAL_UART_PORT_1,(unsigned char*)&c,1);
+  #endif
+#else
+  #if HAL_UART_ISR == 1 || HAL_UART_DMA == 1
+    HalUARTWrite(HAL_UART_PORT_0,(unsigned char*)&c,1);
+  #endif
+  #if HAL_UART_ISR == 2 || HAL_UART_DMA == 2
+    HalUARTWrite(HAL_UART_PORT_1,(unsigned char*)&c,1);
+  #endif
 #endif
-#if HAL_UART_ISR == 2 || HAL_UART_DMA == 2
-  HalUARTWrite(HAL_UART_PORT_1,(unsigned char*)&c,1);
-#endif
+
   return(c);
 }
 
@@ -89,8 +99,14 @@ void UART0_CallBack( uint8 port, uint8 event ){
   uint8 data[MT_UART_DEFAULT_MAX_RX_BUFF] = {0}; 
   cnt = Hal_UART_RxBufLen(port);
   cnt = HalUARTRead (port, data, cnt);
-  if(cnt > 0)
-    HalUARTWrite( HAL_UART_PORT_0, data, cnt ); 
+  if(cnt > 0){ 
+    printf("UART0:");
+    for(int i = 0; i < cnt; i++)
+      printf("%x ", data[i]);
+    printf("\r\n");
+      //HalUARTWrite( HAL_UART_PORT_1, data, cnt ); 
+    Queue_Link_Put(WifiToUart_Queue, data, cnt);
+  }
 }
 
 void UART1_CallBack( uint8 port, uint8 event ){
@@ -99,7 +115,7 @@ void UART1_CallBack( uint8 port, uint8 event ){
   cnt = Hal_UART_RxBufLen(port);
   cnt = HalUARTRead (port, data, cnt);
   if(cnt > 0)
-    HalUARTWrite( HAL_UART_PORT_1, data, cnt ); 
+    HalUARTWrite( HAL_UART_PORT_0, data, cnt ); 
 }
 
 void UART_Config_1(void){  
@@ -185,6 +201,7 @@ void Meter_Leave(void)
 
 void Protocol_Printf(uint8 *data, uint8 len){
     uint8 i = 0;
+    printf("Protocol_Printf:");
     for(i = 0; i < len; i++)
       printf("%X ",data[i]);
     printf("\r\n");

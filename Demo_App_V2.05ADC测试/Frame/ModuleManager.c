@@ -69,7 +69,7 @@ void HeartBeat_Check(void){
     for(i = 0; i < Module_Count; i++){ //位图操作最后2位判断历史状态
       if((ModuleList[i].HeartBeat_Flag & 0x03) == 0x02){
         printf("%s离线\r\n",ModuleList[i].Name);
-        ModuleList[i].ShortAddr = 0; 
+        //ModuleList[i].ShortAddr = 0; 
         ModuleList[i].ModuleState = OFFLINE; 
       }else if((ModuleList[i].HeartBeat_Flag & 0x03) == 0x01){
         printf("%s上线\r\n",ModuleList[i].Name); 

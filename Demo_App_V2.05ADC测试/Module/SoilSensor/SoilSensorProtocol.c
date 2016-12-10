@@ -37,22 +37,27 @@ void Protocol_Init(){
         //公共协议初始化
 	pdt.ProtocolSize = sizeof(HEARTBEAT_PROTOCOL_T);
 	pdt.ModuleAction = SOIL_SENSOR_HEARTBEAT_PROTOCOL; 
-        pdt.Send = ProtocolSend; 
+  pdt.Send = ProtocolSend; 
 	Protocol_Register(&pdt, SEND);
 	
         pdt.ProtocolSize = sizeof(STATE_PROTOCOL_T);
 	pdt.ModuleAction = STATE_PROTOCOL; 
-        pdt.Send = ProtocolSend; 
+  pdt.Send = ProtocolSend; 
 	Protocol_Register(&pdt, SEND);
         
 	pdt.ProtocolSize = sizeof(ACK_PROTOCOL_T);
 	pdt.ModuleAction = ACK_PROTOCOL; 
-        pdt.Send = ProtocolSend; 
+  pdt.Send = ProtocolSend; 
 	Protocol_Register(&pdt, SEND);
         
 	pdt.ProtocolSize = sizeof(ADDRREPORT_PROTOCOL_T);
 	pdt.ModuleAction = ADDRREPORT_PROTOCOL; 
-        pdt.Send = ProtocolSend; 
+  pdt.Send = ProtocolSend; 
+	Protocol_Register(&pdt, SEND);
+  
+  pdt.ProtocolSize = sizeof(SolidSensor_State_P_T);
+	pdt.ModuleAction = SOIL_SENSOR_STATE_PROTOCOL; 
+  pdt.Send = ProtocolSend; 
 	Protocol_Register(&pdt, SEND);
 
         

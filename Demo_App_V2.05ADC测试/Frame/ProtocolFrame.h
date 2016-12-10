@@ -67,15 +67,15 @@ struct _Protocol_Info_T{
 ****************************************************/
 struct _Protocol_Resolver_T{ 
 	Queue_Head_T  *Protocol_Queue; 
-	uint16_t RPQueue_Size;
+	//uint16_t RPQueue_Size;
 	Protocol_Info_T pi;   
 	uint8_t  Cnt; 		
-        uint8_t  ParaData[PROTOCOL_SINGLE_BUFF];		//参数个数计数
+  uint8_t  ParaData[PROTOCOL_SINGLE_BUFF];		//参数个数计数
 	uint8_t  Index;
 	int8_t 	 Is_FE;
 	uint16_t CheckSum;
 	uint8_t  Recv_State;
-	int8_t (*Protocol_Put)(Protocol_Resolver_T* pr,uint8_t* datas,uint8_t len);
+	int8_t (*Protocol_Put)(Protocol_Resolver_T* pr,uint8_t* data,uint8_t len);
 	void (*Fetch_Protocol)(Protocol_Resolver_T* pr);
 };
 
@@ -104,4 +104,5 @@ extern void Protocol_Send_Transpond(Protocol_Info_T* pi);
 extern void FetchProtocols(void);
 uint16_t char_special(uint8_t num);
 extern int8_t Protocol_Register(Protocol_Desc_T* ProtocolDesc,PROTOCOL_TYPE Protocol_Type);
+extern int8_t Protocol_Serialization(Protocol_Info_T* pi, uint8_t* _data, uint8_t len);
 #endif

@@ -12,5 +12,6 @@ extern void HearBeat_P_Handle(Protocol_Info_T* pi);
 extern void State_P_Handle(Protocol_Info_T* pi);
 extern void Ack_P_Handle(Protocol_Info_T* pi);
 extern void AddrReport_P_Handle(Protocol_Info_T* pi); 
+extern void SolidSensor_State_P_Handle(Protocol_Info_T* pi);
 #endif
 

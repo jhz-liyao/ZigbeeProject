@@ -4855,12 +4855,6 @@
         <name>$PROJ_DIR$\..\Frame\app_types.h</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\Frame\ESP8266_Driver.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Frame\ESP8266_Driver.h</name>
-      </file>
-      <file>
         <name>$PROJ_DIR$\..\Frame\List.c</name>
       </file>
       <file>
@@ -5451,6 +5445,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\Tools\CC2530DB\f8wRouter.cfg</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Tools\CC2530DB\SoilSensor_f8wConfig.cfg</name>
     </file>
   </group>
   <group>

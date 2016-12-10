@@ -12,7 +12,7 @@
           
           
           
-        <Column0>175</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+        <Column0>145</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
       </Workspace>
       <Build>
         
@@ -31,7 +31,7 @@
     <Windows>
       
       
-    <Wnd0>
+    <Wnd2>
         <Tabs>
           <Tab>
             <Identity>TabID-12806-11604</Identity>
@@ -39,11 +39,11 @@
             <Factory>Workspace</Factory>
             <Session>
               
-            <NodeDict><ExpandedNode>Demo</ExpandedNode><ExpandedNode>Demo/App</ExpandedNode><ExpandedNode>Demo/App/Module</ExpandedNode><ExpandedNode>Demo/App/Module/WaterMachine</ExpandedNode><ExpandedNode>Demo/HAL</ExpandedNode><ExpandedNode>Demo/HAL/Include</ExpandedNode><ExpandedNode>Demo/HAL/Target</ExpandedNode><ExpandedNode>Demo/HAL/Target/CC2530EB</ExpandedNode><ExpandedNode>Demo/HAL/Target/CC2530EB/Config</ExpandedNode><ExpandedNode>Demo/HAL/Target/CC2530EB/Drivers</ExpandedNode><ExpandedNode>Demo/HAL/Target/CC2530EB/Includes</ExpandedNode></NodeDict></Session>
+            <NodeDict><ExpandedNode>Demo</ExpandedNode><ExpandedNode>Demo/App</ExpandedNode><ExpandedNode>Demo/App/Frame</ExpandedNode><ExpandedNode>Demo/App/Module</ExpandedNode><ExpandedNode>Demo/App/Module/WaterMachine</ExpandedNode><ExpandedNode>Demo/HAL</ExpandedNode><ExpandedNode>Demo/HAL/Include</ExpandedNode><ExpandedNode>Demo/HAL/Target</ExpandedNode><ExpandedNode>Demo/HAL/Target/CC2530EB</ExpandedNode><ExpandedNode>Demo/HAL/Target/CC2530EB/Config</ExpandedNode><ExpandedNode>Demo/HAL/Target/CC2530EB/Drivers</ExpandedNode><ExpandedNode>Demo/HAL/Target/CC2530EB/Includes</ExpandedNode></NodeDict></Session>
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
+      <SelectedTab>0</SelectedTab></Wnd2><Wnd3>
         <Tabs>
           <Tab>
             <Identity>TabID-13099-11803</Identity>
@@ -59,20 +59,20 @@
           </Tab>
         <Tab><Identity>TabID-3053-27644</Identity><TabName>Ambiguous Definitions</TabName><Factory>Select-Ambiguous-Definitions</Factory><Session/></Tab></Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd1></Windows>
+      <SelectedTab>0</SelectedTab></Wnd3></Windows>
     <Editor>
       
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Source\Protocol.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>96</YPos2><SelStart2>3068</SelStart2><SelEnd2>3086</SelEnd2></Tab><ActiveTab>0</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Source\Protocol.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>96</YPos2><SelStart2>3068</SelStart2><SelEnd2>3086</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Frame\Tool.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>78</YPos2><SelStart2>3681</SelStart2><SelEnd2>3681</SelEnd2></Tab><ActiveTab>1</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-05BFC640><key>iaridepm.enu1</key></Toolbar-05BFC640></Sizes></Row0></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>608</Bottom><Right>266</Right><x>-2</x><y>-2</y><xscreen>112</xscreen><yscreen>77</yscreen><sizeHorzCX>72917</sizeHorzCX><sizeHorzCY>98592</sizeHorzCY><sizeVertCX>174479</sizeVertCX><sizeVertCY>781050</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>128</Bottom><Right>1538</Right><x>-2</x><y>-2</y><xscreen>1540</xscreen><yscreen>130</yscreen><sizeHorzCX>1002604</sizeHorzCX><sizeHorzCY>166453</sizeHorzCY><sizeVertCX>72917</sizeVertCX><sizeVertCY>98592</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-0498C640><key>iaridepm.enu1</key></Toolbar-0498C640></Sizes></Row0></Top><Left><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>528</Bottom><Right>236</Right><x>-2</x><y>-2</y><xscreen>100</xscreen><yscreen>68</yscreen><sizeHorzCX>73206</sizeHorzCX><sizeHorzCY>99270</sizeHorzCY><sizeVertCX>174231</sizeVertCX><sizeVertCY>773723</sizeVertCY></Rect></Wnd2></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>112</Bottom><Right>1368</Right><x>-2</x><y>-2</y><xscreen>1370</xscreen><yscreen>114</yscreen><sizeHorzCX>1002928</sizeHorzCX><sizeHorzCY>166423</sizeHorzCY><sizeVertCX>73206</sizeVertCX><sizeVertCY>99270</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Workspace>
 

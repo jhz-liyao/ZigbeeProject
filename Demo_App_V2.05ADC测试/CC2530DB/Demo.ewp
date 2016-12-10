@@ -303,8 +303,9 @@
         <option>
           <name>CCDefines</name>
           <state>HAL_UART=TRUE</state>
-          <state>HAL_UART_ISR=1</state>
-          <state>HAL_UART_DMA=2</state>
+          <state>HAL_UART_ISR=FALSE</state>
+          <state>HAL_UART_DMA=1</state>
+          <state>DEBUG_PORT=2</state>
           <state>LOG_OUT</state>
           <state>HAL_LCD=FALSE</state>
           <state>UART1_PROTOCOL_RESOLVER=1</state>
@@ -4869,18 +4870,18 @@
           <state>HAL_UART_ISR=2</state>
           <state>HAL_UART_DMA=FALSE</state>
           <state>HAL_KEY=FALSE</state>
-          <state>xHOLD_AUTO_START</state>
           <state>LOG_OUT</state>
           <state>UART1_PROTOCOL_RESOLVER=1</state>
-          <state>xISQC</state>
-          <state>NWK_AUTO_POLL</state>
-          <state>xZTOOL_P1</state>
+          <state>POWER_SAVING</state>
           <state>ISR_KEYINTERRUPT</state>
+          <state>xHOLD_AUTO_START</state>
+          <state>xNWK_AUTO_POLL</state>
+          <state>xISQC</state>
+          <state>xZTOOL_P1</state>
           <state>xMT_TASK</state>
           <state>xMT_SYS_FUNC</state>
           <state>xMT_ZDO_FUNC</state>
           <state>xLCD_SUPPORTED=DEBUG</state>
-          <state>xPOWER_SAVING</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -5042,7 +5043,7 @@
         <option>
           <name>Compiler Extra Options Edit</name>
           <state>-f $PROJ_DIR$\..\..\..\Tools\CC2530DB\f8wEndev.cfg</state>
-          <state>-f $PROJ_DIR$\..\..\..\Tools\CC2530DB\f8wConfig.cfg</state>
+          <state>-f $PROJ_DIR$\..\..\..\Tools\CC2530DB\SoilSensor_f8wConfig.cfg</state>
         </option>
         <option>
           <name>CCIncludePath2</name>
@@ -5719,12 +5720,6 @@
         <name>$PROJ_DIR$\..\Frame\app_types.h</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\Frame\ESP8266_Driver.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Frame\ESP8266_Driver.h</name>
-      </file>
-      <file>
         <name>$PROJ_DIR$\..\Frame\List.c</name>
       </file>
       <file>
@@ -6379,6 +6374,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\Tools\CC2530DB\f8wConfig.cfg</name>
+      <excluded>
+        <configuration>SoilSensor</configuration>
+      </excluded>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\Tools\CC2530DB\f8wCoord.cfg</name>
@@ -6403,6 +6401,12 @@
         <configuration>EndDeviceEB</configuration>
         <configuration>WaterMachine</configuration>
         <configuration>SoilSensor</configuration>
+      </excluded>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Tools\CC2530DB\SoilSensor_f8wConfig.cfg</name>
+      <excluded>
+        <configuration>CoordinatorEB</configuration>
       </excluded>
     </file>
   </group>
