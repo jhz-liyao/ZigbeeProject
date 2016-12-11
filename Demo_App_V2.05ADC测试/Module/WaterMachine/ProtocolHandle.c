@@ -7,7 +7,7 @@
 void ReportState(void){
     STATE_PROTOCOL_T spt = {0};
     spt.para1 = WaterM.State;
-    Protocol_Send(STATE_PROTOCOL, &spt, sizeof(STATE_PROTOCOL_T)); 
+    Protocol_Send(WATER_STATE_PROTOCOL, &spt, sizeof(STATE_PROTOCOL_T)); 
 }
 
 

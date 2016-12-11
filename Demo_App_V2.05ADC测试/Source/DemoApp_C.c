@@ -105,17 +105,22 @@ void App_Init( uint8 task_id ){
   HearBeat_epDesc = App_epDesc;
   afRegister( &App_epDesc );
  
-  RegisterForKeys( App_TaskId );
- 
+  RegisterForKeys( App_TaskId ); 
+  Device_Info(); 
   Log_Init();
   ProtocolFrame_Init();
-  Device_Info(); 
 //  ESP8266_Init();
 //  ZDO_RegisterForZDOMsg( App_TaskId, End_Device_Bind_rsp );
 //  ZDO_RegisterForZDOMsg( App_TaskId, Match_Desc_req );
 //  ZDO_RegisterForZDOMsg( App_TaskId, Match_Desc_rsp );
   //afSetMatch(APP_ENDPOINT, false);  
-  
+  ModuleBoard_T* SoilSensorModule = getModuleByModuleID(SOIL_SENSOR_MODULE); 
+  if(SoilSensorModule != NULL){
+    if(SoilSensorModule->DataBuff == NULL)
+      SoilSensorModule->DataBuff = MALLOC(8);
+      SoilSensorModule->DataSize = 8;
+      memset(SoilSensorModule->DataBuff, 0, 8);
+  }
   
 }
 
@@ -142,12 +147,6 @@ endPointDesc_t App_GetepDesc(){
 ****************************************************/
 void App_HandleKeys( uint8 shift, uint8 keys )
 { 
-  if ( shift ){
-    if ( keys & HAL_KEY_SW_1 ) {}
-    if ( keys & HAL_KEY_SW_2 ) {}
-    if ( keys & HAL_KEY_SW_3 ) {}
-    if ( keys & HAL_KEY_SW_4 ) {}
-  }else{
     ModuleBoard_T *Water_Board = getModuleByModuleID(WATER_MODULE);
     if ( keys & HAL_KEY_SW_1 ){
       printf("HAL_KEY_SW_1\r\n");  
@@ -157,26 +156,25 @@ void App_HandleKeys( uint8 shift, uint8 keys )
         CMD_PROTOCOL_T cmd = {0};
         cmd.para1 = (uint8_t)WATERM_OPEN;  
         printf("ShortAddr:%x,%x\r\n",Water_Board->ShortAddr>>8, Water_Board->ShortAddr&0xff);
-        Protocol_Send(CMD_PROTOCOL, &cmd, sizeof(CMD_PROTOCOL_T));
+        Protocol_Send(WATER_CMD_PROTOCOL, &cmd, sizeof(CMD_PROTOCOL_T));
       } 
     }
 
-    if ( keys & HAL_KEY_SW_2 ){ 
+    if ( keys & HAL_KEY_SW_6 ){ 
       printf("HAL_KEY_SW_2\r\n"); 
       if(Water_Board->ModuleState == OFFLINE){
         printf("未收到客户端地址\r\n");
       }else{
         CMD_PROTOCOL_T cmd = {0};
         cmd.para1 = (uint8_t)WATERM_CLOSE;  
-        Protocol_Send(CMD_PROTOCOL, &cmd, sizeof(CMD_PROTOCOL_T));
+        Protocol_Send(WATER_CMD_PROTOCOL, &cmd, sizeof(CMD_PROTOCOL_T));
       } 
     }
 
     if ( keys & HAL_KEY_SW_3 ){
     }
 
-    if ( keys & HAL_KEY_SW_4 ){ }
-  }
+    if ( keys & HAL_KEY_SW_4 ){ } 
 }
 
 /****************************************************
@@ -190,7 +188,7 @@ void App_ReceiveHandle( afIncomingMSGPacket_t *pkt )
     case APP_CLUSTERID: 
       HalLedSet ( HAL_LED_4, HAL_LED_MODE_BLINK );  // Blink an LED  
       Queue_Link_Put(UartToWifi_Queue, pkt->cmd.Data,pkt->cmd.DataLength);
-      Queue_Link_Put(DeviceRecv_Queue, pkt->cmd.Data,pkt->cmd.DataLength);
+      Queue_Link_Put(DeviceRecv_Queue, pkt->cmd.Data,pkt->cmd.DataLength); 
       break;
   }
 }
@@ -280,7 +278,6 @@ uint16 App_ProcessEvent( uint8 task_id, uint16 events ){
             osal_start_timerEx( App_TaskId, HEARTBEAT_SEND_EVT , HEARTBEAT_SEND_TIMEOUT ); //发送心跳
             osal_start_timerEx( App_TaskId, HEARTBEAT_CHECK_EVT, HEARTBEAT_CHECK_TIMEOUT );//启动心跳检查
             osal_start_timerEx( App_TaskId, PROTOCOL_TRANSMIT_EVT, PROTOCOL_TRANSMIT_TIMEOUT );//wifi协议处理
-            
             //osal_start_timerEx( App_TaskId, WIFI_INIT_EVT, 3000 );
             //osal_start_timerEx( App_TaskId, ESP8266_EVT, ESP8266_TIMEOUT );//ESP8266
           }

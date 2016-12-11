@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=782269015
+Checksum=280376288
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -39,7 +39,8 @@ Bp8=_ "STD_CODE" "{$PROJ_DIR$\..\..\..\..\..\..\..\..\资源\个人项目\ZigbeeProjec
 Bp9=_ "STD_CODE" "{$PROJ_DIR$\..\..\Demo_App_V2.04优化动态内存}.14.3" 0 0 0 0 "" 0 ""
 Bp10=_ "STD_CODE" "{$PROJ_DIR$\..\..\Demo_App_V2.04优化动态内存}.36.7" 0 0 0 0 "" 0 ""
 Bp11=_ "STD_CODE" "{$PROJ_DIR$\..\..\..\..\..\Components\hal\target\CC2530EB\_hal_uart_dma.c}.134.1" 0 0 0 0 "" 0 ""
-Count=12
+Bp12=_ "STD_CODE" "{$PROJ_DIR$\..\Frame\ProtocolFrame.c}.197.15" 1 0 0 0 "" 0 ""
+Count=13
 [ChipconEmu]
 Stop timers on halt=0
 Leave target running=1

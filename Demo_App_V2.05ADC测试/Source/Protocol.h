@@ -109,32 +109,32 @@ typedef enum{
 	COORDINATOR_MODULE	 = 0x00,
 	WATER_MODULE         = 0x01, 
   SOIL_SENSOR_MODULE   = 0x02,
-  GATEWAY__MODULE = 0xFF,
+  GATEWAY__MODULE = 0x0F,
 }MODULE;
 /*协议目标板及动作*/
-typedef enum { 	
-  
+typedef enum {
+  /*网关传输协议*/
+  CMD_PROTOCOL      = (uint16_t)((GATEWAY__MODULE << 4 | COORDINATOR_MODULE) <<8 | 0x00),
   /*饮水机协议*/
 	WATER_HEARTBEAT_PROTOCOL  = (WATER_MODULE << 4 | COORDINATOR_MODULE) <<8 | 0x31, 
-	STATE_PROTOCOL      = (WATER_MODULE << 4 | COORDINATOR_MODULE) <<8 | 0x20,
-  ACK_PROTOCOL        = (WATER_MODULE << 4 | COORDINATOR_MODULE) <<8 | 0xA1,
-  ADDRREPORT_PROTOCOL = (WATER_MODULE << 4 | COORDINATOR_MODULE) <<8 | 0xB1, 
-  CMD_PROTOCOL        = (COORDINATOR_MODULE << 4 | WATER_MODULE) <<8 | 0x01,
-  STATEGET_PROTOCOL   = (COORDINATOR_MODULE << 4 | WATER_MODULE) <<8 | 0x02,
+	WATER_STATE_PROTOCOL      = (WATER_MODULE << 4 | COORDINATOR_MODULE) <<8 | 0x20,
+  WATER_ACK_PROTOCOL        = (WATER_MODULE << 4 | COORDINATOR_MODULE) <<8 | 0xA1,
+  WATER_ADDRREPORT_PROTOCOL = (WATER_MODULE << 4 | COORDINATOR_MODULE) <<8 | 0xB1, 
+  WATER_CMD_PROTOCOL        = (COORDINATOR_MODULE << 4 | WATER_MODULE) <<8 | 0x01,
+  WATER_STATEGET_PROTOCOL   = (COORDINATOR_MODULE << 4 | WATER_MODULE) <<8 | 0x02,
   
   /*土壤传感器协议*/
 	SOIL_SENSOR_HEARTBEAT_PROTOCOL  = (SOIL_SENSOR_MODULE << 4 | COORDINATOR_MODULE) <<8 | 0x31, 
   SOIL_SENSOR_STATE_PROTOCOL      = (SOIL_SENSOR_MODULE << 4 | COORDINATOR_MODULE) <<8 | 0x01, 
   
-  /*网关传输协议*/
-  SOIL_SENSOR_GETSTATE_PROTOCOL      = (GATEWAY__MODULE << 4 | COORDINATOR_MODULE) <<8 | 0x02, //获取土壤传感器状态协议
+ 
 }MODULE_ACTION;
 
 typedef void(*SEND_INTERFACE)(uint8_t* data, uint8_t len);
 
-extern Queue_Head_T* WifiToUart_Queue;
-extern Queue_Head_T* UartToWifi_Queue;
-extern Queue_Head_T* DeviceRecv_Queue;
+typedef enum{SOIL_SENSOR_STATE_GET }CMD_TYPE;
+
+
 extern void Protocol_Init(void);
 extern void WifiToUart_Handle(void);
 extern void UartToWifi_Handle(void);

@@ -11,6 +11,8 @@ typedef struct {
     ModuleState ModuleState;    //模块是否在线
     int8_t HeartBeat_Flag;      //模块心跳
     uint16_t ShortAddr;         //模块短地址
+    uint8_t* DataBuff;          //模块数据存储区
+    uint8_t  DataSize;          //模块数据存大小
 }ModuleBoard_T;
 
 //extern ModuleBoard_T ModuleList[];

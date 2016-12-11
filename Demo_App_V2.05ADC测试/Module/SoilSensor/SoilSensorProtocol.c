@@ -34,44 +34,16 @@ void ProtocolSend(uint8_t* data, uint8_t len){
 
 void Protocol_Init(){ 
 	Protocol_Desc_T pdt; 
-        //公共协议初始化
+  //心跳协议
 	pdt.ProtocolSize = sizeof(HEARTBEAT_PROTOCOL_T);
 	pdt.ModuleAction = SOIL_SENSOR_HEARTBEAT_PROTOCOL; 
   pdt.Send = ProtocolSend; 
-	Protocol_Register(&pdt, SEND);
-	
-        pdt.ProtocolSize = sizeof(STATE_PROTOCOL_T);
-	pdt.ModuleAction = STATE_PROTOCOL; 
-  pdt.Send = ProtocolSend; 
-	Protocol_Register(&pdt, SEND);
-        
-	pdt.ProtocolSize = sizeof(ACK_PROTOCOL_T);
-	pdt.ModuleAction = ACK_PROTOCOL; 
-  pdt.Send = ProtocolSend; 
-	Protocol_Register(&pdt, SEND);
-        
-	pdt.ProtocolSize = sizeof(ADDRREPORT_PROTOCOL_T);
-	pdt.ModuleAction = ADDRREPORT_PROTOCOL; 
-  pdt.Send = ProtocolSend; 
-	Protocol_Register(&pdt, SEND);
-  
+	Protocol_Register(&pdt, SEND); 
+  //上报协议
   pdt.ProtocolSize = sizeof(SolidSensor_State_P_T);
 	pdt.ModuleAction = SOIL_SENSOR_STATE_PROTOCOL; 
   pdt.Send = ProtocolSend; 
-	Protocol_Register(&pdt, SEND);
-
-        
-//        pdt.ProtocolSize = sizeof(CMD_PROTOCOL_T);
-//	pdt.ModuleAction = CMD_PROTOCOL;  
-//	pdt.Handle = Cmd_P_Handle;
-//	Protocol_Register(&pdt, RECEIVE);
-//	
-//        pdt.ProtocolSize = sizeof(STATEGET_PROTOCOL_T);
-//	pdt.ModuleAction = STATEGET_PROTOCOL;  
-//	pdt.Handle = StateGet_P_Handle;
-//	Protocol_Register(&pdt, RECEIVE);
-//        
-        //特有协议初始化	
+	Protocol_Register(&pdt, SEND); 
 
 }
 

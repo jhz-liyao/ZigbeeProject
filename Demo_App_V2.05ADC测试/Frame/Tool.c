@@ -2,6 +2,12 @@
 //#include "ESP8266_Driver.h"
 #include "ProtocolFrame.h" 
 #include "Protocol.h"
+
+Queue_Head_T* WifiToUart_Queue = NULL;
+Queue_Head_T* UartToWifi_Queue = NULL;
+Queue_Head_T* DeviceRecv_Queue = NULL;
+
+
 afAddrType_t Liyao_DstAddr;
 
 const cId_t Liyao_ClusterList[LIYAO_MAX_CLUSTERS] =
@@ -25,6 +31,7 @@ const SimpleDescriptionFormat_t Liyao_SimpleDesc =
 
 __near_func int putchar(int c)
 {
+//  HalUARTWrite(HAL_UART_PORT_0,(unsigned char*)&c,1);
 #ifdef DEBUG_PORT
   #if DEBUG_PORT == 1
     HalUARTWrite(HAL_UART_PORT_0,(unsigned char*)&c,1);
@@ -43,7 +50,12 @@ __near_func int putchar(int c)
   return(c);
 }
 
-void Device_Info(void){
+void Device_Info(void){ 
+  WifiToUart_Queue = Queue_Link_Init(0);
+  UartToWifi_Queue = Queue_Link_Init(0);
+  DeviceRecv_Queue = Queue_Link_Init(0);
+  
+  
   Liyao_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
   Liyao_DstAddr.endPoint = LIYAO_ENDPOINT;
   Liyao_DstAddr.addr.shortAddr = 0x0000;
@@ -94,19 +106,23 @@ void SendDataToShortAddr(uint8 TaskID,uint16 shortAddr,unsigned char* data, uint
   时间：2016年9月22日13:03:40
 */
 extern void BrodcastData(uint8_t* data,uint8_t len);
+
 void UART0_CallBack( uint8 port, uint8 event ){
- uint16 cnt = 0;
   uint8 data[MT_UART_DEFAULT_MAX_RX_BUFF] = {0}; 
-  cnt = Hal_UART_RxBufLen(port);
-  cnt = HalUARTRead (port, data, cnt);
-  if(cnt > 0){ 
-    printf("UART0:");
-    for(int i = 0; i < cnt; i++)
-      printf("%x ", data[i]);
-    printf("\r\n");
-      //HalUARTWrite( HAL_UART_PORT_1, data, cnt ); 
-    Queue_Link_Put(WifiToUart_Queue, data, cnt);
+  
+  uint8 cnt = Hal_UART_RxBufLen(port);
+  if(cnt > 0){
+    printf("UART%d,%d:",port,cnt);
+    cnt = HalUARTRead (port, data, cnt);
+    if(cnt > 0){ 
+      for(int i = 0; i < cnt; i++)
+        printf("%x ", data[i]);
+      printf("\n");
+      HalUARTWrite( HAL_UART_PORT_1, data, cnt ); 
+      Queue_Link_Put(WifiToUart_Queue, data, cnt);
+    }
   }
+  
 }
 
 void UART1_CallBack( uint8 port, uint8 event ){
@@ -114,8 +130,8 @@ void UART1_CallBack( uint8 port, uint8 event ){
   uint8 data[MT_UART_DEFAULT_MAX_RX_BUFF] = {0}; 
   cnt = Hal_UART_RxBufLen(port);
   cnt = HalUARTRead (port, data, cnt);
-  if(cnt > 0)
-    HalUARTWrite( HAL_UART_PORT_0, data, cnt ); 
+  //if(cnt > 0)
+    //HalUARTWrite( HAL_UART_PORT_0, data, cnt ); 
 }
 
 void UART_Config_1(void){  

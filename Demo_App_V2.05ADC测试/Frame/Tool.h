@@ -8,6 +8,7 @@
 #include "ZDApp.h"
 
 #include "AF.h"
+#include "Queue.h"
 
 #define SET(key, bit) key |= ((1<<bit));
 #define RESET(key, bit) key &= (~(1<<bit));
@@ -35,6 +36,9 @@
 #define LIYAO_PERIODIC_CLUSTERID 1
 #define LIYAO_FLASH_CLUSTERID    2
 
+extern Queue_Head_T* WifiToUart_Queue;
+extern Queue_Head_T* UartToWifi_Queue;
+extern Queue_Head_T* DeviceRecv_Queue;
 
 extern afAddrType_t Liyao_DstAddr;
 extern void Device_Info(void);

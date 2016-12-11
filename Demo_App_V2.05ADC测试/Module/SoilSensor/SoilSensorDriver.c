@@ -4,6 +4,7 @@
 #include "ProtocolHandle.h"
 #include "hal_adc.h"
 #include "OnBoard.h"
+#include "ModuleManager.h"
 SoilSensor_Info_T SoilSensorM;
 /****************************************************
 	函数名:	SoilSensor_Init
@@ -13,24 +14,40 @@ SoilSensor_Info_T SoilSensorM;
 void SoilSensor_Init(void){
   P0SEL = 0x00; 
   P0DIR = 0xff; 
-  P0 = 0xff; 
   P1SEL = P1SEL & ~BV(0);
-  P1DIR = P1DIR | BV(0);
-  P1 = P1 & ~BV(0); 
+  P1DIR = P1DIR | BV(0); 
+  
 }
 
-void SoilSensor_AdcConfig(void){
+/****************************************************
+	函数名:	SoilSensor_Close
+	功能:	关闭电源使能
+  作者:	2016年11月24日09:56:30
+****************************************************/
+void SoilSensor_Close(void){
+  P0 = 0xff; 
+  P1 = P1 & ~BV(0);
+}
+
+/****************************************************
+	函数名:	SoilSensor_Open
+	功能:	开启电源使能
+  作者:	2016年11月24日09:56:30
+****************************************************/
+void SoilSensor_Open(void){
   P1 = P1 | BV(0); 
 }
+
+
 void SoilSensor_Read(void){
   SolidSensor_State_P_T SolidSensor_State = {0};
-  SoilSensor_AdcConfig(); 
+  SoilSensor_Open(); 
   for(int i = 0; i < 8; i++){
     uint16_t adc_value = HalAdcRead(i,HAL_ADC_RESOLUTION_14);  
     PERCENT_VALUE(((uint8* )&SolidSensor_State)[i], adc_value);
     printf("%d %d %d \r\n", i, ((uint8* )&SolidSensor_State)[i], adc_value); 
   } 
-  SoilSensor_Init();
+  SoilSensor_Close();
   Protocol_Send(SOIL_SENSOR_STATE_PROTOCOL, &SolidSensor_State, sizeof(SolidSensor_State_P_T));
 }
 /****************************************************

@@ -2,9 +2,20 @@
 #include "ModuleManager.h"
 #include "ESP8266_Driver.h"
 #include "SoilSensorProtocol.h"
-//void Cmd_P_Handle(Protocol_Info_T* pi){
-//    printf("控制指令:%X\r\n", pi->protocol.Cmd_P.para1);
-//}
+/*网关到协调器控制协议*/
+void Cmd_P_Handle(Protocol_Info_T* pi){
+  CMD_PROTOCOL_T* Cmd_Protocol = pi->ParameterList;
+    printf("控制指令:%X\r\n", Cmd_Protocol->para1);
+    switch(Cmd_Protocol->para1){
+      case SOIL_SENSOR_STATE_GET:
+        Log.info("收到获取土壤湿度指令\r\n");
+        ModuleBoard_T* SoilSensorModule = getModuleByModuleID(SOIL_SENSOR_MODULE);
+        if(SoilSensorModule->DataSize == 0)
+          printf("土壤监测板未连接\r\n");
+        Protocol_Send(SOIL_SENSOR_STATE_PROTOCOL, SoilSensorModule->DataBuff, SoilSensorModule->DataSize);
+        break;
+    }
+}
 
 
 
@@ -24,22 +35,23 @@ void HearBeat_P_Handle(Protocol_Info_T* pi){
     ModuleBoard->HeartBeat_Flag = ModuleBoard->HeartBeat_Flag | 0x01;
     printf("收到%s模块心跳，地址为%X,%X,心跳号:%d\r\n", ModuleBoard->Name,ModuleBoard->ShortAddr>> 8, ModuleBoard->ShortAddr & 0xff,*(uint8_t*)pi->ParameterList); 
 }
+
 void State_P_Handle(Protocol_Info_T* pi){
     STATE_PROTOCOL_T* sp = pi->ParameterList;
     printf("客户端状态:%X\r\n", sp->para1);
 }
-void Ack_P_Handle(Protocol_Info_T* pi){
-    //printf("客户端应答:%X\r\n", pi->protocol.Ack_P.para1);
-}
-void AddrReport_P_Handle(Protocol_Info_T* pi){
-    //printf("客户端上报地址:%X,%X\r\n", pi->protocol.AddrReport_P.para1, pi->protocol.AddrReport_P.para2);
-     
-} 
-
-uint8_t SoliSensor_Data[8] = {0};
+ 
 void SolidSensor_State_P_Handle(Protocol_Info_T* pi){
   SolidSensor_State_P_T* SolidSensor_State = pi->ParameterList;
-  memcpy(SoliSensor_Data, SolidSensor_State, 8);
+  
+  ModuleBoard_T* SoilSensorModule = getModuleByModuleID(SOIL_SENSOR_MODULE); 
+  if(SoilSensorModule != NULL){
+    if(SoilSensorModule->DataBuff == NULL)
+      SoilSensorModule->DataBuff = MALLOC(8);
+      SoilSensorModule->DataSize = 8;
+  }
+  
+  memcpy(SoilSensorModule->DataBuff, SolidSensor_State, 8);
   printf("%d, %d, %d, %d, %d, %d, %d, %d\r\n", SolidSensor_State->vcc
                                          , SolidSensor_State->para1
                                          , SolidSensor_State->para2

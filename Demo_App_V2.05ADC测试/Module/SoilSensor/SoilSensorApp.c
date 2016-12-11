@@ -101,8 +101,7 @@ void App_Init( uint8 task_id ){
  
   afRegister( &App_epDesc );
  
-  RegisterForKeys( App_TaskId );
- printf("%X,%X,%X\r\n", P0SEL, P0DIR, P0INP);
+  RegisterForKeys( App_TaskId ); 
   Device_Info(); 
  
   Log_Init();
