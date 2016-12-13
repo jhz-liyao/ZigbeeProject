@@ -132,7 +132,7 @@ typedef enum {
 
 typedef void(*SEND_INTERFACE)(uint8_t* data, uint8_t len);
 
-typedef enum{SOIL_SENSOR_STATE_GET }CMD_TYPE;
+typedef enum{WATER_STATE_GET, SOIL_SENSOR_STATE_GET  }CMD_TYPE;
 
 
 extern void Protocol_Init(void);

@@ -3,15 +3,13 @@
 #include <stdio.h>
 #include <string.h>
 #include "ProtocolFrame.h"
-//客户端
+//网关->主控
 extern void Cmd_P_Handle(Protocol_Info_T* pi);
-extern void StateGet_P_Handle(Protocol_Info_T* pi); 
-
-//主控
+extern void Water_Cmd_P_Handle(Protocol_Info_T* pi);
+//终端->主控
 extern void HearBeat_P_Handle(Protocol_Info_T* pi);
-extern void State_P_Handle(Protocol_Info_T* pi);
-extern void Ack_P_Handle(Protocol_Info_T* pi);
-extern void AddrReport_P_Handle(Protocol_Info_T* pi); 
-extern void SolidSensor_State_P_Handle(Protocol_Info_T* pi);
+extern void Water_State_P_Handle(Protocol_Info_T* pi);
+extern void SolidSensor_State_P_Handle(Protocol_Info_T* pi); 
+ 
 #endif
 

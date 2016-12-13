@@ -1,7 +1,9 @@
 #include "ModuleManager.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "hal_defs.h"
+#include "Log.h"
 ModuleBoard_T ModuleList[] = {
   {"主控", COORDINATOR_MODULE, OFFLINE ,0 ,0, NULL },
   {"饮水机", WATER_MODULE    , OFFLINE ,0 ,0 , NULL},
@@ -88,6 +90,61 @@ void HeartBeat_Check(void){
 void HeartBeat_Set(MODULE ModuleID){
     ModuleBoard_T *ModuleBoard = getModuleByModuleID(ModuleID);
     ModuleBoard->HeartBeat_Flag = ModuleBoard->HeartBeat_Flag | 0x01; 
+}
+
+/****************************************************
+	函数名:	ModuleSaveData
+	功能:	保存模块相关数据
+	参数:	模块ID, 数据, 长度
+  作者:	liyao 2016年12月12日22:56:07
+****************************************************/
+void ModuleSaveData(MODULE ModuleID, void* data,uint8_t len){
+     ModuleBoard_T* Module = getModuleByModuleID(ModuleID);//将数据缓存到模块数据存储区 
+    if(Module != NULL){
+      if(Module->DataBuff == NULL){
+        Module->DataBuff = MALLOC(len);
+        Module->DataSize = len;
+      }else{
+        FREE(Module->DataBuff);
+        Module->DataBuff = MALLOC( len);
+        Module->DataSize = len;
+      }
+      
+      memcpy(Module->DataBuff, data, len);
+    }
+}
+
+/****************************************************
+	函数名:	ModuleGetDataLen
+	功能:	获取模块缓冲区长度
+	参数:	模块ID
+  作者:	liyao 2016年12月12日22:56:07
+****************************************************/
+uint8_t ModuleGetDataLen(MODULE ModuleID){
+    ModuleBoard_T* Module = getModuleByModuleID(ModuleID);//将数据缓存到模块数据存储区 
+    if(Module != NULL){
+      if(Module->DataBuff != NULL && Module->DataSize > 0){
+        return Module->DataSize;
+      }
+    }
+    return 0;
+}
+
+/****************************************************
+	函数名:	ModuleGetData
+	功能:	获取模块相关数据
+	参数:	模块ID
+  作者:	liyao 2016年12月12日22:56:07
+****************************************************/
+uint8_t ModuleGetData(MODULE ModuleID, void* data,uint8_t len){
+    ModuleBoard_T* Module = getModuleByModuleID(ModuleID);//将数据缓存到模块数据存储区 
+    if(Module != NULL){
+      if(Module->DataBuff != NULL){
+        memcpy(data, Module->DataBuff, Module->DataSize);
+        return Module->DataSize;
+      }
+    }
+    return 0;
 }
 //ModuleBoard_T WaterMachine = {
 //    "饮水机"

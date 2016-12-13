@@ -4952,6 +4952,9 @@
       <name>$PROJ_DIR$\..\Source\DemoApp_R.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\Source\FrameConfig.h</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\Source\OSAL_DemoApp.c</name>
     </file>
     <file>

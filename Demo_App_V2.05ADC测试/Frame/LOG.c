@@ -2,6 +2,7 @@
 #include "app_types.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "FrameConfig.h"
 //------------------------------LOG------------------------------
 Log_T Log = {0};
 

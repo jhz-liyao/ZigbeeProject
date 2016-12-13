@@ -2,7 +2,7 @@
 #include "Protocol.h"
 #include "ProtocolHandle.h"
 #include "WaterMachineProtocol.h"
-
+#include "ProtocolFrame.h"
 #include "af.h"
 #include "DemoApp.h"
 #include "tool.h"
@@ -10,6 +10,7 @@
 #include "SoilSensorProtocol.h"
 #include "Queue.h"
 #include "LOG.h"
+
 void SendToEndDev(uint8_t* data, uint8_t len);
 
 
@@ -25,7 +26,7 @@ void WifiToUart_Handle(void){
 //      printf("%x ", data[i]);
 //    }
 //    printf("\r\nlen:%d\r\n", len); 
-    UART1_Resolver->Protocol_Put(UART1_Resolver,data, len);
+    Protocol_Resolver_1->Protocol_Put(Protocol_Resolver_1,data, len);
     printf("WifiToUart_Handle_len:%d\r\n", len);
     FREE(data);
   }
@@ -55,7 +56,7 @@ void DeviceRecv_Handle(void){
     data = MALLOC(len);
     MALLOC_CHECK(data, "");
     Queue_Link_Get(DeviceRecv_Queue, data);
-    UART1_Resolver->Protocol_Put(UART1_Resolver, data, len);
+    Protocol_Resolver_1->Protocol_Put(Protocol_Resolver_1, data, len);
     printf("DeviceRecv_Handle_len:%d\r\n", len);
     FREE(data);
   }
@@ -96,12 +97,12 @@ void SendToEndDev(uint8_t* data, uint8_t len){
                        AF_ACK_REQUEST, AF_DEFAULT_RADIUS ) == afStatus_SUCCESS );
 
 }
-/*接收来自wifi的数据转发给终端节点*/
-void TranspondHandle(Protocol_Info_T* pi){
-  uint8_t data[100] = {0};
-  uint8_t len = Protocol_Serialization(pi, data, 100); 
-  SendToEndDev(data, len); 
-}
+///*接收来自wifi的数据转发给终端节点*/
+//void TranspondHandle(Protocol_Info_T* pi){
+//  uint8_t data[100] = {0};
+//  uint8_t len = Protocol_Serialization(pi, data, 100); 
+//  SendToEndDev(data, len); 
+//}
 
 
 
@@ -129,20 +130,22 @@ void Protocol_Init(){
   memset(&pdt, 0, sizeof(Protocol_Desc_T));
   pdt.ProtocolSize = sizeof(STATE_PROTOCOL_T);  //上报饮水机状态
 	pdt.ModuleAction = WATER_STATE_PROTOCOL;  
-	pdt.Handle = State_P_Handle; 
+	pdt.Handle = Water_State_P_Handle; 
 	Protocol_Register(&pdt,RECEIVE);  
 
   memset(&pdt, 0, sizeof(Protocol_Desc_T)); //饮水机控制协议
   pdt.ProtocolSize = sizeof(CMD_PROTOCOL_T);
-	pdt.ModuleAction = WATER_CMD_PROTOCOL; 
-  pdt.Handle = TranspondHandle;
+	pdt.ModuleAction = WATER_CMD_PROTOCOL;
+  pdt.TranspondHandle = Protocol_Send_Transpond; 
+  pdt.Handle = Water_Cmd_P_Handle;
   pdt.Send = SendToEndDev; 
 	Protocol_Register(&pdt,SEND);
 	
-  memset(&pdt, 0, sizeof(Protocol_Desc_T));//获取饮水机状态
+  memset(&pdt, 0, sizeof(Protocol_Desc_T));//获取饮水机状态(通过网关命令调用通用控制指令)
   pdt.ProtocolSize = sizeof(STATEGET_PROTOCOL_T);
 	pdt.ModuleAction = WATER_STATEGET_PROTOCOL; 
-  pdt.Handle = TranspondHandle;
+  pdt.Handle = NULL;
+  pdt.TranspondHandle = Protocol_Send_Transpond;
   pdt.Send = SendToEndDev; 
 	Protocol_Register(&pdt,SEND);
    

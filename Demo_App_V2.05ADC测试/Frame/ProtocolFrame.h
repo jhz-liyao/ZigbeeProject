@@ -3,6 +3,7 @@
 #include "Queue.h" 
 #include "Protocol.h"
 #include "app_types.h"  
+#include "FrameConfig.h"
 /*-----字符转义-----
 FD->FE 7D
 F8->FE 78
@@ -34,6 +35,7 @@ struct _Protocol_Desc_T{
 	void (*Send)(uint8_t* data, uint8_t len);
 	void (*Handle)(Protocol_Info_T*);
 	int8_t (*Check)(void*);
+  void (*TranspondHandle)(Protocol_Info_T*);
 };
 
 /****************************************************
@@ -82,17 +84,17 @@ struct _Protocol_Resolver_T{
 
 
 //###################################声明区################################### 
-#if UART1_PROTOCOL_RESOLVER
-	extern Protocol_Resolver_T *UART1_Resolver; 
+#if PROTOCOL_RESOLVER_1
+	extern Protocol_Resolver_T *Protocol_Resolver_1; 
 #endif
-#if UART2_PROTOCOL_RESOLVER
-	extern Protocol_Resolver_T *UART2_Resolver; 
+#if PROTOCOL_RESOLVER_2
+	extern Protocol_Resolver_T *Protocol_Resolver_2; 
 #endif
-#if UART3_PROTOCOL_RESOLVER
-	extern Protocol_Resolver_T *UART3_Resolver; 
+#if PROTOCOL_RESOLVER_3
+	extern Protocol_Resolver_T *Protocol_Resolver_3; 
 #endif
-#if UART4_PROTOCOL_RESOLVER
-	extern Protocol_Resolver_T *UART4_Resolver; 
+#if PROTOCOL_RESOLVER_4
+	extern Protocol_Resolver_T *Protocol_Resolver_4; 
 #endif
 
 extern void ProtocolFrame_Init();

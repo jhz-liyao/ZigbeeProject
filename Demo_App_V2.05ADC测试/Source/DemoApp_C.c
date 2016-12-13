@@ -114,13 +114,13 @@ void App_Init( uint8 task_id ){
 //  ZDO_RegisterForZDOMsg( App_TaskId, Match_Desc_req );
 //  ZDO_RegisterForZDOMsg( App_TaskId, Match_Desc_rsp );
   //afSetMatch(APP_ENDPOINT, false);  
-  ModuleBoard_T* SoilSensorModule = getModuleByModuleID(SOIL_SENSOR_MODULE); 
-  if(SoilSensorModule != NULL){
-    if(SoilSensorModule->DataBuff == NULL)
-      SoilSensorModule->DataBuff = MALLOC(8);
-      SoilSensorModule->DataSize = 8;
-      memset(SoilSensorModule->DataBuff, 0, 8);
-  }
+//  ModuleBoard_T* SoilSensorModule = getModuleByModuleID(SOIL_SENSOR_MODULE); 
+//  if(SoilSensorModule != NULL){
+//    if(SoilSensorModule->DataBuff == NULL)
+//      SoilSensorModule->DataBuff = MALLOC(8);
+//      SoilSensorModule->DataSize = 8;
+//      memset(SoilSensorModule->DataBuff, 0, 8);
+//  }
   
 }
 

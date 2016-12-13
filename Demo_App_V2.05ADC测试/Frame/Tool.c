@@ -118,7 +118,7 @@ void UART0_CallBack( uint8 port, uint8 event ){
       for(int i = 0; i < cnt; i++)
         printf("%x ", data[i]);
       printf("\n");
-      HalUARTWrite( HAL_UART_PORT_1, data, cnt ); 
+      //HalUARTWrite( HAL_UART_PORT_1, data, cnt ); 
       Queue_Link_Put(WifiToUart_Queue, data, cnt);
     }
   }

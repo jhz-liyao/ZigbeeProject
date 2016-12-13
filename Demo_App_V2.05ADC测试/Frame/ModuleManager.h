@@ -24,4 +24,8 @@ extern ModuleBoard_T* getModuleByModuleID(MODULE ModuleID);
 extern ModuleBoard_T* getModuleByModuleAddr(uint16_t ShortAddr);
 extern void HeartBeat_Check(void);
 void HeartBeat_Set(MODULE ModuleID);
+
+extern void ModuleSaveData(MODULE ModuleID, void* data,uint8_t len);
+extern uint8_t ModuleGetDataLen(MODULE ModuleID);
+extern uint8_t ModuleGetData(MODULE ModuleID, void* data,uint8_t len);
 #endif

@@ -306,10 +306,8 @@
           <state>HAL_UART_ISR=2</state>
           <state>HAL_UART_DMA=1</state>
           <state>DEBUG_PORT=2</state>
-          <state>LOG_OUT</state>
           <state>xHOLD_AUTO_START</state>
           <state>HAL_LCD=FALSE</state>
-          <state>UART1_PROTOCOL_RESOLVER=1</state>
           <state>xZTOOL_P1</state>
           <state>ISR_KEYINTERRUPT</state>
           <state>xNV_RESTORE</state>
@@ -5874,6 +5872,9 @@
         <configuration>WaterMachine</configuration>
         <configuration>SoilSensor</configuration>
       </excluded>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Source\FrameConfig.h</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\Source\OSAL_DemoApp.c</name>
