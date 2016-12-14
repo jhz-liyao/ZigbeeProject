@@ -367,12 +367,11 @@ void ProtocolFrame_Init(){
   参数:    Protocol_Info_T协议描述信息, 回填数组, 数组大小
   作者:    liyao 2015年9月8日14:10:51
 ****************************************************/
-int8_t Protocol_Serialization(Protocol_Info_T* pi, uint8_t* _data, uint8_t len){ 
-  uint8_t data[PROTOCOL_SINGLE_BUFF] = {0},i = 0, index = 0; 
+int8_t Protocol_Serialization(Protocol_Info_T* pi, uint8_t* data, uint8_t len){ 
+  uint8_t index = 0; 
   uint16_t tmpData = 0; 
   
-  tmpData = pi->Head;
-  data[index++] = tmpData; 
+  data[index++] = pi->Head;
   if((tmpData = IsShift(&pi->Standby1)) > 0){
     data[index++] = tmpData>>8; 
     data[index++] = tmpData&0xff; 
@@ -404,7 +403,7 @@ int8_t Protocol_Serialization(Protocol_Info_T* pi, uint8_t* _data, uint8_t len){
     data[index++] = pi->Action;
   }    
   
-  for(i = 0; i < pi->ParaLen; i++){
+  for(uint8_t i = 0; i < pi->ParaLen; i++){
     if((tmpData = IsShift((uint8_t*)pi->ParameterList + i)) > 0){
       data[index++] = tmpData>>8;
       data[index++] = tmpData&0xff;
@@ -420,8 +419,7 @@ int8_t Protocol_Serialization(Protocol_Info_T* pi, uint8_t* _data, uint8_t len){
   }  
   data[index++] = pi->Tail; 
   if(index > len)
-    return -1;
-  memcpy(_data, data, len);
+    return -1; 
   return index;
 }
 
