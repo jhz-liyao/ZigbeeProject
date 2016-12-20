@@ -25,18 +25,24 @@
 #include "ModuleManager.h"  
 #include "WaterMachineDriver.h"
 //#include "ESP8266_Driver.h"
+#include "DHT11_Driver.h"
+#include "DHT11_Protocol.h"
 
 #define APP_SEND_MSG_TIMEOUT   50     
 #define HEARTBEAT_CHECK_TIMEOUT 3000    
 #define HEARTBEAT_SEND_TIMEOUT  30000
 #define ESP8266_TIMEOUT        50 
 #define PROTOCOL_TRANSMIT_TIMEOUT        50
+#define DHT11_READ_TIMEOUT      1000
+
 #define APP_SEND_MSG_EVT               (BV(0)) 
 #define HEARTBEAT_CHECK_EVT             (BV(1)) //心跳检查
 #define HEARTBEAT_SEND_EVT              (BV(2)) //心跳发送
 #define WIFI_INIT_EVT                   (BV(3)) //WIFI初始化
 #define ESP8266_EVT                     (BV(4)) //ESP8266 
 #define PROTOCOL_TRANSMIT_EVT               (BV(5)) //wifi协议处理
+
+#define DHT11_READ_EVT      (BV(6)) //温湿度传感器读数
 static void App_ProcessZDOMsgs( zdoIncomingMsg_t *inMsg );
 /*********************************************************************
  * GLOBAL VARIABLES
@@ -109,6 +115,8 @@ void App_Init( uint8 task_id ){
   Device_Info(); 
   Log_Init();
   ProtocolFrame_Init();
+  
+  osal_start_timerEx( App_TaskId, DHT11_READ_EVT, DHT11_READ_TIMEOUT );//温湿度读取
 //  ESP8266_Init();
 //  ZDO_RegisterForZDOMsg( App_TaskId, End_Device_Bind_rsp );
 //  ZDO_RegisterForZDOMsg( App_TaskId, Match_Desc_req );
@@ -314,6 +322,15 @@ uint16 App_ProcessEvent( uint8 task_id, uint16 events ){
     DeviceRecv_Handle();
     osal_start_timerEx( App_TaskId, PROTOCOL_TRANSMIT_EVT, PROTOCOL_TRANSMIT_TIMEOUT );//wifi协议处理
     return (events ^ PROTOCOL_TRANSMIT_EVT);
+  }
+  
+  if(events & DHT11_READ_EVT){
+    
+    DHT11_Read(&DHT11_Info);
+    printf("温度：%d, 湿度：%d\r\n", DHT11_Info.Temperature,DHT11_Info.Humidity ); 
+    Protocol_Send(DHT11_PROTOCOL, &DHT11_Info, sizeof(DHT11_Info_T));
+    osal_start_timerEx( App_TaskId, DHT11_READ_EVT, DHT11_READ_TIMEOUT );//温湿度读取
+    return (events ^ DHT11_READ_EVT);
   }
   
 //  if(events & WIFI_INIT_EVT){

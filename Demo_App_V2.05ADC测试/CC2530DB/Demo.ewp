@@ -504,6 +504,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\Components\zmac</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Components\zmac\f8w</state>
           <state>$PROJ_DIR$\..\Module\SoilSensor</state>
+          <state>$PROJ_DIR$\..\Module\DHT11</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -5757,6 +5758,24 @@
     </group>
     <group>
       <name>Module</name>
+      <group>
+        <name>DHT11</name>
+        <file>
+          <name>$PROJ_DIR$\..\Module\DHT11\DHT11.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\Module\DHT11\DHT11.h</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\Module\DHT11\DHT11_Driver.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\Module\DHT11\DHT11_Driver.h</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\Module\DHT11\DHT11_Protocol.h</name>
+        </file>
+      </group>
       <group>
         <name>SoilSensor</name>
         <excluded>

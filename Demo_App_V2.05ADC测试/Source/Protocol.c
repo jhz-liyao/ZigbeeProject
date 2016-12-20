@@ -10,6 +10,7 @@
 #include "SoilSensorProtocol.h"
 #include "Queue.h"
 #include "LOG.h"
+#include "DHT11_Protocol.h"
 
 void SendToEndDev(uint8_t* data, uint8_t len);
 
@@ -163,6 +164,13 @@ void Protocol_Init(){
   pdt.Handle = SolidSensor_State_P_Handle; 
   pdt.Send = SendToWIFI;
 	Protocol_Register(&pdt,RECEIVE);
+  
+  /*DHT11 温湿度协议*/
+  memset(&pdt, 0, sizeof(Protocol_Desc_T));//向网关发送协调器温湿度信息
+  pdt.ProtocolSize = sizeof(DHT11_State_P_T);
+	pdt.ModuleAction = DHT11_PROTOCOL;
+  pdt.Send = SendToWIFI; 
+	Protocol_Register(&pdt,SEND);
 
 }
 

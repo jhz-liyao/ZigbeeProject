@@ -20,17 +20,17 @@
 #include "ProtocolFrame.h"
 #include "LOG.h"
 #include "ModuleManager.h"
-#include "SoilSensorDriver.h"
+#include "DHT11_Driver.h"
 
 #define APP_SEND_MSG_TIMEOUT    30000     
 #define HEARTBEAT_CHECK_TIMEOUT 60100
 #define HEARTBEAT_SEND_TIMEOUT  30000
-#define SOILSENSOR_READ_TIMEOUT 30000
+#define DHT11_READ_TIMEOUT 30000
 
 #define APP_SEND_MSG_EVT                     (BV(0))
 #define HEARTBEAT_CHECK_EVT                  (BV(1))
 #define HEARTBEAT_SEND_EVT                   (BV(2))
-#define SOILSENSOR_READ_EVT                  (BV(3))
+#define DHT11_READ_EVT                  (BV(3))
 
 /*********************************************************************
  * GLOBAL VARIABLES
@@ -106,7 +106,7 @@ void App_Init( uint8 task_id ){
  
   Log_Init();
   ProtocolFrame_Init(); 
-  SoilSensor_Init();
+  DHT11_Init();
   
   
 }
@@ -259,8 +259,8 @@ uint16 App_ProcessEvent( uint8 task_id, uint16 events ){
             
             osal_start_timerEx( App_TaskId, HEARTBEAT_SEND_EVT , HEARTBEAT_SEND_TIMEOUT ); //发送心跳
             osal_start_timerEx( App_TaskId, HEARTBEAT_CHECK_EVT, HEARTBEAT_CHECK_TIMEOUT );//启动心跳检查  
-            osal_start_timerEx( App_TaskId, SOILSENSOR_READ_EVT , SOILSENSOR_READ_TIMEOUT ); //发送数据
-            SoilSensor_Read(); 
+            osal_start_timerEx( App_TaskId, DHT11_READ_EVT , DHT11_READ_TIMEOUT ); //读取温湿度数据
+            DHT11_Read(); 
           }
           break; 
         default:
@@ -290,10 +290,10 @@ uint16 App_ProcessEvent( uint8 task_id, uint16 events ){
     return (events ^ HEARTBEAT_SEND_EVT);
   }
   
-  if ( events & SOILSENSOR_READ_EVT ){ 
-    SoilSensor_Read(); 
-    osal_start_timerEx( App_TaskId, SOILSENSOR_READ_EVT, SOILSENSOR_READ_TIMEOUT ); 
-    return (events ^ SOILSENSOR_READ_EVT);
+  if ( events & DHT11_READ_EVT ){  
+    DHT11_Read(&DHT11_Info);
+    osal_start_timerEx( App_TaskId, DHT11_READ_EVT, DHT11_READ_TIMEOUT ); 
+    return (events ^ DHT11_READ_EVT);
   }
   return 0;
 }

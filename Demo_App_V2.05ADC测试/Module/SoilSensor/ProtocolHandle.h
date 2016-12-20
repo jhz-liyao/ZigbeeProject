@@ -1,5 +1,5 @@
-#ifndef __WMPROTOCOLHANDLE_H__
-#define __WMPROTOCOLHANDLE_H__ 
+#ifndef __SSPROTOCOLHANDLE_H__
+#define __SSPROTOCOLHANDLE_H__ 
 #include <stdio.h>
 #include <string.h>
 #include "ProtocolFrame.h"

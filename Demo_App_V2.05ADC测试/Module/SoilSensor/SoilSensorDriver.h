@@ -1,5 +1,5 @@
-#ifndef __WATERMACHINEDRIVER_H__
-#define __WATERMACHINEDRIVER_H__ 
+#ifndef __SOILSENSOR_DRIVER_H__
+#define __SOILSENSOR_DRIVER_H__ 
 #include "ioCC2530.h"
 #include "hal_defs.h"
 #include "Protocol.h"

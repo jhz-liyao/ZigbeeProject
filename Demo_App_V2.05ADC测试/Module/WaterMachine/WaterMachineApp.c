@@ -25,8 +25,8 @@
 #define APP_SEND_MSG_TIMEOUT   1000     
 #define HEARTBEAT_CHECK_TIMEOUT 3000
 #define HEARTBEAT_SEND_TIMEOUT  1000
-#define WATER_MACHINE_STATE_CHECK_TIMEOUT 100
-#define APP_SEND_MSG_EVT                     (BV(0))
+#define WATER_MACHINE_STATE_CHECK_TIMEOUT 100             //检查饮水机温控开关状态
+#define APP_SEND_MSG_EVT                     (BV(0))      
 #define HEARTBEAT_CHECK_EVT                       (BV(1))
 #define HEARTBEAT_SEND_EVT                       (BV(2))
 #define WATER_MACHINE_STATE_CHECK_EVT             (BV(3))
@@ -169,7 +169,7 @@ static void App_ReceiveHandle( afIncomingMSGPacket_t *pkt )
       printf("收到数据:");
       Protocol_Printf(pkt->cmd.Data, pkt->cmd.DataLength);
       if(pkt->cmd.DataLength > 1)
-        UART1_Resolver->Protocol_Put(UART1_Resolver,pkt->cmd.Data, pkt->cmd.DataLength);
+        Protocol_Resolver_1->Protocol_Put(Protocol_Resolver_1,pkt->cmd.Data, pkt->cmd.DataLength);
       HeartBeat_Set(COORDINATOR_MODULE);
       break;
   }
